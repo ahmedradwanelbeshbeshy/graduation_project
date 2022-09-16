@@ -4756,13 +4756,7 @@ Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
 Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 13 "./application.h" 2
-
-
-
-
-
-
-
+# 22 "./application.h"
 void application_intialize(void);
 # 9 "application.c" 2
 

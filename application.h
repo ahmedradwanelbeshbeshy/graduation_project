@@ -14,6 +14,8 @@
 
 /*macros declarations section*/
 
+/*functions like macros section*/
+
 /*data types  section*/
 
 /*function declarations section*/

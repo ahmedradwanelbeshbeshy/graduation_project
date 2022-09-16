@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=MCAL/GPIO/hal_gpio.c MCAL/device_config.c application.c
+SOURCEFILES_QUOTED_IF_SPACED=MCAL/GPIO/hal_gpio.c MCAL/device_config.c application.c ECU/ecu_layer_init.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/application.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1.d ${OBJECTDIR}/MCAL/device_config.p1.d ${OBJECTDIR}/application.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1.d ${OBJECTDIR}/MCAL/device_config.p1.d ${OBJECTDIR}/application.p1.d ${OBJECTDIR}/ECU/ecu_layer_init.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/application.p1
+OBJECTFILES=${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1
 
 # Source Files
-SOURCEFILES=MCAL/GPIO/hal_gpio.c MCAL/device_config.c application.c
+SOURCEFILES=MCAL/GPIO/hal_gpio.c MCAL/device_config.c application.c ECU/ecu_layer_init.c
 
 
 
@@ -118,6 +118,14 @@ ${OBJECTDIR}/application.p1: application.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/application.d ${OBJECTDIR}/application.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/application.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/ECU/ecu_layer_init.p1: ECU/ecu_layer_init.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/ECU" 
+	@${RM} ${OBJECTDIR}/ECU/ecu_layer_init.p1.d 
+	@${RM} ${OBJECTDIR}/ECU/ecu_layer_init.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ECU/ecu_layer_init.p1 ECU/ecu_layer_init.c 
+	@-${MV} ${OBJECTDIR}/ECU/ecu_layer_init.d ${OBJECTDIR}/ECU/ecu_layer_init.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ECU/ecu_layer_init.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1: MCAL/GPIO/hal_gpio.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/MCAL/GPIO" 
@@ -142,6 +150,14 @@ ${OBJECTDIR}/application.p1: application.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/application.p1 application.c 
 	@-${MV} ${OBJECTDIR}/application.d ${OBJECTDIR}/application.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/application.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/ECU/ecu_layer_init.p1: ECU/ecu_layer_init.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/ECU" 
+	@${RM} ${OBJECTDIR}/ECU/ecu_layer_init.p1.d 
+	@${RM} ${OBJECTDIR}/ECU/ecu_layer_init.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ECU/ecu_layer_init.p1 ECU/ecu_layer_init.c 
+	@-${MV} ${OBJECTDIR}/ECU/ecu_layer_init.d ${OBJECTDIR}/ECU/ecu_layer_init.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ECU/ecu_layer_init.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

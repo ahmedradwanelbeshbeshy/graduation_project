@@ -2,6 +2,7 @@
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="ECU" displayName="ECU" projectFiles="true">
+      <itemPath>ECU/ecu_layer_init.h</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -15,7 +16,6 @@
         <itemPath>MCAL/device_config.c</itemPath>
         <itemPath>MCAL/device_config.h</itemPath>
         <itemPath>MCAL/mcal_std_types.h</itemPath>
-        <itemPath>MCAL/pic18f4620.h</itemPath>
         <itemPath>MCAL/std_libraries.h</itemPath>
       </logicalFolder>
     </logicalFolder>
@@ -26,6 +26,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="ECU" displayName="ECU" projectFiles="true">
+        <itemPath>ECU/ecu_layer_init.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
           <itemPath>MCAL/GPIO/hal_gpio.c</itemPath>
