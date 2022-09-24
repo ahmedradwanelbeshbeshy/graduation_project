@@ -753,7 +753,7 @@ static Std_ReturnType interrupt_RBx_pin_init(const Interrupt_RBx_st *int_obj)
     }
     else
     {
-        gpio_pin_direction_init(&(int_obj->pin));
+        GPIO_Pin_Direction_Initialize(&(int_obj->pin));
     }
 
     return ret_value ;

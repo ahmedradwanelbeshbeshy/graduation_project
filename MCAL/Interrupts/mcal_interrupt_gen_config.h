@@ -19,16 +19,16 @@
 
 #define INT_EXTERNAL_INTx_FEATURE_ENABLE           FEATURE_ENABLE
 #define INT_EXTERNAL_ON_CHANGE_FEATURE_ENABLE      FEATURE_ENABLE
-#define ADC_INT_ENABLE                             FEATURE_ENABLE
-#define TIMER0_INT_ENABLE                          FEATURE_ENABLE
-#define TIMER1_INT_ENABLE                          FEATURE_DISABLE
-#define TIMER2_INT_ENABLE                          FEATURE_DISABLE
-#define TIMER3_INT_ENABLE                          FEATURE_ENABLE
-#define CCP2_INT_ENABLE                            FEATURE_ENABLE
-#define EUSART_Tx_INT_ENABLE                       FEATURE_ENABLE
-#define EUSART_Rx_INT_ENABLE                       FEATURE_ENABLE
-#define MSSP_I2C_INT_ENABLE                        FEATURE_DISABLE
-#define MSSP_I2C_BUS_COL_INT_ENABLE                FEATURE_DISABLE
+//#define ADC_INT_ENABLE                             FEATURE_ENABLE
+//#define TIMER0_INT_ENABLE                          FEATURE_ENABLE
+//#define TIMER1_INT_ENABLE                          FEATURE_DISABLE
+//#define TIMER2_INT_ENABLE                          FEATURE_DISABLE
+//#define TIMER3_INT_ENABLE                          FEATURE_ENABLE
+//#define CCP2_INT_ENABLE                            FEATURE_ENABLE
+//#define EUSART_Tx_INT_ENABLE                       FEATURE_ENABLE
+//#define EUSART_Rx_INT_ENABLE                       FEATURE_ENABLE
+//#define MSSP_I2C_INT_ENABLE                        FEATURE_DISABLE
+//#define MSSP_I2C_BUS_COL_INT_ENABLE                FEATURE_DISABLE
 
 /* Macro Functions */
 

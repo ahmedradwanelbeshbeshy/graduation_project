@@ -18,6 +18,8 @@
 
 
 typedef unsigned char        uint8;
+typedef unsigned char        uint8_t;// by ahmed radwan  to test interrupt driver
+
 typedef unsigned short       uint16;
 typedef unsigned long        uint32;
 
@@ -29,6 +31,7 @@ typedef signed long          sint32;
 typedef float                float32;
 
 typedef uint8                Std_returnType;
+typedef uint8                Std_ReturnType;// by ahmed radwan  to test interrupt driver
 
 
 /*macros declarations section*/

@@ -1,4 +1,4 @@
-# 1 "application.c"
+# 1 "MCAL/Interrupts/mcal_interrupt_manager.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "application.c" 2
+# 1 "MCAL/Interrupts/mcal_interrupt_manager.c" 2
 
 
 
@@ -14,10 +14,12 @@
 
 
 
-# 1 "./application.h" 1
-# 12 "./application.h"
-# 1 "./MCAL/std_libraries.h" 1
-# 11 "./MCAL/std_libraries.h"
+# 1 "MCAL/Interrupts/mcal_interrupt_manager.h" 1
+# 13 "MCAL/Interrupts/mcal_interrupt_manager.h"
+# 1 "MCAL/Interrupts/mcal_interrupt_config.h" 1
+# 13 "MCAL/Interrupts/mcal_interrupt_config.h"
+# 1 "MCAL/Interrupts/../std_libraries.h" 1
+# 11 "MCAL/Interrupts/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -175,7 +177,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./MCAL/std_libraries.h" 2
+# 11 "MCAL/Interrupts/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
@@ -235,7 +237,7 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 12 "./MCAL/std_libraries.h" 2
+# 12 "MCAL/Interrupts/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
@@ -292,7 +294,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "./MCAL/std_libraries.h" 2
+# 13 "MCAL/Interrupts/../std_libraries.h" 2
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 1 3
 # 45 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
@@ -4506,182 +4508,11 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 14 "./MCAL/std_libraries.h" 2
-# 12 "./application.h" 2
-
-# 1 "./MCAL/GPIO/hal_gpio.h" 1
-# 13 "./MCAL/GPIO/hal_gpio.h"
-# 1 "./MCAL/GPIO/../device_config.h" 1
-# 11 "./MCAL/GPIO/../device_config.h"
-# 1 "./MCAL/compiler.h" 1
-# 12 "./MCAL/compiler.h"
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
-# 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 3
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 24 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\builtins.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 127 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uintptr_t;
-# 142 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long intptr_t;
-# 158 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef signed char int8_t;
-
-
-
-
-typedef short int16_t;
-# 173 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int32_t;
-
-
-
-
-
-typedef long long int64_t;
-# 188 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long intmax_t;
-
-
-
-
-
-typedef unsigned char uint8_t;
-
-
-
-
-typedef unsigned short uint16_t;
-# 209 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uint32_t;
-
-
-
-
-
-typedef unsigned long long uint64_t;
-# 229 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long long uintmax_t;
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-
-
-typedef int8_t int_fast8_t;
-
-typedef int64_t int_fast64_t;
-
-
-typedef int8_t int_least8_t;
-typedef int16_t int_least16_t;
-
-typedef int24_t int_least24_t;
-typedef int24_t int_fast24_t;
-
-typedef int32_t int_least32_t;
-
-typedef int64_t int_least64_t;
-
-
-typedef uint8_t uint_fast8_t;
-
-typedef uint64_t uint_fast64_t;
-
-
-typedef uint8_t uint_least8_t;
-typedef uint16_t uint_least16_t;
-
-typedef uint24_t uint_least24_t;
-typedef uint24_t uint_fast24_t;
-
-typedef uint32_t uint_least32_t;
-
-typedef uint64_t uint_least64_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/stdint.h" 1 3
-typedef int16_t int_fast16_t;
-typedef int32_t int_fast32_t;
-typedef uint16_t uint_fast16_t;
-typedef uint32_t uint_fast32_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\builtins.h" 2 3
-
-
-#pragma intrinsic(__nop)
-extern void __nop(void);
-
-
-#pragma intrinsic(_delay)
-extern __attribute__((nonreentrant)) void _delay(uint32_t);
-#pragma intrinsic(_delaywdt)
-extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
-
-#pragma intrinsic(_delay3)
-extern __attribute__((nonreentrant)) void _delay3(uint8_t);
-# 25 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-
-
-
-
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
-# 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
-# 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18_chip_select.h" 1 3
-# 9 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
-# 19 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
-__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
-
-
-
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\errata.h" 1 3
-# 28 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
-# 156 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
-__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
-__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
-__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
-# 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
-unsigned char __t1rd16on(void);
-unsigned char __t3rd16on(void);
-# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "./MCAL/compiler.h" 2
-# 11 "./MCAL/GPIO/../device_config.h" 2
-# 13 "./MCAL/GPIO/hal_gpio.h" 2
-
-# 1 "./MCAL/GPIO/../mcal_std_types.h" 1
-# 20 "./MCAL/GPIO/../mcal_std_types.h"
+# 14 "MCAL/Interrupts/../std_libraries.h" 2
+# 13 "MCAL/Interrupts/mcal_interrupt_config.h" 2
+
+# 1 "MCAL/Interrupts/../mcal_std_types.h" 1
+# 20 "MCAL/Interrupts/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned char uint8_t;
 
@@ -4697,75 +4528,11 @@ typedef float float32;
 
 typedef uint8 Std_returnType;
 typedef uint8 Std_ReturnType;
-# 14 "./MCAL/GPIO/hal_gpio.h" 2
+# 14 "MCAL/Interrupts/mcal_interrupt_config.h" 2
 
-# 1 "./MCAL/GPIO/hal_gpio_cfg.h" 1
-# 15 "./MCAL/GPIO/hal_gpio.h" 2
-# 42 "./MCAL/GPIO/hal_gpio.h"
-typedef enum{
-   GPIO_LOW=0,
-   GPIO_HIGH
-}logic_et;
-
-typedef enum{
-   GPIO_DIRECTION_OUTPUT=0,
-   GPIO_DIRECTION_INPUT
-}direction_et;
-
-typedef enum{
-    GPIO_PIN0=0,
-    GPIO_PIN1,
-    GPIO_PIN2,
-    GPIO_PIN3,
-    GPIO_PIN4,
-    GPIO_PIN5,
-    GPIO_PIN6,
-    GPIO_PIN7
-}pin_index_et;
-
-typedef enum{
-    PORTA_INDEX=0,
-    PORTB_INDEX,
-    PORTC_INDEX,
-    PORTD_INDEX,
-    PORTE_INDEX
-}port_index_et;
-
-
-typedef struct
-{
-    uint8 pin :3;
-    uint8 port :3;
-    uint8 direction :1;
-    uint8 logic :1;
-}pin_config_st;
-
-
-
-
-
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin__write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
-
-
-Std_returnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
-# 13 "./application.h" 2
-
-# 1 "./MCAL/Interrupts/mcal_external_interrupt.h" 1
-# 13 "./MCAL/Interrupts/mcal_external_interrupt.h"
-# 1 "./MCAL/Interrupts/./mcal_interrupt_config.h" 1
-# 15 "./MCAL/Interrupts/./mcal_interrupt_config.h"
-# 1 "./MCAL/Interrupts/mcal_interrupt_gen_config.h" 1
-# 15 "./MCAL/Interrupts/./mcal_interrupt_config.h" 2
-# 71 "./MCAL/Interrupts/./mcal_interrupt_config.h"
+# 1 "MCAL/Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "MCAL/Interrupts/mcal_interrupt_config.h" 2
+# 71 "MCAL/Interrupts/mcal_interrupt_config.h"
 typedef void ( *InterruptHandler) (void);
 
 
@@ -4774,103 +4541,217 @@ typedef enum {
     INT_HIGH_PRI
 
 } interrupt_pri_et;
-# 13 "./MCAL/Interrupts/mcal_external_interrupt.h" 2
-# 119 "./MCAL/Interrupts/mcal_external_interrupt.h"
-typedef enum {
-    INTERRUPT_INT0,
-    INTERRUPT_INT1,
-    INTERRUPT_INT2
-}interrupt_INTx_src_et;
+# 13 "MCAL/Interrupts/mcal_interrupt_manager.h" 2
+# 26 "MCAL/Interrupts/mcal_interrupt_manager.h"
+void INT0_ISR(void);
+
+void INT1_ISR(void);
+
+void INT2_ISR(void);
+
+void RB4_ISR(uint8_t Handler_Select);
+void RB5_ISR(uint8_t Handler_Select);
+void RB6_ISR(uint8_t Handler_Select);
+void RB7_ISR(uint8_t Handler_Select);
+
+void ADC_ISR(void);
+
+void TMR0_ISR(void);
+void TMR1_ISR(void);
+void TMR2_ISR(void);
+void TMR3_ISR(void);
+
+void CCP2_ISR(void);
+
+void EUSART_Tx_ISR(void);
+void EUSART_Rx_ISR(void);
+
+void MSSP_I2C_ISR(void);
+void MSSP_I2C_BC_ISR(void);
+# 8 "MCAL/Interrupts/mcal_interrupt_manager.c" 2
 
 
-typedef enum {
-    INT_FALLING_EDGE,
-    INT_RISING_EDGE
-
-}interrupt_INTx_edge_et;
-
-
-
-typedef struct {
-    void (* Ext_Interrupt_Handler ) (void);
-    interrupt_INTx_edge_et edge ;
-    interrupt_INTx_src_et src ;
-    interrupt_pri_et priority ;
-} Interrupt_INTx_st;
-
-typedef struct {
-        void (* Ext_Interrupt_Handler_High ) (void);
-        void (* Ext_Interrupt_Handler_Low ) (void);
-        interrupt_pri_et priority ;
-        pin_config_st pin ;
-} Interrupt_RBx_st;
-
-
-
-
-Std_ReturnType Interrupt_INTx_INIT(const Interrupt_INTx_st *int_obj);
-Std_ReturnType Interrupt_INTx_DeINIT(const Interrupt_INTx_st *int_obj);
-
-Std_ReturnType Interrupt_RBx_INIT(const Interrupt_RBx_st *int_obj);
-Std_ReturnType Interrupt_RBx_DeINIT(const Interrupt_RBx_st *int_obj);
-# 14 "./application.h" 2
-# 23 "./application.h"
-void application_intialize(void);
-# 8 "application.c" 2
-
-
-void INT1_Handler(void);
-void OnChanggeINT_Handler(void);
-
-pin_config_st PIN1={
-  .port=PORTC_INDEX,
-  .pin=GPIO_PIN0,
-  .direction=GPIO_DIRECTION_OUTPUT,
-  .logic=GPIO_LOW
-};
-pin_config_st PIN2={
-  .port=PORTC_INDEX,
-  .pin=GPIO_PIN2,
-  .direction=GPIO_DIRECTION_OUTPUT,
-  .logic=GPIO_LOW
-};
-
-Interrupt_INTx_st INTERUPT1={
-  .Ext_Interrupt_Handler=INT1_Handler,
-  .edge=INT_FALLING_EDGE,
-  .priority=INT_LOW_PRI,
-  .src=INTERRUPT_INT1
-};
-Interrupt_RBx_st INTERUPT_oncahnge={
-  .pin.direction= GPIO_DIRECTION_INPUT,
-  .pin.logic=GPIO_LOW,
-  .pin.port=PORTB_INDEX,
-  .pin.pin=GPIO_PIN4,
-  .Ext_Interrupt_Handler_Low=OnChanggeINT_Handler,
-  .priority=INT_LOW_PRI,
-};
-void main(void)
+struct rbx_flags_t
 {
-    application_intialize();
-    while(1)
+    uint8_t rb4_flag : 1 ;
+    uint8_t rb5_flag : 1 ;
+    uint8_t rb6_flag : 1 ;
+    uint8_t rb7_flag : 1 ;
+};
+
+static volatile struct rbx_flags_t flags =
+{
+
+    .rb4_flag = 1,
+    .rb5_flag = 1,
+    .rb6_flag = 1,
+    .rb7_flag = 1
+};
+
+
+
+
+
+
+
+void __attribute__((picinterrupt(("")))) InterruptManagerHigh(void)
+{
+
+    if( (1 == INTCONbits.INT0IE) && (1 == INTCONbits.INT0IF) )
+    {
+        INT0_ISR();
+    }
+    else { }
+
+    if( (1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF) )
+    {
+        INT2_ISR();
+    }
+    else { }
+
+
+    if( (1 == INTCONbits.TMR0IE) && (1 == INTCONbits.TMR0IF) )
     {
 
     }
-    return;
-}
-void application_intialize(void)
-{
-GPIO_Pin_Initialize(&PIN1);
-GPIO_Pin_Initialize(&PIN2);
-Interrupt_INTx_INIT(&INTERUPT1);
-Interrupt_RBx_INIT(&INTERUPT_oncahnge);
+    else { }
+
+    if( (1 == PIE1bits.TMR2IE) && (1 == PIR1bits.TMR2IF) )
+    {
+
+    }
+    else { }
+
+
+    if( (1 == PIE2bits.TMR3IE) && (1 == PIR2bits.TMR3IF) )
+    {
+
+    }
+    else { }
+
+    if( (1 == PIE2bits.CCP2IE) && (1 == PIR2bits.CCP2IF) )
+    {
+
+    }
+    else { }
+
+    if( (1 == PIE1bits.RCIE) && (1 == PIR1bits.RCIF) )
+    {
+
+    }
+    else { }
+
+    if( (1 == PIE1bits.TXIE) && (1 == PIR1bits.TXIF) )
+    {
+
+    }
+    else { }
+
+    if( (1 == PIE2bits.BCLIE) && (1 == PIR2bits.BCLIF) )
+    {
+
+    }
+    else { }
+
+    if( (1 == PIE1bits.SSPIE) && (1 == PIR1bits.SSPIF) )
+    {
+
+    }
+    else { }
+
 
 }
-void INT1_Handler(void)
+
+void __attribute__((picinterrupt(("low_priority")))) InterruptManagerLow(void)
 {
-    GPIO_Pin_Toggle_Logic(&PIN1);
-}
-void OnChanggeINT_Handler(void)
-{
-   GPIO_Pin_Toggle_Logic(&PIN2);
+    if( (1 == INTCON3bits.INT1IE) && (1 == INTCON3bits.INT1IF) )
+    {
+        INT1_ISR();
+    }
+    else { }
+
+
+
+    if( (1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+            (0x01 == (PORTBbits.RB4)) && (0x01 == flags.rb4_flag) )
+    {
+        flags.rb4_flag = 0x00 ;
+        RB4_ISR(0x01);
+    }
+    else { }
+
+    if( (1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+            (0x00 == (PORTBbits.RB4)) && (0x00 == flags.rb4_flag) )
+    {
+        flags.rb4_flag = 0x01 ;
+        RB4_ISR(0x00);
+    }
+    else { }
+
+
+    if( (1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+            (0x01 == (PORTBbits.RB5)) && (0x01 == flags.rb5_flag) )
+    {
+        flags.rb5_flag = 0x00 ;
+        RB5_ISR(0x01);
+    }
+    else { }
+
+    if( (1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+            (0x00 == (PORTBbits.RB5)) && (0x00 == flags.rb5_flag) )
+    {
+        flags.rb5_flag = 0x01 ;
+        RB5_ISR(0x00);
+    }
+    else { }
+
+
+    if( (1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+            (0x01 == (PORTBbits.RB6)) && (0x01 == flags.rb6_flag) )
+    {
+        flags.rb6_flag = 0x00 ;
+        RB6_ISR(0x01);
+    }
+    else { }
+
+    if( (1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+            (0x00 == (PORTBbits.RB6)) && (0x00 == flags.rb6_flag) )
+    {
+        flags.rb6_flag = 0x01 ;
+        RB6_ISR(0x00);
+    }
+    else { }
+
+
+    if( (1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+            (0x01 == (PORTBbits.RB7)) && (0x01 == flags.rb7_flag) )
+    {
+        flags.rb7_flag = 0x00 ;
+        RB7_ISR(0x01);
+    }
+    else { }
+
+    if( (1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+            (0x00 == (PORTBbits.RB7)) && (0x00 == flags.rb7_flag) )
+    {
+        flags.rb7_flag = 0x01 ;
+        RB7_ISR(0x00);
+    }
+    else { }
+
+
+
+
+    if( (1 == PIE1bits.ADIE) && (1 == PIR1bits.ADIF) )
+    {
+
+    }
+    else { }
+
+    if( (1 == PIE1bits.TMR1IE) && (1 == PIR1bits.TMR1IF) )
+    {
+
+    }
+    else { }
+# 200 "MCAL/Interrupts/mcal_interrupt_manager.c"
 }

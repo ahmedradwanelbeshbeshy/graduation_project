@@ -48,50 +48,50 @@ void __interrupt() InterruptManagerHigh(void)
     
     if( (INT_ENABLE == INTCONbits.TMR0IE)  && (INT_OCCUR == INTCONbits.TMR0IF) )
     {
-        TMR0_ISR();
+        //TMR0_ISR();
     }
     else { /* Do Nothing */}
     
     if( (INT_ENABLE == PIE1bits.TMR2IE)  && (INT_OCCUR == PIR1bits.TMR2IF) )
     {
-        TMR2_ISR();
+        //TMR2_ISR();
     }
     else { /* Do Nothing */}
     
     
     if( (INT_ENABLE == PIE2bits.TMR3IE)  && (INT_OCCUR == PIR2bits.TMR3IF) )
     {
-        TMR3_ISR();
+       // TMR3_ISR();
     }
     else { /* Do Nothing */}
     
     if( (INT_ENABLE == PIE2bits.CCP2IE)  && (INT_OCCUR == PIR2bits.CCP2IF) )
     {
-        CCP2_ISR();
+       // CCP2_ISR();
     }
     else { /* Do Nothing */}
     
     if( (INT_ENABLE == PIE1bits.RCIE)  && (INT_OCCUR == PIR1bits.RCIF) )
     {
-        EUSART_Rx_ISR();
+       // EUSART_Rx_ISR();
     }
     else { /* Do Nothing */}
     
     if( (INT_ENABLE == PIE1bits.TXIE)  && (INT_OCCUR == PIR1bits.TXIF) )
     {
-        EUSART_Tx_ISR();
+        //EUSART_Tx_ISR();
     }
     else { /* Do Nothing */}
     
     if( (INT_ENABLE == PIE2bits.BCLIE)  && (INT_OCCUR == PIR2bits.BCLIF) )
     {
-        MSSP_I2C_BC_ISR();
+        //MSSP_I2C_BC_ISR();
     }
     else { /* Do Nothing */}
     
     if( (INT_ENABLE == PIE1bits.SSPIE)  && (INT_OCCUR == PIR1bits.SSPIF) )
     {
-        MSSP_I2C_ISR();
+        //MSSP_I2C_ISR();
     }
     else { /* Do Nothing */}
     
@@ -180,13 +180,13 @@ void __interrupt(low_priority) InterruptManagerLow(void)
     /************************************** PERIPHERALS *****************************************************/
     if( (INT_ENABLE == PIE1bits.ADIE)  && (INT_OCCUR == PIR1bits.ADIF) )
     {
-        ADC_ISR();
+        //ADC_ISR();
     }
     else { /* Do Nothing */}
     
     if( (INT_ENABLE == PIE1bits.TMR1IE)  && (INT_OCCUR == PIR1bits.TMR1IF) )
     {
-        TMR1_ISR();
+        //TMR1_ISR();
     }
     else { /* Do Nothing */}
     

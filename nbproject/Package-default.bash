@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/grad_project.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=grad_project.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=gradproject/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/graduation_project.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=graduation_project.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=graduationproject/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/gradproject/bin
+makeDirectory ${TMPDIR}/graduationproject/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/gradproject.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/graduationproject.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/gradproject.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/graduationproject.tar *
 checkReturnCode
 
 # Cleanup

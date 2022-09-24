@@ -10,7 +10,7 @@
 
 
 /* Includes */
-#include "C:\Program Files\Microchip\xc8\v2.36\pic\include\pic18.h"
+#include"../std_libraries.h"
 #include "../mcal_std_types.h"
 #include "mcal_interrupt_gen_config.h"
 

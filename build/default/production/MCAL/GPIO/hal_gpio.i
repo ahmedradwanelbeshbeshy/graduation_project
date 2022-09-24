@@ -4680,6 +4680,8 @@ unsigned char __t3rd16on(void);
 # 1 "MCAL/GPIO/../mcal_std_types.h" 1
 # 20 "MCAL/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
+typedef unsigned char uint8_t;
+
 typedef unsigned short uint16;
 typedef unsigned long uint32;
 
@@ -4691,6 +4693,7 @@ typedef signed long sint32;
 typedef float float32;
 
 typedef uint8 Std_returnType;
+typedef uint8 Std_ReturnType;
 # 14 "MCAL/GPIO/hal_gpio.h" 2
 
 # 1 "MCAL/GPIO/hal_gpio_cfg.h" 1
