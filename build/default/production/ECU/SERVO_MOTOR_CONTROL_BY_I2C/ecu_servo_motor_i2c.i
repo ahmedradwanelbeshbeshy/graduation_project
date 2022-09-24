@@ -1,4 +1,4 @@
-# 1 "application.c"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,18 +6,22 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "application.c" 2
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c" 2
 
 
 
 
 
 
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 1
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h" 1
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 2
 
-# 1 "./application.h" 1
-# 12 "./application.h"
-# 1 "./MCAL/std_libraries.h" 1
-# 11 "./MCAL/std_libraries.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 1
+# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../std_libraries.h" 1
+# 11 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -175,7 +179,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./MCAL/std_libraries.h" 2
+# 11 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
@@ -235,7 +239,7 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 12 "./MCAL/std_libraries.h" 2
+# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
@@ -292,7 +296,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "./MCAL/std_libraries.h" 2
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../std_libraries.h" 2
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 1 3
 # 45 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
@@ -4506,15 +4510,34 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 14 "./MCAL/std_libraries.h" 2
-# 12 "./application.h" 2
+# 14 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../std_libraries.h" 2
+# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
 
-# 1 "./MCAL/GPIO/hal_gpio.h" 1
-# 13 "./MCAL/GPIO/hal_gpio.h"
-# 1 "./MCAL/GPIO/../device_config.h" 1
-# 11 "./MCAL/GPIO/../device_config.h"
-# 1 "./MCAL/compiler.h" 1
-# 12 "./MCAL/compiler.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../mcal_std_types.h" 1
+# 20 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../mcal_std_types.h"
+typedef unsigned char uint8;
+typedef unsigned char uint8_t;
+
+typedef unsigned short uint16;
+typedef unsigned long uint32;
+
+
+typedef signed char sint8;
+typedef signed short sint16;
+typedef signed long sint32;
+
+typedef float float32;
+
+typedef uint8 Std_returnType;
+typedef uint8 Std_ReturnType;
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
+
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h" 1
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/../device_config.h" 1
+# 11 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/../device_config.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../compiler.h" 1
+# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../compiler.h"
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4676,32 +4699,14 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "./MCAL/compiler.h" 2
-# 11 "./MCAL/GPIO/../device_config.h" 2
-# 13 "./MCAL/GPIO/hal_gpio.h" 2
-
-# 1 "./MCAL/GPIO/../mcal_std_types.h" 1
-# 20 "./MCAL/GPIO/../mcal_std_types.h"
-typedef unsigned char uint8;
-typedef unsigned char uint8_t;
-
-typedef unsigned short uint16;
-typedef unsigned long uint32;
+# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../compiler.h" 2
+# 11 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/../device_config.h" 2
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h" 2
 
 
-typedef signed char sint8;
-typedef signed short sint16;
-typedef signed long sint32;
-
-typedef float float32;
-
-typedef uint8 Std_returnType;
-typedef uint8 Std_ReturnType;
-# 14 "./MCAL/GPIO/hal_gpio.h" 2
-
-# 1 "./MCAL/GPIO/hal_gpio_cfg.h" 1
-# 15 "./MCAL/GPIO/hal_gpio.h" 2
-# 42 "./MCAL/GPIO/hal_gpio.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio_cfg.h" 1
+# 15 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h" 2
+# 42 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h"
 typedef enum{
    GPIO_LOW=0,
    GPIO_HIGH
@@ -4757,15 +4762,15 @@ Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direct
 Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
 Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
-# 13 "./application.h" 2
+# 14 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
 
-# 1 "./MCAL/Interrupts/mcal_external_interrupt.h" 1
-# 13 "./MCAL/Interrupts/mcal_external_interrupt.h"
-# 1 "./MCAL/Interrupts/./mcal_interrupt_config.h" 1
-# 15 "./MCAL/Interrupts/./mcal_interrupt_config.h"
-# 1 "./MCAL/Interrupts/mcal_interrupt_gen_config.h" 1
-# 15 "./MCAL/Interrupts/./mcal_interrupt_config.h" 2
-# 71 "./MCAL/Interrupts/./mcal_interrupt_config.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_internal_interrupt.h" 1
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_internal_interrupt.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_interrupt_config.h" 1
+# 15 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_interrupt_config.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_interrupt_config.h" 2
+# 71 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_interrupt_config.h"
 typedef void ( *InterruptHandler) (void);
 
 
@@ -4774,60 +4779,12 @@ typedef enum {
     INT_HIGH_PRI
 
 } interrupt_pri_et;
-# 13 "./MCAL/Interrupts/mcal_external_interrupt.h" 2
-# 119 "./MCAL/Interrupts/mcal_external_interrupt.h"
-typedef enum {
-    INTERRUPT_INT0,
-    INTERRUPT_INT1,
-    INTERRUPT_INT2
-}interrupt_INTx_src_et;
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_internal_interrupt.h" 2
+# 15 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
 
-
-typedef enum {
-    INT_FALLING_EDGE,
-    INT_RISING_EDGE
-
-}interrupt_INTx_edge_et;
-
-
-
-typedef struct {
-    void (* Ext_Interrupt_Handler ) (void);
-    interrupt_INTx_edge_et edge ;
-    interrupt_INTx_src_et src ;
-    interrupt_pri_et priority ;
-} Interrupt_INTx_st;
-
-typedef struct {
-        void (* Ext_Interrupt_Handler_High ) (void);
-        void (* Ext_Interrupt_Handler_Low ) (void);
-        interrupt_pri_et priority ;
-        pin_config_st pin ;
-} Interrupt_RBx_st;
-
-
-
-
-Std_ReturnType Interrupt_INTx_INIT(const Interrupt_INTx_st *int_obj);
-Std_ReturnType Interrupt_INTx_DeINIT(const Interrupt_INTx_st *int_obj);
-
-Std_ReturnType Interrupt_RBx_INIT(const Interrupt_RBx_st *int_obj);
-Std_ReturnType Interrupt_RBx_DeINIT(const Interrupt_RBx_st *int_obj);
-# 14 "./application.h" 2
-# 23 "./application.h"
-void application_intialize(void);
-# 8 "application.c" 2
-
-
-
-# 1 "./MCAL/I2C/mcal_i2c.h" 1
-# 15 "./MCAL/I2C/mcal_i2c.h"
-# 1 "./MCAL/I2C/../Interrupts/mcal_internal_interrupt.h" 1
-# 15 "./MCAL/I2C/mcal_i2c.h" 2
-
-# 1 "./MCAL/I2C/mcal_i2c_cfg.h" 1
-# 16 "./MCAL/I2C/mcal_i2c.h" 2
-# 103 "./MCAL/I2C/mcal_i2c.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c_cfg.h" 1
+# 16 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
+# 103 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h"
 typedef struct{
  uint8 i2c_mode_cfg;
     uint8 i2c_slave_address;
@@ -4872,13 +4829,8 @@ Std_returnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 a
 
 Std_returnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
 Std_returnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
-# 11 "application.c" 2
-
-# 1 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 1
-# 13 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
-# 1 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h" 1
-# 13 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 2
-# 207 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
+# 14 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 2
+# 207 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
 typedef enum{
     servo_index_1=0,
     servo_index_2,
@@ -4908,46 +4860,76 @@ typedef struct{
 Std_returnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
 Std_returnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
 Std_returnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
-# 12 "application.c" 2
+# 7 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c" 2
 
 
-mssp_i2c_st i2c_obj={
-  .i2c_cfg.i2c_mode= 1,
-  .i2c_cfg.i2c_mode_cfg=0x08U,
-  .i2c_clock=100000,
-  .i2c_cfg.i2c_SMBus_control=0,
-  .i2c_cfg.i2c_slew_rate=1,
-  .I2C_DefaultInterruptHandler=((void*)0),
-  .I2C_Report_Receive_Overflow=((void*)0),
-  .I2C_Report_Write_Collision=((void*)0)
-};
-servo_driver_st s1_obj={
-   .slave_address=0x80,
-   .frequancy=0x79,
-   .mode_1_cfg=0x21,
-   .mode_2_cfg=0x04
-};
+static void PCA_Write_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_adrres,uint8 reg_aderres,uint8 data);
+void PCA_Read_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_adrres,uint8 reg_aderres,uint8 *data);
 
-uint8 angle=0;
-int main()
+
+Std_returnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj)
 {
-    application_intialize();
-
-    for(int i=0;i<16;i++)
+    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    if ((((void*)0)==i2c_obj)||(((void*)0)==servo_driver_obj))
     {
-        Servo_SetAngle(&i2c_obj,&s1_obj,i,angle);
-
-        angle+=15;
+        ERRORSTATUS=(Std_returnType) 0x00;
     }
-     while(1)
-     {
+    else
+    {
+     MSSP_I2C_Init(i2c_obj);
+     PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,0xFE,servo_driver_obj->frequancy);
+     PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,0x00,servo_driver_obj->mode_1_cfg);
+     PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,0x01,servo_driver_obj->mode_2_cfg);
 
-     }
-    return 0;
-
+    }
+    return ERRORSTATUS;
 }
-void application_intialize(void)
+Std_returnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj)
 {
-    MSSP_I2C_Init(&i2c_obj);
-    ServoDriver_Init(&i2c_obj,&s1_obj);
+    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    if (((void*)0)==i2c_obj)
+    {
+        ERRORSTATUS=(Std_returnType) 0x00;
+    }
+    else
+    {
+    MSSP_I2C_DeInit(i2c_obj);
+     }
+    return ERRORSTATUS;
+}
+Std_returnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle)
+{
+    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    if (((void*)0)==i2c_obj)
+    {
+        ERRORSTATUS=(Std_returnType) 0x00;
+    }
+    else
+    {
+        uint8 reg_addrees=6+(servo_no*4)+2;
+        uint16 angle_in_reg=(uint16)(angle*1.14+205);
+
+
+
+
+        PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,((uint8)angle_in_reg));
+        reg_addrees++;
+        PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,((uint8)(angle_in_reg>>8)));
+    }
+    return ERRORSTATUS;
+}
+
+static void PCA_Write_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_address,uint8 reg_address,uint8 data)
+{
+    uint8 ack=6;
+
+    MSSP_I2C_Master_Send_Start(i2c_obj);
+
+    MSSP_I2C_Master_Write_Blocking(i2c_obj,slave_address,&ack);
+
+    MSSP_I2C_Master_Write_Blocking(i2c_obj,reg_address,&ack);
+
+    MSSP_I2C_Master_Write_Blocking(i2c_obj,data,&ack);
+
+    MSSP_I2C_Master_Send_Stop(i2c_obj);
 }

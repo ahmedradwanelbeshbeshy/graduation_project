@@ -27,8 +27,8 @@
 //#define CCP2_INT_ENABLE                            FEATURE_ENABLE
 //#define EUSART_Tx_INT_ENABLE                       FEATURE_ENABLE
 //#define EUSART_Rx_INT_ENABLE                       FEATURE_ENABLE
-//#define MSSP_I2C_INT_ENABLE                        FEATURE_DISABLE
-//#define MSSP_I2C_BUS_COL_INT_ENABLE                FEATURE_DISABLE
+#define MSSP_I2C_INT_ENABLE                        FEATURE_ENABLE
+#define MSSP_I2C_BUS_COL_INT_ENABLE                FEATURE_ENABLE
 
 /* Macro Functions */
 
