@@ -100,7 +100,7 @@ typedef enum {
     BAUDRATE_ASYNC_16BIT_LOW_SPEED ,
     BAUDRATE_ASYNC_16BIT_HIGH_SPEED 
     
-}uart_baud_rate_config_t;
+}uart_baud_rate_config_et;
 
 
 typedef struct {
@@ -117,7 +117,7 @@ typedef struct {
     uint8_t tx_enable : 1 ;
     uint8_t tx_9th_bit_en : 1 ;
 
-}uart_tx_config_t;
+}uart_tx_config_st;
 
 
 typedef struct {
@@ -139,7 +139,7 @@ typedef struct {
     uint8_t rx_enable : 1 ;
     uint8_t rx_9th_bit_en : 1 ;
 
-}uart_rx_config_t;
+}uart_rx_config_st;
 
 
 
@@ -158,12 +158,12 @@ typedef struct {
 typedef struct {
     
     uint16_t uart_baud_rate_reg_value ;
-    uart_tx_config_t tx_config ;
-    uart_rx_config_t rx_config ;
-    uart_baud_rate_config_t baud_rate_config ;
+    uart_tx_config_st tx_config ;
+    uart_rx_config_st rx_config ;
+    uart_baud_rate_config_et baud_rate_config ;
 
 
-}uart_config_t;
+}uart_config_st;
 
 #endif /* Async. Mode */
 
@@ -188,7 +188,7 @@ typedef struct {
  *          (E_OK) : The function done successfully
  *          (E_NOT_OK) : The function had an issue performing the operation
  */
-Std_ReturnType EUSART_Async_Init(const uart_config_t *_eusart_obj);
+Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj);
 
 /**
  * @brief disables eusart module
@@ -198,7 +198,7 @@ Std_ReturnType EUSART_Async_Init(const uart_config_t *_eusart_obj);
  *          (E_OK) : The function done successfully
  *          (E_NOT_OK) : The function had an issue performing the operation
  */
-Std_ReturnType EUSART_Async_Deinit(const uart_config_t *_eusart_obj);
+Std_ReturnType EUSART_Async_Deinit(const uart_config_st *_eusart_obj);
 
 /**
  * @brief transmits a 8bit or 9bit data
@@ -209,7 +209,7 @@ Std_ReturnType EUSART_Async_Deinit(const uart_config_t *_eusart_obj);
  *          (E_OK) : The function done successfully
  *          (E_NOT_OK) : The function had an issue performing the operation
  */
-Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_t *_eusart_obj , uint16_t data);
+Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_st *_eusart_obj , uint16_t data);
 
 //Std_ReturnType eusart_asynch_tx_get_status(uart_config_t *_eusart_obj , uint8_t *status);
 
@@ -235,14 +235,14 @@ Std_ReturnType EUSART_Async_Check_For_Errors(void);
  *          (E_OK) : The function done successfully
  *          (E_NOT_OK) : The function had an issue performing the operation
  */
-Std_ReturnType EUSART_Async_Read_Data(const uart_config_t *_eusart_obj , uint16_t *data);
+Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16_t *data);
 
 
-Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_t *_eusart_obj , uint16_t *data);
+Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t *data);
 
-Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_t *_eusart_obj , uint16_t data);
+Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t data);
 
-Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_t *_eusart_obj , uint8_t *data , uint16_t len);
+Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len);
 
 
 

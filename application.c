@@ -10,7 +10,7 @@
 #include "application.h"
 #include "MCAL/EUSART/mcal_EUSART.h"
 
-uart_config_t uart = {
+uart_config_st uart = {
   .baud_rate_config = BAUDRATE_ASYNC_8BIT_LOW_SPEED ,
   .uart_baud_rate_reg_value = 223 ,
   .tx_config.tx_9th_bit_en = EUSART_ASYNCH_Tx_BIT_9_DISABLED ,

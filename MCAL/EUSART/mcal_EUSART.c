@@ -19,12 +19,12 @@
     static InterruptHandler eusart_frameerr_CallBack   = NULL ;
 #endif
     
-static inline Std_ReturnType async_config_baud_rate_gen(const uart_config_t *_eusart_obj);    
+static inline Std_ReturnType async_config_baud_rate_gen(const uart_config_st *_eusart_obj);    
 
-static inline Std_ReturnType async_Tx_config(const uart_tx_config_t *_tx_obj );
-static inline Std_ReturnType async_Rx_config(const uart_rx_config_t *_rx_obj );
-static inline Std_ReturnType Tx_config_interrupt(const uart_tx_config_t *_tx_obj);
-static inline Std_ReturnType Rx_config_interrupt(const uart_rx_config_t *_rx_obj);
+static inline Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj );
+static inline Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj );
+static inline Std_ReturnType Tx_config_interrupt(const uart_tx_config_st *_tx_obj);
+static inline Std_ReturnType Rx_config_interrupt(const uart_rx_config_st *_rx_obj);
 
 static inline uint8_t calc_parity_odd(uint8_t data);
 static inline uint8_t calc_parity_even(uint8_t data);
@@ -39,7 +39,7 @@ static inline uint8_t calc_parity_even(uint8_t data);
  *          (E_OK) : The function done successfully
  *          (E_NOT_OK) : The function had an issue performing the operation
  */
-Std_ReturnType EUSART_Async_Init(const uart_config_t *_eusart_obj)
+Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj)
 {
     Std_ReturnType ret_val = E_OK ;
     
@@ -85,7 +85,7 @@ Std_ReturnType EUSART_Async_Init(const uart_config_t *_eusart_obj)
  *          (E_OK) : The function done successfully
  *          (E_NOT_OK) : The function had an issue performing the operation
  */
-Std_ReturnType EUSART_Async_Deinit(const uart_config_t *_eusart_obj)
+Std_ReturnType EUSART_Async_Deinit(const uart_config_st *_eusart_obj)
 {
     
     Std_ReturnType ret_val = E_OK ;
@@ -121,7 +121,7 @@ Std_ReturnType EUSART_Async_Deinit(const uart_config_t *_eusart_obj)
  *          (E_OK) : The function done successfully
  *          (E_NOT_OK) : The function had an issue performing the operation
  */
-Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_t *_eusart_obj , uint16_t data)
+Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_st *_eusart_obj , uint16_t data)
 {
     Std_ReturnType ret_val = E_OK ;
     
@@ -178,7 +178,7 @@ Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_t *_eusart_obj , uin
  *          (E_OK) : The function done successfully
  *          (E_NOT_OK) : The function had an issue performing the operation
  */
-Std_ReturnType EUSART_Async_Read_Data(const uart_config_t *_eusart_obj , uint16_t *data)
+Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16_t *data)
 {
     Std_ReturnType ret_val = E_OK ;
     uint16_t l_temp_data  = 0;
@@ -310,7 +310,7 @@ Std_ReturnType EUSART_Async_Check_For_Errors(void)
     return ret_val ;
 }
 
-Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_t *_eusart_obj , uint16_t data)
+Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t data)
 {
     Std_ReturnType ret_val = E_OK ;
     
@@ -328,7 +328,7 @@ Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_t *_eusart_
     
     return ret_val ;
 }
-Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_t *_eusart_obj , uint16_t *data)
+Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t *data)
 {
     Std_ReturnType ret_val = E_OK ;
     
@@ -346,7 +346,7 @@ Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_t *_eusart_obj 
     return ret_val ;
 }
 
-Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_t *_eusart_obj , uint8_t *data , uint16_t len)
+Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len)
 {
     Std_ReturnType ret_val = E_OK ;
     uint16_t l_counter = 0 ;
@@ -371,7 +371,7 @@ Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_t *_
 
 #endif /* Async Mode  */
 
-static Std_ReturnType async_Tx_config(const uart_tx_config_t *_tx_obj )
+static Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj )
 {
     Std_ReturnType ret_val = E_OK ;
     
@@ -414,7 +414,7 @@ static Std_ReturnType async_Tx_config(const uart_tx_config_t *_tx_obj )
     return ret_val ;
     
 }
-static Std_ReturnType async_Rx_config(const uart_rx_config_t *_rx_obj )
+static Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj )
 {
     Std_ReturnType ret_val = E_OK ;
     
@@ -457,7 +457,7 @@ static Std_ReturnType async_Rx_config(const uart_rx_config_t *_rx_obj )
     
 }
 
-static inline Std_ReturnType Tx_config_interrupt(const uart_tx_config_t *_tx_obj)
+static inline Std_ReturnType Tx_config_interrupt(const uart_tx_config_st *_tx_obj)
 {
     
     Std_ReturnType ret_val = E_OK ;
@@ -499,7 +499,7 @@ static inline Std_ReturnType Tx_config_interrupt(const uart_tx_config_t *_tx_obj
     
     
 }
-static inline Std_ReturnType Rx_config_interrupt(const uart_rx_config_t *_rx_obj)
+static inline Std_ReturnType Rx_config_interrupt(const uart_rx_config_st *_rx_obj)
 {
     
      Std_ReturnType ret_val = E_OK ;
@@ -544,7 +544,7 @@ static inline Std_ReturnType Rx_config_interrupt(const uart_rx_config_t *_rx_obj
     
 }
 
-static inline Std_ReturnType async_config_baud_rate_gen(const uart_config_t *_eusart_obj)
+static inline Std_ReturnType async_config_baud_rate_gen(const uart_config_st *_eusart_obj)
 {
        
     Std_ReturnType ret_val = E_OK ;
