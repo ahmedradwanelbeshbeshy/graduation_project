@@ -59,12 +59,12 @@ Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj)
         EUSART_ASYNC_MODE();
         
         /* Configure Tx pin */
-        TRISCbits.RC6 = GPIO_HIGH ;
+        TRISCbits.RC6 = GPIO_DIRECTION_INPUT ;
         /* Configure Tx */
         ret_val &= async_Tx_config(&(_eusart_obj->tx_config));
         
         /* Configure Rx pin */
-        TRISCbits.RC7 = GPIO_HIGH ;
+        TRISCbits.RC7 = GPIO_DIRECTION_INPUT ;
         /* Configure Rx */
         ret_val &= async_Rx_config(&(_eusart_obj->rx_config));
 
@@ -157,7 +157,7 @@ Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_st *_eusart_obj , ui
 
         }
         /* load data into TXREG */
-        TXREG = data ;
+        TXREG = (uint8)data;
 #if EUSART_Tx_INT_ENABLE==FEATURE_ENABLE
         PIE1bits.TXIE = INT_ENABLE ;
 #endif
@@ -387,7 +387,9 @@ static Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj )
             /* Disable Tx */
             EUSART_ASYNCH_Tx_DIS();
             /* Configure Tx interrupt */
+#if EUSART_Tx_INT_ENABLE==FEATURE_ENABLE
             ret_val = Tx_config_interrupt(_tx_obj);
+#endif
             /* Configure 8bit or 9bit Tx */
             if(EUSART_ASYNCH_Tx_BIT_9_ENABLED == _tx_obj->tx_9th_bit_en )
             {
@@ -429,7 +431,9 @@ static Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj )
             /* Disable Rx */
             EUSART_ASYNCH_Rx_DIS();
             /* Configure Rx interrupt */
+#if EUSART_Tx_INT_ENABLE==FEATURE_ENABLE
             ret_val = Rx_config_interrupt(_rx_obj);
+#endif
             /* Configure 8bit or 9bit Rx */
             if(EUSART_ASYNCH_Rx_BIT_9_ENABLED == _rx_obj->rx_9th_bit_en )
             {
@@ -555,23 +559,28 @@ static inline Std_ReturnType async_config_baud_rate_gen(const uart_config_st *_e
     }
     else 
     {
+        float32 Baudrate_temp=0;
         switch(_eusart_obj->baud_rate_config)
         {
             case BAUDRATE_ASYNC_8BIT_LOW_SPEED:
                 TXSTAbits.BRGH = EUSART_LOW_SPEED_BAUD_RATE ;
                 BAUDCONbits.BRG16 = EUSART_8_BIT_BR ;
+                Baudrate_temp= ((_XTAL_FREQ/((float32)_eusart_obj->uart_baud_rate_value))/64)-1;                
                 break;
             case BAUDRATE_ASYNC_8BIT_HIGH_SPEED:
                 TXSTAbits.BRGH = EUSART_HIGH_SPEED_BAUD_RATE ;
                 BAUDCONbits.BRG16 = EUSART_8_BIT_BR ;
+                Baudrate_temp= ((_XTAL_FREQ/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
                 break ;
             case BAUDRATE_ASYNC_16BIT_LOW_SPEED :
                 TXSTAbits.BRGH = EUSART_LOW_SPEED_BAUD_RATE ;
                 BAUDCONbits.BRG16 = EUSART_16_BIT_BR ;
+                Baudrate_temp= ((_XTAL_FREQ/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
                 break ;
             case BAUDRATE_ASYNC_16BIT_HIGH_SPEED:
                 TXSTAbits.BRGH = EUSART_HIGH_SPEED_BAUD_RATE ;
                 BAUDCONbits.BRG16 = EUSART_16_BIT_BR ;
+                Baudrate_temp= ((_XTAL_FREQ/((float32)_eusart_obj->uart_baud_rate_value))/4)-1;
                 break ;
             default:
                 ret_val = E_NOT_OK ;
@@ -579,7 +588,8 @@ static inline Std_ReturnType async_config_baud_rate_gen(const uart_config_st *_e
         }
         
         /* Set SPBRG:SPBRGH value */
-        EUSART_ASYNCH_SET_BRG_NUMBER(_eusart_obj->uart_baud_rate_reg_value);
+        SPBRG=(uint8)((uint32)Baudrate_temp);
+        SPBRGH=(uint8)(((uint32)Baudrate_temp)>>8);        
     }
     
     return ret_val ;
@@ -665,7 +675,8 @@ void EUSART_Tx_ISR(void)
     /* Some code */
     
     /* disable interrupt to fix the issue of high rate interrupt
-     * which results in the callback never being executed  
+     * which results in the callback never being executed 
+     * I THINK 
      */
     PIE1bits.TXIE = INT_DISABLE ;
 

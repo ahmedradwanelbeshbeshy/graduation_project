@@ -10,8 +10,6 @@ MCAL/GPIO/hal_gpio_cfg.h  \
 MCAL/Interrupts/mcal_external_interrupt.h  \
 MCAL/Interrupts/./mcal_interrupt_config.h  \
 MCAL/Interrupts/mcal_interrupt_gen_config.h  \
-MCAL/I2C/mcal_i2c.h  \
-MCAL/I2C/../Interrupts/mcal_internal_interrupt.h  \
-MCAL/I2C/mcal_i2c_cfg.h  \
-ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h  \
-ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h 
+MCAL/EUSART/mcal_EUSART.h  \
+MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h  \
+MCAL/EUSART/mcal_EUSART_config.h 

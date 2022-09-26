@@ -106,16 +106,15 @@ typedef enum {
 typedef struct {
 #if EUSART_Tx_INT_ENABLE==FEATURE_ENABLE
     InterruptHandler tx_InterruptHandler ;
-#endif
-    uint8_t tx_reserved : 3 ;
-    uint8_t uart_tx_9th_bit_role : 2 ;
-#if EUSART_Tx_INT_ENABLE==FEATURE_ENABLE
-#if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE
+    #if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE
     uint8_t uart_tx_priority : 1 ;
 #endif
 #endif
+    uint8_t uart_tx_9th_bit_role : 2 ;
+    
     uint8_t tx_enable : 1 ;
     uint8_t tx_9th_bit_en : 1 ;
+    uint8_t tx_reserved : 4;
 
 }uart_tx_config_st;
 
@@ -127,18 +126,16 @@ typedef struct {
     
     InterruptHandler oerr_InterruptHandler ;
     InterruptHandler ferr_InterruptHandler ;
-#endif
-    uint8_t rx_reserved : 3 ;
-    
-    uint8_t uart_rx_9th_bit_role : 2 ;
-#if EUSART_Rx_INT_ENABLE==FEATURE_ENABLE
 #if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE
     uint8_t uart_rx_priority : 1 ;
 #endif
 #endif
+    
+    uint8_t uart_rx_9th_bit_role : 2 ;
+
     uint8_t rx_enable : 1 ;
     uint8_t rx_9th_bit_en : 1 ;
-
+    uint8_t rx_reserved : 4 ;
 }uart_rx_config_st;
 
 
@@ -157,7 +154,7 @@ typedef struct {
 
 typedef struct {
     
-    uint16_t uart_baud_rate_reg_value ;
+    uint16_t uart_baud_rate_value ;
     uart_tx_config_st tx_config ;
     uart_rx_config_st rx_config ;
     uart_baud_rate_config_et baud_rate_config ;
