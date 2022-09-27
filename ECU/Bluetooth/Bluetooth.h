@@ -16,8 +16,6 @@
 
 /******************************************** Macro Defines ***************************************************************/
 
-
-
 /******************************************** Macro Functions *************************************************************/
 
 
@@ -33,6 +31,8 @@ Std_ReturnType Bluetooth_Recieve_Data_Blocking(const uart_config_st *_uart_obj ,
 
 Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t data );
 Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
+
+Std_ReturnType Bluetooth_Send_String_Blocking(const uart_config_st *_uart_obj , uint8_t *data ,  uint8_t length );
 
 
 

@@ -81,3 +81,20 @@ Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_o
     return ret_val ;
     
 }
+
+Std_ReturnType Bluetooth_Send_String_Blocking(const uart_config_st *_uart_obj , uint8_t *data , uint8_t length )
+{
+    Std_ReturnType ret_val = E_OK ;
+    
+    if((NULL ==_uart_obj ) || (NULL == data))
+    {
+        ret_val = E_NOT_OK ;
+    }
+    else 
+    {
+        EUSART_Async_Transmit_Data_String_Blocking(_uart_obj , data , length );
+    }
+    
+        return ret_val ;
+
+}

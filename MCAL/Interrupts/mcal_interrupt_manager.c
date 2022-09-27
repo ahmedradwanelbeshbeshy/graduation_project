@@ -73,13 +73,13 @@ void __interrupt() InterruptManagerHigh(void)
     
     if( (INT_ENABLE == PIE1bits.RCIE)  && (INT_OCCUR == PIR1bits.RCIF) )
     {
-       // EUSART_Rx_ISR();
+        EUSART_Rx_ISR();
     }
     else { /* Do Nothing */}
     
     if( (INT_ENABLE == PIE1bits.TXIE)  && (INT_OCCUR == PIR1bits.TXIF) )
     {
-        //EUSART_Tx_ISR();
+        EUSART_Tx_ISR();
     }
     else { /* Do Nothing */}
     
