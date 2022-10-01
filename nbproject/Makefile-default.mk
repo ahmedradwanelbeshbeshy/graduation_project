@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c ECU/ecu_layer_init.c MCAL/GPIO/hal_gpio.c MCAL/I2C/mcal_i2c.c MCAL/Interrupts/mcal_interrupt_manager.c MCAL/Interrupts/mcal_internal_interrupt.c MCAL/Interrupts/mcal_external_interrupt.c MCAL/device_config.c application.c MCAL/EUSART/mcal_EUSART.c
+SOURCEFILES_QUOTED_IF_SPACED=ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c ECU/ecu_layer_init.c MCAL/GPIO/hal_gpio.c MCAL/I2C/mcal_i2c.c MCAL/Interrupts/mcal_interrupt_manager.c MCAL/Interrupts/mcal_internal_interrupt.c MCAL/Interrupts/mcal_external_interrupt.c MCAL/device_config.c application.c MCAL/EUSART/mcal_EUSART.c ECU/Bluetooth/Bluetooth.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1.d ${OBJECTDIR}/ECU/ecu_layer_init.p1.d ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1.d ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1.d ${OBJECTDIR}/MCAL/device_config.p1.d ${OBJECTDIR}/application.p1.d ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1 ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1.d ${OBJECTDIR}/ECU/ecu_layer_init.p1.d ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1.d ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1.d ${OBJECTDIR}/MCAL/device_config.p1.d ${OBJECTDIR}/application.p1.d ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1.d ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1
+OBJECTFILES=${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1 ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1
 
 # Source Files
-SOURCEFILES=ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c ECU/ecu_layer_init.c MCAL/GPIO/hal_gpio.c MCAL/I2C/mcal_i2c.c MCAL/Interrupts/mcal_interrupt_manager.c MCAL/Interrupts/mcal_internal_interrupt.c MCAL/Interrupts/mcal_external_interrupt.c MCAL/device_config.c application.c MCAL/EUSART/mcal_EUSART.c
+SOURCEFILES=ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c ECU/ecu_layer_init.c MCAL/GPIO/hal_gpio.c MCAL/I2C/mcal_i2c.c MCAL/Interrupts/mcal_interrupt_manager.c MCAL/Interrupts/mcal_internal_interrupt.c MCAL/Interrupts/mcal_external_interrupt.c MCAL/device_config.c application.c MCAL/EUSART/mcal_EUSART.c ECU/Bluetooth/Bluetooth.c
 
 
 
@@ -174,6 +174,14 @@ ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1: MCAL/EUSART/mcal_EUSART.c  nbproject/Ma
 	@-${MV} ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.d ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1: ECU/Bluetooth/Bluetooth.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/ECU/Bluetooth" 
+	@${RM} ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d 
+	@${RM} ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1 ECU/Bluetooth/Bluetooth.c 
+	@-${MV} ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.d ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1: ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C" 
@@ -254,6 +262,14 @@ ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1: MCAL/EUSART/mcal_EUSART.c  nbproject/Ma
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1 MCAL/EUSART/mcal_EUSART.c 
 	@-${MV} ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.d ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1: ECU/Bluetooth/Bluetooth.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/ECU/Bluetooth" 
+	@${RM} ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d 
+	@${RM} ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1 ECU/Bluetooth/Bluetooth.c 
+	@-${MV} ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.d ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

@@ -431,7 +431,7 @@ static Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj )
             /* Disable Rx */
             EUSART_ASYNCH_Rx_DIS();
             /* Configure Rx interrupt */
-#if EUSART_Tx_INT_ENABLE==FEATURE_ENABLE
+#if EUSART_Rx_INT_ENABLE==FEATURE_ENABLE
             ret_val = Rx_config_interrupt(_rx_obj);
 #endif
             /* Configure 8bit or 9bit Rx */
@@ -515,11 +515,12 @@ static inline Std_ReturnType Rx_config_interrupt(const uart_rx_config_st *_rx_ob
     else 
     {
         #if EUSART_Rx_INT_ENABLE==FEATURE_ENABLE
-        INT_EUSART_Rx_ENABLE();
+        INT_EUSART_Rx_DISABLE();
         eusart_Rx_InterruptHandler = _rx_obj->rx_InterruptHandler ;
         eusart_frameerr_CallBack = _rx_obj->ferr_InterruptHandler ;
         eusart_overrunerr_CallBack = _rx_obj->oerr_InterruptHandler ;
             #if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE
+               
                 INT_PRI_FET_EN();
                 if(INT_PRI_HIGH == _rx_obj->uart_rx_priority)
                 {
@@ -539,12 +540,12 @@ static inline Std_ReturnType Rx_config_interrupt(const uart_rx_config_st *_rx_ob
                 INT_PERIPHERAL_EN();
                 INT_GLOBAL_EN();
             #endif  
+        INT_EUSART_Rx_ENABLE();
         #endif
         
     }
     
-    return ret_val ;
-    
+    return ret_val ; 
     
 }
 
@@ -697,27 +698,27 @@ void EUSART_Rx_ISR(void)
         eusart_Rx_InterruptHandler();
     }
     
-    if( EUSART_ASYNCH_ERROR_OCCURED == RCSTA1bits.OERR )
-        {
-            /* Clear error */
-            EUSART_ASYNCH_Rx_DIS(); 
-            EUSART_ASYNCH_Rx_EN();
-            if(eusart_overrunerr_CallBack)
-            {
-                eusart_overrunerr_CallBack();
-            }  
-        }
-        /* Check for Frame error */
-        if( EUSART_ASYNCH_ERROR_OCCURED == RCSTA1bits.FERR )
-        {
-            /* Clear error */
-            /* Dummy read */
-            while(!(RCREG));
-            if(eusart_frameerr_CallBack)
-            {
-                eusart_frameerr_CallBack();
-            }
-        }
+//    if( EUSART_ASYNCH_ERROR_OCCURED == RCSTA1bits.OERR )
+//        {
+//            /* Clear error */
+//            EUSART_ASYNCH_Rx_DIS(); 
+//            EUSART_ASYNCH_Rx_EN();
+//            if(eusart_overrunerr_CallBack)
+//            {
+//                eusart_overrunerr_CallBack();
+//            }  
+//        }
+//        /* Check for Frame error */
+//        if( EUSART_ASYNCH_ERROR_OCCURED == RCSTA1bits.FERR )
+//        {
+//            /* Clear error */
+//            /* Dummy read */
+//            while(!(RCREG));
+//            if(eusart_frameerr_CallBack)
+//            {
+//                eusart_frameerr_CallBack();
+//            }
+//        }
     
  
     #endif

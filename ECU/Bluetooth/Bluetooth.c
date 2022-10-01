@@ -10,8 +10,9 @@
 
 
 
-Std_ReturnType Bluetooth_Init(const uart_config_st *_uart_obj)
+Std_ReturnType Bluetooth_Init()
 {
+
     
 }
 

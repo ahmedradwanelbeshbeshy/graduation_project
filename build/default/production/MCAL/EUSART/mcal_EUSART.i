@@ -4818,7 +4818,17 @@ typedef struct {
 
 
 typedef struct {
-# 134 "MCAL/EUSART/mcal_EUSART.h"
+
+
+    InterruptHandler rx_InterruptHandler ;
+
+    InterruptHandler oerr_InterruptHandler ;
+    InterruptHandler ferr_InterruptHandler ;
+
+    uint8_t uart_rx_priority : 1 ;
+
+
+
     uint8_t uart_rx_9th_bit_role : 2 ;
 
     uint8_t rx_enable : 1 ;
@@ -4853,7 +4863,12 @@ Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart
 
 Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len);
 # 8 "MCAL/EUSART/mcal_EUSART.c" 2
-# 22 "MCAL/EUSART/mcal_EUSART.c"
+# 17 "MCAL/EUSART/mcal_EUSART.c"
+    static InterruptHandler eusart_Rx_InterruptHandler = ((void*)0) ;
+    static InterruptHandler eusart_overrunerr_CallBack = ((void*)0) ;
+    static InterruptHandler eusart_frameerr_CallBack = ((void*)0) ;
+
+
 static __attribute__((inline)) Std_ReturnType async_config_baud_rate_gen(const uart_config_st *_eusart_obj);
 
 static __attribute__((inline)) Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj );
@@ -4913,7 +4928,15 @@ Std_ReturnType EUSART_Async_Deinit(const uart_config_st *_eusart_obj)
     }
     else
     {
-# 108 "MCAL/EUSART/mcal_EUSART.c"
+
+
+
+
+
+
+            (PIE1bits.RCIE = 0);
+
+
             (RCSTAbits.SPEN = 0 );
     }
 
@@ -5064,7 +5087,31 @@ Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16
 Std_ReturnType EUSART_Async_Check_For_Errors(void)
 {
     Std_ReturnType ret_val = (Std_returnType) 0x01 ;
-# 310 "MCAL/EUSART/mcal_EUSART.c"
+
+
+
+    if( 1 == RCSTA1bits.OERR )
+    {
+
+        (RCSTAbits.CREN = 0);
+        (RCSTAbits.CREN = 1);
+        if(eusart_overrunerr_CallBack)
+        {
+            eusart_overrunerr_CallBack();
+        }
+    }
+
+    if( 1 == RCSTA1bits.FERR )
+    {
+
+
+        while(!(RCREG));
+        if(eusart_frameerr_CallBack)
+        {
+            eusart_frameerr_CallBack();
+        }
+    }
+
     return ret_val ;
 }
 
@@ -5190,7 +5237,7 @@ static Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj )
             (RCSTAbits.CREN = 0);
 
 
-
+            ret_val = Rx_config_interrupt(_rx_obj);
 
 
             if(1 == _rx_obj->rx_9th_bit_en )
@@ -5248,11 +5295,38 @@ static __attribute__((inline)) Std_ReturnType Rx_config_interrupt(const uart_rx_
     }
     else
     {
-# 544 "MCAL/EUSART/mcal_EUSART.c"
+
+        (PIE1bits.RCIE = 0);
+        eusart_Rx_InterruptHandler = _rx_obj->rx_InterruptHandler ;
+        eusart_frameerr_CallBack = _rx_obj->ferr_InterruptHandler ;
+        eusart_overrunerr_CallBack = _rx_obj->oerr_InterruptHandler ;
+
+
+                (RCONbits.IPEN = 1 );
+                if(1 == _rx_obj->uart_rx_priority)
+                {
+                    (IPR1bits.RCIP = 1);
+                    (INTCONbits.GIEH = 1);
+
+                }
+                else if(0 == _rx_obj->uart_rx_priority)
+                {
+                    (IPR1bits.RCIP = 0);
+                    (INTCONbits.GIEH = 1);
+                    (INTCONbits.GIEL = 1);
+                }
+                else { }
+
+
+
+
+
+        (PIE1bits.RCIE = 1);
+
+
     }
 
     return ret_val ;
-
 
 }
 
@@ -5310,7 +5384,7 @@ static __attribute__((inline)) uint8_t calc_parity_odd(uint8_t data)
 
     uint8_t number_of_ones = 0 ;
     uint8_t l_counter = 0 ;
-# 620 "MCAL/EUSART/mcal_EUSART.c"
+# 621 "MCAL/EUSART/mcal_EUSART.c"
     for(l_counter = 0 ; l_counter < 8 ; l_counter++ )
     {
         if( (data & 0x01 << l_counter) != 0 )
@@ -5333,7 +5407,7 @@ static __attribute__((inline)) uint8_t calc_parity_even(uint8_t data)
 
     uint8_t number_of_ones = 0 ;
     uint8_t l_counter = 0 ;
-# 654 "MCAL/EUSART/mcal_EUSART.c"
+# 655 "MCAL/EUSART/mcal_EUSART.c"
     for(l_counter = 0 ; l_counter < 8 ; l_counter++ )
     {
         if( (data & 0x01 << l_counter) != 0 )
@@ -5354,10 +5428,17 @@ static __attribute__((inline)) uint8_t calc_parity_even(uint8_t data)
 
 void EUSART_Tx_ISR(void)
 {
-# 688 "MCAL/EUSART/mcal_EUSART.c"
+# 689 "MCAL/EUSART/mcal_EUSART.c"
 }
 
 void EUSART_Rx_ISR(void)
 {
-# 724 "MCAL/EUSART/mcal_EUSART.c"
+
+
+
+    if(eusart_Rx_InterruptHandler)
+    {
+        eusart_Rx_InterruptHandler();
+    }
+# 725 "MCAL/EUSART/mcal_EUSART.c"
 }

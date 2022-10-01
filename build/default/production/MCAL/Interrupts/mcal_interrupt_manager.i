@@ -4637,7 +4637,7 @@ void __attribute__((picinterrupt(("")))) InterruptManagerHigh(void)
 
     if( (1 == PIE1bits.RCIE) && (1 == PIR1bits.RCIF) )
     {
-
+        EUSART_Rx_ISR();
     }
     else { }
 

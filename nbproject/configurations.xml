@@ -5,6 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ECU" displayName="ECU" projectFiles="true">
+        <logicalFolder name="Bluetooth" displayName="Bluetooth" projectFiles="true">
+          <itemPath>ECU/Bluetooth/Bluetooth.h</itemPath>
+        </logicalFolder>
         <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h</itemPath>
         <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h</itemPath>
       </logicalFolder>
@@ -43,6 +46,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ECU" displayName="ECU" projectFiles="true">
+        <logicalFolder name="Bluetooth" displayName="Bluetooth" projectFiles="true">
+          <itemPath>ECU/Bluetooth/Bluetooth.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="SERVO_MOTOR_CONTROL_BY_I2C"
                        displayName="SERVO_MOTOR_CONTROL_BY_I2C"
                        projectFiles="true">
