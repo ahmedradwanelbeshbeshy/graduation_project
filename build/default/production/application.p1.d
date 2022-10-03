@@ -12,4 +12,6 @@ MCAL/Interrupts/./mcal_interrupt_config.h  \
 MCAL/Interrupts/mcal_interrupt_gen_config.h  \
 MCAL/EUSART/mcal_EUSART.h  \
 MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h  \
-MCAL/EUSART/mcal_EUSART_config.h 
+MCAL/EUSART/mcal_EUSART_config.h  \
+ECU/Bluetooth/Bluetooth.h  \
+ECU/Bluetooth/Bluetooth_cfg.h 

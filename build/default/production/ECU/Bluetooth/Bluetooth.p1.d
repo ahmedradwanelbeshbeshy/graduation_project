@@ -11,4 +11,5 @@ ECU/Bluetooth/../../MCAL/EUSART/../GPIO/hal_gpio.h  \
 ECU/Bluetooth/../../MCAL/EUSART/../GPIO/../device_config.h  \
 ECU/Bluetooth/../../MCAL/EUSART/../Interrupts/../compiler.h  \
 ECU/Bluetooth/../../MCAL/EUSART/../GPIO/hal_gpio_cfg.h  \
-ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART_config.h 
+ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART_config.h  \
+ECU/Bluetooth/Bluetooth_cfg.h 

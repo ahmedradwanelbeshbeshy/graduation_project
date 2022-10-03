@@ -4805,9 +4805,9 @@ typedef enum {
 
 typedef struct {
 
+    InterruptHandler tx_InterruptHandler ;
 
-
-
+    uint8_t uart_tx_priority : 1 ;
 
 
     uint8_t uart_tx_9th_bit_role : 2 ;
@@ -4865,23 +4865,40 @@ Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart
 
 Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len);
 # 14 "ECU/Bluetooth/Bluetooth.h" 2
-# 29 "ECU/Bluetooth/Bluetooth.h"
-Std_ReturnType Bluetooth_Init(const uart_config_st *_uart_obj);
+
+# 1 "ECU/Bluetooth/Bluetooth_cfg.h" 1
+# 15 "ECU/Bluetooth/Bluetooth.h" 2
+# 27 "ECU/Bluetooth/Bluetooth.h"
+Std_ReturnType Bluetooth_Init(uart_config_st *_uart_obj);
 
 Std_ReturnType Bluetooth_Send_Data_Blocking(const uart_config_st *_uart_obj , uint8_t data);
 Std_ReturnType Bluetooth_Recieve_Data_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
 
 Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t data );
 Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
+
+Std_ReturnType Bluetooth_Send_String_Blocking(const uart_config_st *_uart_obj , uint8_t *data , uint8_t length );
 # 8 "ECU/Bluetooth/Bluetooth.c" 2
-
-
-
-
-
-Std_ReturnType Bluetooth_Init()
+# 17 "ECU/Bluetooth/Bluetooth.c"
+Std_ReturnType Bluetooth_Init(uart_config_st *_uart_obj)
 {
 
+    _uart_obj->uart_baud_rate_value = 38400;
+    EUSART_Async_Init(_uart_obj);
+
+
+    EUSART_Async_Transmit_Data_String_Blocking(_uart_obj ,"AT+RNAME:Robot\r\n", (11+5) );
+
+    EUSART_Async_Transmit_Data_String_Blocking(_uart_obj ,"AT+ROLE:0\r\n", (11) );
+
+    EUSART_Async_Transmit_Data_String_Blocking(_uart_obj ,"AT+PSWD:1234\r\n",(10+4));
+
+    EUSART_Async_Transmit_Data_String_Blocking(_uart_obj ,"AT+UART:9600,0,0\r\n",(14+4));
+
+
+    _uart_obj->uart_baud_rate_value = 9600;
+
+    EUSART_Async_Init(_uart_obj);
 
 }
 
@@ -4949,5 +4966,22 @@ Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_o
     }
 
     return ret_val ;
+
+}
+
+Std_ReturnType Bluetooth_Send_String_Blocking(const uart_config_st *_uart_obj , uint8_t *data , uint8_t length )
+{
+    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+
+    if((((void*)0) ==_uart_obj ) || (((void*)0) == data))
+    {
+        ret_val = (Std_returnType) 0x00 ;
+    }
+    else
+    {
+        EUSART_Async_Transmit_Data_String_Blocking(_uart_obj , data , length );
+    }
+
+        return ret_val ;
 
 }

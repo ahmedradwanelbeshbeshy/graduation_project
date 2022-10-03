@@ -79,7 +79,7 @@ void __interrupt() InterruptManagerHigh(void)
     
     if( (INT_ENABLE == PIE1bits.TXIE)  && (INT_OCCUR == PIR1bits.TXIF) )
     {
-        //EUSART_Tx_ISR();
+        EUSART_Tx_ISR();
     }
     else { /* Do Nothing */}
     

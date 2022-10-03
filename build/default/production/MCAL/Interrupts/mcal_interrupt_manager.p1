@@ -108,6 +108,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 MCAL/Interrupts/mcal_interrupt_manager.h
 [; ;MCAL/Interrupts/mcal_interrupt_manager.h: 47: void EUSART_Rx_ISR(void);
 [v _EUSART_Rx_ISR `(v ~T0 @X0 0 ef ]
+"46
+[; ;MCAL/Interrupts/mcal_interrupt_manager.h: 46: void EUSART_Tx_ISR(void);
+[v _EUSART_Tx_ISR `(v ~T0 @X0 0 ef ]
 [t T40 __interrupt low_priority ]
 "28
 [; ;MCAL/Interrupts/mcal_interrupt_manager.h: 28: void INT1_ISR(void);
@@ -707,6 +710,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "81
 [; ;MCAL/Interrupts/mcal_interrupt_manager.c: 81:     {
 {
+"82
+[; ;MCAL/Interrupts/mcal_interrupt_manager.c: 82:         EUSART_Tx_ISR();
+[e ( _EUSART_Tx_ISR ..  ]
 "83
 [; ;MCAL/Interrupts/mcal_interrupt_manager.c: 83:     }
 }

@@ -1,20 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3078 `(v ~T0 @X0 0 tf ]
-[v F3079 `(v ~T0 @X0 0 tf ]
 [v F3081 `(v ~T0 @X0 0 tf ]
 [v F3082 `(v ~T0 @X0 0 tf ]
 [v F3084 `(v ~T0 @X0 0 tf ]
 [v F3085 `(v ~T0 @X0 0 tf ]
+[v F3087 `(v ~T0 @X0 0 tf ]
+[v F3088 `(v ~T0 @X0 0 tf ]
+[v F3090 `(v ~T0 @X0 0 tf ]
+[v F3091 `(v ~T0 @X0 0 tf ]
+[v F3033 `(v ~T0 @X0 0 tf ]
 "106 MCAL/EUSART/mcal_EUSART.h
 [; ;MCAL/EUSART/mcal_EUSART.h: 106: typedef struct {
-[s S274 :2 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S274 . uart_tx_9th_bit_role tx_enable tx_9th_bit_en tx_reserved ]
-[v F3039 `(v ~T0 @X0 0 tf ]
-[v F3041 `(v ~T0 @X0 0 tf ]
-[v F3043 `(v ~T0 @X0 0 tf ]
+[s S274 `*F3033 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S274 . tx_InterruptHandler uart_tx_priority uart_tx_9th_bit_role tx_enable tx_9th_bit_en tx_reserved ]
+[v F3042 `(v ~T0 @X0 0 tf ]
+[v F3044 `(v ~T0 @X0 0 tf ]
+[v F3046 `(v ~T0 @X0 0 tf ]
 "122
 [; ;MCAL/EUSART/mcal_EUSART.h: 122: typedef struct {
-[s S275 `*F3039 1 `*F3041 1 `*F3043 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[s S275 `*F3042 1 `*F3044 1 `*F3046 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
 [n S275 . rx_InterruptHandler oerr_InterruptHandler ferr_InterruptHandler uart_rx_priority uart_rx_9th_bit_role rx_enable rx_9th_bit_en rx_reserved ]
 "42 MCAL/EUSART/mcal_EUSART.c
 [; ;MCAL/EUSART/mcal_EUSART.c: 42: Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj)
@@ -47,10 +50,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S111 . . . . . . . ]
 "3062
 [v _RCSTAbits `VS111 ~T0 @X0 0 e@4011 ]
-[v F3087 `(uc ~T0 @X0 1 tf1`*CS276 ]
+[v F3093 `(uc ~T0 @X0 1 tf1`*CS276 ]
 "22 MCAL/EUSART/mcal_EUSART.c
 [; ;MCAL/EUSART/mcal_EUSART.c: 22: static __attribute__((inline)) Std_ReturnType async_config_baud_rate_gen(const uart_config_st *_eusart_obj);
-[v _async_config_baud_rate_gen `TF3087 ~T0 @X0 0 s ]
+[v _async_config_baud_rate_gen `TF3093 ~T0 @X0 0 s ]
 "3364 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc/pic18f4620.h
 [s S131 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S131 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
@@ -83,14 +86,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 62:         TRISCbits.RC6 = GPIO_DIRECTION_INPUT ;
 [c E2969 0 1 .. ]
 [n E2969 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
-[v F3090 `(uc ~T0 @X0 1 tf1`*CS274 ]
+[v F3096 `(uc ~T0 @X0 1 tf1`*CS274 ]
 "24
 [; ;MCAL/EUSART/mcal_EUSART.c: 24: static __attribute__((inline)) Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj );
-[v _async_Tx_config `TF3090 ~T0 @X0 0 s ]
-[v F3093 `(uc ~T0 @X0 1 tf1`*CS275 ]
+[v _async_Tx_config `TF3096 ~T0 @X0 0 s ]
+[v F3099 `(uc ~T0 @X0 1 tf1`*CS275 ]
 "25
 [; ;MCAL/EUSART/mcal_EUSART.c: 25: static __attribute__((inline)) Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj );
-[v _async_Rx_config `TF3093 ~T0 @X0 0 s ]
+[v _async_Rx_config `TF3099 ~T0 @X0 0 s ]
 "2504 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc/pic18f4620.h
 [s S91 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S91 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
@@ -119,14 +122,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S125 . . . . . ]
 "3270
 [v _TXSTAbits `VS125 ~T0 @X0 0 e@4012 ]
-[v F3105 `(uc ~T0 @X0 1 tf1`uc ]
+[v F3111 `(uc ~T0 @X0 1 tf1`uc ]
 "30 MCAL/EUSART/mcal_EUSART.c
 [; ;MCAL/EUSART/mcal_EUSART.c: 30: static __attribute__((inline)) uint8_t calc_parity_even(uint8_t data);
-[v _calc_parity_even `TF3105 ~T0 @X0 0 s ]
-[v F3102 `(uc ~T0 @X0 1 tf1`uc ]
+[v _calc_parity_even `TF3111 ~T0 @X0 0 s ]
+[v F3108 `(uc ~T0 @X0 1 tf1`uc ]
 "29
 [; ;MCAL/EUSART/mcal_EUSART.c: 29: static __attribute__((inline)) uint8_t calc_parity_odd(uint8_t data);
-[v _calc_parity_odd `TF3102 ~T0 @X0 0 s ]
+[v _calc_parity_odd `TF3108 ~T0 @X0 0 s ]
 "3487 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc/pic18f4620.h
 [v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
 "2581
@@ -171,12 +174,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S118 . . . . . . . ]
 "3161
 [v _RCSTA1bits `VS118 ~T0 @X0 0 e@4011 ]
-[v F3124 `(v ~T0 @X0 0 tf ]
-[v F3125 `(v ~T0 @X0 0 tf ]
-[v F3099 `(uc ~T0 @X0 1 tf1`*CS275 ]
-"27 MCAL/EUSART/mcal_EUSART.c
+[v F3130 `(v ~T0 @X0 0 tf ]
+[v F3131 `(v ~T0 @X0 0 tf ]
+[v F3102 `(uc ~T0 @X0 1 tf1`*CS274 ]
+"26 MCAL/EUSART/mcal_EUSART.c
+[; ;MCAL/EUSART/mcal_EUSART.c: 26: static __attribute__((inline)) Std_ReturnType Tx_config_interrupt(const uart_tx_config_st *_tx_obj);
+[v _Tx_config_interrupt `TF3102 ~T0 @X0 0 s ]
+[v F3105 `(uc ~T0 @X0 1 tf1`*CS275 ]
+"27
 [; ;MCAL/EUSART/mcal_EUSART.c: 27: static __attribute__((inline)) Std_ReturnType Rx_config_interrupt(const uart_rx_config_st *_rx_obj);
-[v _Rx_config_interrupt `TF3099 ~T0 @X0 0 s ]
+[v _Rx_config_interrupt `TF3105 ~T0 @X0 0 s ]
 "5355 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc/pic18f4620.h
 [s S226 :1 `uc 1 ]
 [n S226 . NOT_BOR ]
@@ -246,7 +253,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
 "3523
 [v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
-[v F3182 `(v ~T0 @X0 0 tf ]
+[v F3190 `(v ~T0 @X0 0 tf ]
+[v F3192 `(v ~T0 @X0 0 tf ]
 "55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc/pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
@@ -521,23 +529,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6716
 [; <" TOSU equ 0FFFh ;# ">
-"17 MCAL/EUSART/mcal_EUSART.c
+"13 MCAL/EUSART/mcal_EUSART.c
+[; ;MCAL/EUSART/mcal_EUSART.c: 13:     static InterruptHandler eusart_Tx_InterruptHandler = ((void*)0) ;
+[v _eusart_Tx_InterruptHandler `*F3081 ~T0 @X0 1 s ]
+[i _eusart_Tx_InterruptHandler
+-> -> -> 0 `i `*v `*F3082
+]
+"17
 [; ;MCAL/EUSART/mcal_EUSART.c: 17:     static InterruptHandler eusart_Rx_InterruptHandler = ((void*)0) ;
-[v _eusart_Rx_InterruptHandler `*F3078 ~T0 @X0 1 s ]
+[v _eusart_Rx_InterruptHandler `*F3084 ~T0 @X0 1 s ]
 [i _eusart_Rx_InterruptHandler
--> -> -> 0 `i `*v `*F3079
+-> -> -> 0 `i `*v `*F3085
 ]
 "18
 [; ;MCAL/EUSART/mcal_EUSART.c: 18:     static InterruptHandler eusart_overrunerr_CallBack = ((void*)0) ;
-[v _eusart_overrunerr_CallBack `*F3081 ~T0 @X0 1 s ]
+[v _eusart_overrunerr_CallBack `*F3087 ~T0 @X0 1 s ]
 [i _eusart_overrunerr_CallBack
--> -> -> 0 `i `*v `*F3082
+-> -> -> 0 `i `*v `*F3088
 ]
 "19
 [; ;MCAL/EUSART/mcal_EUSART.c: 19:     static InterruptHandler eusart_frameerr_CallBack = ((void*)0) ;
-[v _eusart_frameerr_CallBack `*F3084 ~T0 @X0 1 s ]
+[v _eusart_frameerr_CallBack `*F3090 ~T0 @X0 1 s ]
 [i _eusart_frameerr_CallBack
--> -> -> 0 `i `*v `*F3085
+-> -> -> 0 `i `*v `*F3091
 ]
 "42
 [; ;MCAL/EUSART/mcal_EUSART.c: 42: Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj)
@@ -647,6 +661,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "98
 [; ;MCAL/EUSART/mcal_EUSART.c: 98:     {
 {
+"101
+[; ;MCAL/EUSART/mcal_EUSART.c: 101:             (PIE1bits.TXIE = 0);
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
 "105
 [; ;MCAL/EUSART/mcal_EUSART.c: 105:             (PIE1bits.RCIE = 0);
 [e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
@@ -704,13 +721,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "135
 [; ;MCAL/EUSART/mcal_EUSART.c: 135:         if(1 == _eusart_obj->tx_config.tx_9th_bit_en)
-[e $ ! == -> 1 `i -> . . *U __eusart_obj 1 2 `i 286  ]
+[e $ ! == -> 1 `i -> . . *U __eusart_obj 1 4 `i 286  ]
 "136
 [; ;MCAL/EUSART/mcal_EUSART.c: 136:         {
 {
 "139
 [; ;MCAL/EUSART/mcal_EUSART.c: 139:             if(0 == _eusart_obj->tx_config.uart_tx_9th_bit_role)
-[e $ ! == -> 0 `i -> . . *U __eusart_obj 1 0 `i 287  ]
+[e $ ! == -> 0 `i -> . . *U __eusart_obj 1 2 `i 287  ]
 "140
 [; ;MCAL/EUSART/mcal_EUSART.c: 140:             {
 {
@@ -724,7 +741,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "145
 [; ;MCAL/EUSART/mcal_EUSART.c: 145:             else if(1 == _eusart_obj->tx_config.uart_tx_9th_bit_role)
 [e :U 287 ]
-[e $ ! == -> 1 `i -> . . *U __eusart_obj 1 0 `i 289  ]
+[e $ ! == -> 1 `i -> . . *U __eusart_obj 1 2 `i 289  ]
 "146
 [; ;MCAL/EUSART/mcal_EUSART.c: 146:             {
 {
@@ -738,7 +755,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "151
 [; ;MCAL/EUSART/mcal_EUSART.c: 151:             else if (2 == _eusart_obj->tx_config.uart_tx_9th_bit_role)
 [e :U 289 ]
-[e $ ! == -> 2 `i -> . . *U __eusart_obj 1 0 `i 291  ]
+[e $ ! == -> 2 `i -> . . *U __eusart_obj 1 2 `i 291  ]
 "152
 [; ;MCAL/EUSART/mcal_EUSART.c: 152:             {
 {
@@ -758,6 +775,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "160
 [; ;MCAL/EUSART/mcal_EUSART.c: 160:         TXREG = (uint8)data;
 [e = _TXREG -> _data `uc ]
+"162
+[; ;MCAL/EUSART/mcal_EUSART.c: 162:         PIE1bits.TXIE = 1 ;
+[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
 "164
 [; ;MCAL/EUSART/mcal_EUSART.c: 164:     }
 }
@@ -1010,7 +1030,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
 "293
 [; ;MCAL/EUSART/mcal_EUSART.c: 293:         if(eusart_overrunerr_CallBack)
-[e $ ! != _eusart_overrunerr_CallBack -> -> 0 `i `*F3124 313  ]
+[e $ ! != _eusart_overrunerr_CallBack -> -> 0 `i `*F3130 313  ]
 "294
 [; ;MCAL/EUSART/mcal_EUSART.c: 294:         {
 {
@@ -1040,7 +1060,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 317 ]
 "304
 [; ;MCAL/EUSART/mcal_EUSART.c: 304:         if(eusart_frameerr_CallBack)
-[e $ ! != _eusart_frameerr_CallBack -> -> 0 `i `*F3125 318  ]
+[e $ ! != _eusart_frameerr_CallBack -> -> 0 `i `*F3131 318  ]
 "305
 [; ;MCAL/EUSART/mcal_EUSART.c: 305:         {
 {
@@ -1255,10 +1275,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 369: }
 [e :UE 331 ]
 }
-[v F3141 `(uc ~T0 @X0 1 tf1`*CS274 ]
+[v F3147 `(uc ~T0 @X0 1 tf1`*CS274 ]
 "374
 [; ;MCAL/EUSART/mcal_EUSART.c: 374: static Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj )
-[v _async_Tx_config `TF3141 ~T0 @X0 1 s ]
+[v _async_Tx_config `TF3147 ~T0 @X0 1 s ]
 "375
 [; ;MCAL/EUSART/mcal_EUSART.c: 375: {
 {
@@ -1294,16 +1314,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "384
 [; ;MCAL/EUSART/mcal_EUSART.c: 384:         if(1 == _tx_obj->tx_enable)
-[e $ ! == -> 1 `i -> . *U __tx_obj 1 `i 341  ]
+[e $ ! == -> 1 `i -> . *U __tx_obj 3 `i 341  ]
 "385
 [; ;MCAL/EUSART/mcal_EUSART.c: 385:         {
 {
 "388
 [; ;MCAL/EUSART/mcal_EUSART.c: 388:             (TXSTAbits.TXEN = 0);
 [e = . . _TXSTAbits 0 5 -> -> 0 `i `uc ]
+"391
+[; ;MCAL/EUSART/mcal_EUSART.c: 391:             ret_val = Tx_config_interrupt(_tx_obj);
+[e = _ret_val ( _Tx_config_interrupt (1 __tx_obj ]
 "394
 [; ;MCAL/EUSART/mcal_EUSART.c: 394:             if(1 == _tx_obj->tx_9th_bit_en )
-[e $ ! == -> 1 `i -> . *U __tx_obj 2 `i 342  ]
+[e $ ! == -> 1 `i -> . *U __tx_obj 4 `i 342  ]
 "395
 [; ;MCAL/EUSART/mcal_EUSART.c: 395:             {
 {
@@ -1317,7 +1340,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "398
 [; ;MCAL/EUSART/mcal_EUSART.c: 398:             else if (0 == _tx_obj->tx_9th_bit_en )
 [e :U 342 ]
-[e $ ! == -> 0 `i -> . *U __tx_obj 2 `i 344  ]
+[e $ ! == -> 0 `i -> . *U __tx_obj 4 `i 344  ]
 "399
 [; ;MCAL/EUSART/mcal_EUSART.c: 399:             {
 {
@@ -1345,7 +1368,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "407
 [; ;MCAL/EUSART/mcal_EUSART.c: 407:         else if (0 == _tx_obj->tx_enable)
 [e :U 341 ]
-[e $ ! == -> 0 `i -> . *U __tx_obj 1 `i 347  ]
+[e $ ! == -> 0 `i -> . *U __tx_obj 3 `i 347  ]
 "408
 [; ;MCAL/EUSART/mcal_EUSART.c: 408:         {
 {
@@ -1375,10 +1398,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 418: }
 [e :UE 338 ]
 }
-[v F3145 `(uc ~T0 @X0 1 tf1`*CS275 ]
+[v F3151 `(uc ~T0 @X0 1 tf1`*CS275 ]
 "419
 [; ;MCAL/EUSART/mcal_EUSART.c: 419: static Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj )
-[v _async_Rx_config `TF3145 ~T0 @X0 1 s ]
+[v _async_Rx_config `TF3151 ~T0 @X0 1 s ]
 "420
 [; ;MCAL/EUSART/mcal_EUSART.c: 420: {
 {
@@ -1498,10 +1521,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 462: }
 [e :UE 349 ]
 }
-[v F3149 `(uc ~T0 @X0 1 tf1`*CS274 ]
+[v F3155 `(uc ~T0 @X0 1 tf1`*CS274 ]
 "464
 [; ;MCAL/EUSART/mcal_EUSART.c: 464: static __attribute__((inline)) Std_ReturnType Tx_config_interrupt(const uart_tx_config_st *_tx_obj)
-[v _Tx_config_interrupt `TF3149 ~T0 @X0 1 s ]
+[v _Tx_config_interrupt `TF3155 ~T0 @X0 1 s ]
 "465
 [; ;MCAL/EUSART/mcal_EUSART.c: 465: {
 {
@@ -1535,6 +1558,58 @@ Version 4.0 HI-TECH Software Intermediate Code
 "474
 [; ;MCAL/EUSART/mcal_EUSART.c: 474:     {
 {
+"476
+[; ;MCAL/EUSART/mcal_EUSART.c: 476:         (PIE1bits.TXIE = 1);
+[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
+"477
+[; ;MCAL/EUSART/mcal_EUSART.c: 477:         eusart_Tx_InterruptHandler = _tx_obj->tx_InterruptHandler ;
+[e = _eusart_Tx_InterruptHandler . *U __tx_obj 0 ]
+"479
+[; ;MCAL/EUSART/mcal_EUSART.c: 479:                 (RCONbits.IPEN = 1 );
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+"480
+[; ;MCAL/EUSART/mcal_EUSART.c: 480:                 if(1 == _tx_obj->uart_tx_priority)
+[e $ ! == -> 1 `i -> . *U __tx_obj 1 `i 363  ]
+"481
+[; ;MCAL/EUSART/mcal_EUSART.c: 481:                 {
+{
+"482
+[; ;MCAL/EUSART/mcal_EUSART.c: 482:                     (IPR1bits.TXIP = 1);
+[e = . . _IPR1bits 0 4 -> -> 1 `i `uc ]
+"483
+[; ;MCAL/EUSART/mcal_EUSART.c: 483:                     (INTCONbits.GIEH = 1);
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+"485
+[; ;MCAL/EUSART/mcal_EUSART.c: 485:                 }
+}
+[e $U 364  ]
+"486
+[; ;MCAL/EUSART/mcal_EUSART.c: 486:                 else if(0 == _tx_obj->uart_tx_priority)
+[e :U 363 ]
+[e $ ! == -> 0 `i -> . *U __tx_obj 1 `i 365  ]
+"487
+[; ;MCAL/EUSART/mcal_EUSART.c: 487:                 {
+{
+"488
+[; ;MCAL/EUSART/mcal_EUSART.c: 488:                     (IPR1bits.TXIP = 0);
+[e = . . _IPR1bits 0 4 -> -> 0 `i `uc ]
+"489
+[; ;MCAL/EUSART/mcal_EUSART.c: 489:                     (INTCONbits.GIEH = 1);
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+"490
+[; ;MCAL/EUSART/mcal_EUSART.c: 490:                     (INTCONbits.GIEL = 1);
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"491
+[; ;MCAL/EUSART/mcal_EUSART.c: 491:                 }
+}
+[e $U 366  ]
+"492
+[; ;MCAL/EUSART/mcal_EUSART.c: 492:                 else { }
+[e :U 365 ]
+{
+}
+[e :U 366 ]
+[e :U 364 ]
 "500
 [; ;MCAL/EUSART/mcal_EUSART.c: 500:     }
 }
@@ -1547,10 +1622,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 505: }
 [e :UE 360 ]
 }
-[v F3153 `(uc ~T0 @X0 1 tf1`*CS275 ]
+[v F3162 `(uc ~T0 @X0 1 tf1`*CS275 ]
 "506
 [; ;MCAL/EUSART/mcal_EUSART.c: 506: static __attribute__((inline)) Std_ReturnType Rx_config_interrupt(const uart_rx_config_st *_rx_obj)
-[v _Rx_config_interrupt `TF3153 ~T0 @X0 1 s ]
+[v _Rx_config_interrupt `TF3162 ~T0 @X0 1 s ]
 "507
 [; ;MCAL/EUSART/mcal_EUSART.c: 507: {
 {
@@ -1567,7 +1642,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ret_val -> -> 1 `i `uc ]
 "511
 [; ;MCAL/EUSART/mcal_EUSART.c: 511:     if(((void*)0) == _rx_obj)
-[e $ ! == -> -> -> 0 `i `*v `*CS275 __rx_obj 364  ]
+[e $ ! == -> -> -> 0 `i `*v `*CS275 __rx_obj 368  ]
 "512
 [; ;MCAL/EUSART/mcal_EUSART.c: 512:     {
 {
@@ -1577,10 +1652,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "514
 [; ;MCAL/EUSART/mcal_EUSART.c: 514:     }
 }
-[e $U 365  ]
+[e $U 369  ]
 "515
 [; ;MCAL/EUSART/mcal_EUSART.c: 515:     else
-[e :U 364 ]
+[e :U 368 ]
 "516
 [; ;MCAL/EUSART/mcal_EUSART.c: 516:     {
 {
@@ -1601,7 +1676,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
 "525
 [; ;MCAL/EUSART/mcal_EUSART.c: 525:                 if(1 == _rx_obj->uart_rx_priority)
-[e $ ! == -> 1 `i -> . *U __rx_obj 3 `i 366  ]
+[e $ ! == -> 1 `i -> . *U __rx_obj 3 `i 370  ]
 "526
 [; ;MCAL/EUSART/mcal_EUSART.c: 526:                 {
 {
@@ -1614,11 +1689,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "530
 [; ;MCAL/EUSART/mcal_EUSART.c: 530:                 }
 }
-[e $U 367  ]
+[e $U 371  ]
 "531
 [; ;MCAL/EUSART/mcal_EUSART.c: 531:                 else if(0 == _rx_obj->uart_rx_priority)
-[e :U 366 ]
-[e $ ! == -> 0 `i -> . *U __rx_obj 3 `i 368  ]
+[e :U 370 ]
+[e $ ! == -> 0 `i -> . *U __rx_obj 3 `i 372  ]
 "532
 [; ;MCAL/EUSART/mcal_EUSART.c: 532:                 {
 {
@@ -1634,33 +1709,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 "536
 [; ;MCAL/EUSART/mcal_EUSART.c: 536:                 }
 }
-[e $U 369  ]
+[e $U 373  ]
 "537
 [; ;MCAL/EUSART/mcal_EUSART.c: 537:                 else { }
-[e :U 368 ]
+[e :U 372 ]
 {
 }
-[e :U 369 ]
-[e :U 367 ]
+[e :U 373 ]
+[e :U 371 ]
 "543
 [; ;MCAL/EUSART/mcal_EUSART.c: 543:         (PIE1bits.RCIE = 1);
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
 "546
 [; ;MCAL/EUSART/mcal_EUSART.c: 546:     }
 }
-[e :U 365 ]
+[e :U 369 ]
 "548
 [; ;MCAL/EUSART/mcal_EUSART.c: 548:     return ret_val ;
 [e ) _ret_val ]
-[e $UE 363  ]
+[e $UE 367  ]
 "550
 [; ;MCAL/EUSART/mcal_EUSART.c: 550: }
-[e :UE 363 ]
+[e :UE 367 ]
 }
-[v F3166 `(uc ~T0 @X0 1 tf1`*CS276 ]
+[v F3175 `(uc ~T0 @X0 1 tf1`*CS276 ]
 "552
 [; ;MCAL/EUSART/mcal_EUSART.c: 552: static __attribute__((inline)) Std_ReturnType async_config_baud_rate_gen(const uart_config_st *_eusart_obj)
-[v _async_config_baud_rate_gen `TF3166 ~T0 @X0 1 s ]
+[v _async_config_baud_rate_gen `TF3175 ~T0 @X0 1 s ]
 "553
 [; ;MCAL/EUSART/mcal_EUSART.c: 553: {
 {
@@ -1677,7 +1752,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ret_val -> -> 1 `i `uc ]
 "557
 [; ;MCAL/EUSART/mcal_EUSART.c: 557:     if(((void*)0) == _eusart_obj)
-[e $ ! == -> -> -> 0 `i `*v `*CS276 __eusart_obj 371  ]
+[e $ ! == -> -> -> 0 `i `*v `*CS276 __eusart_obj 375  ]
 "558
 [; ;MCAL/EUSART/mcal_EUSART.c: 558:     {
 {
@@ -1687,10 +1762,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "560
 [; ;MCAL/EUSART/mcal_EUSART.c: 560:     }
 }
-[e $U 372  ]
+[e $U 376  ]
 "561
 [; ;MCAL/EUSART/mcal_EUSART.c: 561:     else
-[e :U 371 ]
+[e :U 375 ]
 "562
 [; ;MCAL/EUSART/mcal_EUSART.c: 562:     {
 {
@@ -1700,13 +1775,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _Baudrate_temp -> -> 0 `i `f ]
 "564
 [; ;MCAL/EUSART/mcal_EUSART.c: 564:         switch(_eusart_obj->baud_rate_config)
-[e $U 374  ]
+[e $U 378  ]
 "565
 [; ;MCAL/EUSART/mcal_EUSART.c: 565:         {
 {
 "566
 [; ;MCAL/EUSART/mcal_EUSART.c: 566:             case BAUDRATE_ASYNC_8BIT_LOW_SPEED:
-[e :U 375 ]
+[e :U 379 ]
 "567
 [; ;MCAL/EUSART/mcal_EUSART.c: 567:                 TXSTAbits.BRGH = 0 ;
 [e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
@@ -1718,10 +1793,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _Baudrate_temp - / / -> -> 8000000 `l `f -> . *U __eusart_obj 0 `f -> -> 64 `i `f -> -> 1 `i `f ]
 "570
 [; ;MCAL/EUSART/mcal_EUSART.c: 570:                 break;
-[e $U 373  ]
+[e $U 377  ]
 "571
 [; ;MCAL/EUSART/mcal_EUSART.c: 571:             case BAUDRATE_ASYNC_8BIT_HIGH_SPEED:
-[e :U 376 ]
+[e :U 380 ]
 "572
 [; ;MCAL/EUSART/mcal_EUSART.c: 572:                 TXSTAbits.BRGH = 1 ;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
@@ -1733,10 +1808,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _Baudrate_temp - / / -> -> 8000000 `l `f -> . *U __eusart_obj 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
 "575
 [; ;MCAL/EUSART/mcal_EUSART.c: 575:                 break ;
-[e $U 373  ]
+[e $U 377  ]
 "576
 [; ;MCAL/EUSART/mcal_EUSART.c: 576:             case BAUDRATE_ASYNC_16BIT_LOW_SPEED :
-[e :U 377 ]
+[e :U 381 ]
 "577
 [; ;MCAL/EUSART/mcal_EUSART.c: 577:                 TXSTAbits.BRGH = 0 ;
 [e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
@@ -1748,10 +1823,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _Baudrate_temp - / / -> -> 8000000 `l `f -> . *U __eusart_obj 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
 "580
 [; ;MCAL/EUSART/mcal_EUSART.c: 580:                 break ;
-[e $U 373  ]
+[e $U 377  ]
 "581
 [; ;MCAL/EUSART/mcal_EUSART.c: 581:             case BAUDRATE_ASYNC_16BIT_HIGH_SPEED:
-[e :U 378 ]
+[e :U 382 ]
 "582
 [; ;MCAL/EUSART/mcal_EUSART.c: 582:                 TXSTAbits.BRGH = 1 ;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
@@ -1763,27 +1838,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _Baudrate_temp - / / -> -> 8000000 `l `f -> . *U __eusart_obj 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
 "585
 [; ;MCAL/EUSART/mcal_EUSART.c: 585:                 break ;
-[e $U 373  ]
+[e $U 377  ]
 "586
 [; ;MCAL/EUSART/mcal_EUSART.c: 586:             default:
-[e :U 379 ]
+[e :U 383 ]
 "587
 [; ;MCAL/EUSART/mcal_EUSART.c: 587:                 ret_val = (Std_returnType) 0x00 ;
 [e = _ret_val -> -> 0 `i `uc ]
 "588
 [; ;MCAL/EUSART/mcal_EUSART.c: 588:                 break ;
-[e $U 373  ]
+[e $U 377  ]
 "589
 [; ;MCAL/EUSART/mcal_EUSART.c: 589:         }
 }
-[e $U 373  ]
-[e :U 374 ]
-[e [\ -> . *U __eusart_obj 3 `ui , $ -> . `E3025 0 `ui 375
- , $ -> . `E3025 1 `ui 376
- , $ -> . `E3025 2 `ui 377
- , $ -> . `E3025 3 `ui 378
- 379 ]
-[e :U 373 ]
+[e $U 377  ]
+[e :U 378 ]
+[e [\ -> . *U __eusart_obj 3 `ui , $ -> . `E3025 0 `ui 379
+ , $ -> . `E3025 1 `ui 380
+ , $ -> . `E3025 2 `ui 381
+ , $ -> . `E3025 3 `ui 382
+ 383 ]
+[e :U 377 ]
 "592
 [; ;MCAL/EUSART/mcal_EUSART.c: 592:         SPBRG=(uint8)((uint32)Baudrate_temp);
 [e = _SPBRG -> -> _Baudrate_temp `ul `uc ]
@@ -1793,19 +1868,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "594
 [; ;MCAL/EUSART/mcal_EUSART.c: 594:     }
 }
-[e :U 372 ]
+[e :U 376 ]
 "596
 [; ;MCAL/EUSART/mcal_EUSART.c: 596:     return ret_val ;
 [e ) _ret_val ]
-[e $UE 370  ]
+[e $UE 374  ]
 "598
 [; ;MCAL/EUSART/mcal_EUSART.c: 598: }
-[e :UE 370 ]
+[e :UE 374 ]
 }
-[v F3171 `(uc ~T0 @X0 1 tf1`uc ]
+[v F3180 `(uc ~T0 @X0 1 tf1`uc ]
 "600
 [; ;MCAL/EUSART/mcal_EUSART.c: 600: static __attribute__((inline)) uint8_t calc_parity_odd(uint8_t data)
-[v _calc_parity_odd `TF3171 ~T0 @X0 1 s ]
+[v _calc_parity_odd `TF3180 ~T0 @X0 1 s ]
 "601
 [; ;MCAL/EUSART/mcal_EUSART.c: 601: {
 {
@@ -1828,15 +1903,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 621:     for(l_counter = 0 ; l_counter < 8 ; l_counter++ )
 {
 [e = _l_counter -> -> 0 `i `uc ]
-[e $ < -> _l_counter `i -> 8 `i 381  ]
-[e $U 382  ]
-[e :U 381 ]
+[e $ < -> _l_counter `i -> 8 `i 385  ]
+[e $U 386  ]
+[e :U 385 ]
 "622
 [; ;MCAL/EUSART/mcal_EUSART.c: 622:     {
 {
 "623
 [; ;MCAL/EUSART/mcal_EUSART.c: 623:         if( (data & 0x01 << l_counter) != 0 )
-[e $ ! != & -> _data `i << -> 1 `i -> _l_counter `i -> 0 `i 384  ]
+[e $ ! != & -> _data `i << -> 1 `i -> _l_counter `i -> 0 `i 388  ]
 "624
 [; ;MCAL/EUSART/mcal_EUSART.c: 624:         {
 {
@@ -1846,43 +1921,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 "626
 [; ;MCAL/EUSART/mcal_EUSART.c: 626:         }
 }
-[e :U 384 ]
+[e :U 388 ]
 "627
 [; ;MCAL/EUSART/mcal_EUSART.c: 627:     }
 }
 [e ++ _l_counter -> -> 1 `i `uc ]
-[e $ < -> _l_counter `i -> 8 `i 381  ]
-[e :U 382 ]
+[e $ < -> _l_counter `i -> 8 `i 385  ]
+[e :U 386 ]
 }
 "630
 [; ;MCAL/EUSART/mcal_EUSART.c: 630:     number_of_ones++ ;
 [e ++ _number_of_ones -> -> 1 `i `uc ]
 "632
 [; ;MCAL/EUSART/mcal_EUSART.c: 632:     if((number_of_ones % 2) == 0)
-[e $ ! == % -> _number_of_ones `i -> 2 `i -> 0 `i 385  ]
+[e $ ! == % -> _number_of_ones `i -> 2 `i -> 0 `i 389  ]
 "633
 [; ;MCAL/EUSART/mcal_EUSART.c: 633:     {
 {
 "634
 [; ;MCAL/EUSART/mcal_EUSART.c: 634:         return 1 ;
 [e ) -> -> 1 `i `uc ]
-[e $UE 380  ]
+[e $UE 384  ]
 "635
 [; ;MCAL/EUSART/mcal_EUSART.c: 635:     }
 }
-[e :U 385 ]
+[e :U 389 ]
 "636
 [; ;MCAL/EUSART/mcal_EUSART.c: 636:     return 0 ;
 [e ) -> -> 0 `i `uc ]
-[e $UE 380  ]
+[e $UE 384  ]
 "637
 [; ;MCAL/EUSART/mcal_EUSART.c: 637: }
-[e :UE 380 ]
+[e :UE 384 ]
 }
-[v F3176 `(uc ~T0 @X0 1 tf1`uc ]
+[v F3185 `(uc ~T0 @X0 1 tf1`uc ]
 "638
 [; ;MCAL/EUSART/mcal_EUSART.c: 638: static __attribute__((inline)) uint8_t calc_parity_even(uint8_t data)
-[v _calc_parity_even `TF3176 ~T0 @X0 1 s ]
+[v _calc_parity_even `TF3185 ~T0 @X0 1 s ]
 "639
 [; ;MCAL/EUSART/mcal_EUSART.c: 639: {
 {
@@ -1905,15 +1980,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 655:     for(l_counter = 0 ; l_counter < 8 ; l_counter++ )
 {
 [e = _l_counter -> -> 0 `i `uc ]
-[e $ < -> _l_counter `i -> 8 `i 387  ]
-[e $U 388  ]
-[e :U 387 ]
+[e $ < -> _l_counter `i -> 8 `i 391  ]
+[e $U 392  ]
+[e :U 391 ]
 "656
 [; ;MCAL/EUSART/mcal_EUSART.c: 656:     {
 {
 "657
 [; ;MCAL/EUSART/mcal_EUSART.c: 657:         if( (data & 0x01 << l_counter) != 0 )
-[e $ ! != & -> _data `i << -> 1 `i -> _l_counter `i -> 0 `i 390  ]
+[e $ ! != & -> _data `i << -> 1 `i -> _l_counter `i -> 0 `i 394  ]
 "658
 [; ;MCAL/EUSART/mcal_EUSART.c: 658:         {
 {
@@ -1923,38 +1998,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "660
 [; ;MCAL/EUSART/mcal_EUSART.c: 660:         }
 }
-[e :U 390 ]
+[e :U 394 ]
 "661
 [; ;MCAL/EUSART/mcal_EUSART.c: 661:     }
 }
 [e ++ _l_counter -> -> 1 `i `uc ]
-[e $ < -> _l_counter `i -> 8 `i 387  ]
-[e :U 388 ]
+[e $ < -> _l_counter `i -> 8 `i 391  ]
+[e :U 392 ]
 }
 "664
 [; ;MCAL/EUSART/mcal_EUSART.c: 664:     number_of_ones++ ;
 [e ++ _number_of_ones -> -> 1 `i `uc ]
 "666
 [; ;MCAL/EUSART/mcal_EUSART.c: 666:     if((number_of_ones % 2) != 0)
-[e $ ! != % -> _number_of_ones `i -> 2 `i -> 0 `i 391  ]
+[e $ ! != % -> _number_of_ones `i -> 2 `i -> 0 `i 395  ]
 "667
 [; ;MCAL/EUSART/mcal_EUSART.c: 667:     {
 {
 "668
 [; ;MCAL/EUSART/mcal_EUSART.c: 668:         return 1 ;
 [e ) -> -> 1 `i `uc ]
-[e $UE 386  ]
+[e $UE 390  ]
 "669
 [; ;MCAL/EUSART/mcal_EUSART.c: 669:     }
 }
-[e :U 391 ]
+[e :U 395 ]
 "670
 [; ;MCAL/EUSART/mcal_EUSART.c: 670:     return 0 ;
 [e ) -> -> 0 `i `uc ]
-[e $UE 386  ]
+[e $UE 390  ]
 "671
 [; ;MCAL/EUSART/mcal_EUSART.c: 671: }
-[e :UE 386 ]
+[e :UE 390 ]
 }
 "673
 [; ;MCAL/EUSART/mcal_EUSART.c: 673: void EUSART_Tx_ISR(void)
@@ -1964,9 +2039,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _EUSART_Tx_ISR ]
 [f ]
+"682
+[; ;MCAL/EUSART/mcal_EUSART.c: 682:     PIE1bits.TXIE = 0 ;
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+"684
+[; ;MCAL/EUSART/mcal_EUSART.c: 684:     if(eusart_Tx_InterruptHandler)
+[e $ ! != _eusart_Tx_InterruptHandler -> -> 0 `i `*F3190 397  ]
+"685
+[; ;MCAL/EUSART/mcal_EUSART.c: 685:     {
+{
+"686
+[; ;MCAL/EUSART/mcal_EUSART.c: 686:         eusart_Tx_InterruptHandler();
+[e ( *U _eusart_Tx_InterruptHandler ..  ]
+"687
+[; ;MCAL/EUSART/mcal_EUSART.c: 687:     }
+}
+[e :U 397 ]
 "689
 [; ;MCAL/EUSART/mcal_EUSART.c: 689: }
-[e :UE 392 ]
+[e :UE 396 ]
 }
 "691
 [; ;MCAL/EUSART/mcal_EUSART.c: 691: void EUSART_Rx_ISR(void)
@@ -1978,7 +2069,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "696
 [; ;MCAL/EUSART/mcal_EUSART.c: 696:     if(eusart_Rx_InterruptHandler)
-[e $ ! != _eusart_Rx_InterruptHandler -> -> 0 `i `*F3182 394  ]
+[e $ ! != _eusart_Rx_InterruptHandler -> -> 0 `i `*F3192 399  ]
 "697
 [; ;MCAL/EUSART/mcal_EUSART.c: 697:     {
 {
@@ -1988,8 +2079,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "699
 [; ;MCAL/EUSART/mcal_EUSART.c: 699:     }
 }
-[e :U 394 ]
+[e :U 399 ]
 "725
 [; ;MCAL/EUSART/mcal_EUSART.c: 725: }
-[e :UE 393 ]
+[e :UE 398 ]
 }

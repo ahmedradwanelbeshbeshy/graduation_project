@@ -7,13 +7,7 @@
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "application.c" 2
-
-
-
-
-
-
-
+# 10 "application.c"
 # 1 "./application.h" 1
 # 12 "./application.h"
 # 1 "./MCAL/std_libraries.h" 1
@@ -4814,11 +4808,28 @@ Std_ReturnType Interrupt_INTx_DeINIT(const Interrupt_INTx_st *int_obj);
 Std_ReturnType Interrupt_RBx_INIT(const Interrupt_RBx_st *int_obj);
 Std_ReturnType Interrupt_RBx_DeINIT(const Interrupt_RBx_st *int_obj);
 # 14 "./application.h" 2
-# 23 "./application.h"
+
+
+
+
+
+
+
+
+typedef struct {
+    uint8_t flag_0 : 1 ;
+    uint8_t flag_1 : 1 ;
+    uint8_t flag_2 : 1 ;
+    uint8_t flag_3 : 1 ;
+    uint8_t flag_4 : 1 ;
+    uint8_t flag_5 : 1 ;
+    uint8_t flag_6 : 1 ;
+    uint8_t flag_7 : 1 ;
+}Flags_st;
+
+
 void application_intialize(void);
-# 8 "application.c" 2
-
-
+# 10 "application.c" 2
 
 # 1 "./MCAL/EUSART/mcal_EUSART.h" 1
 # 15 "./MCAL/EUSART/mcal_EUSART.h"
@@ -4841,9 +4852,9 @@ typedef enum {
 
 typedef struct {
 
+    InterruptHandler tx_InterruptHandler ;
 
-
-
+    uint8_t uart_tx_priority : 1 ;
 
 
     uint8_t uart_tx_9th_bit_role : 2 ;
@@ -4902,13 +4913,32 @@ Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart
 Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len);
 # 11 "application.c" 2
 
+# 1 "./ECU/Bluetooth/Bluetooth.h" 1
+# 15 "./ECU/Bluetooth/Bluetooth.h"
+# 1 "./ECU/Bluetooth/Bluetooth_cfg.h" 1
+# 15 "./ECU/Bluetooth/Bluetooth.h" 2
+# 27 "./ECU/Bluetooth/Bluetooth.h"
+Std_ReturnType Bluetooth_Init(uart_config_st *_uart_obj);
+
+Std_ReturnType Bluetooth_Send_Data_Blocking(const uart_config_st *_uart_obj , uint8_t data);
+Std_ReturnType Bluetooth_Recieve_Data_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
+
+Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t data );
+Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
+
+Std_ReturnType Bluetooth_Send_String_Blocking(const uart_config_st *_uart_obj , uint8_t *data , uint8_t length );
+# 12 "application.c" 2
+
+
+
 void bluetooth_isr(void);
 
-uart_config_st uart = {
+uart_config_st _uart_obj = {
   .baud_rate_config = BAUDRATE_ASYNC_8BIT_LOW_SPEED ,
-  .uart_baud_rate_value =9600,
+  .uart_baud_rate_value =38400,
   .tx_config.tx_9th_bit_en = 0 ,
   .tx_config.tx_enable = 1 ,
+  .tx_config.uart_tx_priority = INT_HIGH_PRI ,
   .rx_config.rx_9th_bit_en = 0 ,
   .rx_config.rx_enable = 1,
   .rx_config.uart_rx_priority=1,
@@ -4921,6 +4951,12 @@ pin_config_st pind2={
    .pin=GPIO_PIN2,
    .port=PORTD_INDEX
 };
+pin_config_st pind1={
+   .direction=GPIO_DIRECTION_OUTPUT,
+   .logic=GPIO_LOW,
+   .pin=GPIO_PIN1,
+   .port=PORTD_INDEX
+};
 
 uint8 counter = 0 ;
 uint8 data = 0 ;
@@ -4928,28 +4964,27 @@ uint8 data = 0 ;
 
 int main()
 {
-    application_intialize();
+application_intialize();
+Bluetooth_Init(&_uart_obj);
      while(1)
      {
-
+         GPIO_Pin_Toggle_Logic(&pind1);
          _delay((unsigned long)((500)*(8000000/4000.0)));
-         EUSART_Async_Transmit_Data_String_Blocking(&uart,"ahmed\r\n",6);
-
-
-
      }
     return 0;
 
 }
 void application_intialize(void)
 {
-     GPIO_Pin_Initialize(&pind2);
-    EUSART_Async_Init(&uart);
+
+    GPIO_Pin_Initialize(&pind1);
+    GPIO_Pin_Initialize(&pind2);
+
 }
 void bluetooth_isr(void)
 {
   counter++;
   GPIO_Pin_Toggle_Logic(&pind2);
-   EUSART_Async_Read_Data(&uart , &data );
-   EUSART_Async_Transmit_Data(&uart , 'w');
+   EUSART_Async_Read_Data(&_uart_obj , &data );
+   EUSART_Async_Transmit_Data(&_uart_obj , 'w');
 }

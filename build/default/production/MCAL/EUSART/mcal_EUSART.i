@@ -4803,9 +4803,9 @@ typedef enum {
 
 typedef struct {
 
+    InterruptHandler tx_InterruptHandler ;
 
-
-
+    uint8_t uart_tx_priority : 1 ;
 
 
     uint8_t uart_tx_9th_bit_role : 2 ;
@@ -4863,7 +4863,15 @@ Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart
 
 Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len);
 # 8 "MCAL/EUSART/mcal_EUSART.c" 2
-# 17 "MCAL/EUSART/mcal_EUSART.c"
+
+
+
+
+
+    static InterruptHandler eusart_Tx_InterruptHandler = ((void*)0) ;
+
+
+
     static InterruptHandler eusart_Rx_InterruptHandler = ((void*)0) ;
     static InterruptHandler eusart_overrunerr_CallBack = ((void*)0) ;
     static InterruptHandler eusart_frameerr_CallBack = ((void*)0) ;
@@ -4930,7 +4938,7 @@ Std_ReturnType EUSART_Async_Deinit(const uart_config_st *_eusart_obj)
     {
 
 
-
+            (PIE1bits.TXIE = 0);
 
 
 
@@ -4982,7 +4990,7 @@ Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_st *_eusart_obj , ui
 
         TXREG = (uint8)data;
 
-
+        PIE1bits.TXIE = 1 ;
 
     }
 
@@ -5193,7 +5201,7 @@ static Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj )
             (TXSTAbits.TXEN = 0);
 
 
-
+            ret_val = Tx_config_interrupt(_tx_obj);
 
 
             if(1 == _tx_obj->tx_9th_bit_en )
@@ -5277,7 +5285,31 @@ static __attribute__((inline)) Std_ReturnType Tx_config_interrupt(const uart_tx_
     }
     else
     {
-# 500 "MCAL/EUSART/mcal_EUSART.c"
+
+        (PIE1bits.TXIE = 1);
+        eusart_Tx_InterruptHandler = _tx_obj->tx_InterruptHandler ;
+
+                (RCONbits.IPEN = 1 );
+                if(1 == _tx_obj->uart_tx_priority)
+                {
+                    (IPR1bits.TXIP = 1);
+                    (INTCONbits.GIEH = 1);
+
+                }
+                else if(0 == _tx_obj->uart_tx_priority)
+                {
+                    (IPR1bits.TXIP = 0);
+                    (INTCONbits.GIEH = 1);
+                    (INTCONbits.GIEL = 1);
+                }
+                else { }
+
+
+
+
+
+
+
     }
 
     return ret_val ;
@@ -5428,7 +5460,20 @@ static __attribute__((inline)) uint8_t calc_parity_even(uint8_t data)
 
 void EUSART_Tx_ISR(void)
 {
-# 689 "MCAL/EUSART/mcal_EUSART.c"
+
+
+
+
+
+
+
+    PIE1bits.TXIE = 0 ;
+
+    if(eusart_Tx_InterruptHandler)
+    {
+        eusart_Tx_InterruptHandler();
+    }
+
 }
 
 void EUSART_Rx_ISR(void)
