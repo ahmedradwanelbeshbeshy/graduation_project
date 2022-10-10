@@ -15,6 +15,7 @@
             <sourceRootList>
                 <sourceRootElem>MCAL</sourceRootElem>
                 <sourceRootElem>ECU</sourceRootElem>
+                <sourceRootElem>Robot</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

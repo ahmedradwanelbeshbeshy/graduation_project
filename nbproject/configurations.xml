@@ -37,6 +37,12 @@
         <itemPath>MCAL/mcal_std_types.h</itemPath>
         <itemPath>MCAL/std_libraries.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="Robot" displayName="Robot" projectFiles="true">
+        <logicalFolder name="Navigation" displayName="Navigation" projectFiles="true">
+          <itemPath>Robot/Navigation/robot_navigation.h</itemPath>
+        </logicalFolder>
+        <itemPath>Robot/Robot_Model.txt</itemPath>
+      </logicalFolder>
       <itemPath>ECU/ecu_layer_init.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -74,6 +80,11 @@
         </logicalFolder>
         <itemPath>MCAL/device_config.c</itemPath>
       </logicalFolder>
+      <logicalFolder name="Robot" displayName="Robot" projectFiles="true">
+        <logicalFolder name="Navigation" displayName="Navigation" projectFiles="true">
+          <itemPath>Robot/Navigation/robot_navigation.c</itemPath>
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -86,6 +97,7 @@
   <sourceRootList>
     <Elem>MCAL</Elem>
     <Elem>ECU</Elem>
+    <Elem>Robot</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -97,7 +109,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.30</languageToolchainVersion>
+        <languageToolchainVersion>2.36</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
