@@ -97,10 +97,10 @@ Std_ReturnType Robot_Steer_Right_Forward(const mssp_i2c_st *_i2c_obj , const ser
             ECU_DC_Motor_Run_Left(&W1_W5_W2_W6_Motor_Control);
             ECU_DC_Motor_Run_Left(&W3_Motor_Control);
             ECU_DC_Motor_Run_Left(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , NAV_SERVO_STEER_RIGHT_W1_ANGLE );    // W1
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , NAV_SERVO_STEER_RIGHT_W2_ANGLE );    // W2
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , NAV_SERVO_STEER_RIGHT_W5_ANGLE );    // W3
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , NAV_SERVO_STEER_RIGHT_W6_ANGLE );    // W4
+            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + NAV_SERVO_STEER_RIGHT_W1_ANGLE );    // W1
+            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + NAV_SERVO_STEER_RIGHT_W2_ANGLE );    // W2
+            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + NAV_SERVO_STEER_RIGHT_W5_ANGLE );    // W3
+            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + NAV_SERVO_STEER_RIGHT_W6_ANGLE );    // W4
             CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_RIGHT_W1_SPEED);           
             CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_RIGHT_W2_SPEED);
         }
@@ -130,10 +130,10 @@ Std_ReturnType Robot_Steer_Left_Forward(const mssp_i2c_st *_i2c_obj  , const ser
             ECU_DC_Motor_Run_Left(&W1_W5_W2_W6_Motor_Control);
             ECU_DC_Motor_Run_Left(&W3_Motor_Control);
             ECU_DC_Motor_Run_Left(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , NAV_SERVO_STEER_RIGHT_W1_ANGLE );    // W1
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , NAV_SERVO_STEER_RIGHT_W2_ANGLE );    // W2
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , NAV_SERVO_STEER_RIGHT_W5_ANGLE );    // W3
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , NAV_SERVO_STEER_RIGHT_W6_ANGLE );    // W4
+            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + NAV_SERVO_STEER_LEFT_W1_ANGLE );    // W1
+            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + NAV_SERVO_STEER_LEFT_W2_ANGLE );    // W2
+            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + NAV_SERVO_STEER_LEFT_W3_ANGLE );    // W3
+            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + NAV_SERVO_STEER_LEFT_W4_ANGLE );    // W4
             CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_LEFT_W1_SPEED);           
             CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_LEFT_W2_SPEED);
         }
