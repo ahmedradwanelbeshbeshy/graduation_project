@@ -71,15 +71,6 @@ W5----------W6
 \            /
  \__________/
 
-*/
-/* Wheel at 90 deg
-        0   ___   180
-           |   |
-           |   |
-           |   |
-           -----
-  <<< neg         pos >>>
- */
 
 /* Servo Steer Left Angle */
 #define NAV_SERVO_STEER_LEFT_W1_ANGLE   -55
@@ -130,9 +121,11 @@ W5----------W6
 
 /******************************************** User-Defined Data Type Declaration ********************************************/
 
+void Timer0_Handler();
+
 /******************************************** Software Interfaces (Prototypes) ********************************************/
 
-
+Std_ReturnType Robot_Nav_Init(mssp_i2c_st *_i2c_obj);
 Std_ReturnType Robot_Move_Forward(mssp_i2c_st *_i2c_obj);
 Std_ReturnType Robot_Steer_Right_Forward(mssp_i2c_st *_i2c_obj);
 Std_ReturnType Robot_Steer_Left_Forward(mssp_i2c_st *_i2c_obj);
@@ -146,6 +139,8 @@ Std_ReturnType Robot_Steer_Left_Backward(mssp_i2c_st *_i2c_obj);
 
 
 /******************************************** Global Static Variables ********************************************/
+
+static uint16 timer_preloaded = 34286 ;
 
 static dc_motor_st W1_W3_W5_Motor_Driver =
 {
@@ -171,9 +166,27 @@ static dc_motor_st W2_W4_W6_Motor_Driver =
     .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT  
 };
 
+static timer0_config_st Timer0 = 
+{
+    .timer_mode = TMR0_TIMER_MODE ,
+    .timer0_InterruptHandler = Timer0_Handler ,
+    .reg_bit_size = TMR0_16BIT ,
+    .prescaler_enable = TMR0_PRESCALER_ON ,
+    .preloaded_value = 34286 ,
+    .prescalar_value = TMR0_PRESCALER_BY_256 ,
+    .priority = INT_HIGH_PRI 
+    
+};
 
-
-
+static ccp_st CCP_1_Obj =
+{
+    .ccp_mode = CCP_PWM_MODE_SELECTED,
+    .PWM_Frequency = 10000,
+    .ccp_pin.port = PORTC_INDEX,
+    .ccp_pin.pin = GPIO_PIN2,
+    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
+    .timer2_prescaler_value = CCP_TIMER2_PRESCALER_DIV_BY_1,   
+};
 
 
 

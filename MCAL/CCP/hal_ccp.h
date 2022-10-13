@@ -74,7 +74,7 @@ typedef enum{
     CCP_CAPTURE_MODE_SELECTED = 0, /* Select CCP1 Capture Mode */
     CCP_COMPARE_MODE_SELECTED,     /* Select CCP1 Compare Mode */
     CCP_PWM_MODE_SELECTED          /* Select CCP1 PWM Mode */
-}ccp1_mode_et;
+}ccp_mode_et;
 
 /*
   @Summary      Defines the values to convert from 16bit to two 8 bit and vice versa
@@ -107,7 +107,7 @@ typedef enum{
 */
 typedef struct{
     ccp_inst_et ccp_inst;
-    ccp1_mode_et ccp_mode;      /* CCP main mode */
+    ccp_mode_et ccp_mode;      /* CCP main mode */
     uint8 ccp_mode_variant;    /* CCP selected mode variant */
     pin_config_st ccp_pin;      /* CCP Pin I/O configurations */
     ccp_capture_timer_et ccp_capture_timer;

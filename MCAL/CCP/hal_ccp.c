@@ -277,8 +277,7 @@ static void CCP_PWM_Mode_Config(const ccp_st *_ccp_obj){
     else{ /* Nothing */ }
            
     /* PWM Frequency Initialization */
-    PR2 = (uint8)((_XTAL_FREQ / (_ccp_obj->PWM_Frequency * 4.0 * _ccp_obj->timer2_prescaler_value * 
-                    _ccp_obj->timer2_postscaler_value)) - 1);
+    PR2 = (uint8)((_XTAL_FREQ / (_ccp_obj->PWM_Frequency * 4.0 * _ccp_obj->timer2_prescaler_value) - 1));
 }
 #endif
 
