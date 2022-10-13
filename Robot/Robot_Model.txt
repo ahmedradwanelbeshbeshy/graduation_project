@@ -2,7 +2,7 @@
 ROBOT CAR MODEL : 
 
 
-
+ROBOT CAR
     .......
 .../       \...
 :::::Front:::::
@@ -25,3 +25,5 @@ Wheel at 90 deg
            |   |
            -----
   <<< neg         pos >>>
+
+Servos are on CH0 , CH1 , CH2 , CH3 
