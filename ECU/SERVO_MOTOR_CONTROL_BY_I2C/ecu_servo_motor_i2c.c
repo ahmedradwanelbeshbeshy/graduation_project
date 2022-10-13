@@ -10,12 +10,12 @@ static void PCA_Write_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_adrres,uint8 re
 void PCA_Read_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_adrres,uint8 reg_aderres,uint8 *data);
 
 
-Std_returnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj)
+Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if ((NULL==i2c_obj)||(NULL==servo_driver_obj))
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -27,12 +27,12 @@ Std_returnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st
     }   
     return ERRORSTATUS;
 }
-Std_returnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj)
+Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -40,12 +40,12 @@ Std_returnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj)
      }   
     return ERRORSTATUS;
 }
-Std_returnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle)
+Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {

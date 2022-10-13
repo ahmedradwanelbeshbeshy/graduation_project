@@ -132,18 +132,18 @@ typedef struct{
 
 }mssp_i2c_st;
 /* ----------------- Software Interfaces Declarations -----------------*/
-Std_returnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
 
-Std_returnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
 
-Std_returnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_returnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
 
-Std_returnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_returnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
 
 
 #endif	/* MCAL_I2C_H */

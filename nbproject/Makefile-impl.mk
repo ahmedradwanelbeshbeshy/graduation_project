@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ds
+PROJECTNAME=graduation_project
 
 # Active Configuration
 DEFAULTCONF=default

@@ -11,7 +11,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include"proc/pic18f4620.h"
+#include"pic18f4620.h"
 
 /*macros declarations section*/
 

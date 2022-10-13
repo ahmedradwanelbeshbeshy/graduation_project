@@ -9,10 +9,22 @@
           <itemPath>ECU/Bluetooth/Bluetooth.h</itemPath>
           <itemPath>ECU/Bluetooth/Bluetooth_cfg.h</itemPath>
         </logicalFolder>
-        <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h</itemPath>
-        <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h</itemPath>
+        <logicalFolder name="DC_Motor" displayName="DC_Motor" projectFiles="true">
+          <itemPath>ECU/DC_Motor/ecu_dc_motor.h</itemPath>
+          <itemPath>ECU/DC_Motor/ecu_dc_motor_config.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="SERVO_MOTOR_CONTROL_BY_I2C"
+                       displayName="SERVO_MOTOR_CONTROL_BY_I2C"
+                       projectFiles="true">
+          <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h</itemPath>
+          <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h</itemPath>
+        </logicalFolder>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
+        <logicalFolder name="CCP" displayName="CCP" projectFiles="true">
+          <itemPath>MCAL/CCP/ccp_cfg.h</itemPath>
+          <itemPath>MCAL/CCP/hal_ccp.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="EUSART" displayName="EUSART" projectFiles="true">
           <itemPath>MCAL/EUSART/mcal_EUSART.h</itemPath>
           <itemPath>MCAL/EUSART/mcal_EUSART_config.h</itemPath>
@@ -32,6 +44,10 @@
           <itemPath>MCAL/Interrupts/mcal_interrupt_gen_config.h</itemPath>
           <itemPath>MCAL/Interrupts/mcal_interrupt_manager.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
+          <itemPath>MCAL/Timer0/hal_timer0.h</itemPath>
+          <itemPath>MCAL/Timer0/hal_timer0_config.h</itemPath>
+        </logicalFolder>
         <itemPath>MCAL/compiler.h</itemPath>
         <itemPath>MCAL/device_config.h</itemPath>
         <itemPath>MCAL/mcal_std_types.h</itemPath>
@@ -44,6 +60,7 @@
         <itemPath>Robot/Robot_Model.txt</itemPath>
       </logicalFolder>
       <itemPath>ECU/ecu_layer_init.h</itemPath>
+      <itemPath>application.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -56,6 +73,9 @@
         <logicalFolder name="Bluetooth" displayName="Bluetooth" projectFiles="true">
           <itemPath>ECU/Bluetooth/Bluetooth.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="DC_Motor" displayName="DC_Motor" projectFiles="true">
+          <itemPath>ECU/DC_Motor/ecu_dc_motor.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="SERVO_MOTOR_CONTROL_BY_I2C"
                        displayName="SERVO_MOTOR_CONTROL_BY_I2C"
                        projectFiles="true">
@@ -64,6 +84,9 @@
         <itemPath>ECU/ecu_layer_init.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
+        <logicalFolder name="CCP" displayName="CCP" projectFiles="true">
+          <itemPath>MCAL/CCP/hal_ccp.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="EUSART" displayName="EUSART" projectFiles="true">
           <itemPath>MCAL/EUSART/mcal_EUSART.c</itemPath>
         </logicalFolder>
@@ -78,6 +101,9 @@
           <itemPath>MCAL/Interrupts/mcal_internal_interrupt.c</itemPath>
           <itemPath>MCAL/Interrupts/mcal_external_interrupt.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
+          <itemPath>MCAL/Timer0/hal_timer0.c</itemPath>
+        </logicalFolder>
         <itemPath>MCAL/device_config.c</itemPath>
       </logicalFolder>
       <logicalFolder name="Robot" displayName="Robot" projectFiles="true">
@@ -85,14 +111,13 @@
           <itemPath>Robot/Navigation/robot_navigation.c</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <itemPath>application.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>application.h</itemPath>
-    <itemPath>application.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>MCAL</Elem>
@@ -110,7 +135,7 @@
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.36</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <packs>
         <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.3.36"/>
