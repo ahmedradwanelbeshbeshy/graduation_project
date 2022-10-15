@@ -54,6 +54,8 @@ W5----------W6
 #define NAV_SERVO_STEER_DIR_POSITIVE   -1
 #define NAV_SERVO_STEER_DIR_NEGATIVE    1
 
+#define NAV_SERVO_STEER_BACKW_DIRECTION      -1
+
 /* Starting Wheels Speed */
 #define NAV_SPEED_W2_W4_W6_DEFAULT      100
 #define NAV_SPEED_W1_W3_W5_DEFAULT      100
@@ -70,8 +72,8 @@ W5----------W6
 /* Servo Steer Left Angle */
 #define NAV_SERVO_STEER_LEFT_W1_ANGLE   -55
 #define NAV_SERVO_STEER_LEFT_W2_ANGLE   -35
-#define NAV_SERVO_STEER_LEFT_W3_ANGLE   0 /* No Steering Servo */
-#define NAV_SERVO_STEER_LEFT_W4_ANGLE   0 /* No Steering Servo */
+#define NAV_SERVO_STEER_LEFT_W3_ANGLE    0 /* No Steering Servo */
+#define NAV_SERVO_STEER_LEFT_W4_ANGLE    0 /* No Steering Servo */
 #define NAV_SERVO_STEER_LEFT_W5_ANGLE   -55
 #define NAV_SERVO_STEER_LEFT_W6_ANGLE   -35
 
@@ -204,6 +206,7 @@ static ccp_st CCP2_Obj =
     .ccp_pin.pin = GPIO_PIN1,
     .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
     .timer2_prescaler_value = CCP_TIMER2_PRESCALER_DIV_BY_1,   
+    .timer2_postscaler_value = CCP_TIMER2_POSTSCALER_DIV_BY_1
 };
 
 
