@@ -4778,7 +4778,7 @@ typedef struct
 
 Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin__write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
 Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
 Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
@@ -4805,9 +4805,9 @@ typedef enum {
 
 typedef struct {
 
-    InterruptHandler tx_InterruptHandler ;
 
-    uint8_t uart_tx_priority : 1 ;
+
+
 
 
     uint8_t uart_tx_9th_bit_role : 2 ;

@@ -14,4 +14,6 @@ MCAL/EUSART/mcal_EUSART.h  \
 MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h  \
 MCAL/EUSART/mcal_EUSART_config.h  \
 ECU/Bluetooth/Bluetooth.h  \
-ECU/Bluetooth/Bluetooth_cfg.h 
+ECU/Bluetooth/Bluetooth_cfg.h  \
+ECU/LCD_for_test_gps/ecu_char_lcd.h  \
+ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h 

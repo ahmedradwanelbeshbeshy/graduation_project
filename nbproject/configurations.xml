@@ -9,8 +9,19 @@
           <itemPath>ECU/Bluetooth/Bluetooth.h</itemPath>
           <itemPath>ECU/Bluetooth/Bluetooth_cfg.h</itemPath>
         </logicalFolder>
-        <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h</itemPath>
-        <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h</itemPath>
+        <logicalFolder name="LCD_for_test_gps"
+                       displayName="LCD_for_test_gps"
+                       projectFiles="true">
+          <itemPath>ECU/LCD_for_test_gps/ecu_char_lcd.h</itemPath>
+          <itemPath>ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="SERVO_MOTOR_CONTROL_BY_I2C"
+                       displayName="SERVO_MOTOR_CONTROL_BY_I2C"
+                       projectFiles="true">
+          <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h</itemPath>
+          <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h</itemPath>
+        </logicalFolder>
+        <itemPath>ECU/ecu_layer_init.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
         <logicalFolder name="EUSART" displayName="EUSART" projectFiles="true">
@@ -37,7 +48,6 @@
         <itemPath>MCAL/mcal_std_types.h</itemPath>
         <itemPath>MCAL/std_libraries.h</itemPath>
       </logicalFolder>
-      <itemPath>ECU/ecu_layer_init.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -49,6 +59,11 @@
       <logicalFolder name="ECU" displayName="ECU" projectFiles="true">
         <logicalFolder name="Bluetooth" displayName="Bluetooth" projectFiles="true">
           <itemPath>ECU/Bluetooth/Bluetooth.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="LCD_for_test_gps"
+                       displayName="LCD_for_test_gps"
+                       projectFiles="true">
+          <itemPath>ECU/LCD_for_test_gps/ecu_char_lcd.c</itemPath>
         </logicalFolder>
         <logicalFolder name="SERVO_MOTOR_CONTROL_BY_I2C"
                        displayName="SERVO_MOTOR_CONTROL_BY_I2C"

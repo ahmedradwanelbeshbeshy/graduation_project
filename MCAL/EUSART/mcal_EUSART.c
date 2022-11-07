@@ -191,7 +191,11 @@ Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16
     {
         if(1 == PIR1bits.RCIF)
         {
-            if(EUSART_ASYNCH_Rx_BIT_9_ENABLED == _eusart_obj->rx_config.rx_9th_bit_en)
+            if(EUSART_ASYNCH_Rx_BIT_9_DISABLED == _eusart_obj->rx_config.rx_9th_bit_en) 
+            {
+                *data = RCREG ;
+            }
+            else if(EUSART_ASYNCH_Rx_BIT_9_ENABLED == _eusart_obj->rx_config.rx_9th_bit_en)
             {
                 /* Read 9th bit */
                 if(EUSART_ASYNCH_BIT_9_DATA == _eusart_obj->rx_config.uart_rx_9th_bit_role)
@@ -254,10 +258,7 @@ Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16
                 }
                 else { /* Nothing */ }
             }
-            else if(EUSART_ASYNCH_Rx_BIT_9_DISABLED == _eusart_obj->rx_config.rx_9th_bit_en) 
-            {
-                *data = RCREG ;
-            }
+
             else { /* Nothing */ }
         }
         else 
@@ -266,7 +267,12 @@ Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16
         }
         
     }
-    
+    if ((1==RCSTA1bits.OERR)||(1==RCSTA1bits.FERR))
+    {
+        // reset the cren bit when Overrun Error or Framing Error 
+        RCSTA1bits.CREN=0;
+        RCSTA1bits.CREN=1;   
+    }
     return ret_val ;
 
 }
@@ -341,6 +347,12 @@ Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_st *_eusart_obj
         while(!(PIR1bits.RCIF));
         EUSART_Async_Read_Data(_eusart_obj , data);
         
+    }
+    if ((1==RCSTA1bits.OERR)||(1==RCSTA1bits.FERR))
+    {
+        // reset the cren bit when Overrun Error or Framing Error 
+        RCSTA1bits.CREN=0;
+        RCSTA1bits.CREN=1;   
     }
     
     return ret_val ;
