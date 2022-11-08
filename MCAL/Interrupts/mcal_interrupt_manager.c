@@ -33,22 +33,22 @@ static volatile struct rbx_flags_t flags =
 void __interrupt() InterruptManagerHigh(void)
 {
     /* INT0 */
-    if( (INT_ENABLE == INTCONbits.INT0IE)  && (INT_OCCUR == INTCONbits.INT0IF) )
-    {
-        INT0_ISR();
-    }
-    else { /* Do Nothing */}
-    
-    if( (INT_ENABLE == INTCON3bits.INT2IE)  && (INT_OCCUR == INTCON3bits.INT2IF) )
-    {
-        INT2_ISR();
-    }
-    else { /* Do Nothing */}
+//    if( (INT_ENABLE == INTCONbits.INT0IE)  && (INT_OCCUR == INTCONbits.INT0IF) )
+//    {
+//        INT0_ISR();
+//    }
+//    else { /* Do Nothing */}
+//    
+//    if( (INT_ENABLE == INTCON3bits.INT2IE)  && (INT_OCCUR == INTCON3bits.INT2IF) )
+//    {
+//        INT2_ISR();
+//    }
+//    else { /* Do Nothing */}
  
     
     if( (INT_ENABLE == INTCONbits.TMR0IE)  && (INT_OCCUR == INTCONbits.TMR0IF) )
     {
-        //TMR0_ISR();
+        TMR0_ISR();
     }
     else { /* Do Nothing */}
     

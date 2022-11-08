@@ -20,14 +20,14 @@ volatile uint8 *port_registers[]={&PORTA,&PORTB,&PORTC,&PORTD,&PORTE};
  * @param _pin_config pointer to the configuration @ref pin_config_st
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Pin_Direction_Initialize  (const pin_config_st * _pin_config)
+Std_ReturnType GPIO_Pin_Direction_Initialize  (const pin_config_st * _pin_config)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==_pin_config||_pin_config->pin> PORT_PIN_MAX_NUMBER -1)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS = E_NOT_OK;
     }
     else
     {
@@ -40,7 +40,7 @@ Std_returnType GPIO_Pin_Direction_Initialize  (const pin_config_st * _pin_config
           SET_BIT(*tris_registers[_pin_config->port],_pin_config->pin);
             break;
         
-        default:ERRORSTATUS=E_NOK;
+        default:ERRORSTATUS=E_NOT_OK;
             
     }
      }
@@ -53,14 +53,14 @@ Std_returnType GPIO_Pin_Direction_Initialize  (const pin_config_st * _pin_config
  * @param direction_status pointer to the status of the specific pin
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS = E_OK;
      if ( NULL==_pin_config||NULL==direction_status||_pin_config->pin> PORT_PIN_MAX_NUMBER -1)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS = E_NOT_OK;
     }
     else
     {
@@ -77,14 +77,14 @@ Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config,
   * @param logic
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
   */
-Std_returnType GPIO_Pin_Write_Logic  (const pin_config_st * _pin_config,logic_et logic)
+Std_ReturnType GPIO_Pin_Write_Logic  (const pin_config_st * _pin_config, logic_et logic)
 {
-      Std_returnType ERRORSTATUS =E_OK;
+      Std_ReturnType ERRORSTATUS = E_OK;
      if ( NULL==_pin_config||_pin_config->pin> PORT_PIN_MAX_NUMBER -1)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS = E_NOT_OK;
     }
     else
     {
@@ -97,7 +97,7 @@ Std_returnType GPIO_Pin_Write_Logic  (const pin_config_st * _pin_config,logic_et
           SET_BIT(*lat_registers[_pin_config->port],_pin_config->pin);
             break;
         
-        default:ERRORSTATUS=E_NOK;
+        default:ERRORSTATUS = E_NOT_OK;
      }   
          
     }
@@ -109,14 +109,14 @@ Std_returnType GPIO_Pin_Write_Logic  (const pin_config_st * _pin_config,logic_et
  * @param logic -> its var passed by refrance to get the logic value 
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Pin_Read_Logic   (const pin_config_st * _pin_config,logic_et *logic)
+Std_ReturnType GPIO_Pin_Read_Logic   (const pin_config_st * _pin_config,logic_et *logic)
 {
-      Std_returnType ERRORSTATUS =E_OK;
+      Std_ReturnType ERRORSTATUS =E_OK;
           if ( NULL==_pin_config||NULL==logic||_pin_config->pin> PORT_PIN_MAX_NUMBER -1)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -130,14 +130,14 @@ Std_returnType GPIO_Pin_Read_Logic   (const pin_config_st * _pin_config,logic_et
  * @param _pin_config pointer to the configuration @ref pin_config_st
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Pin_Toggle_Logic  (const pin_config_st * _pin_config)
+Std_ReturnType GPIO_Pin_Toggle_Logic  (const pin_config_st * _pin_config)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
           if ( NULL==_pin_config)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -153,14 +153,14 @@ Std_returnType GPIO_Pin_Toggle_Logic  (const pin_config_st * _pin_config)
  * @param _pin_config pointer to the configuration @ref pin_config_st
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
+Std_ReturnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
           if ( NULL==_pin_config)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -182,14 +182,14 @@ Std_returnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
  * @param direction: the direction of all the pin in the port 
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
+Std_ReturnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
      if ( PORT_MAX_NUMBER-1<port)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
      else
      {
@@ -204,14 +204,14 @@ Std_returnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 directi
  * @param direction_status
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
           if ((PORT_MAX_NUMBER-1<port)||( NULL==direction_status))
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -227,14 +227,14 @@ Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direct
  * @param logic
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
 {
-       Std_returnType ERRORSTATUS =E_OK;
+       Std_ReturnType ERRORSTATUS =E_OK;
           if ((PORT_MAX_NUMBER-1<port))
          {
-              ERRORSTATUS=E_NOK;
+              ERRORSTATUS=E_NOT_OK;
          }
           else
           {
@@ -249,14 +249,14 @@ Std_returnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
  * @param logic
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
           if (( NULL==logic)||(PORT_MAX_NUMBER-1<port))
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -270,14 +270,14 @@ Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
  * @param port
  * @return Status of the function
  *         (E_OK) : the function done successfully
- *         (E_NOK): the function has issue to preform this action 
+ *         (E_NOT_OK): the function has issue to preform this action 
  */
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port)
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port)
 {
-       Std_returnType ERRORSTATUS =E_OK;
+       Std_ReturnType ERRORSTATUS =E_OK;
           if (PORT_MAX_NUMBER-1<port)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {

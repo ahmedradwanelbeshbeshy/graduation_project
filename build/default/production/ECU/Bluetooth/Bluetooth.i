@@ -4703,7 +4703,6 @@ typedef signed long sint32;
 
 typedef float float32;
 
-typedef uint8 Std_returnType;
 typedef uint8 Std_ReturnType;
 # 14 "ECU/Bluetooth/../../MCAL/EUSART/../Interrupts/mcal_interrupt_config.h" 2
 
@@ -4776,19 +4775,26 @@ typedef struct
 
 
 
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
 
-Std_returnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
+Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 17 "ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h" 2
 
 # 1 "ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART_config.h" 1
@@ -4904,11 +4910,11 @@ Std_ReturnType Bluetooth_Init(uart_config_st *_uart_obj)
 
 Std_ReturnType Bluetooth_Send_Data_Blocking(const uart_config_st *_uart_obj , uint8_t data)
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if((((void*)0) ==_uart_obj ))
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -4920,11 +4926,11 @@ Std_ReturnType Bluetooth_Send_Data_Blocking(const uart_config_st *_uart_obj , ui
 Std_ReturnType Bluetooth_Recieve_Data_Blocking(const uart_config_st *_uart_obj , uint8_t *data )
 {
 
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if((((void*)0) ==_uart_obj )|| (((void*)0) == data) )
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -4937,11 +4943,11 @@ Std_ReturnType Bluetooth_Recieve_Data_Blocking(const uart_config_st *_uart_obj ,
 Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t data )
 {
 
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if((((void*)0) ==_uart_obj ) )
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -4954,11 +4960,11 @@ Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj 
 Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t *data )
 {
 
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if((((void*)0) ==_uart_obj ) || (((void*)0) == data))
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -4971,11 +4977,11 @@ Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_o
 
 Std_ReturnType Bluetooth_Send_String_Blocking(const uart_config_st *_uart_obj , uint8_t *data , uint8_t length )
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if((((void*)0) ==_uart_obj ) || (((void*)0) == data))
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {

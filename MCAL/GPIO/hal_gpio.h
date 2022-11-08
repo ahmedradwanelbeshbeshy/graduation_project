@@ -81,19 +81,26 @@ typedef struct
 
 
 
-Std_returnType GPIO_Pin_Direction_Initialize            (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status            (const pin_config_st * _pin_config, direction_et *direction_status); 
-Std_returnType GPIO_Pin_Write_Logic                     (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic                      (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic                    (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize                      (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Direction_Initialize            (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status            (const pin_config_st * _pin_config, direction_et *direction_status); 
+Std_ReturnType GPIO_Pin_Write_Logic                     (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic                      (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic                    (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize                      (const pin_config_st * _pin_config);
+
+Std_ReturnType GPIO_Pin_Direction_Initialize            (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status            (const pin_config_st * _pin_config, direction_et *direction_status); 
+Std_ReturnType GPIO_Pin_Write_Logic                    (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic                           (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic                    (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize                      (const pin_config_st * _pin_config);
 
 
-Std_returnType GPIO_Port_Direction_Initialize           (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status           (port_index_et port, uint8 *direction_status); //*
-Std_returnType GPIO_Port_write_Logic                    (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic                     (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic                   (port_index_et port);
+Std_ReturnType GPIO_Port_Direction_Initialize           (port_index_et port , uint8 direction);
+Std_ReturnType GPIO_Port_Get_Direction_Status           (port_index_et port, uint8 *direction_status); //*
+Std_ReturnType GPIO_Port_Write_Logic                    (port_index_et port,uint8 logic);
+Std_ReturnType GPIO_Port_Read_Logic                     (port_index_et port,uint8 *logic);
+Std_ReturnType GPIO_Port_Toggle_Logic                   (port_index_et port);
 
 #endif	/* HAL_GPIO_H */
 

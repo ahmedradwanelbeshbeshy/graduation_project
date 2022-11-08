@@ -4506,33 +4506,16 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 # 14 "MCAL/I2C/../std_libraries.h" 2
-# 12 "MCAL/I2C/mcal_i2c.h" 2
 
-# 1 "MCAL/I2C/../mcal_std_types.h" 1
-# 20 "MCAL/I2C/../mcal_std_types.h"
-typedef unsigned char uint8;
-typedef unsigned char uint8_t;
-
-typedef unsigned short uint16;
-typedef unsigned long uint32;
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
 
-typedef signed char sint8;
-typedef signed short sint16;
-typedef signed long sint32;
 
-typedef float float32;
 
-typedef uint8 Std_returnType;
-typedef uint8 Std_ReturnType;
-# 13 "MCAL/I2C/mcal_i2c.h" 2
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
 
-# 1 "MCAL/I2C/../GPIO/hal_gpio.h" 1
-# 13 "MCAL/I2C/../GPIO/hal_gpio.h"
-# 1 "MCAL/I2C/../GPIO/../device_config.h" 1
-# 11 "MCAL/I2C/../GPIO/../device_config.h"
-# 1 "MCAL/I2C/../compiler.h" 1
-# 12 "MCAL/I2C/../compiler.h"
+
+
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4659,15 +4642,7 @@ extern __attribute__((nonreentrant)) void _delay3(uint8_t);
 
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
+# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -4693,8 +4668,32 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "MCAL/I2C/../compiler.h" 2
+# 15 "MCAL/I2C/../std_libraries.h" 2
+# 12 "MCAL/I2C/mcal_i2c.h" 2
+
+# 1 "MCAL/I2C/../mcal_std_types.h" 1
+# 20 "MCAL/I2C/../mcal_std_types.h"
+typedef unsigned char uint8;
+typedef unsigned char uint8_t;
+
+typedef unsigned short uint16;
+typedef unsigned long uint32;
+
+
+typedef signed char sint8;
+typedef signed short sint16;
+typedef signed long sint32;
+
+typedef float float32;
+
+typedef uint8 Std_ReturnType;
+# 13 "MCAL/I2C/mcal_i2c.h" 2
+
+# 1 "MCAL/I2C/../GPIO/hal_gpio.h" 1
+# 13 "MCAL/I2C/../GPIO/hal_gpio.h"
+# 1 "MCAL/I2C/../GPIO/../device_config.h" 1
+# 11 "MCAL/I2C/../GPIO/../device_config.h"
+# 1 "MCAL/I2C/../compiler.h" 1
 # 11 "MCAL/I2C/../GPIO/../device_config.h" 2
 # 13 "MCAL/I2C/../GPIO/hal_gpio.h" 2
 
@@ -4744,19 +4743,26 @@ typedef struct
 
 
 
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
 
-Std_returnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
+Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 14 "MCAL/I2C/mcal_i2c.h" 2
 
 # 1 "MCAL/I2C/../Interrupts/mcal_internal_interrupt.h" 1
@@ -4812,18 +4818,18 @@ typedef struct{
 
 }mssp_i2c_st;
 
-Std_returnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
 
-Std_returnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
 
-Std_returnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_returnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
 
-Std_returnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_returnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
 # 7 "MCAL/I2C/mcal_i2c.c" 2
 
 static void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj);
@@ -4841,12 +4847,12 @@ static void (*I2C_Report_Write_Collision)(void)=((void*)0);
 
 
 
-Std_returnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4912,12 +4918,12 @@ Std_returnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj)
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4934,12 +4940,12 @@ Std_returnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj)
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4952,23 +4958,23 @@ Std_returnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj)
 
         if(1 == SSPSTATbits.S)
         {
-            ERRORSTATUS = (Std_returnType) 0x01;
+            ERRORSTATUS = (Std_ReturnType) 0x01;
         }
         else
         {
-            ERRORSTATUS = (Std_returnType) 0x00;
+            ERRORSTATUS = (Std_ReturnType) 0x00;
         }
 
     }
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4978,18 +4984,18 @@ Std_returnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj)
         while(SSPCON2bits.RSEN);
 
         PIR1bits.SSPIF = 0;
-        ERRORSTATUS = (Std_returnType) 0x01;
+        ERRORSTATUS = (Std_ReturnType) 0x01;
 
     }
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5002,11 +5008,11 @@ Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj)
 
         if(1 == SSPSTATbits.P)
         {
-            ERRORSTATUS = (Std_returnType) 0x01;
+            ERRORSTATUS = (Std_ReturnType) 0x01;
         }
         else
         {
-            ERRORSTATUS = (Std_returnType) 0x00;
+            ERRORSTATUS = (Std_ReturnType) 0x00;
         }
 
 
@@ -5014,12 +5020,12 @@ Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj)
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack)
+Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj||((void*)0)==_ack)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5042,12 +5048,12 @@ Std_returnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data)
+Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj||((void*)0)==i2c_data)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5076,12 +5082,12 @@ Std_returnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 a
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack)
+Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj||((void*)0)==_ack)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5091,12 +5097,12 @@ Std_returnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data)
+Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj||((void*)0)==i2c_data)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5130,10 +5136,10 @@ void I2C_BC_ISR(void)
 }
 static void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5145,10 +5151,10 @@ static void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj)
 }
 static void I2C_Slave_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {

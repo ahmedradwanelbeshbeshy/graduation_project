@@ -4506,12 +4506,16 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 # 14 "MCAL/GPIO/../std_libraries.h" 2
-# 12 "MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "MCAL/GPIO/../device_config.h" 1
-# 11 "MCAL/GPIO/../device_config.h"
-# 1 "MCAL/GPIO/../compiler.h" 1
-# 12 "MCAL/GPIO/../compiler.h"
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
+
+
+
+
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
+
+
+
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4638,15 +4642,7 @@ extern __attribute__((nonreentrant)) void _delay3(uint8_t);
 
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
+# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -4672,8 +4668,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "MCAL/GPIO/../compiler.h" 2
+# 15 "MCAL/GPIO/../std_libraries.h" 2
+# 12 "MCAL/GPIO/hal_gpio.h" 2
+
+# 1 "MCAL/GPIO/../device_config.h" 1
+# 11 "MCAL/GPIO/../device_config.h"
+# 1 "MCAL/GPIO/../compiler.h" 1
 # 11 "MCAL/GPIO/../device_config.h" 2
 # 13 "MCAL/GPIO/hal_gpio.h" 2
 
@@ -4692,7 +4692,6 @@ typedef signed long sint32;
 
 typedef float float32;
 
-typedef uint8 Std_returnType;
 typedef uint8 Std_ReturnType;
 # 14 "MCAL/GPIO/hal_gpio.h" 2
 
@@ -4741,19 +4740,26 @@ typedef struct
 
 
 
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
 
-Std_returnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
+Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 7 "MCAL/GPIO/hal_gpio.c" 2
 
 
@@ -4764,12 +4770,12 @@ volatile uint8 *lat_registers[]={&LATA,&LATB,&LATC,&LATD,&LATE};
 
 volatile uint8 *port_registers[]={&PORTA,&PORTB,&PORTC,&PORTD,&PORTE};
 # 25 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config)
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==_pin_config||_pin_config->pin> 8 -1)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS = (Std_ReturnType) 0x00;
     }
     else
     {
@@ -4782,19 +4788,19 @@ Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config)
           (*tris_registers[_pin_config->port]|=( (uint8)1<<_pin_config->pin ));
             break;
 
-        default:ERRORSTATUS=(Std_returnType) 0x00;
+        default:ERRORSTATUS=(Std_ReturnType) 0x00;
 
     }
      }
     return ERRORSTATUS;
 }
 # 58 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
      if ( ((void*)0)==_pin_config||((void*)0)==direction_status||_pin_config->pin> 8 -1)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS = (Std_ReturnType) 0x00;
     }
     else
     {
@@ -4805,12 +4811,12 @@ Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config,
 
 }
 # 82 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic)
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config, logic_et logic)
 {
-      Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+      Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
      if ( ((void*)0)==_pin_config||_pin_config->pin> 8 -1)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS = (Std_ReturnType) 0x00;
     }
     else
     {
@@ -4823,19 +4829,19 @@ Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et 
           (*lat_registers[_pin_config->port]|=( (uint8)1<<_pin_config->pin ));
             break;
 
-        default:ERRORSTATUS=(Std_returnType) 0x00;
+        default:ERRORSTATUS = (Std_ReturnType) 0x00;
      }
 
     }
      return ERRORSTATUS;
 }
 # 114 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic)
+Std_ReturnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic)
 {
-      Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+      Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
           if ( ((void*)0)==_pin_config||((void*)0)==logic||_pin_config->pin> 8 -1)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4844,12 +4850,12 @@ Std_returnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *
      return ERRORSTATUS;
 }
 # 135 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config)
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
           if ( ((void*)0)==_pin_config)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4858,12 +4864,12 @@ Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config)
      return ERRORSTATUS;
 }
 # 158 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
+Std_ReturnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
           if ( ((void*)0)==_pin_config)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4874,12 +4880,12 @@ Std_returnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
      return ERRORSTATUS;
 }
 # 187 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
+Std_ReturnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
      if ( 5 -1<port)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
      else
      {
@@ -4888,12 +4894,12 @@ Std_returnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 directi
      return ERRORSTATUS;
 }
 # 209 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
           if ((5 -1<port)||( ((void*)0)==direction_status))
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4903,12 +4909,12 @@ Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direct
      return ERRORSTATUS;
 }
 # 232 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
 {
-       Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+       Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
           if ((5 -1<port))
          {
-              ERRORSTATUS=(Std_returnType) 0x00;
+              ERRORSTATUS=(Std_ReturnType) 0x00;
          }
           else
           {
@@ -4917,12 +4923,12 @@ Std_returnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
      return ERRORSTATUS;
 }
 # 254 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
           if (( ((void*)0)==logic)||(5 -1<port))
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4931,12 +4937,12 @@ Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
      return ERRORSTATUS;
 }
 # 275 "MCAL/GPIO/hal_gpio.c"
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port)
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port)
 {
-       Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+       Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
           if (5 -1<port)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {

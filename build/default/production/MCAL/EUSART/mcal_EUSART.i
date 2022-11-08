@@ -4701,7 +4701,6 @@ typedef signed long sint32;
 
 typedef float float32;
 
-typedef uint8 Std_returnType;
 typedef uint8 Std_ReturnType;
 # 14 "MCAL/EUSART/../Interrupts/mcal_interrupt_config.h" 2
 
@@ -4774,19 +4773,26 @@ typedef struct
 
 
 
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
 
-Std_returnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
+Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 17 "MCAL/EUSART/mcal_EUSART.h" 2
 
 # 1 "MCAL/EUSART/mcal_EUSART_config.h" 1
@@ -4881,11 +4887,11 @@ static __attribute__((inline)) uint8_t calc_parity_even(uint8_t data);
 # 42 "MCAL/EUSART/mcal_EUSART.c"
 Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj)
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _eusart_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -4920,11 +4926,11 @@ Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj)
 Std_ReturnType EUSART_Async_Deinit(const uart_config_st *_eusart_obj)
 {
 
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _eusart_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -4946,11 +4952,11 @@ Std_ReturnType EUSART_Async_Deinit(const uart_config_st *_eusart_obj)
 # 124 "MCAL/EUSART/mcal_EUSART.c"
 Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_st *_eusart_obj , uint16_t data)
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _eusart_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -4993,12 +4999,12 @@ Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_st *_eusart_obj , ui
 # 181 "MCAL/EUSART/mcal_EUSART.c"
 Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16_t *data)
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
     uint16_t l_temp_data = 0;
 
     if((((void*)0) == _eusart_obj) || (((void*)0) == data))
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5076,7 +5082,7 @@ Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16
         }
         else
         {
-            ret_val = (Std_returnType) 0x00 ;
+            ret_val = (Std_ReturnType) 0x00 ;
         }
 
     }
@@ -5092,7 +5098,7 @@ Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16
 # 288 "MCAL/EUSART/mcal_EUSART.c"
 Std_ReturnType EUSART_Async_Check_For_Errors(void)
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
 
 
@@ -5123,11 +5129,11 @@ Std_ReturnType EUSART_Async_Check_For_Errors(void)
 
 Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t data)
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _eusart_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5141,11 +5147,11 @@ Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart
 }
 Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t *data)
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if((((void*)0) == _eusart_obj) || (((void*)0) == data))
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5165,12 +5171,12 @@ Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_st *_eusart_obj
 
 Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len)
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
     uint16_t l_counter = 0 ;
 
     if((((void*)0) == _eusart_obj) || (((void*)0) == data))
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5190,11 +5196,11 @@ Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *
 
 static Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj )
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _tx_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5235,11 +5241,11 @@ static Std_ReturnType async_Tx_config(const uart_tx_config_st *_tx_obj )
 }
 static Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj )
 {
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _rx_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5281,11 +5287,11 @@ static Std_ReturnType async_Rx_config(const uart_rx_config_st *_rx_obj )
 static __attribute__((inline)) Std_ReturnType Tx_config_interrupt(const uart_tx_config_st *_tx_obj)
 {
 
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _tx_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5299,11 +5305,11 @@ static __attribute__((inline)) Std_ReturnType Tx_config_interrupt(const uart_tx_
 static __attribute__((inline)) Std_ReturnType Rx_config_interrupt(const uart_rx_config_st *_rx_obj)
 {
 
-     Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _rx_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5345,11 +5351,11 @@ static __attribute__((inline)) Std_ReturnType Rx_config_interrupt(const uart_rx_
 static __attribute__((inline)) Std_ReturnType async_config_baud_rate_gen(const uart_config_st *_eusart_obj)
 {
 
-    Std_ReturnType ret_val = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == _eusart_obj)
     {
-        ret_val = (Std_returnType) 0x00 ;
+        ret_val = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5377,7 +5383,7 @@ static __attribute__((inline)) Std_ReturnType async_config_baud_rate_gen(const u
                 Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/4)-1;
                 break ;
             default:
-                ret_val = (Std_returnType) 0x00 ;
+                ret_val = (Std_ReturnType) 0x00 ;
                 break ;
         }
 

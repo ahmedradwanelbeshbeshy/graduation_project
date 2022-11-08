@@ -4509,46 +4509,16 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 # 14 "MCAL/Interrupts/../std_libraries.h" 2
-# 13 "MCAL/Interrupts/./mcal_interrupt_config.h" 2
 
-# 1 "MCAL/Interrupts/../mcal_std_types.h" 1
-# 20 "MCAL/Interrupts/../mcal_std_types.h"
-typedef unsigned char uint8;
-typedef unsigned char uint8_t;
-
-typedef unsigned short uint16;
-typedef unsigned long uint32;
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
 
-typedef signed char sint8;
-typedef signed short sint16;
-typedef signed long sint32;
-
-typedef float float32;
-
-typedef uint8 Std_returnType;
-typedef uint8 Std_ReturnType;
-# 14 "MCAL/Interrupts/./mcal_interrupt_config.h" 2
-
-# 1 "MCAL/Interrupts/mcal_interrupt_gen_config.h" 1
-# 15 "MCAL/Interrupts/./mcal_interrupt_config.h" 2
-# 71 "MCAL/Interrupts/./mcal_interrupt_config.h"
-typedef void ( *InterruptHandler) (void);
 
 
-typedef enum {
-    INT_LOW_PRI = 0,
-    INT_HIGH_PRI
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
 
-} interrupt_pri_et;
-# 13 "MCAL/Interrupts/mcal_external_interrupt.h" 2
 
-# 1 "MCAL/Interrupts/../GPIO/hal_gpio.h" 1
-# 13 "MCAL/Interrupts/../GPIO/hal_gpio.h"
-# 1 "MCAL/Interrupts/../GPIO/../device_config.h" 1
-# 11 "MCAL/Interrupts/../GPIO/../device_config.h"
-# 1 "MCAL/Interrupts/../compiler.h" 1
-# 12 "MCAL/Interrupts/../compiler.h"
+
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4675,15 +4645,7 @@ extern __attribute__((nonreentrant)) void _delay3(uint8_t);
 
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
+# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -4709,8 +4671,45 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "MCAL/Interrupts/../compiler.h" 2
+# 15 "MCAL/Interrupts/../std_libraries.h" 2
+# 13 "MCAL/Interrupts/./mcal_interrupt_config.h" 2
+
+# 1 "MCAL/Interrupts/../mcal_std_types.h" 1
+# 20 "MCAL/Interrupts/../mcal_std_types.h"
+typedef unsigned char uint8;
+typedef unsigned char uint8_t;
+
+typedef unsigned short uint16;
+typedef unsigned long uint32;
+
+
+typedef signed char sint8;
+typedef signed short sint16;
+typedef signed long sint32;
+
+typedef float float32;
+
+typedef uint8 Std_ReturnType;
+# 14 "MCAL/Interrupts/./mcal_interrupt_config.h" 2
+
+# 1 "MCAL/Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "MCAL/Interrupts/./mcal_interrupt_config.h" 2
+# 71 "MCAL/Interrupts/./mcal_interrupt_config.h"
+typedef void ( *InterruptHandler) (void);
+
+
+typedef enum {
+    INT_LOW_PRI = 0,
+    INT_HIGH_PRI
+
+} interrupt_pri_et;
+# 13 "MCAL/Interrupts/mcal_external_interrupt.h" 2
+
+# 1 "MCAL/Interrupts/../GPIO/hal_gpio.h" 1
+# 13 "MCAL/Interrupts/../GPIO/hal_gpio.h"
+# 1 "MCAL/Interrupts/../GPIO/../device_config.h" 1
+# 11 "MCAL/Interrupts/../GPIO/../device_config.h"
+# 1 "MCAL/Interrupts/../compiler.h" 1
 # 11 "MCAL/Interrupts/../GPIO/../device_config.h" 2
 # 13 "MCAL/Interrupts/../GPIO/hal_gpio.h" 2
 
@@ -4760,19 +4759,26 @@ typedef struct
 
 
 
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
 
-Std_returnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
+Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 14 "MCAL/Interrupts/mcal_external_interrupt.h" 2
 # 119 "MCAL/Interrupts/mcal_external_interrupt.h"
 typedef enum {
@@ -5011,10 +5017,10 @@ void RB7_ISR(uint8_t Handler_Select)
 
 Std_ReturnType Interrupt_INTx_INIT(const Interrupt_INTx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5050,10 +5056,10 @@ Std_ReturnType Interrupt_INTx_INIT(const Interrupt_INTx_st *int_obj)
 
 Std_ReturnType Interrupt_INTx_DeINIT(const Interrupt_INTx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5067,10 +5073,10 @@ Std_ReturnType Interrupt_INTx_DeINIT(const Interrupt_INTx_st *int_obj)
 Std_ReturnType Interrupt_RBx_INIT(const Interrupt_RBx_st *int_obj)
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5100,10 +5106,10 @@ Std_ReturnType Interrupt_RBx_INIT(const Interrupt_RBx_st *int_obj)
 Std_ReturnType Interrupt_RBx_DeINIT(const Interrupt_RBx_st *int_obj)
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5117,10 +5123,10 @@ Std_ReturnType Interrupt_RBx_DeINIT(const Interrupt_RBx_st *int_obj)
 
 static Std_ReturnType interrupt_INTx_pin_init(const Interrupt_INTx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5138,7 +5144,7 @@ static Std_ReturnType interrupt_INTx_pin_init(const Interrupt_INTx_st *int_obj)
                 (TRISBbits.RB2 = 1);
                 break;
             default:
-                ret_value = (Std_returnType) 0x00;
+                ret_value = (Std_ReturnType) 0x00;
                 break;
         }
 
@@ -5151,10 +5157,10 @@ static Std_ReturnType interrupt_INTx_pin_init(const Interrupt_INTx_st *int_obj)
 static Std_ReturnType interrupt_INTx_set_edge(const Interrupt_INTx_st *int_obj)
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5172,7 +5178,7 @@ static Std_ReturnType interrupt_INTx_set_edge(const Interrupt_INTx_st *int_obj)
                 }
                 else
                 {
-                    ret_value = (Std_returnType) 0x00 ;
+                    ret_value = (Std_ReturnType) 0x00 ;
                 }
                 break;
 
@@ -5187,7 +5193,7 @@ static Std_ReturnType interrupt_INTx_set_edge(const Interrupt_INTx_st *int_obj)
                 }
                 else
                 {
-                    ret_value = (Std_returnType) 0x00 ;
+                    ret_value = (Std_ReturnType) 0x00 ;
                 }
                 break;
 
@@ -5202,11 +5208,11 @@ static Std_ReturnType interrupt_INTx_set_edge(const Interrupt_INTx_st *int_obj)
                 }
                 else
                 {
-                    ret_value = (Std_returnType) 0x00 ;
+                    ret_value = (Std_ReturnType) 0x00 ;
                 }
                 break;
             default:
-                ret_value = (Std_returnType) 0x00;
+                ret_value = (Std_ReturnType) 0x00;
                 break;
         }
 
@@ -5221,10 +5227,10 @@ static Std_ReturnType interrupt_INTx_set_edge(const Interrupt_INTx_st *int_obj)
 static Std_ReturnType interrupt_INTx_set_priority(const Interrupt_INTx_st *int_obj)
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5245,7 +5251,7 @@ static Std_ReturnType interrupt_INTx_set_priority(const Interrupt_INTx_st *int_o
                 {
                     (INTCON3bits.INT1IP = 0 );
                 }
-                else { ret_value = (Std_returnType) 0x00 ;}
+                else { ret_value = (Std_ReturnType) 0x00 ;}
                 break;
 
             case INTERRUPT_INT2:
@@ -5257,10 +5263,10 @@ static Std_ReturnType interrupt_INTx_set_priority(const Interrupt_INTx_st *int_o
                 {
                     (INTCON3bits.INT2IP = 0);
                 }
-                else { ret_value = (Std_returnType) 0x00 ;}
+                else { ret_value = (Std_ReturnType) 0x00 ;}
                 break;
             default:
-                ret_value = (Std_returnType) 0x00;
+                ret_value = (Std_ReturnType) 0x00;
                 break;
         }
     }
@@ -5271,10 +5277,10 @@ static Std_ReturnType interrupt_INTx_set_priority(const Interrupt_INTx_st *int_o
 
 static Std_ReturnType interrupt_INTx_disable(const Interrupt_INTx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5308,7 +5314,7 @@ static Std_ReturnType interrupt_INTx_disable(const Interrupt_INTx_st *int_obj)
                 (INTCON3bits.INT2IE = 0);
                 break;
             default:
-                ret_value = (Std_returnType) 0x00;
+                ret_value = (Std_ReturnType) 0x00;
                 break;
         }
 
@@ -5321,11 +5327,11 @@ static Std_ReturnType interrupt_INTx_disable(const Interrupt_INTx_st *int_obj)
 }
 static Std_ReturnType interrupt_INTx_enable(const Interrupt_INTx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5363,7 +5369,7 @@ static Std_ReturnType interrupt_INTx_enable(const Interrupt_INTx_st *int_obj)
                 (INTCON3bits.INT2IE = 1);
                 break;
             default:
-                ret_value = (Std_returnType) 0x00;
+                ret_value = (Std_ReturnType) 0x00;
                 break;
         }
     }
@@ -5373,10 +5379,10 @@ static Std_ReturnType interrupt_INTx_enable(const Interrupt_INTx_st *int_obj)
 
 static Std_ReturnType interrupt_INTx_clear_flag(const Interrupt_INTx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5394,7 +5400,7 @@ static Std_ReturnType interrupt_INTx_clear_flag(const Interrupt_INTx_st *int_obj
                 (INTCON3bits.INT2IF = 0);
                 break;
             default:
-                ret_value = (Std_returnType) 0x00;
+                ret_value = (Std_ReturnType) 0x00;
                 break;
         }
 
@@ -5405,10 +5411,10 @@ static Std_ReturnType interrupt_INTx_clear_flag(const Interrupt_INTx_st *int_obj
 
 static Std_ReturnType INT0_set_callback(void ( *InterruptHandler) (void) )
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == InterruptHandler)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5420,10 +5426,10 @@ static Std_ReturnType INT0_set_callback(void ( *InterruptHandler) (void) )
 }
 static Std_ReturnType INT1_set_callback(void ( *InterruptHandler) (void) )
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == InterruptHandler)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5435,10 +5441,10 @@ static Std_ReturnType INT1_set_callback(void ( *InterruptHandler) (void) )
 }
 static Std_ReturnType INT2_set_callback(void ( *InterruptHandler) (void) )
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == InterruptHandler)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5450,10 +5456,10 @@ static Std_ReturnType INT2_set_callback(void ( *InterruptHandler) (void) )
 static Std_ReturnType interrupt_INTx_set_callback(const Interrupt_INTx_st *int_obj)
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5471,7 +5477,7 @@ static Std_ReturnType interrupt_INTx_set_callback(const Interrupt_INTx_st *int_o
                 ret_value = INT2_set_callback(int_obj->Ext_Interrupt_Handler);
                 break;
             default:
-                ret_value = (Std_returnType) 0x00;
+                ret_value = (Std_ReturnType) 0x00;
                 break;
         }
 
@@ -5485,11 +5491,11 @@ static Std_ReturnType interrupt_INTx_set_callback(const Interrupt_INTx_st *int_o
 
 static Std_ReturnType interrupt_RBx_enable(const Interrupt_RBx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5519,11 +5525,11 @@ static Std_ReturnType interrupt_RBx_enable(const Interrupt_RBx_st *int_obj)
 }
 static Std_ReturnType interrupt_RBx_disable(const Interrupt_RBx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5553,11 +5559,11 @@ static Std_ReturnType interrupt_RBx_disable(const Interrupt_RBx_st *int_obj)
 
 static Std_ReturnType interrupt_RBx_pin_init(const Interrupt_RBx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5571,11 +5577,11 @@ static Std_ReturnType interrupt_RBx_pin_init(const Interrupt_RBx_st *int_obj)
 
 static Std_ReturnType interrupt_RBx_set_priority(const Interrupt_RBx_st *int_obj)
 {
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
 
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5601,10 +5607,10 @@ static Std_ReturnType RB4_set_callback(void ( *InterruptHandler_HIGH) (void),
                                  void ( *InterruptHandler_LOW) (void) )
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if((((void*)0) == InterruptHandler_HIGH) && (((void*)0) == InterruptHandler_LOW))
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5617,10 +5623,10 @@ static Std_ReturnType RB5_set_callback(void ( *InterruptHandler_HIGH) (void),
                                  void ( *InterruptHandler_LOW) (void) )
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if((((void*)0) == InterruptHandler_HIGH) && (((void*)0) == InterruptHandler_LOW))
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5633,10 +5639,10 @@ static Std_ReturnType RB6_set_callback(void ( *InterruptHandler_HIGH) (void),
                                  void ( *InterruptHandler_LOW) (void) )
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if((((void*)0) == InterruptHandler_HIGH) && (((void*)0) == InterruptHandler_LOW))
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5649,10 +5655,10 @@ static Std_ReturnType RB7_set_callback(void ( *InterruptHandler_HIGH) (void),
                                  void ( *InterruptHandler_LOW) (void) )
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if((((void*)0) == InterruptHandler_HIGH) && (((void*)0) == InterruptHandler_LOW))
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5665,10 +5671,10 @@ static Std_ReturnType RB7_set_callback(void ( *InterruptHandler_HIGH) (void),
 static Std_ReturnType interrupt_RBx_set_callback(const Interrupt_RBx_st *int_obj)
 {
 
-    Std_ReturnType ret_value = (Std_returnType) 0x01 ;
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
     if(((void*)0) == int_obj)
     {
-        ret_value = (Std_returnType) 0x00 ;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
@@ -5693,7 +5699,7 @@ static Std_ReturnType interrupt_RBx_set_callback(const Interrupt_RBx_st *int_obj
                 break;
 
             default:
-                ret_value = (Std_returnType) 0x00 ;
+                ret_value = (Std_ReturnType) 0x00 ;
                 break;
 
         }

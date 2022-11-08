@@ -30,12 +30,12 @@ typedef signed long          sint32;
 
 typedef float                float32;
 
-typedef uint8                Std_returnType;
-typedef uint8                Std_ReturnType;// by ahmed radwan  to test interrupt driver
+typedef uint8 Std_ReturnType;// by ahmed radwan  to test interrupt driver
+
 
 
 /*macros declarations section*/
-#define NULL ((void*)0)
+//#define NULL ((void*)0)
 
 #define STD_HIGH                0x01
 #define STD_LOW                 0x00
@@ -48,9 +48,8 @@ typedef uint8                Std_ReturnType;// by ahmed radwan  to test interrup
 #define STD_ACTIVE              0x01
 #define STD_IDLE                0x00
 
-#define E_OK         (Std_returnType)  0x01
-#define E_NOK        (Std_returnType)  0x00
-#define E_NOT_OK     (Std_returnType)  0x00 
+#define E_OK             (Std_ReturnType) 0x01
+#define E_NOT_OK         (Std_ReturnType) 0x00
 
 #define ZERO_INIT        0
 /*function declarations section*/

@@ -20,12 +20,12 @@ static void (*I2C_Report_Write_Collision)(void)=NULL;
 #endif
 
 
-Std_returnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -91,12 +91,12 @@ Std_returnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj)
     return ERRORSTATUS;    
 }
 
-Std_returnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -113,12 +113,12 @@ Std_returnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj)
     return ERRORSTATUS;    
 }
 
-Std_returnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -135,19 +135,19 @@ Std_returnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj)
         }
         else
         {
-            ERRORSTATUS = E_NOK; /* Start bit was not detected last */
+            ERRORSTATUS = E_NOT_OK; /* Start bit was not detected last */
         }
          
     }
     return ERRORSTATUS;    
 }
 
-Std_returnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -163,12 +163,12 @@ Std_returnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj)
     return ERRORSTATUS;    
 }
 
-Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj)
+Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -185,7 +185,7 @@ Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj)
         }
         else
         {
-            ERRORSTATUS = E_NOK; /* Start bit was not detected last */
+            ERRORSTATUS = E_NOT_OK; /* Start bit was not detected last */
         }
          
          
@@ -193,12 +193,12 @@ Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj)
     return ERRORSTATUS;   
 }
 
-Std_returnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack)
+Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj||NULL==_ack)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -221,12 +221,12 @@ Std_returnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 
     return ERRORSTATUS;
 }
 
-Std_returnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data)
+Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj||NULL==i2c_data)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -255,12 +255,12 @@ Std_returnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 a
     return ERRORSTATUS;    
 }
 
-Std_returnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack)
+Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj||NULL==_ack)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -270,12 +270,12 @@ Std_returnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8
     return ERRORSTATUS;    
 } 
 
-Std_returnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data)
+Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj||NULL==i2c_data)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -309,10 +309,10 @@ void I2C_BC_ISR(void)
 }
 static void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -324,10 +324,10 @@ static void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj)
 }
 static void I2C_Slave_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==i2c_obj)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {

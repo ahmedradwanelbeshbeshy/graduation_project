@@ -69,36 +69,36 @@ typedef struct{
 }char_lcd_8bit_t;
 
 /*function declarations section*/
-Std_returnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
-Std_returnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command);
+Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
+Std_ReturnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command);
 
-Std_returnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data);
-Std_returnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
+Std_ReturnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data);
+Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
 
-Std_returnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str);
-Std_returnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
+Std_ReturnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str);
+Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
 
-Std_returnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);//why arr
+Std_ReturnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);//why arr
 
 
 
 /// 8bit lcd 
 
-Std_returnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd);
-Std_returnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command);
+Std_ReturnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd);
+Std_ReturnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command);
 
-Std_returnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data);
-Std_returnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
+Std_ReturnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data);
+Std_ReturnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
 
-Std_returnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str);
-Std_returnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
+Std_ReturnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str);
+Std_ReturnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
 
-Std_returnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);//why arr
+Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);//why arr
 
 
-Std_returnType convert_uint8_to_string(uint8 value,uint8*str);
-Std_returnType convert_uint16_to_string(uint16 value,uint8*str);
-Std_returnType convert_uint32_to_string(uint32 value,uint8*str);
+Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
+Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
+Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
 
 
 

@@ -4511,33 +4511,16 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 # 14 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../std_libraries.h" 2
-# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
 
-# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../mcal_std_types.h" 1
-# 20 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../mcal_std_types.h"
-typedef unsigned char uint8;
-typedef unsigned char uint8_t;
-
-typedef unsigned short uint16;
-typedef unsigned long uint32;
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
 
-typedef signed char sint8;
-typedef signed short sint16;
-typedef signed long sint32;
 
-typedef float float32;
 
-typedef uint8 Std_returnType;
-typedef uint8 Std_ReturnType;
-# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
 
-# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h" 1
-# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h"
-# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/../device_config.h" 1
-# 11 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/../device_config.h"
-# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../compiler.h" 1
-# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../compiler.h"
+
+
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4664,15 +4647,7 @@ extern __attribute__((nonreentrant)) void _delay3(uint8_t);
 
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
+# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -4698,8 +4673,32 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../compiler.h" 2
+# 15 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../std_libraries.h" 2
+# 12 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
+
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../mcal_std_types.h" 1
+# 20 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../mcal_std_types.h"
+typedef unsigned char uint8;
+typedef unsigned char uint8_t;
+
+typedef unsigned short uint16;
+typedef unsigned long uint32;
+
+
+typedef signed char sint8;
+typedef signed short sint16;
+typedef signed long sint32;
+
+typedef float float32;
+
+typedef uint8 Std_ReturnType;
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
+
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h" 1
+# 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/../device_config.h" 1
+# 11 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/../device_config.h"
+# 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../compiler.h" 1
 # 11 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/../device_config.h" 2
 # 13 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../GPIO/hal_gpio.h" 2
 
@@ -4749,19 +4748,26 @@ typedef struct
 
 
 
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
 
-Std_returnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
+Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 14 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h" 2
 
 # 1 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/../Interrupts/mcal_internal_interrupt.h" 1
@@ -4817,18 +4823,18 @@ typedef struct{
 
 }mssp_i2c_st;
 
-Std_returnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
 
-Std_returnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
-Std_returnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
 
-Std_returnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_returnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
 
-Std_returnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_returnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
 # 14 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 2
 # 207 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
 typedef enum{
@@ -4857,9 +4863,9 @@ typedef struct{
     uint8 mode_2_cfg;
 }servo_driver_st;
 
-Std_returnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
-Std_returnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
-Std_returnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
+Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
+Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
+Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
 # 7 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c" 2
 
 
@@ -4867,12 +4873,12 @@ static void PCA_Write_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_adrres,uint8 re
 void PCA_Read_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_adrres,uint8 reg_aderres,uint8 *data);
 
 
-Std_returnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj)
+Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ((((void*)0)==i2c_obj)||(((void*)0)==servo_driver_obj))
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4884,12 +4890,12 @@ Std_returnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st
     }
     return ERRORSTATUS;
 }
-Std_returnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj)
+Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4897,12 +4903,12 @@ Std_returnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj)
      }
     return ERRORSTATUS;
 }
-Std_returnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle)
+Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==i2c_obj)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {

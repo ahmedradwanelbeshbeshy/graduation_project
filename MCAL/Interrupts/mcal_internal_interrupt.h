@@ -26,6 +26,8 @@
 #define INT_ADC_PRI_SET_LOW()                     (IPR1bits.ADIP = 0)
 #endif
 #endif
+
+
 /* Timer0  */
 #if TIMER0_INT_ENABLE==FEATURE_ENABLE
 #define INT_TMR0_ENABLE()                          (INTCONbits.TMR0IE = 1 )
@@ -38,6 +40,8 @@
 #define INT_TMR0_PRI_SET_LOW()                     (INTCON2bits.TMR0IP = 0)
 #endif
 #endif
+
+
 /* Timer1  */
 #if TIMER1_INT_ENABLE==FEATURE_ENABLE
 #define INT_TMR1_ENABLE()                          (PIE1bits.TMR1IE = 1)
@@ -50,6 +54,8 @@
 #define INT_TMR1_PRI_SET_LOW()                     (IPR1bits.TMR1IP = 0)
 #endif
 #endif
+
+
 /* Timer2  */
 #if TIMER2_INT_ENABLE==FEATURE_ENABLE
 #define INT_TMR2_ENABLE()                          (PIE1bits.TMR2IE = 1)
@@ -76,18 +82,18 @@
 #endif
 #endif
 
-/* CCP2  */
-#if CCP2_INT_ENABLE==FEATURE_ENABLE
-#define INT_CCP2_ENABLE()                          (PIE2bits.CCP2IE = 1)
-#define INT_CCP2_DISABLE()                         (PIE2bits.CCP2IE = 0)
-
-#define INT_CCP2_CLEAR_FLAG()                      (PIR2bits.CCP2IF = 0)
-
-#if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE 
-#define INT_CCP2_PRI_SET_HIGH()                    (IPR2bits.CCP2IP = 1)
-#define INT_CCP2_PRI_SET_LOW()                     (IPR2bits.CCP2IP = 0)
-#endif
-#endif
+///* CCP2  */
+//#if CCP2_INT_ENABLE==FEATURE_ENABLE
+//#define INT_CCP2_ENABLE()                          (PIE2bits.CCP2IE = 1)
+//#define INT_CCP2_DISABLE()                         (PIE2bits.CCP2IE = 0)
+//
+//#define INT_CCP2_CLEAR_FLAG()                      (PIR2bits.CCP2IF = 0)
+//
+//#if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE 
+//#define INT_CCP2_PRI_SET_HIGH()                    (IPR2bits.CCP2IP = 1)
+//#define INT_CCP2_PRI_SET_LOW()                     (IPR2bits.CCP2IP = 0)
+//#endif
+//#endif
 
 /* EUSART Tx  */
 #if EUSART_Tx_INT_ENABLE==FEATURE_ENABLE

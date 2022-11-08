@@ -9,6 +9,12 @@
           <itemPath>ECU/Bluetooth/Bluetooth.h</itemPath>
           <itemPath>ECU/Bluetooth/Bluetooth_cfg.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="DC_Motor" displayName="DC_Motor" projectFiles="true">
+          <itemPath>ECU/DC_Motor/ecu_dc_motor.h</itemPath>
+          <itemPath>ECU/DC_Motor/ecu_dc_motor_config.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="GPS" displayName="GPS" projectFiles="true">
+        </logicalFolder>
         <logicalFolder name="LCD_for_test_gps"
                        displayName="LCD_for_test_gps"
                        projectFiles="true">
@@ -24,6 +30,10 @@
         <itemPath>ECU/ecu_layer_init.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
+        <logicalFolder name="CCP" displayName="CCP" projectFiles="true">
+          <itemPath>MCAL/CCP/ccp_cfg.h</itemPath>
+          <itemPath>MCAL/CCP/hal_ccp.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="EUSART" displayName="EUSART" projectFiles="true">
           <itemPath>MCAL/EUSART/mcal_EUSART.h</itemPath>
           <itemPath>MCAL/EUSART/mcal_EUSART_config.h</itemPath>
@@ -43,10 +53,19 @@
           <itemPath>MCAL/Interrupts/mcal_interrupt_gen_config.h</itemPath>
           <itemPath>MCAL/Interrupts/mcal_interrupt_manager.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
+          <itemPath>MCAL/Timer0/hal_timer0.h</itemPath>
+          <itemPath>MCAL/Timer0/hal_timer0_config.h</itemPath>
+        </logicalFolder>
         <itemPath>MCAL/compiler.h</itemPath>
         <itemPath>MCAL/device_config.h</itemPath>
         <itemPath>MCAL/mcal_std_types.h</itemPath>
         <itemPath>MCAL/std_libraries.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="Robot" displayName="Robot" projectFiles="true">
+        <logicalFolder name="Navigation" displayName="Navigation" projectFiles="true">
+          <itemPath>Robot/Navigation/robot_navigation.h</itemPath>
+        </logicalFolder>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -59,6 +78,11 @@
       <logicalFolder name="ECU" displayName="ECU" projectFiles="true">
         <logicalFolder name="Bluetooth" displayName="Bluetooth" projectFiles="true">
           <itemPath>ECU/Bluetooth/Bluetooth.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="DC_Motor" displayName="DC_Motor" projectFiles="true">
+          <itemPath>ECU/DC_Motor/ecu_dc_motor.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="GPS" displayName="GPS" projectFiles="true">
         </logicalFolder>
         <logicalFolder name="LCD_for_test_gps"
                        displayName="LCD_for_test_gps"
@@ -73,6 +97,9 @@
         <itemPath>ECU/ecu_layer_init.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
+        <logicalFolder name="CCP" displayName="CCP" projectFiles="true">
+          <itemPath>MCAL/CCP/hal_ccp.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="EUSART" displayName="EUSART" projectFiles="true">
           <itemPath>MCAL/EUSART/mcal_EUSART.c</itemPath>
         </logicalFolder>
@@ -87,7 +114,15 @@
           <itemPath>MCAL/Interrupts/mcal_internal_interrupt.c</itemPath>
           <itemPath>MCAL/Interrupts/mcal_external_interrupt.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
+          <itemPath>MCAL/Timer0/hal_timer0.c</itemPath>
+        </logicalFolder>
         <itemPath>MCAL/device_config.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="Robot" displayName="Robot" projectFiles="true">
+        <logicalFolder name="Navigation" displayName="Navigation" projectFiles="true">
+          <itemPath>Robot/Navigation/robot_navigation.c</itemPath>
+        </logicalFolder>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -101,6 +136,7 @@
   <sourceRootList>
     <Elem>MCAL</Elem>
     <Elem>ECU</Elem>
+    <Elem>Robot</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

@@ -4509,12 +4509,16 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 # 14 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h" 2
-# 12 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../device_config.h" 1
-# 11 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../device_config.h"
-# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../compiler.h" 1
-# 12 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../compiler.h"
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
+
+
+
+
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
+
+
+
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4641,15 +4645,7 @@ extern __attribute__((nonreentrant)) void _delay3(uint8_t);
 
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
+# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -4675,8 +4671,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../compiler.h" 2
+# 15 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h" 2
+# 12 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 2
+
+# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../device_config.h" 1
+# 11 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../device_config.h"
+# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../compiler.h" 1
 # 11 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../device_config.h" 2
 # 13 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 2
 
@@ -4695,7 +4695,6 @@ typedef signed long sint32;
 
 typedef float float32;
 
-typedef uint8 Std_returnType;
 typedef uint8 Std_ReturnType;
 # 14 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 2
 
@@ -4744,19 +4743,26 @@ typedef struct
 
 
 
-Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_returnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_returnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
+Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
+Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
+Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
+Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
 
-Std_returnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_returnType GPIO_Port_write_Logic (port_index_et port,uint8 logic);
-Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_returnType GPIO_Port_Toggle_Logic (port_index_et port);
+Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
+Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
+Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
+Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
+Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 12 "ECU/LCD_for_test_gps/ecu_char_lcd.h" 2
 
 # 1 "ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h" 1
@@ -4775,43 +4781,43 @@ typedef struct{
 }char_lcd_8bit_t;
 
 
-Std_returnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
-Std_returnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command);
+Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
+Std_ReturnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command);
 
-Std_returnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data);
-Std_returnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
+Std_ReturnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data);
+Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
 
-Std_returnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str);
-Std_returnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
+Std_ReturnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str);
+Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
 
-Std_returnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
-
-
+Std_ReturnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
 
 
 
-Std_returnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd);
-Std_returnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command);
-
-Std_returnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data);
-Std_returnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
-
-Std_returnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str);
-Std_returnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
-
-Std_returnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
 
 
-Std_returnType convert_uint8_to_string(uint8 value,uint8*str);
-Std_returnType convert_uint16_to_string(uint16 value,uint8*str);
-Std_returnType convert_uint32_to_string(uint32 value,uint8*str);
+Std_ReturnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd);
+Std_ReturnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command);
+
+Std_ReturnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data);
+Std_ReturnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
+
+Std_ReturnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str);
+Std_ReturnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
+
+Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
+
+
+Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
+Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
+Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
 # 8 "ECU/LCD_for_test_gps/ecu_char_lcd.c" 2
 
-static Std_returnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd);
-static Std_returnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd);
-static Std_returnType lcd_send_4bits(const char_lcd_4bit_t*lcd,uint8 data_command);
-static Std_returnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum);
-static Std_returnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum);
+static Std_ReturnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd);
+static Std_ReturnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd);
+static Std_ReturnType lcd_send_4bits(const char_lcd_4bit_t*lcd,uint8 data_command);
+static Std_ReturnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum);
+static Std_ReturnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum);
 
 
 
@@ -4819,12 +4825,12 @@ static Std_returnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row
 
 
 
-Std_returnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd)
+Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4863,12 +4869,12 @@ Std_returnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd)
 
 
 
-Std_returnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command)
+Std_ReturnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command)
 {
-         Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+         Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4888,12 +4894,12 @@ Std_returnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command)
 
 
 
-Std_returnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data)
+Std_ReturnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4908,12 +4914,12 @@ Std_returnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data)
     return ERRORSTATUS;
 }
 # 117 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_returnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8 data)
+Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8 data)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4929,12 +4935,12 @@ Std_returnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 row,
 
 
 
-Std_returnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str)
+Std_ReturnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str)
 {
-        Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+        Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (( ((void*)0)==lcd)||( ((void*)0)==str))
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4947,12 +4953,12 @@ Std_returnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str)
     return ERRORSTATUS;
 }
 # 163 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_returnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8* str)
+Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8* str)
 {
-        Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+        Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (( ((void*)0)==lcd)||( ((void*)0)==str))
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4966,13 +4972,13 @@ Std_returnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 ro
     return ERRORSTATUS;
 }
 # 190 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_returnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)
+Std_ReturnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)
 {
     uint8 lcd_counter;
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -4987,12 +4993,12 @@ Std_returnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 row,ui
     return ERRORSTATUS;
 }
 # 219 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_returnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd)
+Std_ReturnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5031,12 +5037,12 @@ Std_returnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd)
 
 
 
-Std_returnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command)
+Std_ReturnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5059,12 +5065,12 @@ Std_returnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command)
 
 
 
-Std_returnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data)
+Std_ReturnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5082,12 +5088,12 @@ Std_returnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data)
     return ERRORSTATUS;
 }
 # 321 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_returnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8 data)
+Std_ReturnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8 data)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5104,12 +5110,12 @@ Std_returnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 row,
 
 
 
-Std_returnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str)
+Std_ReturnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (( ((void*)0)==lcd)||( ((void*)0)==str))
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5124,12 +5130,12 @@ Std_returnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str)
     return ERRORSTATUS;
 }
 # 370 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_returnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8* str)
+Std_ReturnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8* str)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (( ((void*)0)==lcd)||( ((void*)0)==str))
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5142,13 +5148,13 @@ Std_returnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 ro
     return ERRORSTATUS;
 }
 
-Std_returnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)
+Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)
 {
-        Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+        Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
         uint8 lcd_counter=0;
     if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5170,12 +5176,12 @@ Std_returnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 row,ui
 
 
 
-Std_returnType convert_uint8_to_string(uint8 value,uint8*str)
+Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==str)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5191,14 +5197,14 @@ Std_returnType convert_uint8_to_string(uint8 value,uint8*str)
 
 
 
-Std_returnType convert_uint16_to_string(uint16 value,uint8*str)
+Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     uint8 temp_string[6]={0};
     uint8 data_counter=0;
     if ( ((void*)0)==str)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5220,12 +5226,12 @@ Std_returnType convert_uint16_to_string(uint16 value,uint8*str)
 
 
 
-Std_returnType convert_uint32_to_string(uint32 value,uint8*str)
+Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str)
 {
-     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ( ((void*)0)==str)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5242,12 +5248,12 @@ Std_returnType convert_uint32_to_string(uint32 value,uint8*str)
 
 
 
-static Std_returnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd)
+static Std_ReturnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
         if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5259,12 +5265,12 @@ static Std_returnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd)
     return ERRORSTATUS;
 }
 
-static Std_returnType lcd_send_4bits(const char_lcd_4bit_t *lcd,uint8 data_command)
+static Std_ReturnType lcd_send_4bits(const char_lcd_4bit_t *lcd,uint8 data_command)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
         if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5282,12 +5288,12 @@ static Std_returnType lcd_send_4bits(const char_lcd_4bit_t *lcd,uint8 data_comma
 
 
 
-static Std_returnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd)
+static Std_ReturnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
         if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5299,12 +5305,12 @@ static Std_returnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd)
     return ERRORSTATUS;
 }
 
-static Std_returnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum)
+static Std_ReturnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
         if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
@@ -5321,12 +5327,12 @@ static Std_returnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row
     return ERRORSTATUS;
 }
 
-static Std_returnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum)
+static Std_ReturnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum)
 {
-    Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
         if ( ((void*)0)==lcd)
     {
-        ERRORSTATUS=(Std_returnType) 0x00;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {

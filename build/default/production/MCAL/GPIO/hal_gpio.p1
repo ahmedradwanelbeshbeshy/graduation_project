@@ -35,16 +35,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S273 . pin port direction logic ]
 "45 MCAL/GPIO/hal_gpio.c
 [; ;MCAL/GPIO/hal_gpio.c: 45:     }
-[c E2963 0 1 .. ]
-[n E2963 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+[c E2962 0 1 .. ]
+[n E2962 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 "82
-[; ;MCAL/GPIO/hal_gpio.c: 82: Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic)
-[c E2959 0 1 .. ]
-[n E2959 . GPIO_LOW GPIO_HIGH  ]
+[; ;MCAL/GPIO/hal_gpio.c: 82: Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config, logic_et logic)
+[c E2958 0 1 .. ]
+[n E2958 . GPIO_LOW GPIO_HIGH  ]
 "187
-[; ;MCAL/GPIO/hal_gpio.c: 187: Std_returnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
-[c E2977 0 1 2 3 4 .. ]
-[n E2977 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[; ;MCAL/GPIO/hal_gpio.c: 187: Std_ReturnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
+[c E2976 0 1 2 3 4 .. ]
+[n E2976 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 "55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
@@ -356,20 +356,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "25
-[; ;MCAL/GPIO/hal_gpio.c: 25: Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config)
+[; ;MCAL/GPIO/hal_gpio.c: 25: Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config)
 [v _GPIO_Pin_Direction_Initialize `(uc ~T0 @X0 1 ef1`*CS273 ]
 "26
 [; ;MCAL/GPIO/hal_gpio.c: 26: {
 {
 [e :U _GPIO_Pin_Direction_Initialize ]
 "25
-[; ;MCAL/GPIO/hal_gpio.c: 25: Std_returnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config)
+[; ;MCAL/GPIO/hal_gpio.c: 25: Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config)
 [v __pin_config `*CS273 ~T0 @X0 1 r1 ]
 "26
 [; ;MCAL/GPIO/hal_gpio.c: 26: {
 [f ]
 "27
-[; ;MCAL/GPIO/hal_gpio.c: 27:     Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 27:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "28
@@ -379,7 +379,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 29:     {
 {
 "30
-[; ;MCAL/GPIO/hal_gpio.c: 30:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 30:         ERRORSTATUS = (Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "31
 [; ;MCAL/GPIO/hal_gpio.c: 31:     }
@@ -416,7 +416,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 41:             break;
 [e $U 277  ]
 "43
-[; ;MCAL/GPIO/hal_gpio.c: 43:         default:ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 43:         default:ERRORSTATUS=(Std_ReturnType) 0x00;
 [e :U 281 ]
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "45
@@ -424,8 +424,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 277  ]
 [e :U 278 ]
-[e [\ -> . *U __pin_config 2 `i , $ . `E2963 0 279
- , $ . `E2963 1 280
+[e [\ -> . *U __pin_config 2 `i , $ . `E2962 0 279
+ , $ . `E2962 1 280
  281 ]
 [e :U 277 ]
 "46
@@ -441,31 +441,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 274 ]
 }
 "58
-[; ;MCAL/GPIO/hal_gpio.c: 58: Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
-[v _GPIO_Pin_Get_Direction_Status `(uc ~T0 @X0 1 ef2`*CS273`*E2963 ]
+[; ;MCAL/GPIO/hal_gpio.c: 58: Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
+[v _GPIO_Pin_Get_Direction_Status `(uc ~T0 @X0 1 ef2`*CS273`*E2962 ]
 "59
 [; ;MCAL/GPIO/hal_gpio.c: 59: {
 {
 [e :U _GPIO_Pin_Get_Direction_Status ]
 "58
-[; ;MCAL/GPIO/hal_gpio.c: 58: Std_returnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
+[; ;MCAL/GPIO/hal_gpio.c: 58: Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
 [v __pin_config `*CS273 ~T0 @X0 1 r1 ]
-[v _direction_status `*E2963 ~T0 @X0 1 r2 ]
+[v _direction_status `*E2962 ~T0 @X0 1 r2 ]
 "59
 [; ;MCAL/GPIO/hal_gpio.c: 59: {
 [f ]
 "60
-[; ;MCAL/GPIO/hal_gpio.c: 60:      Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 60:      Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "61
 [; ;MCAL/GPIO/hal_gpio.c: 61:      if ( ((void*)0)==_pin_config||((void*)0)==direction_status||_pin_config->pin> 8 -1)
-[e $ ! || || == -> -> -> 0 `i `*v `*CS273 __pin_config == -> -> -> 0 `i `*v `*E2963 _direction_status > -> . *U __pin_config 0 `i - -> 8 `i -> 1 `i 283  ]
+[e $ ! || || == -> -> -> 0 `i `*v `*CS273 __pin_config == -> -> -> 0 `i `*v `*E2962 _direction_status > -> . *U __pin_config 0 `i - -> 8 `i -> 1 `i 283  ]
 "62
 [; ;MCAL/GPIO/hal_gpio.c: 62:     {
 {
 "63
-[; ;MCAL/GPIO/hal_gpio.c: 63:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 63:         ERRORSTATUS = (Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "64
 [; ;MCAL/GPIO/hal_gpio.c: 64:     }
@@ -479,7 +479,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "67
 [; ;MCAL/GPIO/hal_gpio.c: 67:        *direction_status= (( *tris_registers[_pin_config->port]>>_pin_config->pin )&(uint8)1);
-[e = *U _direction_status -> & >> -> *U *U + &U _tris_registers * -> . *U __pin_config 1 `ux -> -> # *U &U _tris_registers `ui `ux `i -> . *U __pin_config 0 `i -> -> -> 1 `i `uc `i `E2963 ]
+[e = *U _direction_status -> & >> -> *U *U + &U _tris_registers * -> . *U __pin_config 1 `ux -> -> # *U &U _tris_registers `ui `ux `i -> . *U __pin_config 0 `i -> -> -> 1 `i `uc `i `E2962 ]
 "69
 [; ;MCAL/GPIO/hal_gpio.c: 69:     }
 }
@@ -493,21 +493,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 282 ]
 }
 "82
-[; ;MCAL/GPIO/hal_gpio.c: 82: Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic)
-[v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 1 ef2`*CS273`E2959 ]
+[; ;MCAL/GPIO/hal_gpio.c: 82: Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config, logic_et logic)
+[v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 1 ef2`*CS273`E2958 ]
 "83
 [; ;MCAL/GPIO/hal_gpio.c: 83: {
 {
 [e :U _GPIO_Pin_Write_Logic ]
 "82
-[; ;MCAL/GPIO/hal_gpio.c: 82: Std_returnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic)
+[; ;MCAL/GPIO/hal_gpio.c: 82: Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config, logic_et logic)
 [v __pin_config `*CS273 ~T0 @X0 1 r1 ]
-[v _logic `E2959 ~T0 @X0 1 r2 ]
+[v _logic `E2958 ~T0 @X0 1 r2 ]
 "83
 [; ;MCAL/GPIO/hal_gpio.c: 83: {
 [f ]
 "84
-[; ;MCAL/GPIO/hal_gpio.c: 84:       Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 84:       Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "85
@@ -517,7 +517,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 86:     {
 {
 "87
-[; ;MCAL/GPIO/hal_gpio.c: 87:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 87:         ERRORSTATUS = (Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "88
 [; ;MCAL/GPIO/hal_gpio.c: 88:     }
@@ -554,7 +554,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 98:             break;
 [e $U 288  ]
 "100
-[; ;MCAL/GPIO/hal_gpio.c: 100:         default:ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 100:         default:ERRORSTATUS = (Std_ReturnType) 0x00;
 [e :U 292 ]
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "101
@@ -562,8 +562,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 288  ]
 [e :U 289 ]
-[e [\ -> _logic `ui , $ -> . `E2959 0 `ui 290
- , $ -> . `E2959 1 `ui 291
+[e [\ -> _logic `ui , $ -> . `E2958 0 `ui 290
+ , $ -> . `E2958 1 `ui 291
  292 ]
 [e :U 288 ]
 "103
@@ -579,31 +579,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 285 ]
 }
 "114
-[; ;MCAL/GPIO/hal_gpio.c: 114: Std_returnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic)
-[v _GPIO_Pin_Read_Logic `(uc ~T0 @X0 1 ef2`*CS273`*E2959 ]
+[; ;MCAL/GPIO/hal_gpio.c: 114: Std_ReturnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic)
+[v _GPIO_Pin_Read_Logic `(uc ~T0 @X0 1 ef2`*CS273`*E2958 ]
 "115
 [; ;MCAL/GPIO/hal_gpio.c: 115: {
 {
 [e :U _GPIO_Pin_Read_Logic ]
 "114
-[; ;MCAL/GPIO/hal_gpio.c: 114: Std_returnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic)
+[; ;MCAL/GPIO/hal_gpio.c: 114: Std_ReturnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic)
 [v __pin_config `*CS273 ~T0 @X0 1 r1 ]
-[v _logic `*E2959 ~T0 @X0 1 r2 ]
+[v _logic `*E2958 ~T0 @X0 1 r2 ]
 "115
 [; ;MCAL/GPIO/hal_gpio.c: 115: {
 [f ]
 "116
-[; ;MCAL/GPIO/hal_gpio.c: 116:       Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 116:       Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "117
 [; ;MCAL/GPIO/hal_gpio.c: 117:           if ( ((void*)0)==_pin_config||((void*)0)==logic||_pin_config->pin> 8 -1)
-[e $ ! || || == -> -> -> 0 `i `*v `*CS273 __pin_config == -> -> -> 0 `i `*v `*E2959 _logic > -> . *U __pin_config 0 `i - -> 8 `i -> 1 `i 294  ]
+[e $ ! || || == -> -> -> 0 `i `*v `*CS273 __pin_config == -> -> -> 0 `i `*v `*E2958 _logic > -> . *U __pin_config 0 `i - -> 8 `i -> 1 `i 294  ]
 "118
 [; ;MCAL/GPIO/hal_gpio.c: 118:     {
 {
 "119
-[; ;MCAL/GPIO/hal_gpio.c: 119:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 119:         ERRORSTATUS=(Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "120
 [; ;MCAL/GPIO/hal_gpio.c: 120:     }
@@ -617,7 +617,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "123
 [; ;MCAL/GPIO/hal_gpio.c: 123:          *logic= (( *port_registers[_pin_config->port]>>_pin_config->pin )&(uint8)1);
-[e = *U _logic -> & >> -> *U *U + &U _port_registers * -> . *U __pin_config 1 `ux -> -> # *U &U _port_registers `ui `ux `i -> . *U __pin_config 0 `i -> -> -> 1 `i `uc `i `E2959 ]
+[e = *U _logic -> & >> -> *U *U + &U _port_registers * -> . *U __pin_config 1 `ux -> -> # *U &U _port_registers `ui `ux `i -> . *U __pin_config 0 `i -> -> -> 1 `i `uc `i `E2958 ]
 "124
 [; ;MCAL/GPIO/hal_gpio.c: 124:     }
 }
@@ -631,20 +631,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 293 ]
 }
 "135
-[; ;MCAL/GPIO/hal_gpio.c: 135: Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config)
+[; ;MCAL/GPIO/hal_gpio.c: 135: Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config)
 [v _GPIO_Pin_Toggle_Logic `(uc ~T0 @X0 1 ef1`*CS273 ]
 "136
 [; ;MCAL/GPIO/hal_gpio.c: 136: {
 {
 [e :U _GPIO_Pin_Toggle_Logic ]
 "135
-[; ;MCAL/GPIO/hal_gpio.c: 135: Std_returnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config)
+[; ;MCAL/GPIO/hal_gpio.c: 135: Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config)
 [v __pin_config `*CS273 ~T0 @X0 1 r1 ]
 "136
 [; ;MCAL/GPIO/hal_gpio.c: 136: {
 [f ]
 "137
-[; ;MCAL/GPIO/hal_gpio.c: 137:      Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 137:      Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "138
@@ -654,7 +654,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 139:     {
 {
 "140
-[; ;MCAL/GPIO/hal_gpio.c: 140:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 140:         ERRORSTATUS=(Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "141
 [; ;MCAL/GPIO/hal_gpio.c: 141:     }
@@ -682,20 +682,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 296 ]
 }
 "158
-[; ;MCAL/GPIO/hal_gpio.c: 158: Std_returnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
+[; ;MCAL/GPIO/hal_gpio.c: 158: Std_ReturnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
 [v _GPIO_Pin_Initialize `(uc ~T0 @X0 1 ef1`*CS273 ]
 "159
 [; ;MCAL/GPIO/hal_gpio.c: 159: {
 {
 [e :U _GPIO_Pin_Initialize ]
 "158
-[; ;MCAL/GPIO/hal_gpio.c: 158: Std_returnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
+[; ;MCAL/GPIO/hal_gpio.c: 158: Std_ReturnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
 [v __pin_config `*CS273 ~T0 @X0 1 r1 ]
 "159
 [; ;MCAL/GPIO/hal_gpio.c: 159: {
 [f ]
 "160
-[; ;MCAL/GPIO/hal_gpio.c: 160:      Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 160:      Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "161
@@ -705,7 +705,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 162:     {
 {
 "163
-[; ;MCAL/GPIO/hal_gpio.c: 163:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 163:         ERRORSTATUS=(Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "164
 [; ;MCAL/GPIO/hal_gpio.c: 164:     }
@@ -722,7 +722,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ERRORSTATUS ( _GPIO_Pin_Direction_Initialize (1 __pin_config ]
 "168
 [; ;MCAL/GPIO/hal_gpio.c: 168:          ERRORSTATUS=GPIO_Pin_Write_Logic(_pin_config,_pin_config->logic);
-[e = _ERRORSTATUS ( _GPIO_Pin_Write_Logic (2 , __pin_config -> . *U __pin_config 3 `E2959 ]
+[e = _ERRORSTATUS ( _GPIO_Pin_Write_Logic (2 , __pin_config -> . *U __pin_config 3 `E2958 ]
 "170
 [; ;MCAL/GPIO/hal_gpio.c: 170:     }
 }
@@ -736,21 +736,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 299 ]
 }
 "187
-[; ;MCAL/GPIO/hal_gpio.c: 187: Std_returnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
-[v _GPIO_Port_Direction_Initialize `(uc ~T0 @X0 1 ef2`E2977`uc ]
+[; ;MCAL/GPIO/hal_gpio.c: 187: Std_ReturnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
+[v _GPIO_Port_Direction_Initialize `(uc ~T0 @X0 1 ef2`E2976`uc ]
 "188
 [; ;MCAL/GPIO/hal_gpio.c: 188: {
 {
 [e :U _GPIO_Port_Direction_Initialize ]
 "187
-[; ;MCAL/GPIO/hal_gpio.c: 187: Std_returnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
-[v _port `E2977 ~T0 @X0 1 r1 ]
+[; ;MCAL/GPIO/hal_gpio.c: 187: Std_ReturnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
+[v _port `E2976 ~T0 @X0 1 r1 ]
 [v _direction `uc ~T0 @X0 1 r2 ]
 "188
 [; ;MCAL/GPIO/hal_gpio.c: 188: {
 [f ]
 "189
-[; ;MCAL/GPIO/hal_gpio.c: 189:      Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 189:      Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "190
@@ -760,7 +760,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 191:     {
 {
 "192
-[; ;MCAL/GPIO/hal_gpio.c: 192:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 192:         ERRORSTATUS=(Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "193
 [; ;MCAL/GPIO/hal_gpio.c: 193:     }
@@ -788,21 +788,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 302 ]
 }
 "209
-[; ;MCAL/GPIO/hal_gpio.c: 209: Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
-[v _GPIO_Port_Get_Direction_Status `(uc ~T0 @X0 1 ef2`E2977`*uc ]
+[; ;MCAL/GPIO/hal_gpio.c: 209: Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
+[v _GPIO_Port_Get_Direction_Status `(uc ~T0 @X0 1 ef2`E2976`*uc ]
 "210
 [; ;MCAL/GPIO/hal_gpio.c: 210: {
 {
 [e :U _GPIO_Port_Get_Direction_Status ]
 "209
-[; ;MCAL/GPIO/hal_gpio.c: 209: Std_returnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
-[v _port `E2977 ~T0 @X0 1 r1 ]
+[; ;MCAL/GPIO/hal_gpio.c: 209: Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
+[v _port `E2976 ~T0 @X0 1 r1 ]
 [v _direction_status `*uc ~T0 @X0 1 r2 ]
 "210
 [; ;MCAL/GPIO/hal_gpio.c: 210: {
 [f ]
 "211
-[; ;MCAL/GPIO/hal_gpio.c: 211:      Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 211:      Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "212
@@ -812,7 +812,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 213:     {
 {
 "214
-[; ;MCAL/GPIO/hal_gpio.c: 214:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 214:         ERRORSTATUS=(Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "215
 [; ;MCAL/GPIO/hal_gpio.c: 215:     }
@@ -840,21 +840,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 305 ]
 }
 "232
-[; ;MCAL/GPIO/hal_gpio.c: 232: Std_returnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
-[v _GPIO_Port_Write_Logic `(uc ~T0 @X0 1 ef2`E2977`uc ]
+[; ;MCAL/GPIO/hal_gpio.c: 232: Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
+[v _GPIO_Port_Write_Logic `(uc ~T0 @X0 1 ef2`E2976`uc ]
 "233
 [; ;MCAL/GPIO/hal_gpio.c: 233: {
 {
 [e :U _GPIO_Port_Write_Logic ]
 "232
-[; ;MCAL/GPIO/hal_gpio.c: 232: Std_returnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
-[v _port `E2977 ~T0 @X0 1 r1 ]
+[; ;MCAL/GPIO/hal_gpio.c: 232: Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
+[v _port `E2976 ~T0 @X0 1 r1 ]
 [v _logic `uc ~T0 @X0 1 r2 ]
 "233
 [; ;MCAL/GPIO/hal_gpio.c: 233: {
 [f ]
 "234
-[; ;MCAL/GPIO/hal_gpio.c: 234:        Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 234:        Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "235
@@ -864,7 +864,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 236:          {
 {
 "237
-[; ;MCAL/GPIO/hal_gpio.c: 237:               ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 237:               ERRORSTATUS=(Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "238
 [; ;MCAL/GPIO/hal_gpio.c: 238:          }
@@ -892,21 +892,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 308 ]
 }
 "254
-[; ;MCAL/GPIO/hal_gpio.c: 254: Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
-[v _GPIO_Port_Read_Logic `(uc ~T0 @X0 1 ef2`E2977`*uc ]
+[; ;MCAL/GPIO/hal_gpio.c: 254: Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
+[v _GPIO_Port_Read_Logic `(uc ~T0 @X0 1 ef2`E2976`*uc ]
 "255
 [; ;MCAL/GPIO/hal_gpio.c: 255: {
 {
 [e :U _GPIO_Port_Read_Logic ]
 "254
-[; ;MCAL/GPIO/hal_gpio.c: 254: Std_returnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
-[v _port `E2977 ~T0 @X0 1 r1 ]
+[; ;MCAL/GPIO/hal_gpio.c: 254: Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
+[v _port `E2976 ~T0 @X0 1 r1 ]
 [v _logic `*uc ~T0 @X0 1 r2 ]
 "255
 [; ;MCAL/GPIO/hal_gpio.c: 255: {
 [f ]
 "256
-[; ;MCAL/GPIO/hal_gpio.c: 256:      Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 256:      Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "257
@@ -916,7 +916,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 258:     {
 {
 "259
-[; ;MCAL/GPIO/hal_gpio.c: 259:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 259:         ERRORSTATUS=(Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "260
 [; ;MCAL/GPIO/hal_gpio.c: 260:     }
@@ -944,20 +944,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 311 ]
 }
 "275
-[; ;MCAL/GPIO/hal_gpio.c: 275: Std_returnType GPIO_Port_Toggle_Logic (port_index_et port)
-[v _GPIO_Port_Toggle_Logic `(uc ~T0 @X0 1 ef1`E2977 ]
+[; ;MCAL/GPIO/hal_gpio.c: 275: Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port)
+[v _GPIO_Port_Toggle_Logic `(uc ~T0 @X0 1 ef1`E2976 ]
 "276
 [; ;MCAL/GPIO/hal_gpio.c: 276: {
 {
 [e :U _GPIO_Port_Toggle_Logic ]
 "275
-[; ;MCAL/GPIO/hal_gpio.c: 275: Std_returnType GPIO_Port_Toggle_Logic (port_index_et port)
-[v _port `E2977 ~T0 @X0 1 r1 ]
+[; ;MCAL/GPIO/hal_gpio.c: 275: Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port)
+[v _port `E2976 ~T0 @X0 1 r1 ]
 "276
 [; ;MCAL/GPIO/hal_gpio.c: 276: {
 [f ]
 "277
-[; ;MCAL/GPIO/hal_gpio.c: 277:        Std_returnType ERRORSTATUS =(Std_returnType) 0x01;
+[; ;MCAL/GPIO/hal_gpio.c: 277:        Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
 [e = _ERRORSTATUS -> -> 1 `i `uc ]
 "278
@@ -967,7 +967,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/GPIO/hal_gpio.c: 279:     {
 {
 "280
-[; ;MCAL/GPIO/hal_gpio.c: 280:         ERRORSTATUS=(Std_returnType) 0x00;
+[; ;MCAL/GPIO/hal_gpio.c: 280:         ERRORSTATUS=(Std_ReturnType) 0x00;
 [e = _ERRORSTATUS -> -> 0 `i `uc ]
 "281
 [; ;MCAL/GPIO/hal_gpio.c: 281:     }

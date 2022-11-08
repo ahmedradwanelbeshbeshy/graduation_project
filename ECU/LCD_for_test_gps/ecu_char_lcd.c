@@ -6,11 +6,11 @@
  */
 
 #include"ecu_char_lcd.h"
-static Std_returnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd);
-static Std_returnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd);
-static Std_returnType lcd_send_4bits(const char_lcd_4bit_t*lcd,uint8 data_command);
-static Std_returnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum);
-static Std_returnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum);
+static Std_ReturnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd);
+static Std_ReturnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd);
+static Std_ReturnType lcd_send_4bits(const char_lcd_4bit_t*lcd,uint8 data_command);
+static Std_ReturnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum);
+static Std_ReturnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum);
 
 
 /**
@@ -18,12 +18,12 @@ static Std_returnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row
  * @param lcd
  * @return 
  */
-Std_returnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd)
+Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -62,12 +62,12 @@ Std_returnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd)
  * @param command
  * @return 
  */
-Std_returnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command)
+Std_ReturnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command)
 {
-         Std_returnType ERRORSTATUS =E_OK;
+         Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -87,12 +87,12 @@ Std_returnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command)
  * @param data
  * @return 
  */
-Std_returnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data)
+Std_ReturnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -114,12 +114,12 @@ Std_returnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data)
  * @param data
  * @return 
  */
-Std_returnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8 data)
+Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8 data)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -135,12 +135,12 @@ Std_returnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 row,
  * @param str
  * @return 
  */
-Std_returnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str)
+Std_ReturnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str)
 {
-        Std_returnType ERRORSTATUS =E_OK;
+        Std_ReturnType ERRORSTATUS =E_OK;
     if (( NULL==lcd)||( NULL==str))
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -160,12 +160,12 @@ Std_returnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str)
  * @param str
  * @return 
  */
-Std_returnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8* str)
+Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8* str)
 {
-        Std_returnType ERRORSTATUS =E_OK;
+        Std_ReturnType ERRORSTATUS =E_OK;
     if (( NULL==lcd)||( NULL==str))
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -187,13 +187,13 @@ Std_returnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 ro
  * @param pos
  * @return 
  */
-Std_returnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)//why arr
+Std_ReturnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)//why arr
 {
     uint8 lcd_counter;
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -216,12 +216,12 @@ Std_returnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 row,ui
  * @param lcd
  * @return 
  */
-Std_returnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd)
+Std_ReturnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -260,12 +260,12 @@ Std_returnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd)
  * @param command
  * @return 
  */
-Std_returnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command)
+Std_ReturnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -288,12 +288,12 @@ Std_returnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command)
  * @param data
  * @return 
  */
-Std_returnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data)
+Std_ReturnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -318,12 +318,12 @@ Std_returnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data)
  * @param data
  * @return 
  */
-Std_returnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8 data)
+Std_ReturnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8 data)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -340,12 +340,12 @@ Std_returnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 row,
  * @param str
  * @return 
  */
-Std_returnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str)
+Std_ReturnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (( NULL==lcd)||( NULL==str))
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -367,12 +367,12 @@ Std_returnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str)
  * @param str
  * @return 
  */
-Std_returnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8* str)
+Std_ReturnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8* str)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if (( NULL==lcd)||( NULL==str))
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -385,13 +385,13 @@ Std_returnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 ro
     return ERRORSTATUS;
 }
 
-Std_returnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)//why arr
+Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)//why arr
 {
-        Std_returnType ERRORSTATUS =E_OK;
+        Std_ReturnType ERRORSTATUS =E_OK;
         uint8 lcd_counter=ZERO_INIT;
     if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -413,12 +413,12 @@ Std_returnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 row,ui
  * @param value: the value which will be converted to string 
  * @param str:  btr to array of char of 4 elements will include the string as  3 digit and null termination in the end
  */
-Std_returnType convert_uint8_to_string(uint8 value,uint8*str)
+Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==str)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -434,14 +434,14 @@ Std_returnType convert_uint8_to_string(uint8 value,uint8*str)
  * @param value: the value which will be converted to string  
  * @param str:    btr to array of char of 6 elements will include the string as  5 digit and null termination in the end
  */
-Std_returnType convert_uint16_to_string(uint16 value,uint8*str)
+Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
     uint8 temp_string[6]={0};
     uint8 data_counter=0;
     if ( NULL==str)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -463,12 +463,12 @@ Std_returnType convert_uint16_to_string(uint16 value,uint8*str)
  * @param value:value the value which will be converted to string 
  * @param str btr to array of char of 11 elements will include the string as  10 digit and null termination in the end
  */
-Std_returnType convert_uint32_to_string(uint32 value,uint8*str)
+Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str)
 {
-     Std_returnType ERRORSTATUS =E_OK;
+     Std_ReturnType ERRORSTATUS =E_OK;
     if ( NULL==str)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -485,12 +485,12 @@ Std_returnType convert_uint32_to_string(uint32 value,uint8*str)
  * @param lcd
  * @return 
  */
-static Std_returnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd)
+static Std_ReturnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
         if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -502,12 +502,12 @@ static Std_returnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd)
     return ERRORSTATUS;
 }
 
-static Std_returnType lcd_send_4bits(const char_lcd_4bit_t *lcd,uint8 data_command)
+static Std_ReturnType lcd_send_4bits(const char_lcd_4bit_t *lcd,uint8 data_command)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
         if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -525,12 +525,12 @@ static Std_returnType lcd_send_4bits(const char_lcd_4bit_t *lcd,uint8 data_comma
  * @param lcd
  * @return 
  */
-static Std_returnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd)
+static Std_ReturnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
         if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -542,12 +542,12 @@ static Std_returnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd)
     return ERRORSTATUS;
 }
 
-static Std_returnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum)
+static Std_ReturnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
         if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
@@ -564,12 +564,12 @@ static Std_returnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row
     return ERRORSTATUS;
 }
 
-static Std_returnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum)
+static Std_ReturnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum)
 {
-    Std_returnType ERRORSTATUS =E_OK;
+    Std_ReturnType ERRORSTATUS =E_OK;
         if ( NULL==lcd)
     {
-        ERRORSTATUS=E_NOK;
+        ERRORSTATUS=E_NOT_OK;
     }
     else
     {
