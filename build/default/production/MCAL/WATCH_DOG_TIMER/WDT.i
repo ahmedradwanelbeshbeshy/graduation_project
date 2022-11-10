@@ -1,4 +1,4 @@
-# 1 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
+# 1 "MCAL/WATCH_DOG_TIMER/WDT.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,20 +6,17 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ECU/LCD_for_test_gps/ecu_char_lcd.c" 2
+# 1 "MCAL/WATCH_DOG_TIMER/WDT.c" 2
 
 
 
 
 
 
-
-# 1 "ECU/LCD_for_test_gps/ecu_char_lcd.h" 1
-# 12 "ECU/LCD_for_test_gps/ecu_char_lcd.h"
-# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 1
-# 12 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h"
-# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h" 1
-# 11 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h"
+# 1 "MCAL/WATCH_DOG_TIMER/WDT.h" 1
+# 11 "MCAL/WATCH_DOG_TIMER/WDT.h"
+# 1 "MCAL/WATCH_DOG_TIMER/../std_libraries.h" 1
+# 11 "MCAL/WATCH_DOG_TIMER/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -177,7 +174,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h" 2
+# 11 "MCAL/WATCH_DOG_TIMER/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
@@ -237,7 +234,7 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 12 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h" 2
+# 12 "MCAL/WATCH_DOG_TIMER/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
@@ -294,7 +291,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h" 2
+# 13 "MCAL/WATCH_DOG_TIMER/../std_libraries.h" 2
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 1 3
 # 45 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
@@ -4508,7 +4505,7 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 14 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h" 2
+# 14 "MCAL/WATCH_DOG_TIMER/../std_libraries.h" 2
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
@@ -4671,17 +4668,11 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 15 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../std_libraries.h" 2
-# 12 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 2
+# 15 "MCAL/WATCH_DOG_TIMER/../std_libraries.h" 2
+# 11 "MCAL/WATCH_DOG_TIMER/WDT.h" 2
 
-# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../device_config.h" 1
-# 11 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../device_config.h"
-# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../compiler.h" 1
-# 11 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../device_config.h" 2
-# 13 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 2
-
-# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../mcal_std_types.h" 1
-# 20 "ECU/LCD_for_test_gps/../../MCAL/GPIO/../mcal_std_types.h"
+# 1 "MCAL/WATCH_DOG_TIMER/../mcal_std_types.h" 1
+# 20 "MCAL/WATCH_DOG_TIMER/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned char uint8_t;
 
@@ -4696,655 +4687,40 @@ typedef signed long sint32;
 typedef float float32;
 
 typedef uint8 Std_ReturnType;
-# 14 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 2
+# 12 "MCAL/WATCH_DOG_TIMER/WDT.h" 2
+# 24 "MCAL/WATCH_DOG_TIMER/WDT.h"
+typedef enum {
+    wdt_postscaler_BY_1 = 0,
+    wdt_postscaler_BY_2,
+    wdt_postscaler_BY_4,
+    wdt_postscaler_BY_8,
+    wdt_postscaler_BY_16,
+    wdt_postscaler_BY_32,
+    wdt_postscaler_BY_64,
+    wdt_postscaler_BY_128,
+    wdt_postscaler_BY_256,
+    wdt_postscaler_BY_512,
+    wdt_postscaler_BY_1024,
+    wdt_postscaler_BY_2048,
+    wdt_postscaler_BY_4096,
+    wdt_postscaler_BY_8192,
+    wdt_postscaler_BY_16384,
+    wdt_postscaler_BY_32768
+}wdt_postscaler_et;
 
-# 1 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio_cfg.h" 1
-# 15 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h" 2
-# 42 "ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h"
-typedef enum{
-   GPIO_LOW=0,
-   GPIO_HIGH
-}logic_et;
+Std_ReturnType WDT_Init(void);
+Std_ReturnType WDT_DeInit(void);
+# 7 "MCAL/WATCH_DOG_TIMER/WDT.c" 2
 
-typedef enum{
-   GPIO_DIRECTION_OUTPUT=0,
-   GPIO_DIRECTION_INPUT
-}direction_et;
-
-typedef enum{
-    GPIO_PIN0=0,
-    GPIO_PIN1,
-    GPIO_PIN2,
-    GPIO_PIN3,
-    GPIO_PIN4,
-    GPIO_PIN5,
-    GPIO_PIN6,
-    GPIO_PIN7
-}pin_index_et;
-
-typedef enum{
-    PORTA_INDEX=0,
-    PORTB_INDEX,
-    PORTC_INDEX,
-    PORTD_INDEX,
-    PORTE_INDEX
-}port_index_et;
-
-
-typedef struct
-{
-    uint8 pin :3;
-    uint8 port :3;
-    uint8 direction :1;
-    uint8 logic :1;
-}pin_config_st;
-
-
-
-
-
-Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
-
-Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
-
-
-Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
-Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status);
-Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
-Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
-Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
-# 12 "ECU/LCD_for_test_gps/ecu_char_lcd.h" 2
-
-# 1 "ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h" 1
-# 13 "ECU/LCD_for_test_gps/ecu_char_lcd.h" 2
-# 59 "ECU/LCD_for_test_gps/ecu_char_lcd.h"
-typedef struct{
-    pin_config_st lcd_rs_pin;
-    pin_config_st lcd_enable_pin;
-    pin_config_st lcd_data_pins[4];
-}char_lcd_4bit_t;
-
-typedef struct{
-    pin_config_st lcd_rs_pin;
-    pin_config_st lcd_enable_pin;
-    pin_config_st lcd_data_pins[8];
-}char_lcd_8bit_t;
-
-
-Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
-Std_ReturnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command);
-
-Std_ReturnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data);
-Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
-
-Std_ReturnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str);
-Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
-
-Std_ReturnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
-
-
-
-
-
-Std_ReturnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd);
-Std_ReturnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command);
-
-Std_ReturnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data);
-Std_ReturnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
-
-Std_ReturnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str);
-Std_ReturnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
-
-Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
-
-
-Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
-Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
-Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
-# 8 "ECU/LCD_for_test_gps/ecu_char_lcd.c" 2
-
-static Std_ReturnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd);
-static Std_ReturnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd);
-static Std_ReturnType lcd_send_4bits(const char_lcd_4bit_t*lcd,uint8 data_command);
-static Std_ReturnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum);
-static Std_ReturnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum);
-
-
-
-
-
-
-
-Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd)
+Std_ReturnType WDT_Init(void)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-        uint8 pin_lcd_counter=0;
-        ERRORSTATUS=GPIO_Pin_Initialize(&(lcd->lcd_rs_pin));
-        ERRORSTATUS=GPIO_Pin_Initialize(&(lcd->lcd_enable_pin));
-        for(pin_lcd_counter=0;pin_lcd_counter<4;pin_lcd_counter++)
-        {
-            ERRORSTATUS=GPIO_Pin_Initialize(&(lcd->lcd_data_pins[pin_lcd_counter]));
-
-
-        }
-        _delay((unsigned long)((20)*(24000000/4000.0)));
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0X38);
-        _delay((unsigned long)((5)*(24000000/4000.0)));
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0X38);
-        _delay((unsigned long)((150)*(24000000/4000000.0)));
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0X38);
-
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0X01);
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0X02);
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0X06);
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0X0D);
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0X28);
-        ERRORSTATUS=lcd_4bit_send_command(lcd,0x80);
-
-
-
-    }
-
+    WDTCONbits.SWDTEN=1;
     return ERRORSTATUS;
 }
-
-
-
-
-
-
-Std_ReturnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command)
-{
-         Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-     ERRORSTATUS= GPIO_Pin_Write_Logic(&(lcd->lcd_rs_pin),GPIO_LOW);
-    lcd_send_4bits(lcd,(command>>4));
-    lcd_4bits_send_enable_signal(lcd);
-    lcd_send_4bits(lcd,command);
-    lcd_4bits_send_enable_signal(lcd);
-
-    }
-
-    return ERRORSTATUS;
-}
-
-
-
-
-
-
-Std_ReturnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data)
+Std_ReturnType WDT_DeInit(void)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-    ERRORSTATUS= GPIO_Pin_Write_Logic(&(lcd->lcd_rs_pin),GPIO_HIGH);
-    lcd_send_4bits(lcd,(data>>4));
-    lcd_4bits_send_enable_signal(lcd);
-    lcd_send_4bits(lcd,data);
-    lcd_4bits_send_enable_signal(lcd);
-
-    }
-
-    return ERRORSTATUS;
-}
-# 117 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8 data)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-       lcd_4bits_set_courser(lcd,row,colum);
-       lcd_4bit_send_char_data(lcd,data);
-    }
-
-    return ERRORSTATUS;
-}
-
-
-
-
-
-
-Std_ReturnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str)
-{
-        Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if (( ((void*)0)==lcd)||( ((void*)0)==str))
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-        while(*str)
-        {
-           lcd_4bit_send_char_data(lcd,*str++) ;
-        }
-    }
-
-    return ERRORSTATUS;
-}
-# 163 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,uint8* str)
-{
-        Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if (( ((void*)0)==lcd)||( ((void*)0)==str))
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-         lcd_4bits_set_courser(lcd,row,colum);
-        while(*str)
-        {
-           lcd_4bit_send_char_data(lcd,*str++) ;
-        }
-    }
-
-    return ERRORSTATUS;
-}
-# 190 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_ReturnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)
-{
-    uint8 lcd_counter;
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-       lcd_4bit_send_command(lcd,0X40 +(memmory_pos*8));
-      for(lcd_counter=0;lcd_counter<8;lcd_counter++)
-       {
-          lcd_4bit_send_char_data(lcd,_char[lcd_counter]) ;
-       }
-       lcd_4bit_send_char_data_pos(lcd,row,colum,memmory_pos);
-    }
-
-    return ERRORSTATUS;
-}
-# 219 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_ReturnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-        uint8 pin_lcd_counter=0;
-        ERRORSTATUS=GPIO_Pin_Initialize(&(lcd->lcd_rs_pin));
-        ERRORSTATUS=GPIO_Pin_Initialize(&(lcd->lcd_enable_pin));
-        for(pin_lcd_counter=0;pin_lcd_counter<8;pin_lcd_counter++)
-        {
-        ERRORSTATUS=GPIO_Pin_Initialize(&(lcd->lcd_data_pins[pin_lcd_counter]));
-        }
-        _delay((unsigned long)((20)*(24000000/4000.0)));
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0X38);
-        _delay((unsigned long)((5)*(24000000/4000.0)));
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0X38);
-        _delay((unsigned long)((150)*(24000000/4000000.0)));
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0X38);
-
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0X01);
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0X02);
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0X06);
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0X0D);
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0X38);
-        ERRORSTATUS=lcd_8bit_send_command(lcd,0x80);
-
-
-
-
-
-    }
-
-    return ERRORSTATUS;
-}
-
-
-
-
-
-
-Std_ReturnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-      uint8 counter=0;
-          ERRORSTATUS= GPIO_Pin_Write_Logic(&(lcd->lcd_rs_pin),GPIO_LOW);
-          for (counter=0;counter<8;counter++)
-          {
-                GPIO_Pin_Write_Logic(&(lcd->lcd_data_pins[counter]),((command>>counter)&(uint8)0x01));
-          }
-          lcd_8bits_send_enable_signal(lcd);
-
-    }
-
-    return ERRORSTATUS;
-}
-
-
-
-
-
-
-
-Std_ReturnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-        uint8 counter=0;
-        ERRORSTATUS= GPIO_Pin_Write_Logic(&(lcd->lcd_rs_pin),GPIO_HIGH);
-        for (counter=0;counter<8;counter++)
-        {
-           GPIO_Pin_Write_Logic(&(lcd->lcd_data_pins[counter]),((data>>counter)&(uint8)0x01));
-        }
-        lcd_8bits_send_enable_signal(lcd);
-
-
-    }
-
-    return ERRORSTATUS;
-}
-# 321 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_ReturnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8 data)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-       lcd_8bits_set_courser(lcd,row,colum);
-       lcd_8bit_send_char_data(lcd,data);
-    }
-
-    return ERRORSTATUS;
-}
-
-
-
-
-
-
-
-Std_ReturnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if (( ((void*)0)==lcd)||( ((void*)0)==str))
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-        while(*str)
-        {
-          lcd_8bit_send_char_data(lcd,*str);
-          str++;
-        }
-
-    }
-
-    return ERRORSTATUS;
-}
-# 370 "ECU/LCD_for_test_gps/ecu_char_lcd.c"
-Std_ReturnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,uint8* str)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if (( ((void*)0)==lcd)||( ((void*)0)==str))
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-        lcd_8bits_set_courser(lcd,row,colum);
-        lcd_8bit_send_string_data(lcd,str);
-
-
-    }
-
-    return ERRORSTATUS;
-}
-
-Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum,const uint8 _char[],uint8 memmory_pos)
-{
-        Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-        uint8 lcd_counter=0;
-    if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-      lcd_8bit_send_command(lcd,0X40 +(memmory_pos*8));
-      for(lcd_counter=0;lcd_counter<8;lcd_counter++)
-       {
-          lcd_8bit_send_char_data(lcd,_char[lcd_counter]) ;
-
-       }
-       lcd_8bit_send_char_data_pos(lcd,row,colum,memmory_pos);
-
-    }
-
-    return ERRORSTATUS;
-}
-
-
-
-
-
-
-Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==str)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-        memset(str,'\0',4);
-        sprintf(str,"%i",value);
-
-    }
-      return ERRORSTATUS;
-
-}
-
-
-
-
-
-Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    uint8 temp_string[6]={0};
-    uint8 data_counter=0;
-    if ( ((void*)0)==str)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-         memset(str,' ',5);
-         str[5]='\0';
-         sprintf((char*)temp_string,"%i",value);
-         while(temp_string[data_counter]!='\0')
-         {
-            str[data_counter] =temp_string[data_counter];
-            data_counter++;
-         }
-        sprintf(str,"%i",value);
-    }
-
-    return ERRORSTATUS;
-}
-
-
-
-
-
-Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==str)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-        memset(str,'\0',11);
-        sprintf(str,"%i",value);
-    }
-      return ERRORSTATUS;
-
-}
-
-
-
-
-
-
-
-static Std_ReturnType lcd_4bits_send_enable_signal(const char_lcd_4bit_t *lcd)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-        if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-            GPIO_Pin_Write_Logic(&(lcd->lcd_enable_pin),GPIO_HIGH);
-            _delay((unsigned long)((5)*(24000000/4000000.0)));
-             GPIO_Pin_Write_Logic(&(lcd->lcd_enable_pin),GPIO_LOW);
-
-    }
-    return ERRORSTATUS;
-}
-
-static Std_ReturnType lcd_send_4bits(const char_lcd_4bit_t *lcd,uint8 data_command)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-        if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-            GPIO_Pin_Write_Logic(&(lcd->lcd_data_pins[0]),((data_command>>0)&(uint8)0x01));
-            GPIO_Pin_Write_Logic(&(lcd->lcd_data_pins[1]),((data_command>>1)&(uint8)0x01));
-            GPIO_Pin_Write_Logic(&(lcd->lcd_data_pins[2]),((data_command>>2)&(uint8)0x01));
-            GPIO_Pin_Write_Logic(&(lcd->lcd_data_pins[3]),((data_command>>3)&(uint8)0x01));
-
-    }
-    return ERRORSTATUS;
-}
-
-
-
-
-
-
-static Std_ReturnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-        if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-            GPIO_Pin_Write_Logic(&(lcd->lcd_enable_pin),GPIO_HIGH);
-            _delay((unsigned long)((5)*(24000000/4000000.0)));
-             GPIO_Pin_Write_Logic(&(lcd->lcd_enable_pin),GPIO_LOW);
-
-    }
-    return ERRORSTATUS;
-}
-
-static Std_ReturnType lcd_8bits_set_courser(const char_lcd_8bit_t *lcd,uint8 row,uint8 colum)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-        if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-            colum--;
-            switch (row)
-            {
-                case 1: lcd_8bit_send_command(lcd,(0x80 +colum)); break;
-                case 2: lcd_8bit_send_command(lcd,(0xC0 +colum));break;
-                case 3: lcd_8bit_send_command(lcd,(0x94 +colum));break;
-                case 4: lcd_8bit_send_command(lcd,(0xD4 +colum));break;
-                default: break;
-            }
-    }
-    return ERRORSTATUS;
-}
-
-static Std_ReturnType lcd_4bits_set_courser(const char_lcd_4bit_t *lcd,uint8 row,uint8 colum)
-{
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-        if ( ((void*)0)==lcd)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-            colum--;
-            switch (row)
-            {
-                case 1: lcd_4bit_send_command(lcd,(0x80 +colum)); break;
-                case 2: lcd_4bit_send_command(lcd,(0xC0 +colum));break;
-                case 3: lcd_4bit_send_command(lcd,(0x94 +colum));break;
-                case 4: lcd_4bit_send_command(lcd,(0xD4 +colum));break;
-                default: break;
-            }
-    }
+    WDTCONbits.SWDTEN=0;
     return ERRORSTATUS;
 }

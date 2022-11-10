@@ -5365,22 +5365,22 @@ static __attribute__((inline)) Std_ReturnType async_config_baud_rate_gen(const u
             case BAUDRATE_ASYNC_8BIT_LOW_SPEED:
                 TXSTAbits.BRGH = 0 ;
                 BAUDCONbits.BRG16 = 0 ;
-                Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/64)-1;
+                Baudrate_temp= ((24000000/((float32)_eusart_obj->uart_baud_rate_value))/64)-1;
                 break;
             case BAUDRATE_ASYNC_8BIT_HIGH_SPEED:
                 TXSTAbits.BRGH = 1 ;
                 BAUDCONbits.BRG16 = 0 ;
-                Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
+                Baudrate_temp= ((24000000/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
                 break ;
             case BAUDRATE_ASYNC_16BIT_LOW_SPEED :
                 TXSTAbits.BRGH = 0 ;
                 BAUDCONbits.BRG16 = 1 ;
-                Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
+                Baudrate_temp= ((24000000/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
                 break ;
             case BAUDRATE_ASYNC_16BIT_HIGH_SPEED:
                 TXSTAbits.BRGH = 1 ;
                 BAUDCONbits.BRG16 = 1 ;
-                Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/4)-1;
+                Baudrate_temp= ((24000000/((float32)_eusart_obj->uart_baud_rate_value))/4)-1;
                 break ;
             default:
                 ret_val = (Std_ReturnType) 0x00 ;

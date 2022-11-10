@@ -5145,7 +5145,7 @@ static void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj)
     {
 
         SSPCON1bits.SSPM=i2c_obj->i2c_cfg.i2c_mode_cfg;
-        SSPADD=(uint8)(((8000000/4.0)/i2c_obj->i2c_clock)-1);
+        SSPADD=(uint8)(((24000000/4.0)/i2c_obj->i2c_clock)-1);
     }
 
 }

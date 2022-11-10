@@ -180,7 +180,7 @@ void __interrupt(low_priority) InterruptManagerLow(void)
     /************************************** PERIPHERALS *****************************************************/
     if( (INT_ENABLE == PIE1bits.ADIE)  && (INT_OCCUR == PIR1bits.ADIF) )
     {
-        //ADC_ISR();
+        ADC_ISR();
     }
     else { /* Do Nothing */}
     

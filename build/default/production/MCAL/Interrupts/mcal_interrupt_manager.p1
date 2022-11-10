@@ -116,6 +116,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35
 [; ;MCAL/Interrupts/mcal_interrupt_manager.h: 35: void RB7_ISR(uint8_t Handler_Select);
 [v _RB7_ISR `(v ~T0 @X0 0 ef1`uc ]
+"37
+[; ;MCAL/Interrupts/mcal_interrupt_manager.h: 37: void ADC_ISR(void);
+[v _ADC_ISR `(v ~T0 @X0 0 ef ]
 "55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
@@ -763,6 +766,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "182
 [; ;MCAL/Interrupts/mcal_interrupt_manager.c: 182:     {
 {
+"183
+[; ;MCAL/Interrupts/mcal_interrupt_manager.c: 183:         ADC_ISR();
+[e ( _ADC_ISR ..  ]
 "184
 [; ;MCAL/Interrupts/mcal_interrupt_manager.c: 184:     }
 }

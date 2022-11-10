@@ -1746,8 +1746,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 580:                 BAUDCONbits.BRG16 = 0 ;
 [e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
 "581
-[; ;MCAL/EUSART/mcal_EUSART.c: 581:                 Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/64)-1;
-[e = _Baudrate_temp - / / -> -> 8000000 `l `f -> . *U __eusart_obj 0 `f -> -> 64 `i `f -> -> 1 `i `f ]
+[; ;MCAL/EUSART/mcal_EUSART.c: 581:                 Baudrate_temp= ((24000000/((float32)_eusart_obj->uart_baud_rate_value))/64)-1;
+[e = _Baudrate_temp - / / -> -> 24000000 `l `f -> . *U __eusart_obj 0 `f -> -> 64 `i `f -> -> 1 `i `f ]
 "582
 [; ;MCAL/EUSART/mcal_EUSART.c: 582:                 break;
 [e $U 375  ]
@@ -1761,8 +1761,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 585:                 BAUDCONbits.BRG16 = 0 ;
 [e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
 "586
-[; ;MCAL/EUSART/mcal_EUSART.c: 586:                 Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
-[e = _Baudrate_temp - / / -> -> 8000000 `l `f -> . *U __eusart_obj 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
+[; ;MCAL/EUSART/mcal_EUSART.c: 586:                 Baudrate_temp= ((24000000/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
+[e = _Baudrate_temp - / / -> -> 24000000 `l `f -> . *U __eusart_obj 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
 "587
 [; ;MCAL/EUSART/mcal_EUSART.c: 587:                 break ;
 [e $U 375  ]
@@ -1776,8 +1776,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 590:                 BAUDCONbits.BRG16 = 1 ;
 [e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
 "591
-[; ;MCAL/EUSART/mcal_EUSART.c: 591:                 Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
-[e = _Baudrate_temp - / / -> -> 8000000 `l `f -> . *U __eusart_obj 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
+[; ;MCAL/EUSART/mcal_EUSART.c: 591:                 Baudrate_temp= ((24000000/((float32)_eusart_obj->uart_baud_rate_value))/16)-1;
+[e = _Baudrate_temp - / / -> -> 24000000 `l `f -> . *U __eusart_obj 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
 "592
 [; ;MCAL/EUSART/mcal_EUSART.c: 592:                 break ;
 [e $U 375  ]
@@ -1791,8 +1791,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/EUSART/mcal_EUSART.c: 595:                 BAUDCONbits.BRG16 = 1 ;
 [e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
 "596
-[; ;MCAL/EUSART/mcal_EUSART.c: 596:                 Baudrate_temp= ((8000000/((float32)_eusart_obj->uart_baud_rate_value))/4)-1;
-[e = _Baudrate_temp - / / -> -> 8000000 `l `f -> . *U __eusart_obj 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
+[; ;MCAL/EUSART/mcal_EUSART.c: 596:                 Baudrate_temp= ((24000000/((float32)_eusart_obj->uart_baud_rate_value))/4)-1;
+[e = _Baudrate_temp - / / -> -> 24000000 `l `f -> . *U __eusart_obj 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
 "597
 [; ;MCAL/EUSART/mcal_EUSART.c: 597:                 break ;
 [e $U 375  ]

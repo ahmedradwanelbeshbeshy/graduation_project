@@ -8,18 +8,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "122
 [s S278 `*F3096 1 `*F3098 1 `*F3100 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
 [n S278 . rx_InterruptHandler oerr_InterruptHandler ferr_InterruptHandler uart_rx_priority uart_rx_9th_bit_role rx_enable rx_9th_bit_en rx_reserved ]
-"27 application.c
-[; ;application.c: 27: uart_config_st _uart_obj = {
+"31 application.c
+[; ;application.c: 31: uart_config_st _uart_obj = {
 [c E3082 0 1 2 3 .. ]
 [n E3082 . BAUDRATE_ASYNC_8BIT_LOW_SPEED BAUDRATE_ASYNC_8BIT_HIGH_SPEED BAUDRATE_ASYNC_16BIT_LOW_SPEED BAUDRATE_ASYNC_16BIT_HIGH_SPEED  ]
 "155 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
 [s S279 `us 1 `S277 1 `S278 1 `E3082 1 ]
 [n S279 . uart_baud_rate_value tx_config rx_config baud_rate_config ]
-"15 application.c
-[; ;application.c: 15: void usart_isr (void);
+"19 application.c
+[; ;application.c: 19: void usart_isr (void);
 [v _usart_isr `(v ~T0 @X0 0 ef ]
-[v F3238 `(v ~T0 @X0 0 tf ]
-[v F3239 `(v ~T0 @X0 0 tf ]
+[v F3258 `(v ~T0 @X0 0 tf ]
+[v F3259 `(v ~T0 @X0 0 tf ]
 "73 ./ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h
 [s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S273 . pin port direction logic ]
@@ -27,8 +27,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./ECU/LCD_for_test_gps/ecu_char_lcd.h: 59: typedef struct{
 [s S280 `S273 1 `S273 1 `S273 -> 4 `i ]
 [n S280 . lcd_rs_pin lcd_enable_pin lcd_data_pins ]
-"39 application.c
-[; ;application.c: 39: char_lcd_4bit_t lcd1=
+"43 application.c
+[; ;application.c: 43: char_lcd_4bit_t lcd1=
 [c E2966 0 1 2 3 4 5 6 7 .. ]
 [n E2966 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
 [c E2976 0 1 2 3 4 .. ]
@@ -44,17 +44,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "79 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
 [; ;./ECU/LCD_for_test_gps/ecu_char_lcd.h: 79: Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
 [v _lcd_4bit_send_string_data_pos `(uc ~T0 @X0 0 ef4`*CS280`uc`uc`*uc ]
-"95 ./ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h
-[v _GPIO_Pin_Toggle_Logic `(uc ~T0 @X0 0 ef1`*CS273 ]
+"93 ./ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h
+[v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS273`E2958 ]
 [v F2926 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
 [v __delay `JF2926 ~T0 @X0 0 e ]
 [p i __delay ]
-"16 application.c
-[; ;application.c: 16: void GPS_Service (void);
-[v _GPS_Service `(v ~T0 @X0 0 ef ]
-"96 ./ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h
+"95 ./ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h
+[v _GPIO_Pin_Toggle_Logic `(uc ~T0 @X0 0 ef1`*CS273 ]
+"96
 [v _GPIO_Pin_Initialize `(uc ~T0 @X0 0 ef1`*CS273 ]
+"43 ./MCAL/WATCH_DOG_TIMER/WDT.h
+[; ;./MCAL/WATCH_DOG_TIMER/WDT.h: 43: Std_ReturnType WDT_Init(void);
+[v _WDT_Init `(uc ~T0 @X0 0 ef ]
 "188 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
 [v _EUSART_Async_Init `(uc ~T0 @X0 0 ef1`*CS279 ]
 "72 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
@@ -79,8 +81,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S93 . . . ]
 "2520
 [v _PIE1bits `VS93 ~T0 @X0 0 e@3997 ]
-"93 ./ECU/LCD_for_test_gps/../../MCAL/GPIO/hal_gpio.h
-[v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS273`E2958 ]
 "238 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
 [v _EUSART_Async_Read_Data_Blocking `(uc ~T0 @X0 0 ef2`*CS279`*us ]
 "55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
@@ -357,53 +357,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6716
 [; <" TOSU equ 0FFFh ;# ">
-"17 application.c
-[; ;application.c: 17: uint8 datasend='w';
+"21 application.c
+[; ;application.c: 21: uint8 datasend='w';
 [v _datasend `uc ~T0 @X0 1 e ]
 [i _datasend
 -> -> 119 `ui `uc
 ]
-"18
-[; ;application.c: 18: uint8 datarecive=0;
+"22
+[; ;application.c: 22: uint8 datarecive=0;
 [v _datarecive `uc ~T0 @X0 1 e ]
 [i _datarecive
 -> -> 0 `i `uc
 ]
-"19
-[; ;application.c: 19: uint8 gps=1;
+"23
+[; ;application.c: 23: uint8 gps=1;
 [v _gps `uc ~T0 @X0 1 e ]
 [i _gps
 -> -> 1 `i `uc
 ]
-"20
-[; ;application.c: 20: uint8 blue=1;
+"24
+[; ;application.c: 24: uint8 blue=1;
 [v _blue `uc ~T0 @X0 1 e ]
 [i _blue
 -> -> 1 `i `uc
 ]
-"21
-[; ;application.c: 21: uint8 i=0;
+"25
+[; ;application.c: 25: uint8 i=0;
 [v _i `uc ~T0 @X0 1 e ]
 [i _i
 -> -> 0 `i `uc
 ]
-"22
-[; ;application.c: 22: uint8 latitude[13];
+"26
+[; ;application.c: 26: uint8 latitude[13];
 [v _latitude `uc ~T0 @X0 -> 13 `i e ]
-"23
-[; ;application.c: 23: uint8 longtude[13];
+"27
+[; ;application.c: 27: uint8 longtude[13];
 [v _longtude `uc ~T0 @X0 -> 13 `i e ]
-"24
-[; ;application.c: 24: uint8 gpstemp=0;
+"28
+[; ;application.c: 28: uint8 gpstemp=0;
 [v _gpstemp `uc ~T0 @X0 1 e ]
 [i _gpstemp
 -> -> 0 `i `uc
 ]
-"25
-[; ;application.c: 25: uint8 counter;
+"29
+[; ;application.c: 29: uint8 counter;
 [v _counter `uc ~T0 @X0 1 e ]
-"27
-[; ;application.c: 27: uart_config_st _uart_obj = {
+"31
+[; ;application.c: 31: uart_config_st _uart_obj = {
 [v __uart_obj `S279 ~T0 @X0 1 e ]
 [i __uart_obj
 :U ..
@@ -419,8 +419,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 &U _usart_isr
--> -> 0 `i `*F3238
--> -> 0 `i `*F3239
+-> -> 0 `i `*F3258
+-> -> 0 `i `*F3259
 -> -> 1 `i `uc
 -> -> 0 `i `uc
 -> -> 1 `i `uc
@@ -431,8 +431,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"39
-[; ;application.c: 39: char_lcd_4bit_t lcd1=
+"43
+[; ;application.c: 43: char_lcd_4bit_t lcd1=
 [v _lcd1 `S280 ~T0 @X0 1 e ]
 [i _lcd1
 :U ..
@@ -482,8 +482,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"72
-[; ;application.c: 72: pin_config_st pind2={
+"76
+[; ;application.c: 76: pin_config_st pind2={
 [v _pind2 `S273 ~T0 @X0 1 e ]
 [i _pind2
 :U ..
@@ -495,8 +495,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"78
-[; ;application.c: 78: pin_config_st pind1={
+"82
+[; ;application.c: 82: pin_config_st pind1={
 [v _pind1 `S273 ~T0 @X0 1 e ]
 [i _pind1
 :U ..
@@ -508,8 +508,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"85
-[; ;application.c: 85: pin_config_st selector={
+"89
+[; ;application.c: 89: pin_config_st selector={
 [v _selector `S273 ~T0 @X0 1 e ]
 [i _selector
 :U ..
@@ -522,460 +522,298 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"91
-[; ;application.c: 91: int main()
+"95
+[; ;application.c: 95: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"92
-[; ;application.c: 92: {
+"96
+[; ;application.c: 96: {
 {
 [e :U _main ]
 [f ]
-"94
-[; ;application.c: 94:     application_intialize();
-[e ( _application_intialize ..  ]
-"95
-[; ;application.c: 95:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 2 `i `uc -> -> 1 `i `uc :s 1C ]
-"97
-[; ;application.c: 97:    while(1)
-[e :U 284 ]
 "98
-[; ;application.c: 98:     {
-{
+[; ;application.c: 98:     application_intialize();
+[e ( _application_intialize ..  ]
 "99
-[; ;application.c: 99:         GPIO_Pin_Toggle_Logic(&pind1);
-[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pind1 `*CS273 ]
+[; ;application.c: 99:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 2 `i `uc -> -> 1 `i `uc :s 1C ]
 "100
-[; ;application.c: 100:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;application.c: 100:     __asm("clrwdt");
+[; <" clrwdt ;# ">
 "101
-[; ;application.c: 101:         switch(datarecive)
-[e $U 287  ]
+[; ;application.c: 101:     GPIO_Pin_Write_Logic(&pind1,GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U _pind1 `*CS273 . `E2958 1 ]
 "102
-[; ;application.c: 102:         {
-{
+[; ;application.c: 102:     _delay((unsigned long)((1000)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
 "103
-[; ;application.c: 103:             case 0x00:
-[e :U 288 ]
+[; ;application.c: 103:     __asm("clrwdt");
+[; <" clrwdt ;# ">
+"104
+[; ;application.c: 104:     GPIO_Pin_Write_Logic(&pind1,GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U _pind1 `*CS273 . `E2958 0 ]
 "105
-[; ;application.c: 105:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 2C ]
+[; ;application.c: 105:     _delay((unsigned long)((1000)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
 "106
-[; ;application.c: 106:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"no thing");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 3C ]
-"107
-[; ;application.c: 107:                 break;
-[e $U 286  ]
+[; ;application.c: 106:     __asm("clrwdt");
+[; <" clrwdt ;# ">
 "108
-[; ;application.c: 108:             case 0x01:
-[e :U 289 ]
+[; ;application.c: 108:    while(1)
+[e :U 284 ]
+"109
+[; ;application.c: 109:     {
+{
 "110
-[; ;application.c: 110:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 4C ]
+[; ;application.c: 110:        GPIO_Pin_Toggle_Logic(&pind2);
+[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pind2 `*CS273 ]
 "111
-[; ;application.c: 111:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"left forward:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 5C ]
-"113
-[; ;application.c: 113:                 break;
-[e $U 286  ]
-"114
-[; ;application.c: 114:             case 2:
-[e :U 290 ]
-"116
-[; ;application.c: 116:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 6C ]
-"117
-[; ;application.c: 117:                 lcd_4bit_send_string_data_pos(&lcd1,1,1," forward:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 7C ]
-"118
-[; ;application.c: 118:                 break;
-[e $U 286  ]
-"119
-[; ;application.c: 119:             case 3:
-[e :U 291 ]
-"121
-[; ;application.c: 121:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 8C ]
-"122
-[; ;application.c: 122:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"right forward:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 9C ]
-"124
-[; ;application.c: 124:                 break;
-[e $U 286  ]
-"125
-[; ;application.c: 125:             case 4:
-[e :U 292 ]
-"127
-[; ;application.c: 127:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 10C ]
-"128
-[; ;application.c: 128:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"turn left:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 11C ]
-"130
-[; ;application.c: 130:                 break;
-[e $U 286  ]
-"131
-[; ;application.c: 131:             case 5:
-[e :U 293 ]
-"133
-[; ;application.c: 133:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 12C ]
-"134
-[; ;application.c: 134:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"turn right:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 13C ]
-"136
-[; ;application.c: 136:                 break;
-[e $U 286  ]
-"137
-[; ;application.c: 137:             case 6:
-[e :U 294 ]
-"139
-[; ;application.c: 139:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 14C ]
-"140
-[; ;application.c: 140:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"left backward:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 15C ]
-"142
-[; ;application.c: 142:                 break;
-[e $U 286  ]
-"143
-[; ;application.c: 143:             case 7:
-[e :U 295 ]
-"145
-[; ;application.c: 145:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 16C ]
-"146
-[; ;application.c: 146:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"backward:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 17C ]
-"148
-[; ;application.c: 148:                 break;
-[e $U 286  ]
-"149
-[; ;application.c: 149:             case 8:
-[e :U 296 ]
-"151
-[; ;application.c: 151:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 18C ]
-"152
-[; ;application.c: 152:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"right backward:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 19C ]
-"154
-[; ;application.c: 154:                 break;
-[e $U 286  ]
-"155
-[; ;application.c: 155:             case 9:
-[e :U 297 ]
-"157
-[; ;application.c: 157:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 20C ]
-"158
-[; ;application.c: 158:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"rotate left:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 21C ]
-"160
-[; ;application.c: 160:                 break;
-[e $U 286  ]
-"161
-[; ;application.c: 161:             case 10:
-[e :U 298 ]
-"163
-[; ;application.c: 163:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 22C ]
-"164
-[; ;application.c: 164:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"gps");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 23C ]
-"167
-[; ;application.c: 167:                 GPS_Service();
-[e ( _GPS_Service ..  ]
-"168
-[; ;application.c: 168:                 break;
-[e $U 286  ]
-"170
-[; ;application.c: 170:             default:
-[e :U 299 ]
-"172
-[; ;application.c: 172:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 24C ]
-"173
-[; ;application.c: 173:                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"default case");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 25C ]
-"174
-[; ;application.c: 174:                 break;
-[e $U 286  ]
-"175
-[; ;application.c: 175:         }
-}
-[e $U 286  ]
-[e :U 287 ]
-[e [\ -> _datarecive `i , $ -> 0 `i 288
- , $ -> 1 `i 289
- , $ -> 2 `i 290
- , $ -> 3 `i 291
- , $ -> 4 `i 292
- , $ -> 5 `i 293
- , $ -> 6 `i 294
- , $ -> 7 `i 295
- , $ -> 8 `i 296
- , $ -> 9 `i 297
- , $ -> 10 `i 298
- 299 ]
-[e :U 286 ]
-"177
-[; ;application.c: 177:    }
+[; ;application.c: 111:         _delay((unsigned long)((1000)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+"112
+[; ;application.c: 112:         __asm("clrwdt");
+[; <" clrwdt ;# ">
+"192
+[; ;application.c: 192:    }
 }
 [e :U 283 ]
 [e $U 284  ]
 [e :U 285 ]
-"178
-[; ;application.c: 178:    return 0;
+"193
+[; ;application.c: 193:    return 0;
 [e ) -> 0 `i ]
 [e $UE 282  ]
-"179
-[; ;application.c: 179: }
-[e :UE 282 ]
-}
-"180
-[; ;application.c: 180: void application_intialize(void)
-[v _application_intialize `(v ~T0 @X0 1 ef ]
-"181
-[; ;application.c: 181: {
-{
-[e :U _application_intialize ]
-[f ]
-"182
-[; ;application.c: 182:     GPIO_Pin_Initialize(&pind1);
-[e ( _GPIO_Pin_Initialize (1 -> &U _pind1 `*CS273 ]
-"183
-[; ;application.c: 183:     GPIO_Pin_Initialize(&pind2);
-[e ( _GPIO_Pin_Initialize (1 -> &U _pind2 `*CS273 ]
-"184
-[; ;application.c: 184:     GPIO_Pin_Initialize(&selector);
-[e ( _GPIO_Pin_Initialize (1 -> &U _selector `*CS273 ]
-"185
-[; ;application.c: 185:     EUSART_Async_Init(&_uart_obj);
-[e ( _EUSART_Async_Init (1 -> &U __uart_obj `*CS279 ]
-"186
-[; ;application.c: 186:     lcd_4bit_initialize(&lcd1);
-[e ( _lcd_4bit_initialize (1 -> &U _lcd1 `*CS280 ]
-"187
-[; ;application.c: 187: }
-[e :UE 300 ]
-}
-"188
-[; ;application.c: 188: void usart_isr (void)
-[v _usart_isr `(v ~T0 @X0 1 ef ]
-"189
-[; ;application.c: 189: {
-{
-[e :U _usart_isr ]
-[f ]
-"190
-[; ;application.c: 190:     EUSART_Async_Read_Data(&_uart_obj,&datarecive);
-[e ( _EUSART_Async_Read_Data (2 , -> &U __uart_obj `*CS279 -> &U _datarecive `*us ]
-"191
-[; ;application.c: 191:     Bluetooth_Send_Data_Non_Blocking(&_uart_obj,datasend);
-[e ( _Bluetooth_Send_Data_Non_Blocking (2 , -> &U __uart_obj `*CS279 _datasend ]
-"192
-[; ;application.c: 192:     lcd_4bit_send_char_data_pos(&lcd1,2,4,datarecive);
-[e ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 2 `i `uc -> -> 4 `i `uc _datarecive ]
-"193
-[; ;application.c: 193:     GPIO_Pin_Toggle_Logic(&pind2);
-[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pind2 `*CS273 ]
 "194
 [; ;application.c: 194: }
-[e :UE 301 ]
+[e :UE 282 ]
 }
 "195
-[; ;application.c: 195: void GPS_Service (void)
-[v _GPS_Service `(v ~T0 @X0 1 ef ]
+[; ;application.c: 195: void application_intialize(void)
+[v _application_intialize `(v ~T0 @X0 1 ef ]
 "196
 [; ;application.c: 196: {
 {
-[e :U _GPS_Service ]
+[e :U _application_intialize ]
 [f ]
 "197
-[; ;application.c: 197:     uint8 key=1;
+[; ;application.c: 197:     GPIO_Pin_Initialize(&pind1);
+[e ( _GPIO_Pin_Initialize (1 -> &U _pind1 `*CS273 ]
+"198
+[; ;application.c: 198:     GPIO_Pin_Initialize(&pind2);
+[e ( _GPIO_Pin_Initialize (1 -> &U _pind2 `*CS273 ]
+"199
+[; ;application.c: 199:     GPIO_Pin_Initialize(&selector);
+[e ( _GPIO_Pin_Initialize (1 -> &U _selector `*CS273 ]
+"200
+[; ;application.c: 200:     WDT_Init();
+[e ( _WDT_Init ..  ]
+"201
+[; ;application.c: 201:     EUSART_Async_Init(&_uart_obj);
+[e ( _EUSART_Async_Init (1 -> &U __uart_obj `*CS279 ]
+"202
+[; ;application.c: 202:         __asm("clrwdt");
+[; <" clrwdt ;# ">
+"203
+[; ;application.c: 203:     lcd_4bit_initialize(&lcd1);
+[e ( _lcd_4bit_initialize (1 -> &U _lcd1 `*CS280 ]
+"204
+[; ;application.c: 204:         __asm("clrwdt");
+[; <" clrwdt ;# ">
+"205
+[; ;application.c: 205: }
+[e :UE 286 ]
+}
+"206
+[; ;application.c: 206: void usart_isr (void)
+[v _usart_isr `(v ~T0 @X0 1 ef ]
+"207
+[; ;application.c: 207: {
+{
+[e :U _usart_isr ]
+[f ]
+"208
+[; ;application.c: 208:     EUSART_Async_Read_Data(&_uart_obj,&datarecive);
+[e ( _EUSART_Async_Read_Data (2 , -> &U __uart_obj `*CS279 -> &U _datarecive `*us ]
+"209
+[; ;application.c: 209:     Bluetooth_Send_Data_Non_Blocking(&_uart_obj,datasend);
+[e ( _Bluetooth_Send_Data_Non_Blocking (2 , -> &U __uart_obj `*CS279 _datasend ]
+"210
+[; ;application.c: 210:     lcd_4bit_send_char_data_pos(&lcd1,2,4,datarecive);
+[e ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 2 `i `uc -> -> 4 `i `uc _datarecive ]
+"211
+[; ;application.c: 211:     GPIO_Pin_Toggle_Logic(&pind2);
+[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pind2 `*CS273 ]
+"212
+[; ;application.c: 212: }
+[e :UE 287 ]
+}
+"213
+[; ;application.c: 213: void GPS_Service (void)
+[v _GPS_Service `(v ~T0 @X0 1 ef ]
+"214
+[; ;application.c: 214: {
+{
+[e :U _GPS_Service ]
+[f ]
+"215
+[; ;application.c: 215:     uint8 key=1;
 [v _key `uc ~T0 @X0 1 a ]
 [e = _key -> -> 1 `i `uc ]
-"198
-[; ;application.c: 198:     (PIE1bits.RCIE = 0);
-[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
-"199
-[; ;application.c: 199:     GPIO_Pin_Write_Logic(&selector,GPIO_HIGH);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U _selector `*CS273 . `E2958 1 ]
-"201
-[; ;application.c: 201:     while (key)
-[e $U 303  ]
-[e :U 304 ]
-"202
-[; ;application.c: 202:     {
-{
-"203
-[; ;application.c: 203:         EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
-[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS279 -> &U _gpstemp `*us ]
-"204
-[; ;application.c: 204:         if ('$'==gpstemp)
-[e $ ! == -> 36 `ui -> _gpstemp `ui 306  ]
-"205
-[; ;application.c: 205:         {
-{
-"206
-[; ;application.c: 206:             while (key)
-[e $U 307  ]
-[e :U 308 ]
-"207
-[; ;application.c: 207:             {
-{
-"208
-[; ;application.c: 208:                     EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
-[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS279 -> &U _gpstemp `*us ]
-"209
-[; ;application.c: 209:                     if (','==gpstemp)
-[e $ ! == -> 44 `ui -> _gpstemp `ui 310  ]
-"210
-[; ;application.c: 210:                     {
-{
-"211
-[; ;application.c: 211:                         counter++;
-[e ++ _counter -> -> 1 `i `uc ]
-"212
-[; ;application.c: 212:                         if (3==counter)
-[e $ ! == -> 3 `i -> _counter `i 311  ]
-"213
-[; ;application.c: 213:                         {
-{
-"214
-[; ;application.c: 214:                             i=0;
-[e = _i -> -> 0 `i `uc ]
 "216
-[; ;application.c: 216:                             do
-[e :U 314 ]
+[; ;application.c: 216:     (PIE1bits.RCIE = 0);
+[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
 "217
-[; ;application.c: 217:                             {
-{
-"218
-[; ;application.c: 218:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(latitude+i));
-[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS279 -> + &U _latitude * -> -> _i `i `x -> -> # *U &U _latitude `i `x `*us ]
+[; ;application.c: 217:     GPIO_Pin_Write_Logic(&selector,GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U _selector `*CS273 . `E2958 1 ]
 "219
-[; ;application.c: 219:                                 i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;application.c: 219:     while (key)
+[e $U 289  ]
+[e :U 290 ]
 "220
-[; ;application.c: 220:                             }while(','!=(latitude[i-1]));
-}
-[e $ != -> 44 `ui -> *U + &U _latitude * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _latitude `ui `ux `ui 314  ]
-[e :U 313 ]
+[; ;application.c: 220:     {
+{
 "221
-[; ;application.c: 221:                             counter++;
-[e ++ _counter -> -> 1 `i `uc ]
+[; ;application.c: 221:         EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS279 -> &U _gpstemp `*us ]
+"222
+[; ;application.c: 222:         if ('$'==gpstemp)
+[e $ ! == -> 36 `ui -> _gpstemp `ui 292  ]
 "223
-[; ;application.c: 223:                         }
-}
-[e $U 315  ]
+[; ;application.c: 223:         {
+{
 "224
-[; ;application.c: 224:                         else if(5==counter)
-[e :U 311 ]
-[e $ ! == -> 5 `i -> _counter `i 316  ]
+[; ;application.c: 224:             while (key)
+[e $U 293  ]
+[e :U 294 ]
 "225
-[; ;application.c: 225:                         {
+[; ;application.c: 225:             {
 {
 "226
-[; ;application.c: 226:                             i=0;
-[e = _i -> -> 0 `i `uc ]
+[; ;application.c: 226:                     EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS279 -> &U _gpstemp `*us ]
+"227
+[; ;application.c: 227:                     if (','==gpstemp)
+[e $ ! == -> 44 `ui -> _gpstemp `ui 296  ]
 "228
-[; ;application.c: 228:                             do{
-[e :U 319 ]
+[; ;application.c: 228:                     {
 {
 "229
-[; ;application.c: 229:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(longtude+i));
-[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS279 -> + &U _longtude * -> -> _i `i `x -> -> # *U &U _longtude `i `x `*us ]
+[; ;application.c: 229:                         counter++;
+[e ++ _counter -> -> 1 `i `uc ]
 "230
-[; ;application.c: 230:                                 i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;application.c: 230:                         if (3==counter)
+[e $ ! == -> 3 `i -> _counter `i 297  ]
 "231
-[; ;application.c: 231:                             }while(','!=(longtude[i-1]));
-}
-[e $ != -> 44 `ui -> *U + &U _longtude * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _longtude `ui `ux `ui 319  ]
-[e :U 318 ]
+[; ;application.c: 231:                         {
+{
 "232
-[; ;application.c: 232:                             key=0;
-[e = _key -> -> 0 `i `uc ]
-"233
-[; ;application.c: 233:                         }
-}
-[e :U 316 ]
-[e :U 315 ]
+[; ;application.c: 232:                             i=0;
+[e = _i -> -> 0 `i `uc ]
 "234
-[; ;application.c: 234:                     }
-}
-[e :U 310 ]
+[; ;application.c: 234:                             do
+[e :U 300 ]
 "235
-[; ;application.c: 235:             }
-}
-[e :U 307 ]
-"206
-[; ;application.c: 206:             while (key)
-[e $ != -> _key `i -> 0 `i 308  ]
-[e :U 309 ]
+[; ;application.c: 235:                             {
+{
 "236
-[; ;application.c: 236:         }
-}
-[e :U 306 ]
+[; ;application.c: 236:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(latitude+i));
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS279 -> + &U _latitude * -> -> _i `i `x -> -> # *U &U _latitude `i `x `*us ]
 "237
-[; ;application.c: 237:     }
-}
-[e :U 303 ]
-"201
-[; ;application.c: 201:     while (key)
-[e $ != -> _key `i -> 0 `i 304  ]
-[e :U 305 ]
+[; ;application.c: 237:                                 i++;
+[e ++ _i -> -> 1 `i `uc ]
 "238
-[; ;application.c: 238:     lcd_4bit_send_string_data_pos(&lcd1,1,1,"-             ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 26C ]
-"239
-[; ;application.c: 239:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-             ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 2 `i `uc -> -> 1 `i `uc :s 27C ]
-"240
-[; ;application.c: 240:     lcd_4bit_send_string_data_pos(&lcd1,1,1,latitude);
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc &U _latitude ]
-"241
-[; ;application.c: 241:     lcd_4bit_send_string_data_pos(&lcd1,2,1,longtude);
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 2 `i `uc -> -> 1 `i `uc &U _longtude ]
-"242
-[; ;application.c: 242:     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U _selector `*CS273 . `E2958 0 ]
-"243
-[; ;application.c: 243:     _delay((unsigned long)((2000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"244
-[; ;application.c: 244:     (PIE1bits.RCIE = 1) ;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"245
-[; ;application.c: 245: }
-[e :UE 302 ]
+[; ;application.c: 238:                             }while(','!=(latitude[i-1]));
 }
-[a 23C 103 112 115 0 ]
-[a 3C 110 111 32 116 104 105 110 103 0 ]
-[a 25C 100 101 102 97 117 108 116 32 99 97 115 101 0 ]
-[a 13C 116 117 114 110 32 114 105 103 104 116 58 0 ]
-[a 11C 116 117 114 110 32 108 101 102 116 58 0 ]
-[a 21C 114 111 116 97 116 101 32 108 101 102 116 58 0 ]
-[a 9C 114 105 103 104 116 32 102 111 114 119 97 114 100 58 0 ]
-[a 5C 108 101 102 116 32 102 111 114 119 97 114 100 58 0 ]
-[a 7C 32 102 111 114 119 97 114 100 58 0 ]
-[a 19C 114 105 103 104 116 32 98 97 99 107 119 97 114 100 58 0 ]
-[a 15C 108 101 102 116 32 98 97 99 107 119 97 114 100 58 0 ]
-[a 17C 98 97 99 107 119 97 114 100 58 0 ]
+[e $ != -> 44 `ui -> *U + &U _latitude * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _latitude `ui `ux `ui 300  ]
+[e :U 299 ]
+"239
+[; ;application.c: 239:                             counter++;
+[e ++ _counter -> -> 1 `i `uc ]
+"241
+[; ;application.c: 241:                         }
+}
+[e $U 301  ]
+"242
+[; ;application.c: 242:                         else if(5==counter)
+[e :U 297 ]
+[e $ ! == -> 5 `i -> _counter `i 302  ]
+"243
+[; ;application.c: 243:                         {
+{
+"244
+[; ;application.c: 244:                             i=0;
+[e = _i -> -> 0 `i `uc ]
+"246
+[; ;application.c: 246:                             do{
+[e :U 305 ]
+{
+"247
+[; ;application.c: 247:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(longtude+i));
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS279 -> + &U _longtude * -> -> _i `i `x -> -> # *U &U _longtude `i `x `*us ]
+"248
+[; ;application.c: 248:                                 i++;
+[e ++ _i -> -> 1 `i `uc ]
+"249
+[; ;application.c: 249:                             }while(','!=(longtude[i-1]));
+}
+[e $ != -> 44 `ui -> *U + &U _longtude * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _longtude `ui `ux `ui 305  ]
+[e :U 304 ]
+"250
+[; ;application.c: 250:                             key=0;
+[e = _key -> -> 0 `i `uc ]
+"251
+[; ;application.c: 251:                         }
+}
+[e :U 302 ]
+[e :U 301 ]
+"252
+[; ;application.c: 252:                     }
+}
+[e :U 296 ]
+"253
+[; ;application.c: 253:             }
+}
+[e :U 293 ]
+"224
+[; ;application.c: 224:             while (key)
+[e $ != -> _key `i -> 0 `i 294  ]
+[e :U 295 ]
+"254
+[; ;application.c: 254:         }
+}
+[e :U 292 ]
+"255
+[; ;application.c: 255:     }
+}
+[e :U 289 ]
+"219
+[; ;application.c: 219:     while (key)
+[e $ != -> _key `i -> 0 `i 290  ]
+[e :U 291 ]
+"256
+[; ;application.c: 256:     lcd_4bit_send_string_data_pos(&lcd1,1,1,"-             ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 2C ]
+"257
+[; ;application.c: 257:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-             ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 2 `i `uc -> -> 1 `i `uc :s 3C ]
+"258
+[; ;application.c: 258:     lcd_4bit_send_string_data_pos(&lcd1,1,1,latitude);
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc &U _latitude ]
+"259
+[; ;application.c: 259:     lcd_4bit_send_string_data_pos(&lcd1,2,1,longtude);
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS280 -> -> 2 `i `uc -> -> 1 `i `uc &U _longtude ]
+"260
+[; ;application.c: 260:         _delay((unsigned long)((2000)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+"261
+[; ;application.c: 261:     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U _selector `*CS273 . `E2958 0 ]
+"262
+[; ;application.c: 262:     (PIE1bits.RCIE = 1) ;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"263
+[; ;application.c: 263: }
+[e :UE 288 ]
+}
 [a 1C 45 62 32 0 ]
-[a 26C 45 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 27C 45 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 2C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 4C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 6C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 8C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 10C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 12C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 14C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 16C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 18C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 20C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 22C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
-[a 24C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
+[a 2C 45 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
+[a 3C 45 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]

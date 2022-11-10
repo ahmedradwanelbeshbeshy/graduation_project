@@ -16,7 +16,7 @@
 
 
 /*macros declarations section*/
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 24000000
 
 /*data types  section*/
 

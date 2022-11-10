@@ -30,6 +30,10 @@
         <itemPath>ECU/ecu_layer_init.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
+        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+          <itemPath>MCAL/ADC/mcal_adc.h</itemPath>
+          <itemPath>MCAL/ADC/mcal_adc_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="CCP" displayName="CCP" projectFiles="true">
           <itemPath>MCAL/CCP/ccp_cfg.h</itemPath>
           <itemPath>MCAL/CCP/hal_ccp.h</itemPath>
@@ -56,6 +60,11 @@
         <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
           <itemPath>MCAL/Timer0/hal_timer0.h</itemPath>
           <itemPath>MCAL/Timer0/hal_timer0_config.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="WATCH_DOG_TIMER"
+                       displayName="WATCH_DOG_TIMER"
+                       projectFiles="true">
+          <itemPath>MCAL/WATCH_DOG_TIMER/WDT.h</itemPath>
         </logicalFolder>
         <itemPath>MCAL/compiler.h</itemPath>
         <itemPath>MCAL/device_config.h</itemPath>
@@ -97,6 +106,9 @@
         <itemPath>ECU/ecu_layer_init.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
+        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+          <itemPath>MCAL/ADC/mcal_adc.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="CCP" displayName="CCP" projectFiles="true">
           <itemPath>MCAL/CCP/hal_ccp.c</itemPath>
         </logicalFolder>
@@ -116,6 +128,11 @@
         </logicalFolder>
         <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
           <itemPath>MCAL/Timer0/hal_timer0.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="WATCH_DOG_TIMER"
+                       displayName="WATCH_DOG_TIMER"
+                       projectFiles="true">
+          <itemPath>MCAL/WATCH_DOG_TIMER/WDT.c</itemPath>
         </logicalFolder>
         <itemPath>MCAL/device_config.c</itemPath>
       </logicalFolder>

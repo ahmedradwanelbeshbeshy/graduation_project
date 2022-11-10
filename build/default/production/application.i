@@ -4985,6 +4985,34 @@ Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
 Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
 # 13 "application.c" 2
 
+# 1 "./MCAL/WATCH_DOG_TIMER/WDT.h" 1
+# 24 "./MCAL/WATCH_DOG_TIMER/WDT.h"
+typedef enum {
+    wdt_postscaler_BY_1 = 0,
+    wdt_postscaler_BY_2,
+    wdt_postscaler_BY_4,
+    wdt_postscaler_BY_8,
+    wdt_postscaler_BY_16,
+    wdt_postscaler_BY_32,
+    wdt_postscaler_BY_64,
+    wdt_postscaler_BY_128,
+    wdt_postscaler_BY_256,
+    wdt_postscaler_BY_512,
+    wdt_postscaler_BY_1024,
+    wdt_postscaler_BY_2048,
+    wdt_postscaler_BY_4096,
+    wdt_postscaler_BY_8192,
+    wdt_postscaler_BY_16384,
+    wdt_postscaler_BY_32768
+}wdt_postscaler_et;
+
+Std_ReturnType WDT_Init(void);
+Std_ReturnType WDT_DeInit(void);
+# 14 "application.c" 2
+
+
+
+
 
 void usart_isr (void);
 void GPS_Service (void);
@@ -5067,87 +5095,20 @@ int main()
 
     application_intialize();
     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
+    __asm("clrwdt");
+    GPIO_Pin_Write_Logic(&pind1,GPIO_HIGH);
+    _delay((unsigned long)((1000)*(24000000/4000.0)));
+    __asm("clrwdt");
+    GPIO_Pin_Write_Logic(&pind1,GPIO_LOW);
+    _delay((unsigned long)((1000)*(24000000/4000.0)));
+    __asm("clrwdt");
 
    while(1)
     {
-        GPIO_Pin_Toggle_Logic(&pind1);
-        _delay((unsigned long)((1000)*(8000000/4000.0)));
-        switch(datarecive)
-        {
-            case 0x00:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"no thing");
-                break;
-            case 0x01:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"left forward:");
-
-                break;
-            case 2:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1," forward:");
-                break;
-            case 3:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"right forward:");
-
-                break;
-            case 4:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"turn left:");
-
-                break;
-            case 5:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"turn right:");
-
-                break;
-            case 6:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"left backward:");
-
-                break;
-            case 7:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"backward:");
-
-                break;
-            case 8:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"right backward:");
-
-                break;
-            case 9:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"rotate left:");
-
-                break;
-            case 10:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"gps");
-
-
-                GPS_Service();
-                break;
-
-            default:
-
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-                lcd_4bit_send_string_data_pos(&lcd1,1,1,"default case");
-                break;
-        }
-
+       GPIO_Pin_Toggle_Logic(&pind2);
+        _delay((unsigned long)((1000)*(24000000/4000.0)));
+        __asm("clrwdt");
+# 192 "application.c"
    }
    return 0;
 }
@@ -5156,8 +5117,11 @@ void application_intialize(void)
     GPIO_Pin_Initialize(&pind1);
     GPIO_Pin_Initialize(&pind2);
     GPIO_Pin_Initialize(&selector);
+    WDT_Init();
     EUSART_Async_Init(&_uart_obj);
+        __asm("clrwdt");
     lcd_4bit_initialize(&lcd1);
+        __asm("clrwdt");
 }
 void usart_isr (void)
 {
@@ -5213,7 +5177,7 @@ void GPS_Service (void)
     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-             ");
     lcd_4bit_send_string_data_pos(&lcd1,1,1,latitude);
     lcd_4bit_send_string_data_pos(&lcd1,2,1,longtude);
+        _delay((unsigned long)((2000)*(24000000/4000.0)));
     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
-    _delay((unsigned long)((2000)*(8000000/4000.0)));
     (PIE1bits.RCIE = 1) ;
 }

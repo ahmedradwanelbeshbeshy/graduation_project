@@ -10,6 +10,11 @@ BAUDRATE_ASYNC_8BIT_HIGH_SPEED 1
 BAUDRATE_ASYNC_16BIT_LOW_SPEED 2
 BAUDRATE_ASYNC_16BIT_HIGH_SPEED 3
 ]
+"49 F:\graduation_project\ECU/DC_Motor/ecu_dc_motor.c
+[e E2958 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
 "74 F:\graduation_project\ECU/LCD_for_test_gps/ecu_char_lcd.c
 [e E2958 . `uc
 GPIO_LOW 0
@@ -231,14 +236,14 @@ servo_index_14 13
 servo_index_15 14
 servo_index_16 15
 ]
-"27 F:\graduation_project\application.c
+"31 F:\graduation_project\application.c
 [e E3082 . `uc
 BAUDRATE_ASYNC_8BIT_LOW_SPEED 0
 BAUDRATE_ASYNC_8BIT_HIGH_SPEED 1
 BAUDRATE_ASYNC_16BIT_LOW_SPEED 2
 BAUDRATE_ASYNC_16BIT_HIGH_SPEED 3
 ]
-"39
+"43
 [e E2966 . `uc
 GPIO_PIN0 0
 GPIO_PIN1 1
@@ -264,19 +269,60 @@ GPIO_DIRECTION_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"49 F:\graduation_project\ECU/DC_Motor/ecu_dc_motor.c
-[e E2958 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
+"22 F:\graduation_project\MCAL/ADC/mcal_adc.c
+[e E3039 . `uc
+ADC_CHANEL_AN0 0
+ADC_CHANEL_AN1 1
+ADC_CHANEL_AN2 2
+ADC_CHANEL_AN3 3
+ADC_CHANEL_AN4 4
+ADC_CHANEL_AN5 5
+ADC_CHANEL_AN6 6
+ADC_CHANEL_AN7 7
+ADC_CHANEL_AN8 8
+ADC_CHANEL_AN9 9
+ADC_CHANEL_AN10 10
+ADC_CHANEL_AN11 11
+ADC_CHANEL_AN12 12
 ]
-"91 F:\graduation_project\application.c
+[e E3054 . `uc
+ADC_0_TAD 0
+ADC_2_TAD 1
+ADC_4_TAD 2
+ADC_6_TAD 3
+ADC_8_TAD 4
+ADC_12_TAD 5
+ADC_16_TAD 6
+ADC_20_TAD 7
+]
+[e E3064 . `uc
+ADC_CONVERSION_CLOCK_FOSC_DIV_2 0
+ADC_CONVERSION_CLOCK_FOSC_DIV_8 1
+ADC_CONVERSION_CLOCK_FOSC_DIV_32 2
+ADC_CONVERSION_CLOCK_FOSC_DIV_FRC 3
+ADC_CONVERSION_CLOCK_FOSC_DIV_4 4
+ADC_CONVERSION_CLOCK_FOSC_DIV_16 5
+ADC_CONVERSION_CLOCK_FOSC_DIV_64 6
+]
+[e E3073 . `uc
+ADC_RESULT_LEFT 0
+ADC_RESULT_RIGHT 1
+]
+[e E3077 . `uc
+ADC_VOLTAGE_REFERANCE_INTERNAL 0
+ADC_VOLTAGE_REFERANCE_EXTERNAL 1
+]
+"164
+[e E3081 . `uc
+ADC_CONVERSION_STATUS_DONE 0
+ADC_CONVERSION_STATUS_INPROGRESS 1
+]
+"95 F:\graduation_project\application.c
 [v _main main `(i  1 e 2 0 ]
-"180
-[v _application_intialize application_intialize `(v  1 e 1 0 ]
-"188
-[v _usart_isr usart_isr `(v  1 e 1 0 ]
 "195
-[v _GPS_Service GPS_Service `(v  1 e 1 0 ]
+[v _application_intialize application_intialize `(v  1 e 1 0 ]
+"206
+[v _usart_isr usart_isr `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\float.c
@@ -356,6 +402,20 @@ GPIO_HIGH 1
 [v _Servo_SetAngle Servo_SetAngle `(uc  1 e 1 0 ]
 "65
 [v _PCA_Write_Reg PCA_Write_Reg `(v  1 s 1 PCA_Write_Reg ]
+"121 F:\graduation_project\MCAL/ADC/mcal_adc.c
+[v _ADC_select_channel ADC_select_channel `(uc  1 e 1 0 ]
+"143
+[v _ADC_Start_Conversion ADC_Start_Conversion `(uc  1 e 1 0 ]
+"183
+[v _ADC_Get_Conversion_Results ADC_Get_Conversion_Results `(uc  1 e 1 0 ]
+"255
+[v _adc_channel_pin_config_as_input adc_channel_pin_config_as_input `(uc  1 s 1 adc_channel_pin_config_as_input ]
+"277
+[v _adc_select_result_formate adc_select_result_formate `(uc  1 s 1 adc_select_result_formate ]
+"301
+[v _adc_select_voltage_reference adc_select_voltage_reference `(uc  1 s 1 adc_select_voltage_reference ]
+"327
+[v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
 "24 F:\graduation_project\MCAL/CCP/hal_ccp.c
 [v _CCP_Init CCP_Init `(uc  1 e 1 0 ]
 "176
@@ -378,7 +438,6 @@ GPIO_HIGH 1
 [v _EUSART_Async_Transmit_Data EUSART_Async_Transmit_Data `(uc  1 e 1 0 ]
 "181
 [v _EUSART_Async_Read_Data EUSART_Async_Read_Data `(uc  1 e 1 0 ]
-[v i2_EUSART_Async_Read_Data EUSART_Async_Read_Data `(uc  1 e 1 0 ]
 "319
 [v _EUSART_Async_Transmit_Data_Blocking EUSART_Async_Transmit_Data_Blocking `(uc  1 e 1 0 ]
 "337
@@ -395,10 +454,8 @@ GPIO_HIGH 1
 [v _async_config_baud_rate_gen async_config_baud_rate_gen `T(uc  1 s 1 async_config_baud_rate_gen ]
 "612
 [v _calc_parity_odd calc_parity_odd `T(uc  1 s 1 calc_parity_odd ]
-[v i2_calc_parity_odd calc_parity_odd `T(uc  1 s 1 i2_calc_parity_odd ]
 "650
 [v _calc_parity_even calc_parity_even `T(uc  1 s 1 calc_parity_even ]
-[v i2_calc_parity_even calc_parity_even `T(uc  1 s 1 i2_calc_parity_even ]
 "685
 [v _EUSART_Tx_ISR EUSART_Tx_ISR `(v  1 e 1 0 ]
 "703
@@ -487,30 +544,32 @@ GPIO_HIGH 1
 [v _HAL_Timer0_Init HAL_Timer0_Init `(uc  1 e 1 0 ]
 "179
 [v _HAL_Timer0_Write_Val HAL_Timer0_Write_Val `(uc  1 e 1 0 ]
-"217
+"216
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"8 F:\graduation_project\MCAL/WATCH_DOG_TIMER/WDT.c
+[v _WDT_Init WDT_Init `(uc  1 e 1 0 ]
 "249 F:\graduation_project\Robot/Navigation/robot_navigation.c
 [v _Timer0_Handler Timer0_Handler `(v  1 e 1 0 ]
-"17 F:\graduation_project\application.c
+"21 F:\graduation_project\application.c
 [v _datasend datasend `uc  1 e 1 0 ]
-"18
-[v _datarecive datarecive `uc  1 e 1 0 ]
-"21
-[v _i i `uc  1 e 1 0 ]
 "22
-[v _latitude latitude `[13]uc  1 e 13 0 ]
-"23
-[v _longtude longtude `[13]uc  1 e 13 0 ]
-"24
-[v _gpstemp gpstemp `uc  1 e 1 0 ]
+[v _datarecive datarecive `uc  1 e 1 0 ]
 "25
+[v _i i `uc  1 e 1 0 ]
+"26
+[v _latitude latitude `[13]uc  1 e 13 0 ]
+"27
+[v _longtude longtude `[13]uc  1 e 13 0 ]
+"28
+[v _gpstemp gpstemp `uc  1 e 1 0 ]
+"29
 [v _counter counter `uc  1 e 1 0 ]
 [s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
 `uc 1 tx_enable 1 0 :1:2 
 `uc 1 tx_9th_bit_en 1 0 :1:3 
 `uc 1 tx_reserved 1 0 :4:4 
 ]
-"27
+"31
 [s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
 `uc 1 uart_rx_9th_bit_role 1 6 :2:1 
 `uc 1 rx_enable 1 6 :1:3 
@@ -524,16 +583,16 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"39
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v _lcd1 lcd1 `S136  1 e 6 0 ]
-"72
+"43
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v _lcd1 lcd1 `S173  1 e 6 0 ]
+"76
 [v _pind2 pind2 `S131  1 e 1 0 ]
-"78
+"82
 [v _pind1 pind1 `S131  1 e 1 0 ]
-"85
+"89
 [v _selector selector `S131  1 e 1 0 ]
-[s S1018 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S1046 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -543,7 +602,7 @@ GPIO_HIGH 1
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1857 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc/pic18f4620.h
-[s S1027 . 1 `uc 1 RC0 1 0 :1:0 
+[s S1055 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -552,9 +611,9 @@ GPIO_HIGH 1
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S1036 . 1 `S1018 1 . 1 0 `S1027 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES1036  1 e 1 @3988 ]
-[s S1073 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S1064 . 1 `S1046 1 . 1 0 `S1055 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES1064  1 e 1 @3988 ]
+[s S1101 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -564,13 +623,13 @@ GPIO_HIGH 1
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "2520
-[s S1082 . 1 `uc 1 . 1 0 :4:0 
+[s S1110 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S1086 . 1 `S1073 1 . 1 0 `S1082 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES1086  1 e 1 @3997 ]
-[s S1168 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S1114 . 1 `S1101 1 . 1 0 `S1110 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES1114  1 e 1 @3997 ]
+[s S1196 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -580,13 +639,13 @@ GPIO_HIGH 1
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "2597
-[s S1177 . 1 `uc 1 . 1 0 :4:0 
+[s S1205 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S1181 . 1 `S1168 1 . 1 0 `S1177 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES1181  1 e 1 @3998 ]
-[s S1332 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S1209 . 1 `S1196 1 . 1 0 `S1205 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1209  1 e 1 @3998 ]
+[s S1360 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSPIP 1 0 :1:3 
@@ -596,13 +655,13 @@ GPIO_HIGH 1
 `uc 1 PSPIP 1 0 :1:7 
 ]
 "2674
-[s S1341 . 1 `uc 1 . 1 0 :4:0 
+[s S1369 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IP 1 0 :1:4 
 `uc 1 RC1IP 1 0 :1:5 
 ]
-[u S1345 . 1 `S1332 1 . 1 0 `S1341 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES1345  1 e 1 @3999 ]
-[s S906 . 1 `uc 1 RX9D 1 0 :1:0 
+[u S1373 . 1 `S1360 1 . 1 0 `S1369 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES1373  1 e 1 @3999 ]
+[s S934 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -612,25 +671,25 @@ GPIO_HIGH 1
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3062
-[s S915 . 1 `uc 1 . 1 0 :3:0 
+[s S943 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S918 . 1 `uc 1 . 1 0 :5:0 
+[s S946 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S921 . 1 `uc 1 . 1 0 :6:0 
+[s S949 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S924 . 1 `uc 1 . 1 0 :6:0 
+[s S952 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S927 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S955 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S929 . 1 `S906 1 . 1 0 `S915 1 . 1 0 `S918 1 . 1 0 `S921 1 . 1 0 `S924 1 . 1 0 `S927 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES929  1 e 1 @4011 ]
+[u S957 . 1 `S934 1 . 1 0 `S943 1 . 1 0 `S946 1 . 1 0 `S949 1 . 1 0 `S952 1 . 1 0 `S955 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES957  1 e 1 @4011 ]
 "3161
-[v _RCSTA1bits RCSTA1bits `VES929  1 e 1 @4011 ]
-[s S966 . 1 `uc 1 TX9D 1 0 :1:0 
+[v _RCSTA1bits RCSTA1bits `VES957  1 e 1 @4011 ]
+[s S994 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -640,7 +699,7 @@ GPIO_HIGH 1
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3270
-[s S975 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S1003 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -649,15 +708,15 @@ GPIO_HIGH 1
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S984 . 1 `uc 1 . 1 0 :6:0 
+[s S1012 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S987 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S1015 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S989 . 1 `S966 1 . 1 0 `S975 1 . 1 0 `S984 1 . 1 0 `S987 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES989  1 e 1 @4012 ]
+[u S1017 . 1 `S994 1 . 1 0 `S1003 1 . 1 0 `S1012 1 . 1 0 `S1015 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES1017  1 e 1 @4012 ]
 "3392
-[v _TXSTA1bits TXSTA1bits `VES989  1 e 1 @4012 ]
+[v _TXSTA1bits TXSTA1bits `VES1017  1 e 1 @4012 ]
 "3487
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3499
@@ -666,11 +725,11 @@ GPIO_HIGH 1
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "3523
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S666 . 1 `uc 1 . 1 0 :2:0 
+[s S694 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
 "3567
-[s S669 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S697 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 TMR3CS 1 0 :1:1 
 `uc 1 nT3SYNC 1 0 :1:2 
 `uc 1 T3CCP1 1 0 :1:3 
@@ -678,23 +737,23 @@ GPIO_HIGH 1
 `uc 1 T3CCP2 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S677 . 1 `uc 1 . 1 0 :2:0 
+[s S705 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T3SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 ]
-[s S683 . 1 `uc 1 . 1 0 :3:0 
+[s S711 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN3 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 RD163 1 0 :1:7 
 ]
-[s S688 . 1 `uc 1 . 1 0 :7:0 
+[s S716 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T3RD16 1 0 :1:7 
 ]
-[u S691 . 1 `S666 1 . 1 0 `S669 1 . 1 0 `S677 1 . 1 0 `S683 1 . 1 0 `S688 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES691  1 e 1 @4017 ]
-[s S1411 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S719 . 1 `S694 1 . 1 0 `S697 1 . 1 0 `S705 1 . 1 0 `S711 1 . 1 0 `S716 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES719  1 e 1 @4017 ]
+[s S1439 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -704,41 +763,41 @@ GPIO_HIGH 1
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4016
-[s S1420 . 1 `uc 1 . 1 0 :4:0 
+[s S1448 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 RXCKP 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S1425 . 1 `uc 1 . 1 0 :1:0 
+[s S1453 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S1428 . 1 `S1411 1 . 1 0 `S1420 1 . 1 0 `S1425 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES1428  1 e 1 @4024 ]
-[s S609 . 1 `uc 1 CCP2M 1 0 :4:0 
+[u S1456 . 1 `S1439 1 . 1 0 `S1448 1 . 1 0 `S1453 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES1456  1 e 1 @4024 ]
+[s S637 . 1 `uc 1 CCP2M 1 0 :4:0 
 `uc 1 DC2B 1 0 :2:4 
 ]
 "4180
-[s S612 . 1 `uc 1 CCP2M0 1 0 :1:0 
+[s S640 . 1 `uc 1 CCP2M0 1 0 :1:0 
 `uc 1 CCP2M1 1 0 :1:1 
 `uc 1 CCP2M2 1 0 :1:2 
 `uc 1 CCP2M3 1 0 :1:3 
 `uc 1 CCP2Y 1 0 :1:4 
 `uc 1 CCP2X 1 0 :1:5 
 ]
-[s S619 . 1 `uc 1 . 1 0 :4:0 
+[s S647 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 DC2B0 1 0 :1:4 
 `uc 1 DC2B1 1 0 :1:5 
 ]
-[u S623 . 1 `S609 1 . 1 0 `S612 1 . 1 0 `S619 1 . 1 0 ]
-[v _CCP2CONbits CCP2CONbits `VES623  1 e 1 @4026 ]
+[u S651 . 1 `S637 1 . 1 0 `S640 1 . 1 0 `S647 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES651  1 e 1 @4026 ]
 "4242
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
-[s S570 . 1 `uc 1 CCP1M 1 0 :4:0 
+[s S598 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "4283
-[s S574 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S602 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -747,32 +806,32 @@ GPIO_HIGH 1
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[s S583 . 1 `uc 1 . 1 0 :4:0 
+[s S611 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 DC1B0 1 0 :1:4 
 `uc 1 DC1B1 1 0 :1:5 
 ]
-[u S587 . 1 `S570 1 . 1 0 `S574 1 . 1 0 `S583 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES587  1 e 1 @4029 ]
+[u S615 . 1 `S598 1 . 1 0 `S602 1 . 1 0 `S611 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES615  1 e 1 @4029 ]
 "4360
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "5108
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
-[s S1265 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S1293 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "5392
-[s S1267 . 1 `uc 1 . 1 0 :1:0 
+[s S1295 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S1270 . 1 `uc 1 . 1 0 :2:0 
+[s S1298 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S1273 . 1 `uc 1 . 1 0 :3:0 
+[s S1301 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S1276 . 1 `uc 1 . 1 0 :4:0 
+[s S1304 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S1279 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S1307 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -781,15 +840,15 @@ GPIO_HIGH 1
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S1288 . 1 `uc 1 BOR 1 0 :1:0 
+[s S1316 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S1294 . 1 `S1265 1 . 1 0 `S1267 1 . 1 0 `S1270 1 . 1 0 `S1273 1 . 1 0 `S1276 1 . 1 0 `S1279 1 . 1 0 `S1288 1 . 1 0 ]
-[v _RCONbits RCONbits `VES1294  1 e 1 @4048 ]
-[s S1362 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S1322 . 1 `S1293 1 . 1 0 `S1295 1 . 1 0 `S1298 1 . 1 0 `S1301 1 . 1 0 `S1304 1 . 1 0 `S1307 1 . 1 0 `S1316 1 . 1 0 ]
+[v _RCONbits RCONbits `VES1322  1 e 1 @4048 ]
+[s S1390 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -799,7 +858,7 @@ GPIO_HIGH 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6407
-[s S1371 . 1 `uc 1 . 1 0 :1:0 
+[s S1399 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -808,19 +867,19 @@ GPIO_HIGH 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1380 . 1 `uc 1 . 1 0 :6:0 
+[s S1408 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1384 . 1 `S1362 1 . 1 0 `S1371 1 . 1 0 `S1380 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1384  1 e 1 @4082 ]
+[u S1412 . 1 `S1390 1 . 1 0 `S1399 1 . 1 0 `S1408 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1412  1 e 1 @4082 ]
 "7916
 [v _RX9D RX9D `VEb  1 e 0 @32088 ]
 "53 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "190
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S2550 . 1 `uc 1 RB0 1 0 :1:0 
+[s S2578 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -830,7 +889,7 @@ GPIO_HIGH 1
 `uc 1 RB7 1 0 :1:7 
 ]
 "231
-[s S2559 . 1 `uc 1 INT0 1 0 :1:0 
+[s S2587 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CCP2 1 0 :1:3 
@@ -839,7 +898,7 @@ GPIO_HIGH 1
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S2568 . 1 `uc 1 AN12 1 0 :1:0 
+[s S2596 . 1 `uc 1 AN12 1 0 :1:0 
 `uc 1 AN10 1 0 :1:1 
 `uc 1 AN8 1 0 :1:2 
 `uc 1 AN9 1 0 :1:3 
@@ -848,11 +907,11 @@ GPIO_HIGH 1
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S2577 . 1 `uc 1 . 1 0 :3:0 
+[s S2605 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S2580 . 1 `S2550 1 . 1 0 `S2559 1 . 1 0 `S2568 1 . 1 0 `S2577 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES2580  1 e 1 @3969 ]
+[u S2608 . 1 `S2578 1 . 1 0 `S2587 1 . 1 0 `S2596 1 . 1 0 `S2605 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES2608  1 e 1 @3969 ]
 "361
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "536
@@ -873,7 +932,7 @@ GPIO_HIGH 1
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "1603
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S2847 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S2879 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -883,15 +942,15 @@ GPIO_HIGH 1
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1635
-[u S2865 . 1 `S2847 1 . 1 0 `S2550 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES2865  1 e 1 @3987 ]
+[u S2897 . 1 `S2879 1 . 1 0 `S2578 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES2897  1 e 1 @3987 ]
 "1825
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2047
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "2269
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-[s S2038 . 1 `uc 1 CCP2IE 1 0 :1:0 
+[s S2066 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -901,12 +960,12 @@ GPIO_HIGH 1
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "2750
-[s S2047 . 1 `uc 1 . 1 0 :2:0 
+[s S2075 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[u S2050 . 1 `S2038 1 . 1 0 `S2047 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES2050  1 e 1 @4000 ]
-[s S2085 . 1 `uc 1 CCP2IF 1 0 :1:0 
+[u S2078 . 1 `S2066 1 . 1 0 `S2075 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES2078  1 e 1 @4000 ]
+[s S2113 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
@@ -916,12 +975,12 @@ GPIO_HIGH 1
 `uc 1 OSCFIF 1 0 :1:7 
 ]
 "2816
-[s S2094 . 1 `uc 1 . 1 0 :2:0 
+[s S2122 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIF 1 0 :1:2 
 ]
-[u S2097 . 1 `S2085 1 . 1 0 `S2094 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES2097  1 e 1 @4001 ]
-[s S2218 . 1 `uc 1 CCP2IP 1 0 :1:0 
+[u S2125 . 1 `S2113 1 . 1 0 `S2122 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES2125  1 e 1 @4001 ]
+[s S2246 . 1 `uc 1 CCP2IP 1 0 :1:0 
 `uc 1 TMR3IP 1 0 :1:1 
 `uc 1 HLVDIP 1 0 :1:2 
 `uc 1 BCLIP 1 0 :1:3 
@@ -931,12 +990,81 @@ GPIO_HIGH 1
 `uc 1 OSCFIP 1 0 :1:7 
 ]
 "2882
-[s S2227 . 1 `uc 1 . 1 0 :2:0 
+[s S2255 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIP 1 0 :1:2 
 ]
-[u S2230 . 1 `S2218 1 . 1 0 `S2227 1 . 1 0 ]
-[v _IPR2bits IPR2bits `VES2230  1 e 1 @4002 ]
-[s S1857 . 1 `uc 1 SEN 1 0 :1:0 
+[u S2258 . 1 `S2246 1 . 1 0 `S2255 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES2258  1 e 1 @4002 ]
+[s S3958 . 1 `uc 1 ADCS 1 0 :3:0 
+`uc 1 ACQT 1 0 :3:3 
+`uc 1 . 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"4395
+[s S3963 . 1 `uc 1 ADCS0 1 0 :1:0 
+`uc 1 ADCS1 1 0 :1:1 
+`uc 1 ADCS2 1 0 :1:2 
+`uc 1 ACQT0 1 0 :1:3 
+`uc 1 ACQT1 1 0 :1:4 
+`uc 1 ACQT2 1 0 :1:5 
+]
+[u S3970 . 1 `S3958 1 . 1 0 `S3963 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES3970  1 e 1 @4032 ]
+[s S4011 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"4470
+[s S4014 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S4021 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S4026 . 1 `S4011 1 . 1 0 `S4014 1 . 1 0 `S4021 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES4026  1 e 1 @4033 ]
+[s S3890 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"4574
+[s S3893 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S3897 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S3904 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S3907 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S3910 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S3913 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S3916 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S3919 . 1 `S3890 1 . 1 0 `S3893 1 . 1 0 `S3897 1 . 1 0 `S3904 1 . 1 0 `S3907 1 . 1 0 `S3910 1 . 1 0 `S3913 1 . 1 0 `S3916 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES3919  1 e 1 @4034 ]
+"4656
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"4663
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S1885 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -946,30 +1074,30 @@ GPIO_HIGH 1
 `uc 1 GCEN 1 0 :1:7 
 ]
 "4687
-[u S1866 . 1 `S1857 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES1866  1 e 1 @4037 ]
-[s S1826 . 1 `uc 1 SSPM 1 0 :4:0 
+[u S1894 . 1 `S1885 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES1894  1 e 1 @4037 ]
+[s S1854 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4752
-[s S1832 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S1860 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S1837 . 1 `S1826 1 . 1 0 `S1832 1 . 1 0 ]
-[v _SSPCON1bits SSPCON1bits `VES1837  1 e 1 @4038 ]
-[s S1888 . 1 `uc 1 . 1 0 :2:0 
+[u S1865 . 1 `S1854 1 . 1 0 `S1860 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES1865  1 e 1 @4038 ]
+[s S1916 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "4878
-[s S1891 . 1 `uc 1 . 1 0 :5:0 
+[s S1919 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S1894 . 1 `uc 1 BF 1 0 :1:0 
+[s S1922 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -978,55 +1106,62 @@ GPIO_HIGH 1
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S1903 . 1 `uc 1 . 1 0 :2:0 
+[s S1931 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S1908 . 1 `uc 1 . 1 0 :2:0 
+[s S1936 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 A 1 0 :1:5 
 ]
-[s S1913 . 1 `uc 1 . 1 0 :2:0 
+[s S1941 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S1918 . 1 `uc 1 . 1 0 :2:0 
+[s S1946 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S1923 . 1 `uc 1 . 1 0 :2:0 
+[s S1951 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S1926 . 1 `uc 1 . 1 0 :5:0 
+[s S1954 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S1929 . 1 `uc 1 . 1 0 :2:0 
+[s S1957 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S1934 . 1 `uc 1 . 1 0 :2:0 
+[s S1962 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
 `uc 1 STOP 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S1940 . 1 `uc 1 . 1 0 :2:0 
+[s S1968 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S1945 . 1 `S1888 1 . 1 0 `S1891 1 . 1 0 `S1894 1 . 1 0 `S1903 1 . 1 0 `S1908 1 . 1 0 `S1913 1 . 1 0 `S1918 1 . 1 0 `S1923 1 . 1 0 `S1926 1 . 1 0 `S1929 1 . 1 0 `S1934 1 . 1 0 `S1940 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES1945  1 e 1 @4039 ]
+[u S1973 . 1 `S1916 1 . 1 0 `S1919 1 . 1 0 `S1922 1 . 1 0 `S1931 1 . 1 0 `S1936 1 . 1 0 `S1941 1 . 1 0 `S1946 1 . 1 0 `S1951 1 . 1 0 `S1954 1 . 1 0 `S1957 1 . 1 0 `S1962 1 . 1 0 `S1968 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES1973  1 e 1 @4039 ]
 "5023
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "5030
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
-[s S3222 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S3830 . 1 `uc 1 SWDTEN 1 0 :1:0 
+]
+"5495
+[s S3832 . 1 `uc 1 SWDTE 1 0 :1:0 
+]
+[u S3834 . 1 `S3830 1 . 1 0 `S3832 1 . 1 0 ]
+[v _WDTCONbits WDTCONbits `VES3834  1 e 1 @4049 ]
+[s S3254 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -1034,19 +1169,19 @@ GPIO_HIGH 1
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "5879
-[s S3229 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S3261 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S3235 . 1 `S3222 1 . 1 0 `S3229 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES3235  1 e 1 @4053 ]
+[u S3267 . 1 `S3254 1 . 1 0 `S3261 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES3267  1 e 1 @4053 ]
 "5941
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "5948
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S2506 . 1 `uc 1 INT1IF 1 0 :1:0 
+[s S2534 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -1056,7 +1191,7 @@ GPIO_HIGH 1
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "6240
-[s S2515 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S2543 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -1065,13 +1200,13 @@ GPIO_HIGH 1
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S2524 . 1 `S2506 1 . 1 0 `S2515 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES2524  1 e 1 @4080 ]
-[s S2887 . 1 `uc 1 . 1 0 :7:0 
+[u S2552 . 1 `S2534 1 . 1 0 `S2543 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES2552  1 e 1 @4080 ]
+[s S2919 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6330
-[s S2890 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S2922 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1080,11 +1215,11 @@ GPIO_HIGH 1
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S2899 . 1 `uc 1 . 1 0 :7:0 
+[s S2931 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S2902 . 1 `S2887 1 . 1 0 `S2890 1 . 1 0 `S2899 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES2902  1 e 1 @4081 ]
+[u S2934 . 1 `S2919 1 . 1 0 `S2922 1 . 1 0 `S2931 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES2934  1 e 1 @4081 ]
 "17 F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
 [v _eusart_Rx_InterruptHandler eusart_Rx_InterruptHandler `*.37(v  1 s 2 eusart_Rx_InterruptHandler ]
 "18
@@ -1125,13 +1260,13 @@ GPIO_HIGH 1
 [v _RB7_InterruptHandler_HIGH RB7_InterruptHandler_HIGH `*.37(v  1 s 2 RB7_InterruptHandler_HIGH ]
 "25
 [v _RB7_InterruptHandler_LOW RB7_InterruptHandler_LOW `*.37(v  1 s 2 RB7_InterruptHandler_LOW ]
-[s S2402 rbx_flags_t 1 `uc 1 rb4_flag 1 0 :1:0 
+[s S2430 rbx_flags_t 1 `uc 1 rb4_flag 1 0 :1:0 
 `uc 1 rb5_flag 1 0 :1:1 
 `uc 1 rb6_flag 1 0 :1:2 
 `uc 1 rb7_flag 1 0 :1:3 
 ]
 "18 F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
-[v _flags flags `VES2402  1 s 1 flags ]
+[v _flags flags `VES2430  1 s 1 flags ]
 "10 F:\graduation_project\MCAL/Timer0/hal_timer0.c
 [v _tmr0_InterruptHandler tmr0_InterruptHandler `*.37(v  1 s 2 tmr0_InterruptHandler ]
 "13
@@ -1139,13 +1274,13 @@ GPIO_HIGH 1
 "133 F:\graduation_project\Robot/Navigation/robot_navigation.h
 [v _Movement_State Movement_State `E3212  1 e 1 0 ]
 "138
-[s S3425 . 2 `[2]S131 1 dc_motor 2 0 ]
-[v _W1_W5_W2_W6_Motor_Control W1_W5_W2_W6_Motor_Control `S3425  1 s 2 W1_W5_W2_W6_Motor_Control ]
+[s S136 . 2 `[2]S131 1 dc_motor 2 0 ]
+[v _W1_W5_W2_W6_Motor_Control W1_W5_W2_W6_Motor_Control `S136  1 s 2 W1_W5_W2_W6_Motor_Control ]
 "150
-[v _W3_Motor_Control W3_Motor_Control `S3425  1 s 2 W3_Motor_Control ]
+[v _W3_Motor_Control W3_Motor_Control `S136  1 s 2 W3_Motor_Control ]
 "162
-[v _W4_Motor_Control W4_Motor_Control `S3425  1 s 2 W4_Motor_Control ]
-[s S3212 . 6 `E3039 1 prescalar_value 1 0 `us 1 preloaded_value 2 1 `*.37(v 1 timer0_InterruptHandler 2 3 `uc 1 priority 1 5 :1:0 
+[v _W4_Motor_Control W4_Motor_Control `S136  1 s 2 W4_Motor_Control ]
+[s S3244 . 6 `E3039 1 prescalar_value 1 0 `us 1 preloaded_value 2 1 `*.37(v 1 timer0_InterruptHandler 2 3 `uc 1 priority 1 5 :1:0 
 `uc 1 timer_mode 1 5 :1:1 
 `uc 1 reg_bit_size 1 5 :1:2 
 `uc 1 prescaler_enable 1 5 :1:3 
@@ -1153,23 +1288,65 @@ GPIO_HIGH 1
 `uc 1 timer0_reserved 1 5 :3:5 
 ]
 "175
-[v _Timer0 Timer0 `S3212  1 s 6 Timer0 ]
+[v _Timer0 Timer0 `S3244  1 s 6 Timer0 ]
 "188
-[s S561 . 10 `E3053 1 ccp_inst 1 0 `E3039 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S131 1 ccp_pin 1 3 `E3057 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 :4:0 
+[s S589 . 10 `E3053 1 ccp_inst 1 0 `E3039 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S131 1 ccp_pin 1 3 `E3057 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 :4:0 
 `uc 1 timer2_prescaler_value 1 9 :2:4 
 ]
-[v _CCP1_Obj CCP1_Obj `S561  1 s 10 CCP1_Obj ]
+[v _CCP1_Obj CCP1_Obj `S589  1 s 10 CCP1_Obj ]
 "200
-[v _CCP2_Obj CCP2_Obj `S561  1 s 10 CCP2_Obj ]
-"91 F:\graduation_project\application.c
+[v _CCP2_Obj CCP2_Obj `S589  1 s 10 CCP2_Obj ]
+"95 F:\graduation_project\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"179
+"194
 } 0
+"163 F:\graduation_project\ECU/LCD_for_test_gps/ecu_char_lcd.c
+[v _lcd_4bit_send_string_data_pos lcd_4bit_send_string_data_pos `(uc  1 e 1 0 ]
+{
+[s S131 . 1 `uc 1 pin 1 0 :3:0 
+`uc 1 port 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_string_data_pos@lcd lcd `*.39CS173  1 p 2 21 ]
+[v lcd_4bit_send_string_data_pos@row row `uc  1 p 1 23 ]
+[v lcd_4bit_send_string_data_pos@colum colum `uc  1 p 1 24 ]
+[v lcd_4bit_send_string_data_pos@str str `*.34uc  1 p 2 25 ]
 "180
+} 0
+"567
+[v _lcd_4bits_set_courser lcd_4bits_set_courser `(uc  1 s 1 lcd_4bits_set_courser ]
+{
+[s S131 . 1 `uc 1 pin 1 0 :3:0 
+`uc 1 port 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v lcd_4bits_set_courser@lcd lcd `*.39CS173  1 p 2 14 ]
+[v lcd_4bits_set_courser@row row `uc  1 p 1 16 ]
+[v lcd_4bits_set_courser@colum colum `uc  1 p 1 17 ]
+"587
+} 0
+"90
+[v _lcd_4bit_send_char_data lcd_4bit_send_char_data `(uc  1 e 1 0 ]
+{
+[s S131 . 1 `uc 1 pin 1 0 :3:0 
+`uc 1 port 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_char_data@lcd lcd `*.39CS173  1 p 2 10 ]
+[v lcd_4bit_send_char_data@data data `uc  1 p 1 12 ]
+"108
+} 0
+"195 F:\graduation_project\application.c
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
 {
-"187
+"205
 } 0
 "21 F:\graduation_project\ECU/LCD_for_test_gps/ecu_char_lcd.c
 [v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
@@ -1182,9 +1359,50 @@ GPIO_HIGH 1
 `uc 1 logic 1 0 :1:7 
 ]
 "21
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v lcd_4bit_initialize@lcd lcd `*.39CS136  1 p 2 14 ]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_initialize@lcd lcd `*.39CS173  1 p 2 14 ]
 "58
+} 0
+"65
+[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
+{
+"67
+[v lcd_4bit_send_command@ERRORSTATUS ERRORSTATUS `uc  1 a 1 13 ]
+[s S131 . 1 `uc 1 pin 1 0 :3:0 
+`uc 1 port 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"65
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_command@lcd lcd `*.39CS173  1 p 2 10 ]
+[v lcd_4bit_send_command@command command `uc  1 p 1 12 ]
+"83
+} 0
+"505
+[v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
+{
+[s S131 . 1 `uc 1 pin 1 0 :3:0 
+`uc 1 port 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v lcd_send_4bits@lcd lcd `*.39CS173  1 p 2 6 ]
+[v lcd_send_4bits@data_command data_command `uc  1 p 1 8 ]
+"521
+} 0
+"488
+[v _lcd_4bits_send_enable_signal lcd_4bits_send_enable_signal `(uc  1 s 1 lcd_4bits_send_enable_signal ]
+{
+[s S131 . 1 `uc 1 pin 1 0 :3:0 
+`uc 1 port 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v lcd_4bits_send_enable_signal@lcd lcd `*.39CS173  1 p 2 6 ]
+"503
 } 0
 "158 F:\graduation_project\MCAL/GPIO/hal_gpio.c
 [v _GPIO_Pin_Initialize GPIO_Pin_Initialize `(uc  1 e 1 0 ]
@@ -1200,6 +1418,21 @@ GPIO_HIGH 1
 [v GPIO_Pin_Initialize@_pin_config _pin_config `*.39CS131  1 p 2 6 ]
 "172
 } 0
+"82
+[v _GPIO_Pin_Write_Logic GPIO_Pin_Write_Logic `(uc  1 e 1 0 ]
+{
+"84
+[v GPIO_Pin_Write_Logic@ERRORSTATUS ERRORSTATUS `uc  1 a 1 44 ]
+[s S131 . 1 `uc 1 pin 1 0 :3:0 
+`uc 1 port 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"82
+[v GPIO_Pin_Write_Logic@_pin_config _pin_config `*.39CS131  1 p 2 41 ]
+[v GPIO_Pin_Write_Logic@logic logic `E2958  1 p 1 43 ]
+"105
+} 0
 "25
 [v _GPIO_Pin_Direction_Initialize GPIO_Pin_Direction_Initialize `(uc  1 e 1 0 ]
 {
@@ -1213,6 +1446,11 @@ GPIO_HIGH 1
 "25
 [v GPIO_Pin_Direction_Initialize@_pin_config _pin_config `*.39CS131  1 p 2 41 ]
 "48
+} 0
+"8 F:\graduation_project\MCAL/WATCH_DOG_TIMER/WDT.c
+[v _WDT_Init WDT_Init `(uc  1 e 1 0 ]
+{
+"13
 } 0
 "42 F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
 [v _EUSART_Async_Init EUSART_Async_Init `(uc  1 e 1 0 ]
@@ -1363,180 +1601,6 @@ GPIO_HIGH 1
 [v Rx_config_interrupt@_rx_obj _rx_obj `*.39CS32  1 p 2 41 ]
 "562
 } 0
-"195 F:\graduation_project\application.c
-[v _GPS_Service GPS_Service `(v  1 e 1 0 ]
-{
-"197
-[v GPS_Service@key key `uc  1 a 1 30 ]
-"245
-} 0
-"163 F:\graduation_project\ECU/LCD_for_test_gps/ecu_char_lcd.c
-[v _lcd_4bit_send_string_data_pos lcd_4bit_send_string_data_pos `(uc  1 e 1 0 ]
-{
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v lcd_4bit_send_string_data_pos@lcd lcd `*.39CS136  1 p 2 21 ]
-[v lcd_4bit_send_string_data_pos@row row `uc  1 p 1 23 ]
-[v lcd_4bit_send_string_data_pos@colum colum `uc  1 p 1 24 ]
-[v lcd_4bit_send_string_data_pos@str str `*.34uc  1 p 2 25 ]
-"180
-} 0
-"567
-[v _lcd_4bits_set_courser lcd_4bits_set_courser `(uc  1 s 1 lcd_4bits_set_courser ]
-{
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v lcd_4bits_set_courser@lcd lcd `*.39CS136  1 p 2 14 ]
-[v lcd_4bits_set_courser@row row `uc  1 p 1 16 ]
-[v lcd_4bits_set_courser@colum colum `uc  1 p 1 17 ]
-"587
-} 0
-"65
-[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
-{
-"67
-[v lcd_4bit_send_command@ERRORSTATUS ERRORSTATUS `uc  1 a 1 13 ]
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"65
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v lcd_4bit_send_command@lcd lcd `*.39CS136  1 p 2 10 ]
-[v lcd_4bit_send_command@command command `uc  1 p 1 12 ]
-"83
-} 0
-"90
-[v _lcd_4bit_send_char_data lcd_4bit_send_char_data `(uc  1 e 1 0 ]
-{
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v lcd_4bit_send_char_data@lcd lcd `*.39CS136  1 p 2 10 ]
-[v lcd_4bit_send_char_data@data data `uc  1 p 1 12 ]
-"108
-} 0
-"505
-[v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
-{
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v lcd_send_4bits@lcd lcd `*.39CS136  1 p 2 6 ]
-[v lcd_send_4bits@data_command data_command `uc  1 p 1 8 ]
-"521
-} 0
-"488
-[v _lcd_4bits_send_enable_signal lcd_4bits_send_enable_signal `(uc  1 s 1 lcd_4bits_send_enable_signal ]
-{
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v lcd_4bits_send_enable_signal@lcd lcd `*.39CS136  1 p 2 6 ]
-"503
-} 0
-"82 F:\graduation_project\MCAL/GPIO/hal_gpio.c
-[v _GPIO_Pin_Write_Logic GPIO_Pin_Write_Logic `(uc  1 e 1 0 ]
-{
-"84
-[v GPIO_Pin_Write_Logic@ERRORSTATUS ERRORSTATUS `uc  1 a 1 44 ]
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"82
-[v GPIO_Pin_Write_Logic@_pin_config _pin_config `*.39CS131  1 p 2 41 ]
-[v GPIO_Pin_Write_Logic@logic logic `E2958  1 p 1 43 ]
-"105
-} 0
-"337 F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
-[v _EUSART_Async_Read_Data_Blocking EUSART_Async_Read_Data_Blocking `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
-`uc 1 tx_enable 1 0 :1:2 
-`uc 1 tx_9th_bit_en 1 0 :1:3 
-`uc 1 tx_reserved 1 0 :4:4 
-]
-[s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
-`uc 1 uart_rx_9th_bit_role 1 6 :2:1 
-`uc 1 rx_enable 1 6 :1:3 
-`uc 1 rx_9th_bit_en 1 6 :1:4 
-`uc 1 rx_reserved 1 7 :4:0 
-]
-[s S46 . 12 `us 1 uart_baud_rate_value 2 0 `S24 1 tx_config 1 2 `S32 1 rx_config 8 3 `E3039 1 baud_rate_config 1 11 ]
-[v EUSART_Async_Read_Data_Blocking@_eusart_obj _eusart_obj `*.39CS46  1 p 2 16 ]
-[v EUSART_Async_Read_Data_Blocking@data data `*.39us  1 p 2 18 ]
-"359
-} 0
-"181
-[v _EUSART_Async_Read_Data EUSART_Async_Read_Data `(uc  1 e 1 0 ]
-{
-"184
-[v EUSART_Async_Read_Data@l_temp_data l_temp_data `us  1 a 2 14 ]
-[s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
-`uc 1 tx_enable 1 0 :1:2 
-`uc 1 tx_9th_bit_en 1 0 :1:3 
-`uc 1 tx_reserved 1 0 :4:4 
-]
-"181
-[s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
-`uc 1 uart_rx_9th_bit_role 1 6 :2:1 
-`uc 1 rx_enable 1 6 :1:3 
-`uc 1 rx_9th_bit_en 1 6 :1:4 
-`uc 1 rx_reserved 1 7 :4:0 
-]
-[s S46 . 12 `us 1 uart_baud_rate_value 2 0 `S24 1 tx_config 1 2 `S32 1 rx_config 8 3 `E3039 1 baud_rate_config 1 11 ]
-[v EUSART_Async_Read_Data@_eusart_obj _eusart_obj `*.39CS46  1 p 2 3 ]
-[v EUSART_Async_Read_Data@data data `*.39us  1 p 2 5 ]
-"278
-} 0
-"612
-[v _calc_parity_odd calc_parity_odd `T(uc  1 s 1 calc_parity_odd ]
-{
-[v calc_parity_odd@data data `uc  1 a 1 wreg ]
-"617
-[v calc_parity_odd@l_counter l_counter `uc  1 a 1 2 ]
-"616
-[v calc_parity_odd@number_of_ones number_of_ones `uc  1 a 1 1 ]
-"612
-[v calc_parity_odd@data data `uc  1 a 1 wreg ]
-"616
-[v calc_parity_odd@data data `uc  1 a 1 0 ]
-"649
-} 0
-"650
-[v _calc_parity_even calc_parity_even `T(uc  1 s 1 calc_parity_even ]
-{
-[v calc_parity_even@data data `uc  1 a 1 wreg ]
-"654
-[v calc_parity_even@l_counter l_counter `uc  1 a 1 2 ]
-"653
-[v calc_parity_even@number_of_ones number_of_ones `uc  1 a 1 1 ]
-"650
-[v calc_parity_even@data data `uc  1 a 1 wreg ]
-"653
-[v calc_parity_even@data data `uc  1 a 1 0 ]
-"683
-} 0
 "135 F:\graduation_project\MCAL/GPIO/hal_gpio.c
 [v _GPIO_Pin_Toggle_Logic GPIO_Pin_Toggle_Logic `(uc  1 e 1 0 ]
 {
@@ -1594,15 +1658,20 @@ GPIO_HIGH 1
 {
 "84
 } 0
+"327 F:\graduation_project\MCAL/ADC/mcal_adc.c
+[v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
+{
+"334
+} 0
 "33 F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
 [v _InterruptManagerHigh InterruptManagerHigh `IIH(v  1 e 1 0 ]
 {
 "99
 } 0
-"217 F:\graduation_project\MCAL/Timer0/hal_timer0.c
+"216 F:\graduation_project\MCAL/Timer0/hal_timer0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
 {
-"236
+"237
 } 0
 "249 F:\graduation_project\Robot/Navigation/robot_navigation.c
 [v _Timer0_Handler Timer0_Handler `(v  1 e 1 0 ]
@@ -1617,8 +1686,8 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[s S3425 . 2 `[2]S131 1 dc_motor 2 0 ]
-[v ECU_DC_Motor_Stop@dc_motor dc_motor `*.39CS3425  1 p 2 10 ]
+[s S136 . 2 `[2]S131 1 dc_motor 2 0 ]
+[v ECU_DC_Motor_Stop@dc_motor dc_motor `*.39CS136  1 p 2 10 ]
 "96
 } 0
 "685 F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
@@ -1631,10 +1700,10 @@ GPIO_HIGH 1
 {
 "737
 } 0
-"188 F:\graduation_project\application.c
+"206 F:\graduation_project\application.c
 [v _usart_isr usart_isr `(v  1 e 1 0 ]
 {
-"194
+"212
 } 0
 "135 F:\graduation_project\MCAL/GPIO/hal_gpio.c
 [v i2_GPIO_Pin_Toggle_Logic GPIO_Pin_Toggle_Logic `(uc  1 e 1 0 ]
@@ -1647,28 +1716,6 @@ GPIO_HIGH 1
 [v i2GPIO_Pin_Toggle_Logic@_pin_config _pin_config `*.39CS131  1 p 2 0 ]
 "147
 } 0
-"181 F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
-[v i2_EUSART_Async_Read_Data EUSART_Async_Read_Data `(uc  1 e 1 0 ]
-{
-"184
-[v i2EUSART_Async_Read_Data@l_temp_data l_temp_data `us  1 a 2 18 ]
-[s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
-`uc 1 tx_enable 1 0 :1:2 
-`uc 1 tx_9th_bit_en 1 0 :1:3 
-`uc 1 tx_reserved 1 0 :4:4 
-]
-"181
-[s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
-`uc 1 uart_rx_9th_bit_role 1 6 :2:1 
-`uc 1 rx_enable 1 6 :1:3 
-`uc 1 rx_9th_bit_en 1 6 :1:4 
-`uc 1 rx_reserved 1 7 :4:0 
-]
-[s S46 . 12 `us 1 uart_baud_rate_value 2 0 `S24 1 tx_config 1 2 `S32 1 rx_config 8 3 `E3039 1 baud_rate_config 1 11 ]
-[v i2EUSART_Async_Read_Data@_eusart_obj _eusart_obj `*.39CS46  1 p 2 5 ]
-[v i2EUSART_Async_Read_Data@data data `*.39us  1 p 2 7 ]
-"278
-} 0
 "117 F:\graduation_project\ECU/LCD_for_test_gps/ecu_char_lcd.c
 [v _lcd_4bit_send_char_data_pos lcd_4bit_send_char_data_pos `(uc  1 e 1 0 ]
 {
@@ -1677,8 +1724,8 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v lcd_4bit_send_char_data_pos@lcd lcd `*.39CS136  1 p 2 25 ]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_char_data_pos@lcd lcd `*.39CS173  1 p 2 25 ]
 [v lcd_4bit_send_char_data_pos@row row `uc  1 p 1 27 ]
 [v lcd_4bit_send_char_data_pos@colum colum `uc  1 p 1 28 ]
 [v lcd_4bit_send_char_data_pos@data data `uc  1 p 1 29 ]
@@ -1692,8 +1739,8 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v i2lcd_4bits_set_courser@lcd lcd `*.39CS136  1 p 2 18 ]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v i2lcd_4bits_set_courser@lcd lcd `*.39CS173  1 p 2 18 ]
 [v i2lcd_4bits_set_courser@row row `uc  1 p 1 20 ]
 [v i2lcd_4bits_set_courser@colum colum `uc  1 p 1 21 ]
 "587
@@ -1706,8 +1753,8 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v i2lcd_4bit_send_command@lcd lcd `*.39CS136  1 p 2 14 ]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v i2lcd_4bit_send_command@lcd lcd `*.39CS173  1 p 2 14 ]
 [v i2lcd_4bit_send_command@command command `uc  1 p 1 16 ]
 "83
 } 0
@@ -1719,8 +1766,8 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v i2lcd_4bit_send_char_data@lcd lcd `*.39CS136  1 p 2 14 ]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v i2lcd_4bit_send_char_data@lcd lcd `*.39CS173  1 p 2 14 ]
 [v i2lcd_4bit_send_char_data@data data `uc  1 p 1 16 ]
 "108
 } 0
@@ -1732,8 +1779,8 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v i2lcd_send_4bits@lcd lcd `*.39CS136  1 p 2 10 ]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v i2lcd_send_4bits@lcd lcd `*.39CS173  1 p 2 10 ]
 [v i2lcd_send_4bits@data_command data_command `uc  1 p 1 12 ]
 "521
 } 0
@@ -1745,8 +1792,8 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[s S136 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
-[v i2lcd_4bits_send_enable_signal@lcd lcd `*.39CS136  1 p 2 10 ]
+[s S173 . 6 `S131 1 lcd_rs_pin 1 0 `S131 1 lcd_enable_pin 1 1 `[4]S131 1 lcd_data_pins 4 2 ]
+[v i2lcd_4bits_send_enable_signal@lcd lcd `*.39CS173  1 p 2 10 ]
 "503
 } 0
 "82 F:\graduation_project\MCAL/GPIO/hal_gpio.c
@@ -1763,6 +1810,28 @@ GPIO_HIGH 1
 [v i2GPIO_Pin_Write_Logic@_pin_config _pin_config `*.39CS131  1 p 2 0 ]
 [v i2GPIO_Pin_Write_Logic@logic logic `E2958  1 p 1 2 ]
 "105
+} 0
+"181 F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
+[v _EUSART_Async_Read_Data EUSART_Async_Read_Data `(uc  1 e 1 0 ]
+{
+"184
+[v EUSART_Async_Read_Data@l_temp_data l_temp_data `us  1 a 2 18 ]
+[s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
+`uc 1 tx_enable 1 0 :1:2 
+`uc 1 tx_9th_bit_en 1 0 :1:3 
+`uc 1 tx_reserved 1 0 :4:4 
+]
+"181
+[s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
+`uc 1 uart_rx_9th_bit_role 1 6 :2:1 
+`uc 1 rx_enable 1 6 :1:3 
+`uc 1 rx_9th_bit_en 1 6 :1:4 
+`uc 1 rx_reserved 1 7 :4:0 
+]
+[s S46 . 12 `us 1 uart_baud_rate_value 2 0 `S24 1 tx_config 1 2 `S32 1 rx_config 8 3 `E3039 1 baud_rate_config 1 11 ]
+[v EUSART_Async_Read_Data@_eusart_obj _eusart_obj `*.39CS46  1 p 2 5 ]
+[v EUSART_Async_Read_Data@data data `*.39us  1 p 2 7 ]
+"278
 } 0
 "71 F:\graduation_project\ECU/Bluetooth/Bluetooth.c
 [v _Bluetooth_Send_Data_Non_Blocking Bluetooth_Send_Data_Non_Blocking `(uc  1 e 1 0 ]
@@ -1803,30 +1872,30 @@ GPIO_HIGH 1
 "169
 } 0
 "612
-[v i2_calc_parity_odd calc_parity_odd `T(uc  1 s 1 i2_calc_parity_odd ]
+[v _calc_parity_odd calc_parity_odd `T(uc  1 s 1 calc_parity_odd ]
 {
-[v i2calc_parity_odd@data data `uc  1 a 1 wreg ]
+[v calc_parity_odd@data data `uc  1 a 1 wreg ]
 "617
-[v i2calc_parity_odd@l_counter l_counter `uc  1 a 1 4 ]
+[v calc_parity_odd@l_counter l_counter `uc  1 a 1 4 ]
 "616
-[v i2calc_parity_odd@number_of_ones number_of_ones `uc  1 a 1 3 ]
+[v calc_parity_odd@number_of_ones number_of_ones `uc  1 a 1 3 ]
 "612
-[v i2calc_parity_odd@data data `uc  1 a 1 wreg ]
+[v calc_parity_odd@data data `uc  1 a 1 wreg ]
 "616
-[v i2calc_parity_odd@data data `uc  1 a 1 2 ]
+[v calc_parity_odd@data data `uc  1 a 1 2 ]
 "649
 } 0
 "650
-[v i2_calc_parity_even calc_parity_even `T(uc  1 s 1 i2_calc_parity_even ]
+[v _calc_parity_even calc_parity_even `T(uc  1 s 1 calc_parity_even ]
 {
-[v i2calc_parity_even@data data `uc  1 a 1 wreg ]
+[v calc_parity_even@data data `uc  1 a 1 wreg ]
 "654
-[v i2calc_parity_even@l_counter l_counter `uc  1 a 1 4 ]
+[v calc_parity_even@l_counter l_counter `uc  1 a 1 4 ]
 "653
-[v i2calc_parity_even@number_of_ones number_of_ones `uc  1 a 1 3 ]
+[v calc_parity_even@number_of_ones number_of_ones `uc  1 a 1 3 ]
 "650
-[v i2calc_parity_even@data data `uc  1 a 1 wreg ]
+[v calc_parity_even@data data `uc  1 a 1 wreg ]
 "653
-[v i2calc_parity_even@data data `uc  1 a 1 2 ]
+[v calc_parity_even@data data `uc  1 a 1 2 ]
 "683
 } 0

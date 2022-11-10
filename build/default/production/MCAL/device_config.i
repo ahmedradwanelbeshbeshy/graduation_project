@@ -24,7 +24,7 @@
 
 
 #pragma config WDT = OFF
-#pragma config WDTPS = 32768
+#pragma config WDTPS = 512
 
 
 #pragma config CCP2MX = PORTC

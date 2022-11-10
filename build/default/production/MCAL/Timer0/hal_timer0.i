@@ -4993,9 +4993,9 @@ Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
 
 }
 
-
 void TMR0_ISR(void)
 {
+
 
     (INTCONbits.TMR0IF = 0);
 
@@ -5012,5 +5012,6 @@ void TMR0_ISR(void)
     {
         tmr0_InterruptHandler();
     }
+
 
 }

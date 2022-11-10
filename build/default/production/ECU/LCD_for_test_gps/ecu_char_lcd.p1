@@ -392,20 +392,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 280 ]
 }
 "39
-[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 39:         _delay((unsigned long)((20)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 39:         _delay((unsigned long)((20)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
 "40
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 40:         ERRORSTATUS=lcd_4bit_send_command(lcd,0X38);
 [e = _ERRORSTATUS ( _lcd_4bit_send_command (2 , _lcd -> -> 56 `i `uc ]
 "41
-[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 41:         _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 41:         _delay((unsigned long)((5)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
 "42
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 42:         ERRORSTATUS=lcd_4bit_send_command(lcd,0X38);
 [e = _ERRORSTATUS ( _lcd_4bit_send_command (2 , _lcd -> -> 56 `i `uc ]
 "43
-[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 43:         _delay((unsigned long)((150)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 43:         _delay((unsigned long)((150)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
 "44
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 44:         ERRORSTATUS=lcd_4bit_send_command(lcd,0X38);
 [e = _ERRORSTATUS ( _lcd_4bit_send_command (2 , _lcd -> -> 56 `i `uc ]
@@ -911,20 +911,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 313 ]
 }
 "235
-[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 235:         _delay((unsigned long)((20)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 235:         _delay((unsigned long)((20)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
 "236
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 236:         ERRORSTATUS=lcd_8bit_send_command(lcd,0X38);
 [e = _ERRORSTATUS ( _lcd_8bit_send_command (2 , _lcd -> -> 56 `i `uc ]
 "237
-[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 237:         _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 237:         _delay((unsigned long)((5)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
 "238
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 238:         ERRORSTATUS=lcd_8bit_send_command(lcd,0X38);
 [e = _ERRORSTATUS ( _lcd_8bit_send_command (2 , _lcd -> -> 56 `i `uc ]
 "239
-[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 239:         _delay((unsigned long)((150)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 239:         _delay((unsigned long)((150)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
 "240
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 240:         ERRORSTATUS=lcd_8bit_send_command(lcd,0X38);
 [e = _ERRORSTATUS ( _lcd_8bit_send_command (2 , _lcd -> -> 56 `i `uc ]
@@ -1628,8 +1628,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 497:             GPIO_Pin_Write_Logic(&(lcd->lcd_enable_pin),GPIO_HIGH);
 [e ( _GPIO_Pin_Write_Logic (2 , &U . *U _lcd 1 . `E2958 1 ]
 "498
-[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 498:             _delay((unsigned long)((5)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 498:             _delay((unsigned long)((5)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
 "499
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 499:              GPIO_Pin_Write_Logic(&(lcd->lcd_enable_pin),GPIO_LOW);
 [e ( _GPIO_Pin_Write_Logic (2 , &U . *U _lcd 1 . `E2958 0 ]
@@ -1746,8 +1746,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 537:             GPIO_Pin_Write_Logic(&(lcd->lcd_enable_pin),GPIO_HIGH);
 [e ( _GPIO_Pin_Write_Logic (2 , &U . *U _lcd 1 . `E2958 1 ]
 "538
-[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 538:             _delay((unsigned long)((5)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 538:             _delay((unsigned long)((5)*(24000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 24000000 `l `d .4000000.0 `ul ]
 "539
 [; ;ECU/LCD_for_test_gps/ecu_char_lcd.c: 539:              GPIO_Pin_Write_Logic(&(lcd->lcd_enable_pin),GPIO_LOW);
 [e ( _GPIO_Pin_Write_Logic (2 , &U . *U _lcd 1 . `E2958 0 ]

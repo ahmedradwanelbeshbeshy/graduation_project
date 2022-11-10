@@ -11,6 +11,10 @@
 #include "MCAL/EUSART/mcal_EUSART.h"
 #include "ECU/Bluetooth/Bluetooth.h"
 #include "ECU/LCD_for_test_gps/ecu_char_lcd.h"
+#include"MCAL/WATCH_DOG_TIMER/WDT.h"
+/*****************************************************************************************************************/
+/***********************note the crystal OSC has been changed to be 24MHZ in device_config.h**********************/
+/*****************************************************************************************************************/
 
 void  usart_isr (void);
 void GPS_Service (void);
@@ -93,10 +97,21 @@ int main()
     
     application_intialize();
     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
+    Reset_Watch_Dog_Timer();
+    GPIO_Pin_Write_Logic(&pind1,GPIO_HIGH);
+    __delay_ms(1000);
+    Reset_Watch_Dog_Timer();
+    GPIO_Pin_Write_Logic(&pind1,GPIO_LOW);
+    __delay_ms(1000);
+    Reset_Watch_Dog_Timer();
 
    while(1)
     {
-        GPIO_Pin_Toggle_Logic(&pind1);
+       GPIO_Pin_Toggle_Logic(&pind2);
+        __delay_ms(1000);
+        Reset_Watch_Dog_Timer();
+
+       /* GPIO_Pin_Toggle_Logic(&pind1);
         __delay_ms(1000);
         switch(datarecive)
         {
@@ -172,7 +187,7 @@ int main()
                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
                 lcd_4bit_send_string_data_pos(&lcd1,1,1,"default case");
                 break;
-        }
+        }*/
         
    }
    return 0;
@@ -182,8 +197,11 @@ void application_intialize(void)
     GPIO_Pin_Initialize(&pind1);
     GPIO_Pin_Initialize(&pind2);
     GPIO_Pin_Initialize(&selector);
+    WDT_Init();
     EUSART_Async_Init(&_uart_obj);
+  /**/  Reset_Watch_Dog_Timer();
     lcd_4bit_initialize(&lcd1);
+  /**/  Reset_Watch_Dog_Timer();
 }
 void usart_isr (void)
 {
@@ -239,7 +257,7 @@ void GPS_Service (void)
     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-             ");
     lcd_4bit_send_string_data_pos(&lcd1,1,1,latitude);
     lcd_4bit_send_string_data_pos(&lcd1,2,1,longtude);
+        __delay_ms(2000);
     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
-    __delay_ms(2000);
     INT_EUSART_Rx_ENABLE() ;//rx interruptenable
 }

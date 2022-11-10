@@ -1,0 +1,1192 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"22 MCAL/ADC/mcal_adc.c
+[; ;MCAL/ADC/mcal_adc.c: 22: Std_ReturnType ADC_Init(const adc_config_t* _adc)
+[c E3039 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
+[n E3039 . ADC_CHANEL_AN0 ADC_CHANEL_AN1 ADC_CHANEL_AN2 ADC_CHANEL_AN3 ADC_CHANEL_AN4 ADC_CHANEL_AN5 ADC_CHANEL_AN6 ADC_CHANEL_AN7 ADC_CHANEL_AN8 ADC_CHANEL_AN9 ADC_CHANEL_AN10 ADC_CHANEL_AN11 ADC_CHANEL_AN12  ]
+[c E3054 0 1 2 3 4 5 6 7 .. ]
+[n E3054 . ADC_0_TAD ADC_2_TAD ADC_4_TAD ADC_6_TAD ADC_8_TAD ADC_12_TAD ADC_16_TAD ADC_20_TAD  ]
+[c E3064 0 1 2 3 4 5 6 .. ]
+[n E3064 . ADC_CONVERSION_CLOCK_FOSC_DIV_2 ADC_CONVERSION_CLOCK_FOSC_DIV_8 ADC_CONVERSION_CLOCK_FOSC_DIV_32 ADC_CONVERSION_CLOCK_FOSC_DIV_FRC ADC_CONVERSION_CLOCK_FOSC_DIV_4 ADC_CONVERSION_CLOCK_FOSC_DIV_16 ADC_CONVERSION_CLOCK_FOSC_DIV_64  ]
+[c E3073 0 1 .. ]
+[n E3073 . ADC_RESULT_LEFT ADC_RESULT_RIGHT  ]
+[c E3077 0 1 .. ]
+[n E3077 . ADC_VOLTAGE_REFERANCE_INTERNAL ADC_VOLTAGE_REFERANCE_EXTERNAL  ]
+"149 MCAL/ADC/mcal_adc.h
+[; ;MCAL/ADC/mcal_adc.h: 149: {
+[s S274 `E3039 1 `E3054 1 `E3064 1 `E3073 1 `E3077 1 ]
+[n S274 . adc_channel acquisition_time conversion_clock result_format voltage_referance ]
+"4536 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+[s S182 :1 `uc 1 :1 `uc 1 ]
+[n S182 . . GO_NOT_DONE ]
+"4540
+[s S183 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S183 . ADON GO_nDONE CHS ]
+"4545
+[s S184 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S184 . . GO CHS0 CHS1 CHS2 CHS3 ]
+"4553
+[s S185 :1 `uc 1 :1 `uc 1 ]
+[n S185 . . DONE ]
+"4557
+[s S186 :1 `uc 1 :1 `uc 1 ]
+[n S186 . . NOT_DONE ]
+"4561
+[s S187 :1 `uc 1 :1 `uc 1 ]
+[n S187 . . nDONE ]
+"4565
+[s S188 :1 `uc 1 :1 `uc 1 ]
+[n S188 . . GO_DONE ]
+"4569
+[s S189 :1 `uc 1 :1 `uc 1 ]
+[n S189 . . GODONE ]
+"4535
+[u S181 `S182 1 `S183 1 `S184 1 `S185 1 `S186 1 `S187 1 `S188 1 `S189 1 ]
+[n S181 . . . . . . . . . ]
+"4574
+[v _ADCON0bits `VS181 ~T0 @X0 0 e@4034 ]
+"4380
+[s S175 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S175 . ADCS ACQT . ADFM ]
+"4386
+[s S176 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S176 . ADCS0 ADCS1 ADCS2 ACQT0 ACQT1 ACQT2 ]
+"4379
+[u S174 `S175 1 `S176 1 ]
+[n S174 . . . ]
+"4395
+[v _ADCON2bits `VS174 ~T0 @X0 0 e@4032 ]
+"9 MCAL/ADC/mcal_adc.c
+[; ;MCAL/ADC/mcal_adc.c: 9: static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_t _channel);
+[v _adc_channel_pin_config_as_input `(uc ~T0 @X0 0 sf1`CE3039 ]
+"10
+[; ;MCAL/ADC/mcal_adc.c: 10: static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc);
+[v _adc_select_result_formate `(uc ~T0 @X0 0 sf1`*CS274 ]
+"11
+[; ;MCAL/ADC/mcal_adc.c: 11: static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc);
+[v _adc_select_voltage_reference `(uc ~T0 @X0 0 sf1`*CS274 ]
+"164
+[; ;MCAL/ADC/mcal_adc.c: 164: Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_status_t*_status)
+[c E3081 0 1 .. ]
+[n E3081 . ADC_CONVERSION_STATUS_DONE ADC_CONVERSION_STATUS_INPROGRESS  ]
+"4663 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"4656
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+[v F2926 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+[v __delay `JF2926 ~T0 @X0 0 e ]
+[p i __delay ]
+"1381 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
+"2269
+[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
+"1603
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"4451
+[s S178 :4 `uc 1 :2 `uc 1 ]
+[n S178 . PCFG VCFG ]
+"4455
+[s S179 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S179 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
+"4463
+[s S180 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S180 . . CHSN3 VCFG01 VCFG11 ]
+"4450
+[u S177 `S178 1 `S179 1 `S180 1 ]
+[n S177 . . . . ]
+"4470
+[v _ADCON1bits `VS177 ~T0 @X0 0 e@4033 ]
+"55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+[; <" PORTA equ 0F80h ;# ">
+"192
+[; <" PORTB equ 0F81h ;# ">
+"363
+[; <" PORTC equ 0F82h ;# ">
+"538
+[; <" PORTD equ 0F83h ;# ">
+"680
+[; <" PORTE equ 0F84h ;# ">
+"883
+[; <" LATA equ 0F89h ;# ">
+"995
+[; <" LATB equ 0F8Ah ;# ">
+"1107
+[; <" LATC equ 0F8Bh ;# ">
+"1219
+[; <" LATD equ 0F8Ch ;# ">
+"1331
+[; <" LATE equ 0F8Dh ;# ">
+"1383
+[; <" TRISA equ 0F92h ;# ">
+"1388
+[; <" DDRA equ 0F92h ;# ">
+"1605
+[; <" TRISB equ 0F93h ;# ">
+"1610
+[; <" DDRB equ 0F93h ;# ">
+"1827
+[; <" TRISC equ 0F94h ;# ">
+"1832
+[; <" DDRC equ 0F94h ;# ">
+"2049
+[; <" TRISD equ 0F95h ;# ">
+"2054
+[; <" DDRD equ 0F95h ;# ">
+"2271
+[; <" TRISE equ 0F96h ;# ">
+"2276
+[; <" DDRE equ 0F96h ;# ">
+"2435
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"2500
+[; <" PIE1 equ 0F9Dh ;# ">
+"2577
+[; <" PIR1 equ 0F9Eh ;# ">
+"2654
+[; <" IPR1 equ 0F9Fh ;# ">
+"2731
+[; <" PIE2 equ 0FA0h ;# ">
+"2797
+[; <" PIR2 equ 0FA1h ;# ">
+"2863
+[; <" IPR2 equ 0FA2h ;# ">
+"2929
+[; <" EECON1 equ 0FA6h ;# ">
+"2995
+[; <" EECON2 equ 0FA7h ;# ">
+"3002
+[; <" EEDATA equ 0FA8h ;# ">
+"3009
+[; <" EEADR equ 0FA9h ;# ">
+"3016
+[; <" EEADRH equ 0FAAh ;# ">
+"3023
+[; <" RCSTA equ 0FABh ;# ">
+"3028
+[; <" RCSTA1 equ 0FABh ;# ">
+"3233
+[; <" TXSTA equ 0FACh ;# ">
+"3238
+[; <" TXSTA1 equ 0FACh ;# ">
+"3489
+[; <" TXREG equ 0FADh ;# ">
+"3494
+[; <" TXREG1 equ 0FADh ;# ">
+"3501
+[; <" RCREG equ 0FAEh ;# ">
+"3506
+[; <" RCREG1 equ 0FAEh ;# ">
+"3513
+[; <" SPBRG equ 0FAFh ;# ">
+"3518
+[; <" SPBRG1 equ 0FAFh ;# ">
+"3525
+[; <" SPBRGH equ 0FB0h ;# ">
+"3532
+[; <" T3CON equ 0FB1h ;# ">
+"3644
+[; <" TMR3 equ 0FB2h ;# ">
+"3651
+[; <" TMR3L equ 0FB2h ;# ">
+"3658
+[; <" TMR3H equ 0FB3h ;# ">
+"3665
+[; <" CMCON equ 0FB4h ;# ">
+"3755
+[; <" CVRCON equ 0FB5h ;# ">
+"3834
+[; <" ECCP1AS equ 0FB6h ;# ">
+"3916
+[; <" PWM1CON equ 0FB7h ;# ">
+"3986
+[; <" BAUDCON equ 0FB8h ;# ">
+"3991
+[; <" BAUDCTL equ 0FB8h ;# ">
+"4158
+[; <" CCP2CON equ 0FBAh ;# ">
+"4237
+[; <" CCPR2 equ 0FBBh ;# ">
+"4244
+[; <" CCPR2L equ 0FBBh ;# ">
+"4251
+[; <" CCPR2H equ 0FBCh ;# ">
+"4258
+[; <" CCP1CON equ 0FBDh ;# ">
+"4355
+[; <" CCPR1 equ 0FBEh ;# ">
+"4362
+[; <" CCPR1L equ 0FBEh ;# ">
+"4369
+[; <" CCPR1H equ 0FBFh ;# ">
+"4376
+[; <" ADCON2 equ 0FC0h ;# ">
+"4447
+[; <" ADCON1 equ 0FC1h ;# ">
+"4532
+[; <" ADCON0 equ 0FC2h ;# ">
+"4651
+[; <" ADRES equ 0FC3h ;# ">
+"4658
+[; <" ADRESL equ 0FC3h ;# ">
+"4665
+[; <" ADRESH equ 0FC4h ;# ">
+"4672
+[; <" SSPCON2 equ 0FC5h ;# ">
+"4734
+[; <" SSPCON1 equ 0FC6h ;# ">
+"4804
+[; <" SSPSTAT equ 0FC7h ;# ">
+"5025
+[; <" SSPADD equ 0FC8h ;# ">
+"5032
+[; <" SSPBUF equ 0FC9h ;# ">
+"5039
+[; <" T2CON equ 0FCAh ;# ">
+"5110
+[; <" PR2 equ 0FCBh ;# ">
+"5115
+[; <" MEMCON equ 0FCBh ;# ">
+"5220
+[; <" TMR2 equ 0FCCh ;# ">
+"5227
+[; <" T1CON equ 0FCDh ;# ">
+"5330
+[; <" TMR1 equ 0FCEh ;# ">
+"5337
+[; <" TMR1L equ 0FCEh ;# ">
+"5344
+[; <" TMR1H equ 0FCFh ;# ">
+"5351
+[; <" RCON equ 0FD0h ;# ">
+"5484
+[; <" WDTCON equ 0FD1h ;# ">
+"5512
+[; <" HLVDCON equ 0FD2h ;# ">
+"5517
+[; <" LVDCON equ 0FD2h ;# ">
+"5782
+[; <" OSCCON equ 0FD3h ;# ">
+"5859
+[; <" T0CON equ 0FD5h ;# ">
+"5936
+[; <" TMR0 equ 0FD6h ;# ">
+"5943
+[; <" TMR0L equ 0FD6h ;# ">
+"5950
+[; <" TMR0H equ 0FD7h ;# ">
+"5957
+[; <" STATUS equ 0FD8h ;# ">
+"6028
+[; <" FSR2 equ 0FD9h ;# ">
+"6035
+[; <" FSR2L equ 0FD9h ;# ">
+"6042
+[; <" FSR2H equ 0FDAh ;# ">
+"6049
+[; <" PLUSW2 equ 0FDBh ;# ">
+"6056
+[; <" PREINC2 equ 0FDCh ;# ">
+"6063
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"6070
+[; <" POSTINC2 equ 0FDEh ;# ">
+"6077
+[; <" INDF2 equ 0FDFh ;# ">
+"6084
+[; <" BSR equ 0FE0h ;# ">
+"6091
+[; <" FSR1 equ 0FE1h ;# ">
+"6098
+[; <" FSR1L equ 0FE1h ;# ">
+"6105
+[; <" FSR1H equ 0FE2h ;# ">
+"6112
+[; <" PLUSW1 equ 0FE3h ;# ">
+"6119
+[; <" PREINC1 equ 0FE4h ;# ">
+"6126
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"6133
+[; <" POSTINC1 equ 0FE6h ;# ">
+"6140
+[; <" INDF1 equ 0FE7h ;# ">
+"6147
+[; <" WREG equ 0FE8h ;# ">
+"6159
+[; <" FSR0 equ 0FE9h ;# ">
+"6166
+[; <" FSR0L equ 0FE9h ;# ">
+"6173
+[; <" FSR0H equ 0FEAh ;# ">
+"6180
+[; <" PLUSW0 equ 0FEBh ;# ">
+"6187
+[; <" PREINC0 equ 0FECh ;# ">
+"6194
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"6201
+[; <" POSTINC0 equ 0FEEh ;# ">
+"6208
+[; <" INDF0 equ 0FEFh ;# ">
+"6215
+[; <" INTCON3 equ 0FF0h ;# ">
+"6307
+[; <" INTCON2 equ 0FF1h ;# ">
+"6377
+[; <" INTCON equ 0FF2h ;# ">
+"6494
+[; <" PROD equ 0FF3h ;# ">
+"6501
+[; <" PRODL equ 0FF3h ;# ">
+"6508
+[; <" PRODH equ 0FF4h ;# ">
+"6515
+[; <" TABLAT equ 0FF5h ;# ">
+"6524
+[; <" TBLPTR equ 0FF6h ;# ">
+"6531
+[; <" TBLPTRL equ 0FF6h ;# ">
+"6538
+[; <" TBLPTRH equ 0FF7h ;# ">
+"6545
+[; <" TBLPTRU equ 0FF8h ;# ">
+"6554
+[; <" PCLAT equ 0FF9h ;# ">
+"6561
+[; <" PC equ 0FF9h ;# ">
+"6568
+[; <" PCL equ 0FF9h ;# ">
+"6575
+[; <" PCLATH equ 0FFAh ;# ">
+"6582
+[; <" PCLATU equ 0FFBh ;# ">
+"6589
+[; <" STKPTR equ 0FFCh ;# ">
+"6695
+[; <" TOS equ 0FFDh ;# ">
+"6702
+[; <" TOSL equ 0FFDh ;# ">
+"6709
+[; <" TOSH equ 0FFEh ;# ">
+"6716
+[; <" TOSU equ 0FFFh ;# ">
+"22 MCAL/ADC/mcal_adc.c
+[; ;MCAL/ADC/mcal_adc.c: 22: Std_ReturnType ADC_Init(const adc_config_t* _adc)
+[v _ADC_Init `(uc ~T0 @X0 1 ef1`*CS274 ]
+"23
+[; ;MCAL/ADC/mcal_adc.c: 23: {
+{
+[e :U _ADC_Init ]
+"22
+[; ;MCAL/ADC/mcal_adc.c: 22: Std_ReturnType ADC_Init(const adc_config_t* _adc)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+"23
+[; ;MCAL/ADC/mcal_adc.c: 23: {
+[f ]
+"24
+[; ;MCAL/ADC/mcal_adc.c: 24:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"25
+[; ;MCAL/ADC/mcal_adc.c: 25:     if (((void*)0)==_adc)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 __adc 276  ]
+"26
+[; ;MCAL/ADC/mcal_adc.c: 26:     {
+{
+"27
+[; ;MCAL/ADC/mcal_adc.c: 27:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"28
+[; ;MCAL/ADC/mcal_adc.c: 28:     }
+}
+[e $U 277  ]
+"29
+[; ;MCAL/ADC/mcal_adc.c: 29:     else
+[e :U 276 ]
+"30
+[; ;MCAL/ADC/mcal_adc.c: 30:     {
+{
+"32
+[; ;MCAL/ADC/mcal_adc.c: 32:           (ADCON0bits.ADON=0);
+[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
+"38
+[; ;MCAL/ADC/mcal_adc.c: 38:          ADCON2bits.ACQT=_adc->acquisition_time;
+[e = . . _ADCON2bits 0 1 -> . *U __adc 1 `uc ]
+"41
+[; ;MCAL/ADC/mcal_adc.c: 41:          ADCON2bits.ADCS=_adc->conversion_clock;
+[e = . . _ADCON2bits 0 0 -> . *U __adc 2 `uc ]
+"44
+[; ;MCAL/ADC/mcal_adc.c: 44:          ADCON0bits.CHS=_adc->adc_channel;
+[e = . . _ADCON0bits 1 2 -> . *U __adc 0 `uc ]
+"47
+[; ;MCAL/ADC/mcal_adc.c: 47:         adc_channel_pin_config_as_input(_adc->adc_channel);
+[e ( _adc_channel_pin_config_as_input (1 . *U __adc 0 ]
+"50
+[; ;MCAL/ADC/mcal_adc.c: 50:          adc_select_result_formate(_adc);
+[e ( _adc_select_result_formate (1 __adc ]
+"53
+[; ;MCAL/ADC/mcal_adc.c: 53:          adc_select_voltage_reference(_adc);
+[e ( _adc_select_voltage_reference (1 __adc ]
+"85
+[; ;MCAL/ADC/mcal_adc.c: 85:          (ADCON0bits.ADON=1);
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+"87
+[; ;MCAL/ADC/mcal_adc.c: 87:     }
+}
+[e :U 277 ]
+"88
+[; ;MCAL/ADC/mcal_adc.c: 88:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 275  ]
+"89
+[; ;MCAL/ADC/mcal_adc.c: 89: }
+[e :UE 275 ]
+}
+"95
+[; ;MCAL/ADC/mcal_adc.c: 95: Std_ReturnType ADC_DeInit(const adc_config_t* _adc)
+[v _ADC_DeInit `(uc ~T0 @X0 1 ef1`*CS274 ]
+"96
+[; ;MCAL/ADC/mcal_adc.c: 96: {
+{
+[e :U _ADC_DeInit ]
+"95
+[; ;MCAL/ADC/mcal_adc.c: 95: Std_ReturnType ADC_DeInit(const adc_config_t* _adc)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+"96
+[; ;MCAL/ADC/mcal_adc.c: 96: {
+[f ]
+"97
+[; ;MCAL/ADC/mcal_adc.c: 97:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"98
+[; ;MCAL/ADC/mcal_adc.c: 98:     if (((void*)0)==_adc)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 __adc 279  ]
+"99
+[; ;MCAL/ADC/mcal_adc.c: 99:     {
+{
+"100
+[; ;MCAL/ADC/mcal_adc.c: 100:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"101
+[; ;MCAL/ADC/mcal_adc.c: 101:     }
+}
+[e $U 280  ]
+"102
+[; ;MCAL/ADC/mcal_adc.c: 102:     else
+[e :U 279 ]
+"103
+[; ;MCAL/ADC/mcal_adc.c: 103:     {
+{
+"105
+[; ;MCAL/ADC/mcal_adc.c: 105:         (ADCON0bits.ADON=0);
+[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
+"112
+[; ;MCAL/ADC/mcal_adc.c: 112:     }
+}
+[e :U 280 ]
+"113
+[; ;MCAL/ADC/mcal_adc.c: 113:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 278  ]
+"114
+[; ;MCAL/ADC/mcal_adc.c: 114: }
+[e :UE 278 ]
+}
+"121
+[; ;MCAL/ADC/mcal_adc.c: 121: Std_ReturnType ADC_select_channel(const adc_config_t* _adc,adc_channel_select_t _channel)
+[v _ADC_select_channel `(uc ~T0 @X0 1 ef2`*CS274`E3039 ]
+"122
+[; ;MCAL/ADC/mcal_adc.c: 122: {
+{
+[e :U _ADC_select_channel ]
+"121
+[; ;MCAL/ADC/mcal_adc.c: 121: Std_ReturnType ADC_select_channel(const adc_config_t* _adc,adc_channel_select_t _channel)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+[v __channel `E3039 ~T0 @X0 1 r2 ]
+"122
+[; ;MCAL/ADC/mcal_adc.c: 122: {
+[f ]
+"123
+[; ;MCAL/ADC/mcal_adc.c: 123:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"124
+[; ;MCAL/ADC/mcal_adc.c: 124:     if (((void*)0)==_adc)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 __adc 282  ]
+"125
+[; ;MCAL/ADC/mcal_adc.c: 125:     {
+{
+"126
+[; ;MCAL/ADC/mcal_adc.c: 126:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"127
+[; ;MCAL/ADC/mcal_adc.c: 127:     }
+}
+[e $U 283  ]
+"128
+[; ;MCAL/ADC/mcal_adc.c: 128:     else
+[e :U 282 ]
+"129
+[; ;MCAL/ADC/mcal_adc.c: 129:     {
+{
+"131
+[; ;MCAL/ADC/mcal_adc.c: 131:        ADCON0bits.CHS=_channel;
+[e = . . _ADCON0bits 1 2 -> __channel `uc ]
+"134
+[; ;MCAL/ADC/mcal_adc.c: 134:        adc_channel_pin_config_as_input(_channel);
+[e ( _adc_channel_pin_config_as_input (1 __channel ]
+"135
+[; ;MCAL/ADC/mcal_adc.c: 135:     }
+}
+[e :U 283 ]
+"136
+[; ;MCAL/ADC/mcal_adc.c: 136:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 281  ]
+"137
+[; ;MCAL/ADC/mcal_adc.c: 137: }
+[e :UE 281 ]
+}
+"143
+[; ;MCAL/ADC/mcal_adc.c: 143: Std_ReturnType ADC_Start_Conversion(const adc_config_t* _adc)
+[v _ADC_Start_Conversion `(uc ~T0 @X0 1 ef1`*CS274 ]
+"144
+[; ;MCAL/ADC/mcal_adc.c: 144: {
+{
+[e :U _ADC_Start_Conversion ]
+"143
+[; ;MCAL/ADC/mcal_adc.c: 143: Std_ReturnType ADC_Start_Conversion(const adc_config_t* _adc)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+"144
+[; ;MCAL/ADC/mcal_adc.c: 144: {
+[f ]
+"145
+[; ;MCAL/ADC/mcal_adc.c: 145:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"146
+[; ;MCAL/ADC/mcal_adc.c: 146:     if (((void*)0)==_adc)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 __adc 285  ]
+"147
+[; ;MCAL/ADC/mcal_adc.c: 147:     {
+{
+"148
+[; ;MCAL/ADC/mcal_adc.c: 148:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"149
+[; ;MCAL/ADC/mcal_adc.c: 149:     }
+}
+[e $U 286  ]
+"150
+[; ;MCAL/ADC/mcal_adc.c: 150:     else
+[e :U 285 ]
+"151
+[; ;MCAL/ADC/mcal_adc.c: 151:     {
+{
+"152
+[; ;MCAL/ADC/mcal_adc.c: 152:         (ADCON0bits.GODONE=1);
+[e = . . _ADCON0bits 7 1 -> -> 1 `i `uc ]
+"153
+[; ;MCAL/ADC/mcal_adc.c: 153:     }
+}
+[e :U 286 ]
+"154
+[; ;MCAL/ADC/mcal_adc.c: 154:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 284  ]
+"155
+[; ;MCAL/ADC/mcal_adc.c: 155: }
+[e :UE 284 ]
+}
+"164
+[; ;MCAL/ADC/mcal_adc.c: 164: Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_status_t*_status)
+[v _ADC_Is_Conversion_Done `(uc ~T0 @X0 1 ef2`*CS274`*E3081 ]
+"165
+[; ;MCAL/ADC/mcal_adc.c: 165: {
+{
+[e :U _ADC_Is_Conversion_Done ]
+"164
+[; ;MCAL/ADC/mcal_adc.c: 164: Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_status_t*_status)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+[v __status `*E3081 ~T0 @X0 1 r2 ]
+"165
+[; ;MCAL/ADC/mcal_adc.c: 165: {
+[f ]
+"166
+[; ;MCAL/ADC/mcal_adc.c: 166:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"167
+[; ;MCAL/ADC/mcal_adc.c: 167:     if ((((void*)0)==_adc)||(((void*)0)==_status))
+[e $ ! || == -> -> -> 0 `i `*v `*CS274 __adc == -> -> -> 0 `i `*v `*E3081 __status 288  ]
+"168
+[; ;MCAL/ADC/mcal_adc.c: 168:     {
+{
+"169
+[; ;MCAL/ADC/mcal_adc.c: 169:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"170
+[; ;MCAL/ADC/mcal_adc.c: 170:     }
+}
+[e $U 289  ]
+"171
+[; ;MCAL/ADC/mcal_adc.c: 171:     else
+[e :U 288 ]
+"172
+[; ;MCAL/ADC/mcal_adc.c: 172:     {
+{
+"173
+[; ;MCAL/ADC/mcal_adc.c: 173:       *_status=(uint8)!((ADCON0bits.GO_nDONE));
+[e = *U __status -> -> -> ! != -> . . _ADCON0bits 1 1 `i -> 0 `i `i `uc `E3081 ]
+"174
+[; ;MCAL/ADC/mcal_adc.c: 174:     }
+}
+[e :U 289 ]
+"175
+[; ;MCAL/ADC/mcal_adc.c: 175:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 287  ]
+"176
+[; ;MCAL/ADC/mcal_adc.c: 176: }
+[e :UE 287 ]
+}
+"183
+[; ;MCAL/ADC/mcal_adc.c: 183: Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*_result)
+[v _ADC_Get_Conversion_Results `(uc ~T0 @X0 1 ef2`*CS274`*us ]
+"184
+[; ;MCAL/ADC/mcal_adc.c: 184: {
+{
+[e :U _ADC_Get_Conversion_Results ]
+"183
+[; ;MCAL/ADC/mcal_adc.c: 183: Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*_result)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+[v __result `*us ~T0 @X0 1 r2 ]
+"184
+[; ;MCAL/ADC/mcal_adc.c: 184: {
+[f ]
+"185
+[; ;MCAL/ADC/mcal_adc.c: 185:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"186
+[; ;MCAL/ADC/mcal_adc.c: 186:     if ((((void*)0)==_adc)||(((void*)0)==_result))
+[e $ ! || == -> -> -> 0 `i `*v `*CS274 __adc == -> -> -> 0 `i `*v `*us __result 291  ]
+"187
+[; ;MCAL/ADC/mcal_adc.c: 187:     {
+{
+"188
+[; ;MCAL/ADC/mcal_adc.c: 188:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"189
+[; ;MCAL/ADC/mcal_adc.c: 189:     }
+}
+[e $U 292  ]
+"190
+[; ;MCAL/ADC/mcal_adc.c: 190:     else
+[e :U 291 ]
+"191
+[; ;MCAL/ADC/mcal_adc.c: 191:     {
+{
+"192
+[; ;MCAL/ADC/mcal_adc.c: 192:         if(ADC_RESULT_LEFT==_adc->result_format)
+[e $ ! == -> . `E3073 0 `ui -> . *U __adc 3 `ui 293  ]
+"193
+[; ;MCAL/ADC/mcal_adc.c: 193:          {
+{
+"194
+[; ;MCAL/ADC/mcal_adc.c: 194:              *_result =(adc_result_t)(((ADRESH<<8)+ADRESL)>>6);
+[e = *U __result -> >> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i -> 6 `i `us ]
+"195
+[; ;MCAL/ADC/mcal_adc.c: 195:          }
+}
+[e $U 294  ]
+"196
+[; ;MCAL/ADC/mcal_adc.c: 196:          else if(ADC_RESULT_RIGHT==_adc->result_format)
+[e :U 293 ]
+[e $ ! == -> . `E3073 1 `ui -> . *U __adc 3 `ui 295  ]
+"197
+[; ;MCAL/ADC/mcal_adc.c: 197:          {
+{
+"198
+[; ;MCAL/ADC/mcal_adc.c: 198:              *_result =(adc_result_t)((ADRESH<<8)+ADRESL);
+[e = *U __result -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+"199
+[; ;MCAL/ADC/mcal_adc.c: 199:          }
+}
+[e $U 296  ]
+"200
+[; ;MCAL/ADC/mcal_adc.c: 200:          else
+[e :U 295 ]
+"201
+[; ;MCAL/ADC/mcal_adc.c: 201:          {
+{
+"202
+[; ;MCAL/ADC/mcal_adc.c: 202:               *_result =(adc_result_t)((ADRESH<<8)+ADRESL);
+[e = *U __result -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+"203
+[; ;MCAL/ADC/mcal_adc.c: 203:          }
+}
+[e :U 296 ]
+[e :U 294 ]
+"205
+[; ;MCAL/ADC/mcal_adc.c: 205:     }
+}
+[e :U 292 ]
+"206
+[; ;MCAL/ADC/mcal_adc.c: 206:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 290  ]
+"207
+[; ;MCAL/ADC/mcal_adc.c: 207: }
+[e :UE 290 ]
+}
+"215
+[; ;MCAL/ADC/mcal_adc.c: 215: Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t* _adc,adc_channel_select_t _channel,
+[v _ADC_Get_Conversion_Blocking `(uc ~T0 @X0 1 ef3`*CS274`E3039`*us ]
+"217
+[; ;MCAL/ADC/mcal_adc.c: 217: {
+{
+[e :U _ADC_Get_Conversion_Blocking ]
+"215
+[; ;MCAL/ADC/mcal_adc.c: 215: Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t* _adc,adc_channel_select_t _channel,
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+[v __channel `E3039 ~T0 @X0 1 r2 ]
+"216
+[; ;MCAL/ADC/mcal_adc.c: 216:                                                             adc_result_t*_result)
+[v __result `*us ~T0 @X0 1 r3 ]
+"217
+[; ;MCAL/ADC/mcal_adc.c: 217: {
+[f ]
+"218
+[; ;MCAL/ADC/mcal_adc.c: 218:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"219
+[; ;MCAL/ADC/mcal_adc.c: 219:     if ((((void*)0)==_adc)||(((void*)0)==_result))
+[e $ ! || == -> -> -> 0 `i `*v `*CS274 __adc == -> -> -> 0 `i `*v `*us __result 298  ]
+"220
+[; ;MCAL/ADC/mcal_adc.c: 220:     {
+{
+"221
+[; ;MCAL/ADC/mcal_adc.c: 221:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"222
+[; ;MCAL/ADC/mcal_adc.c: 222:     }
+}
+[e $U 299  ]
+"223
+[; ;MCAL/ADC/mcal_adc.c: 223:     else
+[e :U 298 ]
+"224
+[; ;MCAL/ADC/mcal_adc.c: 224:     {
+{
+"227
+[; ;MCAL/ADC/mcal_adc.c: 227:           ERRORSTATUS= ADC_select_channel(_adc,_channel);
+[e = _ERRORSTATUS ( _ADC_select_channel (2 , __adc __channel ]
+"229
+[; ;MCAL/ADC/mcal_adc.c: 229:           ERRORSTATUS= ADC_Start_Conversion(_adc);
+[e = _ERRORSTATUS ( _ADC_Start_Conversion (1 __adc ]
+"231
+[; ;MCAL/ADC/mcal_adc.c: 231:           while((ADCON0bits.GO_nDONE))
+[e $U 300  ]
+[e :U 301 ]
+"233
+[; ;MCAL/ADC/mcal_adc.c: 233:          ERRORSTATUS= ADC_Get_Conversion_Results(_adc,_result);
+[e = _ERRORSTATUS ( _ADC_Get_Conversion_Results (2 , __adc __result ]
+[e :U 300 ]
+"231
+[; ;MCAL/ADC/mcal_adc.c: 231:           while((ADCON0bits.GO_nDONE))
+[e $ != -> . . _ADCON0bits 1 1 `i -> 0 `i 301  ]
+[e :U 302 ]
+"234
+[; ;MCAL/ADC/mcal_adc.c: 234:           _delay((unsigned long)((20)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+"235
+[; ;MCAL/ADC/mcal_adc.c: 235:     }
+}
+[e :U 299 ]
+"236
+[; ;MCAL/ADC/mcal_adc.c: 236:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 297  ]
+"237
+[; ;MCAL/ADC/mcal_adc.c: 237: }
+[e :UE 297 ]
+}
+"239
+[; ;MCAL/ADC/mcal_adc.c: 239: Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_t* _adc,adc_channel_select_t _channel)
+[v _ADC_Get_Conversion_Interrupt `(uc ~T0 @X0 1 ef2`*CS274`E3039 ]
+"240
+[; ;MCAL/ADC/mcal_adc.c: 240: {
+{
+[e :U _ADC_Get_Conversion_Interrupt ]
+"239
+[; ;MCAL/ADC/mcal_adc.c: 239: Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_t* _adc,adc_channel_select_t _channel)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+[v __channel `E3039 ~T0 @X0 1 r2 ]
+"240
+[; ;MCAL/ADC/mcal_adc.c: 240: {
+[f ]
+"241
+[; ;MCAL/ADC/mcal_adc.c: 241:  Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"242
+[; ;MCAL/ADC/mcal_adc.c: 242:     if (((void*)0)==_adc)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 __adc 304  ]
+"243
+[; ;MCAL/ADC/mcal_adc.c: 243:     {
+{
+"244
+[; ;MCAL/ADC/mcal_adc.c: 244:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"245
+[; ;MCAL/ADC/mcal_adc.c: 245:     }
+}
+[e $U 305  ]
+"246
+[; ;MCAL/ADC/mcal_adc.c: 246:     else
+[e :U 304 ]
+"247
+[; ;MCAL/ADC/mcal_adc.c: 247:     {
+{
+"249
+[; ;MCAL/ADC/mcal_adc.c: 249:           ERRORSTATUS= ADC_select_channel(_adc,_channel);
+[e = _ERRORSTATUS ( _ADC_select_channel (2 , __adc __channel ]
+"251
+[; ;MCAL/ADC/mcal_adc.c: 251:           ERRORSTATUS= ADC_Start_Conversion(_adc);
+[e = _ERRORSTATUS ( _ADC_Start_Conversion (1 __adc ]
+"252
+[; ;MCAL/ADC/mcal_adc.c: 252:     }
+}
+[e :U 305 ]
+"253
+[; ;MCAL/ADC/mcal_adc.c: 253:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 303  ]
+"254
+[; ;MCAL/ADC/mcal_adc.c: 254: }
+[e :UE 303 ]
+}
+"255
+[; ;MCAL/ADC/mcal_adc.c: 255: static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_t _channel)
+[v _adc_channel_pin_config_as_input `(uc ~T0 @X0 1 sf1`CE3039 ]
+"256
+[; ;MCAL/ADC/mcal_adc.c: 256: {
+{
+[e :U _adc_channel_pin_config_as_input ]
+"255
+[; ;MCAL/ADC/mcal_adc.c: 255: static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_t _channel)
+[v __channel `CE3039 ~T0 @X0 1 r1 ]
+"256
+[; ;MCAL/ADC/mcal_adc.c: 256: {
+[f ]
+"257
+[; ;MCAL/ADC/mcal_adc.c: 257: Std_ReturnType ERRORSTATUS=(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"258
+[; ;MCAL/ADC/mcal_adc.c: 258:        switch (_channel)
+[e $U 308  ]
+"259
+[; ;MCAL/ADC/mcal_adc.c: 259:        {
+{
+"260
+[; ;MCAL/ADC/mcal_adc.c: 260:            case ADC_CHANEL_AN0: (TRISA|=( (uint8)1<<0x0 )); break;
+[e :U 309 ]
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 0 `i `Vuc ]
+[e $U 307  ]
+"261
+[; ;MCAL/ADC/mcal_adc.c: 261:            case ADC_CHANEL_AN1: (TRISA|=( (uint8)1<<0x1 )); break;
+[e :U 310 ]
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 1 `i `Vuc ]
+[e $U 307  ]
+"262
+[; ;MCAL/ADC/mcal_adc.c: 262:            case ADC_CHANEL_AN2: (TRISA|=( (uint8)1<<0x2 )); break;
+[e :U 311 ]
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 2 `i `Vuc ]
+[e $U 307  ]
+"263
+[; ;MCAL/ADC/mcal_adc.c: 263:            case ADC_CHANEL_AN3: (TRISA|=( (uint8)1<<0x3 )); break;
+[e :U 312 ]
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 3 `i `Vuc ]
+[e $U 307  ]
+"264
+[; ;MCAL/ADC/mcal_adc.c: 264:            case ADC_CHANEL_AN4: (TRISA|=( (uint8)1<<0x5 )); break;
+[e :U 313 ]
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 5 `i `Vuc ]
+[e $U 307  ]
+"265
+[; ;MCAL/ADC/mcal_adc.c: 265:            case ADC_CHANEL_AN5: (TRISE|=( (uint8)1<<0x0 )); break;
+[e :U 314 ]
+[e =| _TRISE -> << -> -> -> 1 `i `uc `i -> 0 `i `Vuc ]
+[e $U 307  ]
+"266
+[; ;MCAL/ADC/mcal_adc.c: 266:            case ADC_CHANEL_AN6: (TRISE|=( (uint8)1<<0x1 )); break;
+[e :U 315 ]
+[e =| _TRISE -> << -> -> -> 1 `i `uc `i -> 1 `i `Vuc ]
+[e $U 307  ]
+"267
+[; ;MCAL/ADC/mcal_adc.c: 267:            case ADC_CHANEL_AN7: (TRISE|=( (uint8)1<<0x2 )); break;
+[e :U 316 ]
+[e =| _TRISE -> << -> -> -> 1 `i `uc `i -> 2 `i `Vuc ]
+[e $U 307  ]
+"268
+[; ;MCAL/ADC/mcal_adc.c: 268:            case ADC_CHANEL_AN8: (TRISB|=( (uint8)1<<0x2 )); break;
+[e :U 317 ]
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 2 `i `Vuc ]
+[e $U 307  ]
+"269
+[; ;MCAL/ADC/mcal_adc.c: 269:            case ADC_CHANEL_AN9: (TRISB|=( (uint8)1<<0x3 )); break;
+[e :U 318 ]
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 3 `i `Vuc ]
+[e $U 307  ]
+"270
+[; ;MCAL/ADC/mcal_adc.c: 270:            case ADC_CHANEL_AN10: (TRISB|=( (uint8)1<<0x1 )); break;
+[e :U 319 ]
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 1 `i `Vuc ]
+[e $U 307  ]
+"271
+[; ;MCAL/ADC/mcal_adc.c: 271:            case ADC_CHANEL_AN11: (TRISB|=( (uint8)1<<0x4 )); break;
+[e :U 320 ]
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 4 `i `Vuc ]
+[e $U 307  ]
+"272
+[; ;MCAL/ADC/mcal_adc.c: 272:            case ADC_CHANEL_AN12: (TRISB|=( (uint8)1<<0x0 )); break;
+[e :U 321 ]
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 0 `i `Vuc ]
+[e $U 307  ]
+"273
+[; ;MCAL/ADC/mcal_adc.c: 273:        }
+}
+[e $U 307  ]
+[e :U 308 ]
+[e [\ -> __channel `ui , $ -> . `E3039 0 `ui 309
+ , $ -> . `E3039 1 `ui 310
+ , $ -> . `E3039 2 `ui 311
+ , $ -> . `E3039 3 `ui 312
+ , $ -> . `E3039 4 `ui 313
+ , $ -> . `E3039 5 `ui 314
+ , $ -> . `E3039 6 `ui 315
+ , $ -> . `E3039 7 `ui 316
+ , $ -> . `E3039 8 `ui 317
+ , $ -> . `E3039 9 `ui 318
+ , $ -> . `E3039 10 `ui 319
+ , $ -> . `E3039 11 `ui 320
+ , $ -> . `E3039 12 `ui 321
+ 307 ]
+[e :U 307 ]
+"275
+[; ;MCAL/ADC/mcal_adc.c: 275:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 306  ]
+"276
+[; ;MCAL/ADC/mcal_adc.c: 276: }
+[e :UE 306 ]
+}
+"277
+[; ;MCAL/ADC/mcal_adc.c: 277: static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc)
+[v _adc_select_result_formate `(uc ~T0 @X0 1 sf1`*CS274 ]
+"278
+[; ;MCAL/ADC/mcal_adc.c: 278: {
+{
+[e :U _adc_select_result_formate ]
+"277
+[; ;MCAL/ADC/mcal_adc.c: 277: static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+"278
+[; ;MCAL/ADC/mcal_adc.c: 278: {
+[f ]
+"279
+[; ;MCAL/ADC/mcal_adc.c: 279:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"280
+[; ;MCAL/ADC/mcal_adc.c: 280:     if (((void*)0)==_adc)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 __adc 323  ]
+"281
+[; ;MCAL/ADC/mcal_adc.c: 281:     {
+{
+"282
+[; ;MCAL/ADC/mcal_adc.c: 282:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"283
+[; ;MCAL/ADC/mcal_adc.c: 283:     }
+}
+[e $U 324  ]
+"284
+[; ;MCAL/ADC/mcal_adc.c: 284:     else
+[e :U 323 ]
+"285
+[; ;MCAL/ADC/mcal_adc.c: 285:     {
+{
+"286
+[; ;MCAL/ADC/mcal_adc.c: 286:          if(ADC_RESULT_LEFT==_adc->result_format)
+[e $ ! == -> . `E3073 0 `ui -> . *U __adc 3 `ui 325  ]
+"287
+[; ;MCAL/ADC/mcal_adc.c: 287:          {
+{
+"288
+[; ;MCAL/ADC/mcal_adc.c: 288:              (ADCON2bits.ADFM=0);
+[e = . . _ADCON2bits 0 3 -> -> 0 `i `uc ]
+"289
+[; ;MCAL/ADC/mcal_adc.c: 289:          }
+}
+[e $U 326  ]
+"290
+[; ;MCAL/ADC/mcal_adc.c: 290:          else if(ADC_RESULT_RIGHT==_adc->result_format)
+[e :U 325 ]
+[e $ ! == -> . `E3073 1 `ui -> . *U __adc 3 `ui 327  ]
+"291
+[; ;MCAL/ADC/mcal_adc.c: 291:          {
+{
+"292
+[; ;MCAL/ADC/mcal_adc.c: 292:              (ADCON2bits.ADFM=1);
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
+"293
+[; ;MCAL/ADC/mcal_adc.c: 293:          }
+}
+[e $U 328  ]
+"294
+[; ;MCAL/ADC/mcal_adc.c: 294:          else
+[e :U 327 ]
+"295
+[; ;MCAL/ADC/mcal_adc.c: 295:          {
+{
+"296
+[; ;MCAL/ADC/mcal_adc.c: 296:              (ADCON2bits.ADFM=1);
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
+"297
+[; ;MCAL/ADC/mcal_adc.c: 297:          }
+}
+[e :U 328 ]
+[e :U 326 ]
+"298
+[; ;MCAL/ADC/mcal_adc.c: 298:     }
+}
+[e :U 324 ]
+"299
+[; ;MCAL/ADC/mcal_adc.c: 299:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 322  ]
+"300
+[; ;MCAL/ADC/mcal_adc.c: 300: }
+[e :UE 322 ]
+}
+"301
+[; ;MCAL/ADC/mcal_adc.c: 301: static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc)
+[v _adc_select_voltage_reference `(uc ~T0 @X0 1 sf1`*CS274 ]
+"302
+[; ;MCAL/ADC/mcal_adc.c: 302: {
+{
+[e :U _adc_select_voltage_reference ]
+"301
+[; ;MCAL/ADC/mcal_adc.c: 301: static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc)
+[v __adc `*CS274 ~T0 @X0 1 r1 ]
+"302
+[; ;MCAL/ADC/mcal_adc.c: 302: {
+[f ]
+"303
+[; ;MCAL/ADC/mcal_adc.c: 303:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"304
+[; ;MCAL/ADC/mcal_adc.c: 304:     if (((void*)0)==_adc)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 __adc 330  ]
+"305
+[; ;MCAL/ADC/mcal_adc.c: 305:     {
+{
+"306
+[; ;MCAL/ADC/mcal_adc.c: 306:         ERRORSTATUS=(Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"307
+[; ;MCAL/ADC/mcal_adc.c: 307:     }
+}
+[e $U 331  ]
+"308
+[; ;MCAL/ADC/mcal_adc.c: 308:     else
+[e :U 330 ]
+"309
+[; ;MCAL/ADC/mcal_adc.c: 309:     {
+{
+"310
+[; ;MCAL/ADC/mcal_adc.c: 310:          if(ADC_VOLTAGE_REFERANCE_INTERNAL==_adc->voltage_referance)
+[e $ ! == -> . `E3077 0 `ui -> . *U __adc 4 `ui 332  ]
+"311
+[; ;MCAL/ADC/mcal_adc.c: 311:          {
+{
+"312
+[; ;MCAL/ADC/mcal_adc.c: 312:             do{ADCON1bits.VCFG1=0; ADCON1bits.VCFG0=0; }while(0);
+[e :U 335 ]
+{
+[e = . . _ADCON1bits 1 5 -> -> 0 `i `uc ]
+[e = . . _ADCON1bits 1 4 -> -> 0 `i `uc ]
+}
+[e :U 334 ]
+"313
+[; ;MCAL/ADC/mcal_adc.c: 313:          }
+}
+[e $U 336  ]
+"314
+[; ;MCAL/ADC/mcal_adc.c: 314:          else if(ADC_VOLTAGE_REFERANCE_EXTERNAL==_adc->voltage_referance)
+[e :U 332 ]
+[e $ ! == -> . `E3077 1 `ui -> . *U __adc 4 `ui 337  ]
+"315
+[; ;MCAL/ADC/mcal_adc.c: 315:          {
+{
+"316
+[; ;MCAL/ADC/mcal_adc.c: 316:              do{ADCON1bits.VCFG1=1; ADCON1bits.VCFG0=1; }while(0);
+[e :U 340 ]
+{
+[e = . . _ADCON1bits 1 5 -> -> 1 `i `uc ]
+[e = . . _ADCON1bits 1 4 -> -> 1 `i `uc ]
+}
+[e :U 339 ]
+"317
+[; ;MCAL/ADC/mcal_adc.c: 317:          }
+}
+[e $U 341  ]
+"318
+[; ;MCAL/ADC/mcal_adc.c: 318:          else
+[e :U 337 ]
+"319
+[; ;MCAL/ADC/mcal_adc.c: 319:          {
+{
+"320
+[; ;MCAL/ADC/mcal_adc.c: 320:            do{ADCON1bits.VCFG1=0; ADCON1bits.VCFG0=0; }while(0);
+[e :U 344 ]
+{
+[e = . . _ADCON1bits 1 5 -> -> 0 `i `uc ]
+[e = . . _ADCON1bits 1 4 -> -> 0 `i `uc ]
+}
+[e :U 343 ]
+"321
+[; ;MCAL/ADC/mcal_adc.c: 321:          }
+}
+[e :U 341 ]
+[e :U 336 ]
+"322
+[; ;MCAL/ADC/mcal_adc.c: 322:     }
+}
+[e :U 331 ]
+"323
+[; ;MCAL/ADC/mcal_adc.c: 323:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 329  ]
+"324
+[; ;MCAL/ADC/mcal_adc.c: 324: }
+[e :UE 329 ]
+}
+"327
+[; ;MCAL/ADC/mcal_adc.c: 327: void ADC_ISR(void)
+[v _ADC_ISR `(v ~T0 @X0 1 ef ]
+"328
+[; ;MCAL/ADC/mcal_adc.c: 328: {
+{
+[e :U _ADC_ISR ]
+[f ]
+"334
+[; ;MCAL/ADC/mcal_adc.c: 334: }
+[e :UE 345 ]
+}

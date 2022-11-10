@@ -5009,7 +5009,7 @@ static void CCP_PWM_Mode_Config(const ccp_st *_ccp_obj){
     else{ }
 
 
-    PR2 = (uint8)((8000000 / (_ccp_obj->PWM_Frequency * 4.0 * _ccp_obj->timer2_prescaler_value) - 1));
+    PR2 = (uint8)((24000000 / (_ccp_obj->PWM_Frequency * 4.0 * _ccp_obj->timer2_prescaler_value) - 1));
 }
 
 

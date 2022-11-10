@@ -4893,7 +4893,7 @@ void __attribute__((picinterrupt(("low_priority")))) InterruptManagerLow(void)
 
     if( (1 == PIE1bits.ADIE) && (1 == PIR1bits.ADIF) )
     {
-
+        ADC_ISR();
     }
     else { }
 

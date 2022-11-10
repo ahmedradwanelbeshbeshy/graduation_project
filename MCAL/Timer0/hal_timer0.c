@@ -213,9 +213,9 @@ Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
     
 }
 
-#if TIMER0_INT_ENABLE==FEATURE_ENABLE
 void TMR0_ISR(void)
 {
+#if TIMER0_INT_ENABLE==FEATURE_ENABLE
 
     INT_TMR0_CLEAR_FLAG();
     
@@ -232,6 +232,6 @@ void TMR0_ISR(void)
     {
         tmr0_InterruptHandler();
     }
+#endif
 
 }
-#endif
