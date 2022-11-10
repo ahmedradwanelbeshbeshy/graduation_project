@@ -11,6 +11,11 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
+idloc IDLOC 5 200000 200000 8 1
+init CODE 0 286 286 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 4 300000 300000 E 1
 $dist/default/production\graduation_project.production.o
 intcodelo CODE 0 18 18 26E 1
 cinit CODE 0 2FFC 2FFC 6E 1
@@ -78,11 +83,6 @@ dataBANK0 BANK0 1 80 80 4A 1
 dataCOMRAM COMRAM 1 49 49 D 1
 bssCOMRAM COMRAM 1 2E 2E 1B 1
 config CONFIG 4 300000 300000 E 1
-$C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
-idloc IDLOC 5 200000 200000 8 1
-init CODE 0 286 286 4 1
-reset_vec CODE 0 0 0 4 1
-config CONFIG 4 300000 300000 E 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -139,7 +139,7 @@ MEDIUMCONST 364A-FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\graduation_project.production.o
-18 intcodelo CODE >13063:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
+18 intcodelo CODE >13063:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
 18 intcodelo CODE >101:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
 26 intcodelo CODE >103:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
 42 intcodelo CODE >105:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
@@ -181,7 +181,7 @@ FE intcodelo CODE >131:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_mana
 266 intcodelo CODE >185:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
 266 intcodelo CODE >187:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
 276 intcodelo CODE >200:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
-8 intcode CODE >13980:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
+8 intcode CODE >13980:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
 8 intcode CODE >33:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
 30D2 text49 CODE >650:F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
 30D4 text49 CODE >653:F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
@@ -948,60 +948,60 @@ FE intcodelo CODE >131:F:\graduation_project\MCAL/Interrupts/mcal_interrupt_mana
 2C4A text0 CODE >110:F:\graduation_project\application.c
 2C56 text0 CODE >111:F:\graduation_project\application.c
 2C70 text0 CODE >112:F:\graduation_project\application.c
-2FFC cinit CODE >5314:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-2FFC cinit CODE >5316:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-2FFC cinit CODE >5319:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-2FFC cinit CODE >5503:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-2FFE cinit CODE >5504:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3000 cinit CODE >5505:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3002 cinit CODE >5506:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3004 cinit CODE >5507:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3006 cinit CODE >5508:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3008 cinit CODE >5509:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-300C cinit CODE >5510:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3010 cinit CODE >5511:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3010 cinit CODE >5512:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3012 cinit CODE >5513:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3016 cinit CODE >5514:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3018 cinit CODE >5515:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-301A cinit CODE >5516:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-301C cinit CODE >5520:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-301E cinit CODE >5521:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3020 cinit CODE >5522:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3022 cinit CODE >5523:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3024 cinit CODE >5524:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3026 cinit CODE >5525:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3028 cinit CODE >5526:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-302C cinit CODE >5527:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3030 cinit CODE >5528:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3030 cinit CODE >5529:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3032 cinit CODE >5530:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3036 cinit CODE >5531:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3038 cinit CODE >5532:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-303A cinit CODE >5533:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-303C cinit CODE >5537:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3040 cinit CODE >5538:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3042 cinit CODE >5539:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3042 cinit CODE >5540:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3044 cinit CODE >5541:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3046 cinit CODE >5542:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3048 cinit CODE >5545:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-304C cinit CODE >5546:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-304E cinit CODE >5547:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-304E cinit CODE >5548:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3050 cinit CODE >5549:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3052 cinit CODE >5550:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3054 cinit CODE >5553:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3058 cinit CODE >5554:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-305A cinit CODE >5555:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-305A cinit CODE >5556:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-305C cinit CODE >5557:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-305E cinit CODE >5558:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3060 cinit CODE >5564:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3060 cinit CODE >5566:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3062 cinit CODE >5567:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3064 cinit CODE >5568:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
-3066 cinit CODE >5569:C:\Users\ahmed radwan\AppData\Local\Temp\skt0x.s
+2FFC cinit CODE >5314:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+2FFC cinit CODE >5316:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+2FFC cinit CODE >5319:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+2FFC cinit CODE >5503:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+2FFE cinit CODE >5504:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3000 cinit CODE >5505:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3002 cinit CODE >5506:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3004 cinit CODE >5507:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3006 cinit CODE >5508:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3008 cinit CODE >5509:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+300C cinit CODE >5510:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3010 cinit CODE >5511:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3010 cinit CODE >5512:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3012 cinit CODE >5513:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3016 cinit CODE >5514:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3018 cinit CODE >5515:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+301A cinit CODE >5516:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+301C cinit CODE >5520:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+301E cinit CODE >5521:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3020 cinit CODE >5522:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3022 cinit CODE >5523:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3024 cinit CODE >5524:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3026 cinit CODE >5525:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3028 cinit CODE >5526:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+302C cinit CODE >5527:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3030 cinit CODE >5528:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3030 cinit CODE >5529:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3032 cinit CODE >5530:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3036 cinit CODE >5531:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3038 cinit CODE >5532:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+303A cinit CODE >5533:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+303C cinit CODE >5537:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3040 cinit CODE >5538:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3042 cinit CODE >5539:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3042 cinit CODE >5540:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3044 cinit CODE >5541:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3046 cinit CODE >5542:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3048 cinit CODE >5545:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+304C cinit CODE >5546:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+304E cinit CODE >5547:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+304E cinit CODE >5548:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3050 cinit CODE >5549:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3052 cinit CODE >5550:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3054 cinit CODE >5553:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3058 cinit CODE >5554:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+305A cinit CODE >5555:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+305A cinit CODE >5556:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+305C cinit CODE >5557:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+305E cinit CODE >5558:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3060 cinit CODE >5564:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3060 cinit CODE >5566:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3062 cinit CODE >5567:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3064 cinit CODE >5568:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
+3066 cinit CODE >5569:C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1029,7 +1029,7 @@ __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\graduation_project.pr
 __size_of_lcd_4bit_send_string_data_pos 0 0 ABS 0 - dist/default/production\graduation_project.production.o
 _I2C_Report_Write_Collision F6 0 BANK0 1 bssBANK0 dist/default/production\graduation_project.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\graduation_project.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
 ECU_DC_Motor_Stop@dc_motor B 0 COMRAM 1 cstackCOMRAM dist/default/production\graduation_project.production.o
 __size_of_async_Tx_config 0 0 ABS 0 - dist/default/production\graduation_project.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\graduation_project.production.o
@@ -1048,12 +1048,12 @@ _LATC F8B 0 ABS 0 - dist/default/production\graduation_project.production.o
 _LATD F8C 0 ABS 0 - dist/default/production\graduation_project.production.o
 _LATE F8D 0 ABS 0 - dist/default/production\graduation_project.production.o
 _RX9D 7D58 0 ABS 0 - dist/default/production\graduation_project.production.o
-___sp 0 0 STACK 2 stack C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
+___sp 0 0 STACK 2 stack C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
 _blue 49 0 COMRAM 1 dataCOMRAM dist/default/production\graduation_project.production.o
 _lcd1 BE 0 BANK0 1 dataBANK0 dist/default/production\graduation_project.production.o
 _main 2BCE 0 CODE 0 text0 dist/default/production\graduation_project.production.o
 btemp 56 0 COMRAM 1 temp dist/default/production\graduation_project.production.o
-start 286 0 CODE 0 init C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
+start 286 0 CODE 0 init C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
 __end_of_application_intialize 3316 0 CODE 0 text4 dist/default/production\graduation_project.production.o
 __end_of_RB4_ISR 3630 0 CODE 0 text27 dist/default/production\graduation_project.production.o
 __end_of_RB5_ISR 3616 0 CODE 0 text26 dist/default/production\graduation_project.production.o
@@ -1082,11 +1082,11 @@ ttemp7 5E 0 COMRAM 1 temp dist/default/production\graduation_project.production.
 __size_of_async_Rx_config 0 0 ABS 0 - dist/default/production\graduation_project.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\graduation_project.production.o
 _EUSART_Rx_ISR 354C 0 CODE 0 text35 dist/default/production\graduation_project.production.o
-__accesstop 80 0 ABS 0 - C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
-intlevel0 0 0 CODE 0 text C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
-intlevel1 0 0 CODE 0 text C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
-intlevel2 0 0 CODE 0 text C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
-intlevel3 0 0 CODE 0 text C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
+__accesstop 80 0 ABS 0 - C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
+intlevel0 0 0 CODE 0 text C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
+intlevel1 0 0 CODE 0 text C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
+intlevel2 0 0 CODE 0 text C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
+intlevel3 0 0 CODE 0 text C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
 _WDTCONbits FD1 0 ABS 0 - dist/default/production\graduation_project.production.o
 __end_ofi2_lcd_4bit_send_char_data 32C6 0 CODE 0 text41 dist/default/production\graduation_project.production.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\graduation_project.production.o
@@ -1113,8 +1113,8 @@ _ADRESH FC4 0 ABS 0 - dist/default/production\graduation_project.production.o
 _ADRESL FC3 0 ABS 0 - dist/default/production\graduation_project.production.o
 GPIO_Pin_Write_Logic@ERRORSTATUS 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\graduation_project.production.o
 i2_lcd_4bits_send_enable_signal 348E 0 CODE 0 text43 dist/default/production\graduation_project.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
 _RB7_InterruptHandler_LOW F0 0 BANK0 1 bssBANK0 dist/default/production\graduation_project.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\graduation_project.production.o
 _CCPR1L FBE 0 ABS 0 - dist/default/production\graduation_project.production.o
@@ -1250,7 +1250,7 @@ __Hbank15 0 0 ABS 0 bank15 dist/default/production\graduation_project.production
 __size_of___xxtofl 0 0 ABS 0 - dist/default/production\graduation_project.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\graduation_project.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\graduation_project.production.o
-__smallconst 1000 0 SMALLCONST 0 smallconst C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
+__smallconst 1000 0 SMALLCONST 0 smallconst C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
 async_Rx_config@_rx_obj CA 0 BANK0 1 cstackBANK0 dist/default/production\graduation_project.production.o
 __end_of_EUSART_Tx_ISR 364A 0 CODE 0 text34 dist/default/production\graduation_project.production.o
 ___xxtofl@arg D0 0 BANK0 1 cstackBANK0 dist/default/production\graduation_project.production.o
@@ -1488,8 +1488,8 @@ _GPIO_Pin_Initialize 3316 0 CODE 0 text9 dist/default/production\graduation_proj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\graduation_project.production.o
 ___fldiv@new_exp 105 0 BANK1 1 cstackBANK1 dist/default/production\graduation_project.production.o
 EUSART_Async_Init@_eusart_obj 120 0 BANK1 1 cstackBANK1 dist/default/production\graduation_project.production.o
-stackhi F7F 0 ABS 0 - C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
-stacklo 13F 0 ABS 0 - C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
+stackhi F7F 0 ABS 0 - C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
+stacklo 13F 0 ABS 0 - C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\graduation_project.production.o
 calc_parity_odd@data 3 0 COMRAM 1 cstackCOMRAM dist/default/production\graduation_project.production.o
 _selector 53 0 COMRAM 1 dataCOMRAM dist/default/production\graduation_project.production.o
@@ -1602,7 +1602,7 @@ __Ltext47 0 0 ABS 0 text47 dist/default/production\graduation_project.production
 __Ltext48 0 0 ABS 0 text48 dist/default/production\graduation_project.production.o
 __Ltext49 0 0 ABS 0 text49 dist/default/production\graduation_project.production.o
 __Ltext50 0 0 ABS 0 text50 dist/default/production\graduation_project.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\ahmed radwan\AppData\Local\Temp\skt0x8.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\ahmed radwan\AppData\Local\Temp\sqf8x8.o
 __size_of_ADC_ISR 0 0 ABS 0 - dist/default/production\graduation_project.production.o
 i2lcd_4bit_send_command@command 11 0 COMRAM 1 cstackCOMRAM dist/default/production\graduation_project.production.o
 __Lpowerup 286 0 CODE 0 powerup dist/default/production\graduation_project.production.o
