@@ -7,7 +7,7 @@
 #include"IR_SENSOR.h"
 
 /************************************************************************************************************************/
-Std_ReturnType IR_Sensor_Init(const IR_cfg_t *IR_sensor) 
+Std_ReturnType IR_Sensor_Init(const IR_cfg_st *IR_sensor) 
 {
     Std_ReturnType ret_value = E_OK ;
     if(NULL == IR_sensor)
@@ -20,7 +20,7 @@ Std_ReturnType IR_Sensor_Init(const IR_cfg_t *IR_sensor)
     }
     return ret_value ;
 }
-Std_ReturnType IR_Sensor_DeInit(const IR_cfg_t *IR_sensor)
+Std_ReturnType IR_Sensor_DeInit(const IR_cfg_st *IR_sensor)
 {
     Std_ReturnType ret_value = E_OK ;
     if(NULL == IR_sensor)
@@ -33,7 +33,7 @@ Std_ReturnType IR_Sensor_DeInit(const IR_cfg_t *IR_sensor)
     }
     return ret_value ;
 }
-Std_ReturnType IR_Sensor_Detect(const IR_cfg_t *IR_sensor,logic_et *status)
+Std_ReturnType IR_Sensor_Detect(const IR_cfg_st *IR_sensor,logic_et *status)
 {
     Std_ReturnType ret_value = E_OK ;
     if(NULL == IR_sensor)

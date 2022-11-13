@@ -6,20 +6,21 @@
  */
 
 #include"mcal_adc.h"
-static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_t _channel);
-static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc);
-static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc);
-#if ADC_INTERRUPT_FEATURE_ENABLE ==FEATURE_ENABLE   
+static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_et _channel);
+static Std_ReturnType adc_select_result_formate(const adc_config_st* _adc);
+static Std_ReturnType adc_select_voltage_reference(const adc_config_st* _adc);
+#if ADC_INT_ENABLE ==FEATURE_ENABLE   
 static void (*ADC_Interrupt_Handler)(void)=NULL;
-
 #endif
 
 /**
- * 
+ * initialize the analog to digital converter
  * @param _adc
- * @return 
+ * @return Status of the function
+ *         (E_OK) : the function done successfully
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_ReturnType ADC_Init(const adc_config_t* _adc)
+Std_ReturnType ADC_Init(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==_adc)
@@ -53,46 +54,44 @@ Std_ReturnType ADC_Init(const adc_config_t* _adc)
          adc_select_voltage_reference(_adc);
          /*init the interrupt*/
          #if ADC_INT_ENABLE ==FEATURE_ENABLE
-      
-            ADC_Interrupt_Disable();
-            #if Interrupt_priority_Levels_Enable==FEATURE_ENABLE
-            Interrupt_poriority_Level_Enable();
-            Interrupt_Global_Iinterrupt_High_Enable();
-            Interrupt_Global_Iinterrupt_Low_Enable();
-                if(INTERRUPT_HIGH_priority==_adc->priority)
+   
+            INT_ADC_DISABLE();
+            #if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE
+            INT_PRI_FET_EN();
+            
+            
+                if(INT_PRI_HIGH==_adc->priority)
                 {
-                    ADC_Interrupt_High_priority_set();
+                    INT_GLOBAL_HIGH_EN();
+                    INT_ADC_PRI_SET_HIGH();
                 }
-                else if(INTERRUPT_LOW_priority==_adc->priority)
+                else if(INT_PRI_LOW==_adc->priority)
                 {
-                    ADC_Interrupt_Low_priority_set();
+                    INT_GLOBAL_LOW_EN();
+                    INT_ADC_PRI_SET_LOW();
                 }
                 else{/*no thing*/}
             #else
-                 Interrupt_Global_Iinterrupt_Enable();
-                 Interrupt_Peripheral_Interrupt_Enable();
+                 INT_GLOBAL_EN();
+                 INT_PERIPHERAL_EN();
             #endif 
             ADC_Interrupt_Handler=_adc->ADC_Interupt_handler;
-            ADC_Interrupt_Enable();
-            ADC_Interrupt_Flag_clear();
- 
-            #endif            
-            
-
-
-                  
+            INT_ADC_ENABLE();
+            INT_ADC_CLEAR_FLAG();
+            #endif               
         /* enable the ADC */
          ADC_CONVERTER_ENABLE();
-        
     }
     return ERRORSTATUS;
 }
 /**
- * 
+ *  deinitialize the adc
  * @param _adc
- * @return 
+ * @return Status of the function
+ *         (E_OK) : the function done successfully
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_ReturnType ADC_DeInit(const adc_config_t* _adc)
+Std_ReturnType ADC_DeInit(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==_adc)
@@ -104,21 +103,22 @@ Std_ReturnType ADC_DeInit(const adc_config_t* _adc)
         /* disable the ADC */
         ADC_CONVERTER_DISABLE();
         /*deinit the interrupt*/
-        #if ADC_INTERRUPT_FEATURE_ENABLE ==FEATURE_ENABLE   
-            ADC_Interrupt_Disable();
-            
+        #if ADC_INT_ENABLE ==FEATURE_ENABLE   
+            INT_ADC_DISABLE();   
         #endif
         
     }
     return ERRORSTATUS;
 }
 /**
- * 
+ * select the chanel you want the conversion from it
  * @param _adc
  * @param _channel
- * @return 
+ * @return Status of the function
+ *         (E_OK) : the function done successfully
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_ReturnType ADC_select_channel(const adc_config_t* _adc,adc_channel_select_t _channel)
+Std_ReturnType ADC_select_channel(const adc_config_st* _adc,adc_channel_select_et _channel)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==_adc)
@@ -136,11 +136,13 @@ Std_ReturnType ADC_select_channel(const adc_config_t* _adc,adc_channel_select_t 
     return ERRORSTATUS;
 }
 /**
- * 
+ * start the conversion from the last selected chanel
  * @param _adc
- * @return 
+ * @return Status of the function
+ *         (E_OK) : the function done successfully
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_ReturnType ADC_Start_Conversion(const adc_config_t* _adc)
+Std_ReturnType ADC_Start_Conversion(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==_adc)
@@ -159,9 +161,11 @@ Std_ReturnType ADC_Start_Conversion(const adc_config_t* _adc)
  * @param _status the conversion statues
  *       true  (1)- if conversion is complete
  *       false (0)- if conversion is not complete 
- * @return 
+ * @return Status of the function
+ *         (E_OK) : the function done successfully
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_status_t*_status)
+Std_ReturnType ADC_Is_Conversion_Done(const adc_config_st* _adc,adc_conversion_status_et*_status)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if ((NULL==_adc)||(NULL==_status))
@@ -178,9 +182,11 @@ Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_st
  *
  * @param _adc
  * @param _result
- * @return 
+ * @return Status of the function
+ *         (E_OK) : the function done successfully
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*_result)
+Std_ReturnType ADC_Get_Conversion_Results(const adc_config_st* _adc,adc_result_t*_result)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if ((NULL==_adc)||(NULL==_result))
@@ -191,7 +197,7 @@ Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*
     {
         if(ADC_RESULT_LEFT==_adc->result_format)
          {
-             *_result =(adc_result_t)(((ADRESH<<8)+ADRESL)>>6);
+             *_result =(adc_result_t)(((ADRESH<<8)+(ADRESL<<6))>>6);
          }
          else if(ADC_RESULT_RIGHT==_adc->result_format)
          {
@@ -206,14 +212,15 @@ Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*
     return ERRORSTATUS;
 }
 /**
- * 
+ * get the conversion from the desired chanel by blocking
  * @param _adc
  * @param _channel
  * @param _result
- * @return 
+ * @return Status of the function
+ *         (E_OK) : the function done successfully
+ *         (E_NOT_OK): the function has issue to preform this action
  */
-Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t* _adc,adc_channel_select_t _channel,
-                                                            adc_result_t*_result)
+Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel_select_et _channel,adc_result_t*_result)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if ((NULL==_adc)||(NULL==_result))
@@ -235,8 +242,15 @@ Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t* _adc,adc_channel_
     }
     return ERRORSTATUS;
 }
-
-Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_t* _adc,adc_channel_select_t _channel)
+/**
+ * get the conversion from the desired chanel by using the interrupt you should handle the results in ADC_ISR
+ * @param _adc
+ * @param _channel
+ * @return Status of the function
+ *         (E_OK) : the function done successfully
+ *         (E_NOT_OK): the function has issue to preform this action
+ */
+Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel)
 {
  Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==_adc)
@@ -252,7 +266,7 @@ Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_t* _adc,adc_channel
     }
     return ERRORSTATUS;   
 }
-static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_t _channel)
+static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_et _channel)
 {
 Std_ReturnType ERRORSTATUS=E_OK;
        switch (_channel)
@@ -274,7 +288,7 @@ Std_ReturnType ERRORSTATUS=E_OK;
 
     return ERRORSTATUS;
 }
-static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc)
+static Std_ReturnType adc_select_result_formate(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==_adc)
@@ -298,7 +312,7 @@ static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc)
     }
     return ERRORSTATUS;
 }
-static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc)
+static Std_ReturnType adc_select_voltage_reference(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =E_OK;
     if (NULL==_adc)
@@ -326,9 +340,8 @@ static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc)
 
 void ADC_ISR(void)
 {
-    #if ADC_INTERRUPT_FEATURE_ENABLE ==FEATURE_ENABLE   
-
-   ADC_Interrupt_Flag_clear();
+    #if ADC_INT_ENABLE ==FEATURE_ENABLE   
+   INT_ADC_CLEAR_FLAG();
     if(ADC_Interrupt_Handler){ADC_Interrupt_Handler();}
    #endif
 }

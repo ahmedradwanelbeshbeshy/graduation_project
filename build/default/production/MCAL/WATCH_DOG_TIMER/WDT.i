@@ -4712,15 +4712,29 @@ Std_ReturnType WDT_Init(void);
 Std_ReturnType WDT_DeInit(void);
 # 7 "MCAL/WATCH_DOG_TIMER/WDT.c" 2
 
+
+
+
+
+
+
 Std_ReturnType WDT_Init(void)
 {
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x00;
     WDTCONbits.SWDTEN=1;
+    ERRORSTATUS =(Std_ReturnType) 0x01;
     return ERRORSTATUS;
 }
+
+
+
+
+
+
 Std_ReturnType WDT_DeInit(void)
 {
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x00;
     WDTCONbits.SWDTEN=0;
+     ERRORSTATUS =(Std_ReturnType) 0x01;
     return ERRORSTATUS;
 }

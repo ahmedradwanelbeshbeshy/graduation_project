@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/F:/graduation_project/ECU/LCD_for_test_gps/ecu_char_lcd.h</file>
             <file>file:/F:/graduation_project/MCAL/ADC/mcal_adc.h</file>
+            <file>file:/F:/graduation_project/MCAL/Interrupts/mcal_internal_interrupt.h</file>
             <file>file:/F:/graduation_project/MCAL/ADC/mcal_adc.c</file>
+            <file>file:/F:/graduation_project/Robot/Navigation/robot_navigation.h</file>
+            <file>file:/F:/graduation_project/ECU/LCD_for_test_gps/ecu_char_lcd.c</file>
             <file>file:/F:/graduation_project/application.c</file>
         </group>
     </open-files>

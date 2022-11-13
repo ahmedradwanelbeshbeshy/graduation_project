@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3072 `(v ~T0 @X0 0 tf ]
-[v F3073 `(v ~T0 @X0 0 tf ]
+[v F3060 `(v ~T0 @X0 0 tf ]
+[v F3061 `(v ~T0 @X0 0 tf ]
 "25 MCAL/Timer0/hal_timer0.c
 [; ;MCAL/Timer0/hal_timer0.c: 25: Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config)
-[c E3039 0 1 2 3 4 5 6 7 .. ]
-[n E3039 . TMR0_PRESCALER_BY_2 TMR0_PRESCALER_BY_4 TMR0_PRESCALER_BY_8 TMR0_PRESCALER_BY_16 TMR0_PRESCALER_BY_32 TMR0_PRESCALER_BY_64 TMR0_PRESCALER_BY_128 TMR0_PRESCALER_BY_256  ]
-[v F3053 `(v ~T0 @X0 0 tf ]
+[c E3027 0 1 2 3 4 5 6 7 .. ]
+[n E3027 . TMR0_PRESCALER_BY_2 TMR0_PRESCALER_BY_4 TMR0_PRESCALER_BY_8 TMR0_PRESCALER_BY_16 TMR0_PRESCALER_BY_32 TMR0_PRESCALER_BY_64 TMR0_PRESCALER_BY_128 TMR0_PRESCALER_BY_256  ]
+[v F3041 `(v ~T0 @X0 0 tf ]
 "74 MCAL/Timer0/hal_timer0.h
 [; ;MCAL/Timer0/hal_timer0.h: 74: typedef struct {
-[s S274 `E3039 1 `us 1 `*F3053 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[s S274 `E3027 1 `us 1 `*F3041 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
 [n S274 . prescalar_value preloaded_value timer0_InterruptHandler priority timer_mode reg_bit_size prescaler_enable edge timer0_reserved ]
 "5863 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [s S253 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -86,13 +86,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _INTCON2bits `VS261 ~T0 @X0 0 e@4081 ]
 "86 MCAL/Timer0/hal_timer0.c
 [; ;MCAL/Timer0/hal_timer0.c: 86:                 }
-[c E3035 0 1 .. ]
-[n E3035 . INT_LOW_PRI INT_HIGH_PRI  ]
+[c E3023 0 1 .. ]
+[n E3023 . INT_LOW_PRI INT_HIGH_PRI  ]
 "5941 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
 "5948
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
-[v F3095 `(v ~T0 @X0 0 tf ]
+[v F3083 `(v ~T0 @X0 0 tf ]
 "55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
@@ -369,9 +369,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "10 MCAL/Timer0/hal_timer0.c
 [; ;MCAL/Timer0/hal_timer0.c: 10:     static InterruptHandler tmr0_InterruptHandler = ((void*)0) ;
-[v _tmr0_InterruptHandler `*F3072 ~T0 @X0 1 s ]
+[v _tmr0_InterruptHandler `*F3060 ~T0 @X0 1 s ]
 [i _tmr0_InterruptHandler
--> -> -> 0 `i `*v `*F3073
+-> -> -> 0 `i `*v `*F3061
 ]
 "13
 [; ;MCAL/Timer0/hal_timer0.c: 13: static uint16_t preloaded_val = 0 ;
@@ -533,8 +533,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 283  ]
 [e :U 284 ]
-[e [\ -> . *U __tmr0_config 3 `i , $ . `E3035 1 285
- , $ . `E3035 0 286
+[e [\ -> . *U __tmr0_config 3 `i , $ . `E3023 1 285
+ , $ . `E3023 0 286
  283 ]
 [e :U 283 ]
 "97
@@ -817,7 +817,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR0L -> & + -> _preloaded_val `ui -> -> 2 `i `ui -> -> 255 `i `ui `uc ]
 "231
 [; ;MCAL/Timer0/hal_timer0.c: 231:     if(tmr0_InterruptHandler)
-[e $ ! != _tmr0_InterruptHandler -> -> 0 `i `*F3095 305  ]
+[e $ ! != _tmr0_InterruptHandler -> -> 0 `i `*F3083 305  ]
 "232
 [; ;MCAL/Timer0/hal_timer0.c: 232:     {
 {

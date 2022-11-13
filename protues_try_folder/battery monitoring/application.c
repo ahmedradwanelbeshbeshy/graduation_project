@@ -119,8 +119,10 @@ int main()
     {
         GPIO_Pin_Toggle_Logic(&pind1);
         battery_level();
-       
-   
+        __delay_ms(1000);
+        
+        
+        
    }
    return 0;
 }

@@ -19,12 +19,12 @@
 typedef struct
 {
     pin_config_st IR_Sensor_Obstacle_cfg_pin ;
-}IR_cfg_t; 
+}IR_cfg_st; 
 
 /******************************************** Software Interfaces (Prototypes) ********************************************/
-   Std_ReturnType IR_Sensor_Init(const IR_cfg_t *IR_sensor);
-   Std_ReturnType IR_Sensor_DeInit(const IR_cfg_t *IR_sensor);
-   Std_ReturnType IR_Sensor_Detect(const IR_cfg_t *IR_sensor);
+   Std_ReturnType IR_Sensor_Init(const IR_cfg_st *IR_sensor);
+   Std_ReturnType IR_Sensor_DeInit(const IR_cfg_st *IR_sensor);
+   Std_ReturnType IR_Sensor_Detect(const IR_cfg_st *IR_sensor,logic_et *status);
 
 #endif	/* IR_SENSOR_H */
 

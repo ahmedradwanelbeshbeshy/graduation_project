@@ -1,4 +1,4 @@
-# 1 "MCAL/GPIO/hal_gpio.c"
+# 1 "ECU/IR_Sensor/IR_SENSOR.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,17 +6,19 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL/GPIO/hal_gpio.c" 2
+# 1 "ECU/IR_Sensor/IR_SENSOR.c" 2
 
 
 
 
 
 
-# 1 "MCAL/GPIO/hal_gpio.h" 1
-# 12 "MCAL/GPIO/hal_gpio.h"
-# 1 "MCAL/GPIO/../std_libraries.h" 1
-# 11 "MCAL/GPIO/../std_libraries.h"
+# 1 "ECU/IR_Sensor/IR_SENSOR.h" 1
+# 12 "ECU/IR_Sensor/IR_SENSOR.h"
+# 1 "ECU/IR_Sensor/../../MCAL/GPIO/hal_gpio.h" 1
+# 12 "ECU/IR_Sensor/../../MCAL/GPIO/hal_gpio.h"
+# 1 "ECU/IR_Sensor/../../MCAL/GPIO/../std_libraries.h" 1
+# 11 "ECU/IR_Sensor/../../MCAL/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -174,7 +176,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "MCAL/GPIO/../std_libraries.h" 2
+# 11 "ECU/IR_Sensor/../../MCAL/GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
@@ -234,7 +236,7 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 12 "MCAL/GPIO/../std_libraries.h" 2
+# 12 "ECU/IR_Sensor/../../MCAL/GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
@@ -291,7 +293,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "MCAL/GPIO/../std_libraries.h" 2
+# 13 "ECU/IR_Sensor/../../MCAL/GPIO/../std_libraries.h" 2
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 1 3
 # 45 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
@@ -4505,7 +4507,7 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 14 "MCAL/GPIO/../std_libraries.h" 2
+# 14 "ECU/IR_Sensor/../../MCAL/GPIO/../std_libraries.h" 2
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
@@ -4668,17 +4670,17 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 15 "MCAL/GPIO/../std_libraries.h" 2
-# 12 "MCAL/GPIO/hal_gpio.h" 2
+# 15 "ECU/IR_Sensor/../../MCAL/GPIO/../std_libraries.h" 2
+# 12 "ECU/IR_Sensor/../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "MCAL/GPIO/../device_config.h" 1
-# 11 "MCAL/GPIO/../device_config.h"
-# 1 "MCAL/GPIO/../compiler.h" 1
-# 11 "MCAL/GPIO/../device_config.h" 2
-# 13 "MCAL/GPIO/hal_gpio.h" 2
+# 1 "ECU/IR_Sensor/../../MCAL/GPIO/../device_config.h" 1
+# 11 "ECU/IR_Sensor/../../MCAL/GPIO/../device_config.h"
+# 1 "ECU/IR_Sensor/../../MCAL/GPIO/../compiler.h" 1
+# 11 "ECU/IR_Sensor/../../MCAL/GPIO/../device_config.h" 2
+# 13 "ECU/IR_Sensor/../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "MCAL/GPIO/../mcal_std_types.h" 1
-# 20 "MCAL/GPIO/../mcal_std_types.h"
+# 1 "ECU/IR_Sensor/../../MCAL/GPIO/../mcal_std_types.h" 1
+# 20 "ECU/IR_Sensor/../../MCAL/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned char uint8_t;
 
@@ -4693,11 +4695,11 @@ typedef signed long sint32;
 typedef float float32;
 
 typedef uint8 Std_ReturnType;
-# 14 "MCAL/GPIO/hal_gpio.h" 2
+# 14 "ECU/IR_Sensor/../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "MCAL/GPIO/hal_gpio_cfg.h" 1
-# 15 "MCAL/GPIO/hal_gpio.h" 2
-# 42 "MCAL/GPIO/hal_gpio.h"
+# 1 "ECU/IR_Sensor/../../MCAL/GPIO/hal_gpio_cfg.h" 1
+# 15 "ECU/IR_Sensor/../../MCAL/GPIO/hal_gpio.h" 2
+# 42 "ECU/IR_Sensor/../../MCAL/GPIO/hal_gpio.h"
 typedef enum{
    GPIO_LOW=0,
    GPIO_HIGH
@@ -4756,193 +4758,63 @@ Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direct
 Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
 Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
-# 7 "MCAL/GPIO/hal_gpio.c" 2
+# 12 "ECU/IR_Sensor/IR_SENSOR.h" 2
 
 
 
-volatile uint8 *tris_registers[]={&TRISA,&TRISB,&TRISC,&TRISD,&TRISE};
 
-volatile uint8 *lat_registers[]={&LATA,&LATB,&LATC,&LATD,&LATE};
 
-volatile uint8 *port_registers[]={&PORTA,&PORTB,&PORTC,&PORTD,&PORTE};
-# 25 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config)
+
+
+typedef struct
 {
-    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-    if ( ((void*)0)==_pin_config||_pin_config->pin> 8 -1)
+    pin_config_st IR_Sensor_Obstacle_cfg_pin ;
+}IR_cfg_st;
+
+
+   Std_ReturnType IR_Sensor_Init(const IR_cfg_st *IR_sensor);
+   Std_ReturnType IR_Sensor_DeInit(const IR_cfg_st *IR_sensor);
+   Std_ReturnType IR_Sensor_Detect(const IR_cfg_st *IR_sensor,logic_et *status);
+# 7 "ECU/IR_Sensor/IR_SENSOR.c" 2
+
+
+
+Std_ReturnType IR_Sensor_Init(const IR_cfg_st *IR_sensor)
+{
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
+    if(((void*)0) == IR_sensor)
     {
-        ERRORSTATUS = (Std_ReturnType) 0x00;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
-    switch(_pin_config->direction)
-    {
-        case GPIO_DIRECTION_OUTPUT:
-         (*tris_registers[_pin_config->port]&=~( (uint8)1<<_pin_config->pin ));
-            break;
-        case GPIO_DIRECTION_INPUT:
-          (*tris_registers[_pin_config->port]|=( (uint8)1<<_pin_config->pin ));
-            break;
-
-        default:ERRORSTATUS=(Std_ReturnType) 0x00;
-
+        ret_value = GPIO_Pin_Initialize(&(IR_sensor->IR_Sensor_Obstacle_cfg_pin));
     }
-     }
-    return ERRORSTATUS;
+    return ret_value ;
 }
-# 58 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status)
+Std_ReturnType IR_Sensor_DeInit(const IR_cfg_st *IR_sensor)
 {
-     Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
-     if ( ((void*)0)==_pin_config||((void*)0)==direction_status||_pin_config->pin> 8 -1)
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
+    if(((void*)0) == IR_sensor)
     {
-        ERRORSTATUS = (Std_ReturnType) 0x00;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
-       *direction_status= (( *tris_registers[_pin_config->port]>>_pin_config->pin )&(uint8)1);
 
     }
-     return ERRORSTATUS;
-
+    return ret_value ;
 }
-# 82 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config, logic_et logic)
+Std_ReturnType IR_Sensor_Detect(const IR_cfg_st *IR_sensor,logic_et *status)
 {
-      Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
-     if ( ((void*)0)==_pin_config||_pin_config->pin> 8 -1)
+    Std_ReturnType ret_value = (Std_ReturnType) 0x01 ;
+    if(((void*)0) == IR_sensor)
     {
-        ERRORSTATUS = (Std_ReturnType) 0x00;
+        ret_value = (Std_ReturnType) 0x00 ;
     }
     else
     {
-         switch(logic)
-    {
-        case GPIO_LOW:
-         (*lat_registers[_pin_config->port]&=~( (uint8)1<<_pin_config->pin ));
-            break;
-        case GPIO_HIGH:
-          (*lat_registers[_pin_config->port]|=( (uint8)1<<_pin_config->pin ));
-            break;
-
-        default:ERRORSTATUS = (Std_ReturnType) 0x00;
-     }
-
+      GPIO_Pin_Read_Logic(&(IR_sensor->IR_Sensor_Obstacle_cfg_pin), status);
     }
-     return ERRORSTATUS;
-}
-# 114 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic)
-{
-      Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-          if ( ((void*)0)==_pin_config||((void*)0)==logic||_pin_config->pin> 8 -1)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-         *logic= (( *port_registers[_pin_config->port]>>_pin_config->pin )&(uint8)1);
-    }
-     return ERRORSTATUS;
-}
-# 135 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-          if ( ((void*)0)==_pin_config)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-      (*lat_registers[_pin_config->port]^=( (uint8)1<<_pin_config->pin ));
-    }
-     return ERRORSTATUS;
-}
-# 158 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Pin_Initialize(const pin_config_st * _pin_config)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-          if ( ((void*)0)==_pin_config)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-         ERRORSTATUS=GPIO_Pin_Direction_Initialize(_pin_config);
-         ERRORSTATUS=GPIO_Pin_Write_Logic(_pin_config,_pin_config->logic);
-
-    }
-     return ERRORSTATUS;
-}
-# 187 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Port_Direction_Initialize(port_index_et port , uint8 direction)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-     if ( 5 -1<port)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-     else
-     {
-         *tris_registers[port]=direction;
-     }
-     return ERRORSTATUS;
-}
-# 209 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direction_status)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-          if ((5 -1<port)||( ((void*)0)==direction_status))
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-       *direction_status=*tris_registers[port];
-    }
-
-     return ERRORSTATUS;
-}
-# 232 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic)
-{
-       Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-          if ((5 -1<port))
-         {
-              ERRORSTATUS=(Std_ReturnType) 0x00;
-         }
-          else
-          {
-              *lat_registers[port]=logic;
-          }
-     return ERRORSTATUS;
-}
-# 254 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic)
-{
-     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-          if (( ((void*)0)==logic)||(5 -1<port))
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-          *logic=*port_registers[port];
-    }
-     return ERRORSTATUS;
-}
-# 275 "MCAL/GPIO/hal_gpio.c"
-Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port)
-{
-       Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-          if (5 -1<port)
-    {
-        ERRORSTATUS=(Std_ReturnType) 0x00;
-    }
-    else
-    {
-          *lat_registers[port]^=(uint8)0xff;
-    }
-     return ERRORSTATUS;
+    return ret_value ;
 }

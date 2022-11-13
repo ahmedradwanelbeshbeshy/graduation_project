@@ -284,49 +284,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6716
 [; <" TOSU equ 0FFFh ;# ">
-"8 MCAL/WATCH_DOG_TIMER/WDT.c
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 8: Std_ReturnType WDT_Init(void)
+"14 MCAL/WATCH_DOG_TIMER/WDT.c
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 14: Std_ReturnType WDT_Init(void)
 [v _WDT_Init `(uc ~T0 @X0 1 ef ]
-"9
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 9: {
-{
-[e :U _WDT_Init ]
-[f ]
-"10
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 10:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
-[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
-[e = _ERRORSTATUS -> -> 1 `i `uc ]
-"11
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 11:     WDTCONbits.SWDTEN=1;
-[e = . . _WDTCONbits 0 0 -> -> 1 `i `uc ]
-"12
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 12:     return ERRORSTATUS;
-[e ) _ERRORSTATUS ]
-[e $UE 273  ]
-"13
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 13: }
-[e :UE 273 ]
-}
-"14
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 14: Std_ReturnType WDT_DeInit(void)
-[v _WDT_DeInit `(uc ~T0 @X0 1 ef ]
 "15
 [; ;MCAL/WATCH_DOG_TIMER/WDT.c: 15: {
 {
-[e :U _WDT_DeInit ]
+[e :U _WDT_Init ]
 [f ]
 "16
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 16:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 16:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x00;
 [v _ERRORSTATUS `uc ~T0 @X0 1 a ]
-[e = _ERRORSTATUS -> -> 1 `i `uc ]
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
 "17
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 17:     WDTCONbits.SWDTEN=0;
-[e = . . _WDTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 17:     WDTCONbits.SWDTEN=1;
+[e = . . _WDTCONbits 0 0 -> -> 1 `i `uc ]
 "18
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 18:     return ERRORSTATUS;
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 18:     ERRORSTATUS =(Std_ReturnType) 0x01;
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"19
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 19:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 273  ]
+"20
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 20: }
+[e :UE 273 ]
+}
+"27
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 27: Std_ReturnType WDT_DeInit(void)
+[v _WDT_DeInit `(uc ~T0 @X0 1 ef ]
+"28
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 28: {
+{
+[e :U _WDT_DeInit ]
+[f ]
+"29
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 29:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x00;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"30
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 30:     WDTCONbits.SWDTEN=0;
+[e = . . _WDTCONbits 0 0 -> -> 0 `i `uc ]
+"31
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 31:      ERRORSTATUS =(Std_ReturnType) 0x01;
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"32
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 32:     return ERRORSTATUS;
 [e ) _ERRORSTATUS ]
 [e $UE 274  ]
-"19
-[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 19: }
+"33
+[; ;MCAL/WATCH_DOG_TIMER/WDT.c: 33: }
 [e :UE 274 ]
 }

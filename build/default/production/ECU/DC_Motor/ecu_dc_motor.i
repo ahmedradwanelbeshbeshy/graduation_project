@@ -4746,16 +4746,12 @@ typedef struct
 Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
 Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
-Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
 
 
 Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);

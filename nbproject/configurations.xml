@@ -15,6 +15,11 @@
         </logicalFolder>
         <logicalFolder name="GPS" displayName="GPS" projectFiles="true">
         </logicalFolder>
+        <logicalFolder name="IR_Sensor" displayName="IR_Sensor" projectFiles="true">
+          <logicalFolder name="folder" displayName="folder" projectFiles="true">
+          </logicalFolder>
+          <itemPath>ECU/IR_Sensor/IR_SENSOR.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="LCD_for_test_gps"
                        displayName="LCD_for_test_gps"
                        projectFiles="true">
@@ -92,6 +97,11 @@
           <itemPath>ECU/DC_Motor/ecu_dc_motor.c</itemPath>
         </logicalFolder>
         <logicalFolder name="GPS" displayName="GPS" projectFiles="true">
+        </logicalFolder>
+        <logicalFolder name="IR_Sensor" displayName="IR_Sensor" projectFiles="true">
+          <logicalFolder name="folder" displayName="folder" projectFiles="true">
+          </logicalFolder>
+          <itemPath>ECU/IR_Sensor/IR_SENSOR.c</itemPath>
         </logicalFolder>
         <logicalFolder name="LCD_for_test_gps"
                        displayName="LCD_for_test_gps"

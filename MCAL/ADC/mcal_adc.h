@@ -89,11 +89,12 @@ typedef enum {
     ADC_CHANEL_AN11,
     ADC_CHANEL_AN12       
     
-}adc_channel_select_t;
+}adc_channel_select_et;
 
 /**
  * @breif:A/D acquisition time select 
  * @note: Acquisition time is the time required for ADC to capture the input voltage during sampling
+ *           
  */
 typedef enum
 {
@@ -105,11 +106,11 @@ typedef enum
     ADC_12_TAD,
     ADC_16_TAD, 
     ADC_20_TAD            
-}adc_acquisition_time_t;
+}adc_acquisition_time_et;
 
 /**
- * @breif:A/D Clock source s select 
- * @note: Acquisition time is the time required for ADC to capture the input voltage during sampling
+ * @breif:A/D Clock source select 
+ * @note:  lock to the table in page 231 to select depending on mcu frequency 
  */
 typedef enum
 {
@@ -120,7 +121,7 @@ typedef enum
     ADC_CONVERSION_CLOCK_FOSC_DIV_4,            
     ADC_CONVERSION_CLOCK_FOSC_DIV_16,
     ADC_CONVERSION_CLOCK_FOSC_DIV_64, 
-}adc_conversion_clock_source_t;
+}adc_conversion_clock_source_et;
 /**
  * @breif:A/D result format select 
  */
@@ -128,7 +129,7 @@ typedef enum
 {
     ADC_RESULT_LEFT=0,
     ADC_RESULT_RIGHT
-}adc_result_format_t;
+}adc_result_format_et;
 /**
  * @breif:A/D voltage source select 
  * @note: ADC_VOLTAGE_REFERANCE_INTERNAL VDD and VSS
@@ -138,45 +139,39 @@ typedef enum
 {
     ADC_VOLTAGE_REFERANCE_INTERNAL=0,
     ADC_VOLTAGE_REFERANCE_EXTERNAL
-}adc_voltage_reference_t;
+}adc_voltage_reference_et;
 
 typedef enum
 {
     ADC_CONVERSION_STATUS_DONE=0,
     ADC_CONVERSION_STATUS_INPROGRESS
-}adc_conversion_status_t;
+}adc_conversion_status_et;
 typedef struct
 {
-#if ADC_INTERRUPT_FEATURE_ENABLE ==FEATURE_ENABLE   
+#if ADC_INT_ENABLE ==FEATURE_ENABLE   
     void (*ADC_Interupt_handler) (void);
-    #if Interrupt_priority_Levels_Enable==FEATURE_ENABLE
-    interrupt_priority_cfg priority;
+    #if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE
+    interrupt_pri_et priority;
     #endif
 #endif
-    adc_channel_select_t adc_channel;                    /*@ref:adc_channel_select_t*/
-    adc_acquisition_time_t  acquisition_time;          /*@ref:adc_acquisition_time_t*/
-    adc_conversion_clock_source_t conversion_clock;    /*@ref:adc_conversion_clock_source_t*/
-    adc_result_format_t result_format;                        /*@ref:adc_result_t*/
-    adc_voltage_reference_t voltage_referance;         /*@ref:adc_voltage_reference_t*/
-}adc_config_t;
+    adc_channel_select_et adc_channel;                    /*@ref:adc_channel_select_t*/
+    adc_acquisition_time_et  acquisition_time;          /*@ref:adc_acquisition_time_t*/
+    adc_conversion_clock_source_et conversion_clock;    /*@ref:adc_conversion_clock_source_t*/
+    adc_result_format_et result_format;                        /*@ref:adc_result_t*/
+    adc_voltage_reference_et voltage_referance;         /*@ref:adc_voltage_reference_t*/
+}adc_config_st;
 
 typedef uint16 adc_result_t;
 /*******************************function declarations section*************************************/
-Std_ReturnType ADC_Init(const adc_config_t* _adc);
-Std_ReturnType ADC_DeInit(const adc_config_t* _adc);
-Std_ReturnType ADC_select_channel(const adc_config_t* _adc,adc_channel_select_t _channel);
-Std_ReturnType ADC_Start_Conversion(const adc_config_t* _adc);
-Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_status_t*_status);
-Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*_result);
-Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t* _adc,adc_channel_select_t _channel,
-                                                                      adc_result_t*_result);
-Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_t* _adc,adc_channel_select_t _channel);
-
-
-
-
-
-
+Std_ReturnType ADC_Init(const adc_config_st* _adc);
+Std_ReturnType ADC_DeInit(const adc_config_st* _adc);
+Std_ReturnType ADC_select_channel(const adc_config_st* _adc,adc_channel_select_et _channel);
+Std_ReturnType ADC_Start_Conversion(const adc_config_st* _adc);
+Std_ReturnType ADC_Is_Conversion_Done(const adc_config_st* _adc,adc_conversion_status_et*_status);
+Std_ReturnType ADC_Get_Conversion_Results(const adc_config_st* _adc,adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel_select_et _channel,
+                                                                           adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel);
 
 #endif	/* MCAL_ADC_H */
 

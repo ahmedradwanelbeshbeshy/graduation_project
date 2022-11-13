@@ -4746,16 +4746,12 @@ typedef struct
 Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
 Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
-Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
 
 
 Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
@@ -4811,6 +4807,7 @@ Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,u
 Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
 Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
 Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
+Std_ReturnType convert_float32_to_string(float32 value,uint8*str);
 # 8 "ECU/LCD_for_test_gps/ecu_char_lcd.c" 2
 
 static Std_ReturnType lcd_8bits_send_enable_signal(const char_lcd_8bit_t *lcd);
@@ -5240,6 +5237,30 @@ Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str)
     }
       return ERRORSTATUS;
 
+}
+Std_ReturnType convert_float32_to_string(float32 value,uint8*str)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    uint8 temp_string[9]={0};
+    uint8 data_counter=0;
+    if ( ((void*)0)==str)
+    {
+        ERRORSTATUS=(Std_ReturnType) 0x00;
+    }
+    else
+    {
+         memset(str,' ',8);
+         str[8]='\0';
+         sprintf((char*)temp_string,"%f",value);
+         while(temp_string[data_counter]!='\0')
+         {
+            str[data_counter] =temp_string[data_counter];
+            data_counter++;
+         }
+        sprintf(str,"%f",value);
+    }
+
+    return ERRORSTATUS;
 }
 
 

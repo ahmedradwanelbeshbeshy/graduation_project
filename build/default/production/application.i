@@ -4740,16 +4740,12 @@ typedef struct
 Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
 Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
-Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
 
 
 Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
@@ -4983,6 +4979,7 @@ Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,u
 Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
 Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
 Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
+Std_ReturnType convert_float32_to_string(float32 value,uint8*str);
 # 13 "application.c" 2
 
 # 1 "./MCAL/WATCH_DOG_TIMER/WDT.h" 1
@@ -5010,12 +5007,118 @@ Std_ReturnType WDT_Init(void);
 Std_ReturnType WDT_DeInit(void);
 # 14 "application.c" 2
 
+# 1 "./MCAL/ADC/mcal_adc.h" 1
+# 18 "./MCAL/ADC/mcal_adc.h"
+# 1 "./MCAL/ADC/mcal_adc_cfg.h" 1
+# 18 "./MCAL/ADC/mcal_adc.h" 2
+# 77 "./MCAL/ADC/mcal_adc.h"
+typedef enum {
+    ADC_CHANEL_AN0=0,
+    ADC_CHANEL_AN1,
+    ADC_CHANEL_AN2,
+    ADC_CHANEL_AN3,
+    ADC_CHANEL_AN4,
+    ADC_CHANEL_AN5,
+    ADC_CHANEL_AN6,
+    ADC_CHANEL_AN7,
+    ADC_CHANEL_AN8,
+    ADC_CHANEL_AN9,
+    ADC_CHANEL_AN10,
+    ADC_CHANEL_AN11,
+    ADC_CHANEL_AN12
+
+}adc_channel_select_et;
+
+
+
+
+
+
+typedef enum
+{
+    ADC_0_TAD=0,
+    ADC_2_TAD,
+    ADC_4_TAD,
+    ADC_6_TAD,
+    ADC_8_TAD,
+    ADC_12_TAD,
+    ADC_16_TAD,
+    ADC_20_TAD
+}adc_acquisition_time_et;
+
+
+
+
+
+typedef enum
+{
+    ADC_CONVERSION_CLOCK_FOSC_DIV_2=0,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_8,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_4,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_64,
+}adc_conversion_clock_source_et;
+
+
+
+typedef enum
+{
+    ADC_RESULT_LEFT=0,
+    ADC_RESULT_RIGHT
+}adc_result_format_et;
+
+
+
+
+
+typedef enum
+{
+    ADC_VOLTAGE_REFERANCE_INTERNAL=0,
+    ADC_VOLTAGE_REFERANCE_EXTERNAL
+}adc_voltage_reference_et;
+
+typedef enum
+{
+    ADC_CONVERSION_STATUS_DONE=0,
+    ADC_CONVERSION_STATUS_INPROGRESS
+}adc_conversion_status_et;
+typedef struct
+{
+
+
+
+
+
+
+    adc_channel_select_et adc_channel;
+    adc_acquisition_time_et acquisition_time;
+    adc_conversion_clock_source_et conversion_clock;
+    adc_result_format_et result_format;
+    adc_voltage_reference_et voltage_referance;
+}adc_config_st;
+
+typedef uint16 adc_result_t;
+
+Std_ReturnType ADC_Init(const adc_config_st* _adc);
+Std_ReturnType ADC_DeInit(const adc_config_st* _adc);
+Std_ReturnType ADC_select_channel(const adc_config_st* _adc,adc_channel_select_et _channel);
+Std_ReturnType ADC_Start_Conversion(const adc_config_st* _adc);
+Std_ReturnType ADC_Is_Conversion_Done(const adc_config_st* _adc,adc_conversion_status_et*_status);
+Std_ReturnType ADC_Get_Conversion_Results(const adc_config_st* _adc,adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel_select_et _channel,
+                                                                           adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel);
+# 15 "application.c" 2
+
 
 
 
 
 void usart_isr (void);
 void GPS_Service (void);
+void battery_level(void);
 uint8 datasend='w';
 uint8 datarecive=0;
 uint8 gps=1;
@@ -5025,7 +5128,8 @@ uint8 latitude[13];
 uint8 longtude[13];
 uint8 gpstemp=0;
 uint8 counter;
-
+uint8 battery_string[9];
+float32 battery_volt_f;
 uart_config_st _uart_obj = {
   .baud_rate_config = BAUDRATE_ASYNC_8BIT_LOW_SPEED ,
   .uart_baud_rate_value =9600,
@@ -5083,6 +5187,12 @@ pin_config_st pind1={
    .pin=GPIO_PIN1,
    .port=PORTD_INDEX
 };
+pin_config_st pind0={
+   .direction=GPIO_DIRECTION_OUTPUT,
+   .logic=GPIO_HIGH,
+   .pin=GPIO_PIN0,
+   .port=PORTD_INDEX
+};
 
 pin_config_st selector={
    .direction=GPIO_DIRECTION_OUTPUT,
@@ -5090,38 +5200,38 @@ pin_config_st selector={
    .pin=GPIO_PIN0,
    .port=PORTB_INDEX
 };
+adc_result_t battery_volt_adc_read;
+adc_config_st battery_adc={
+    .adc_channel=ADC_CHANEL_AN0,
+    .conversion_clock=ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    .acquisition_time=ADC_12_TAD,
+    .result_format=ADC_RESULT_RIGHT,
+    .voltage_referance=ADC_VOLTAGE_REFERANCE_INTERNAL
+};
 int main()
 {
 
     application_intialize();
-    lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
-    __asm("clrwdt");
-    GPIO_Pin_Write_Logic(&pind1,GPIO_HIGH);
-    _delay((unsigned long)((1000)*(24000000/4000.0)));
-    __asm("clrwdt");
-    GPIO_Pin_Write_Logic(&pind1,GPIO_LOW);
-    _delay((unsigned long)((1000)*(24000000/4000.0)));
-    __asm("clrwdt");
-
+    GPIO_Pin_Toggle_Logic(&pind2);
+    lcd_4bit_send_string_data_pos(&lcd1,1,1,"battery: ");
    while(1)
     {
-       GPIO_Pin_Toggle_Logic(&pind2);
-        _delay((unsigned long)((1000)*(24000000/4000.0)));
-        __asm("clrwdt");
-# 192 "application.c"
+        GPIO_Pin_Toggle_Logic(&pind1);
+        battery_level();
+
+
    }
    return 0;
 }
 void application_intialize(void)
 {
+    GPIO_Pin_Initialize(&pind0);
     GPIO_Pin_Initialize(&pind1);
     GPIO_Pin_Initialize(&pind2);
     GPIO_Pin_Initialize(&selector);
-    WDT_Init();
     EUSART_Async_Init(&_uart_obj);
-        __asm("clrwdt");
     lcd_4bit_initialize(&lcd1);
-        __asm("clrwdt");
+    ADC_Init(&battery_adc);
 }
 void usart_isr (void)
 {
@@ -5180,4 +5290,24 @@ void GPS_Service (void)
         _delay((unsigned long)((2000)*(24000000/4000.0)));
     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
     (PIE1bits.RCIE = 1) ;
+}
+void battery_level(void)
+{
+        ADC_Get_Conversion_Blocking(&battery_adc,ADC_CHANEL_AN0,&battery_volt_adc_read);
+        battery_volt_f=(float32)(battery_volt_adc_read*13)/1024;
+        convert_float32_to_string( battery_volt_f,battery_string);
+
+        lcd_4bit_send_string_data_pos(&lcd1,1,9,"       ");
+        lcd_4bit_send_string_data_pos(&lcd1,1,10,battery_string);
+        if(battery_volt_f<11.1)
+        {
+           lcd_4bit_send_string_data_pos(&lcd1,2,0,"                ");
+           lcd_4bit_send_string_data_pos(&lcd1,2,3,"battery low");
+           GPIO_Pin_Write_Logic(&pind0,GPIO_HIGH);
+        }
+        else
+        {
+            lcd_4bit_send_string_data_pos(&lcd1,2,0,"                ");
+            GPIO_Pin_Write_Logic(&pind0,GPIO_LOW);
+        }
 }

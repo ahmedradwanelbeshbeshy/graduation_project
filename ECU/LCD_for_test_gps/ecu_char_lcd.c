@@ -478,6 +478,30 @@ Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str)
       return ERRORSTATUS;
    
 }
+Std_ReturnType convert_float32_to_string(float32 value,uint8*str)
+{
+    Std_ReturnType ERRORSTATUS =E_OK;
+    uint8 temp_string[9]={0};
+    uint8 data_counter=0;
+    if ( NULL==str)
+    {
+        ERRORSTATUS=E_NOT_OK;
+    }
+    else
+    {
+         memset(str,' ',8);
+         str[8]='\0';
+         sprintf((char*)temp_string,"%f",value);
+         while(temp_string[data_counter]!='\0')
+         {
+            str[data_counter] =temp_string[data_counter];
+            data_counter++;
+         }
+        sprintf(str,"%f",value);
+    }
+     
+    return ERRORSTATUS;
+}
 
 //-----------------------------------------------------------helper static functions -------------------------------------------//
 /**

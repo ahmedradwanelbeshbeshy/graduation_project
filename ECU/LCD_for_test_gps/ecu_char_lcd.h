@@ -99,6 +99,7 @@ Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,u
 Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
 Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
 Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
+Std_ReturnType convert_float32_to_string(float32 value,uint8*str);
 
 
 

@@ -4765,16 +4765,12 @@ typedef struct
 Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
 Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+Std_ReturnType GPIO_Pin_Read_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
 Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 
-Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
-Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
-Std_ReturnType GPIO_Pin_Logic (const pin_config_st * _pin_config,logic_et *logic);
-Std_ReturnType GPIO_Pin_Toggle_Logic (const pin_config_st * _pin_config);
-Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+
 
 
 Std_ReturnType GPIO_Port_Direction_Initialize (port_index_et port , uint8 direction);
@@ -4802,7 +4798,8 @@ typedef enum {
     ADC_CHANEL_AN11,
     ADC_CHANEL_AN12
 
-}adc_channel_select_t;
+}adc_channel_select_et;
+
 
 
 
@@ -4818,7 +4815,7 @@ typedef enum
     ADC_12_TAD,
     ADC_16_TAD,
     ADC_20_TAD
-}adc_acquisition_time_t;
+}adc_acquisition_time_et;
 
 
 
@@ -4833,7 +4830,7 @@ typedef enum
     ADC_CONVERSION_CLOCK_FOSC_DIV_4,
     ADC_CONVERSION_CLOCK_FOSC_DIV_16,
     ADC_CONVERSION_CLOCK_FOSC_DIV_64,
-}adc_conversion_clock_source_t;
+}adc_conversion_clock_source_et;
 
 
 
@@ -4841,7 +4838,7 @@ typedef enum
 {
     ADC_RESULT_LEFT=0,
     ADC_RESULT_RIGHT
-}adc_result_format_t;
+}adc_result_format_et;
 
 
 
@@ -4851,13 +4848,13 @@ typedef enum
 {
     ADC_VOLTAGE_REFERANCE_INTERNAL=0,
     ADC_VOLTAGE_REFERANCE_EXTERNAL
-}adc_voltage_reference_t;
+}adc_voltage_reference_et;
 
 typedef enum
 {
     ADC_CONVERSION_STATUS_DONE=0,
     ADC_CONVERSION_STATUS_INPROGRESS
-}adc_conversion_status_t;
+}adc_conversion_status_et;
 typedef struct
 {
 
@@ -4866,31 +4863,31 @@ typedef struct
 
 
 
-    adc_channel_select_t adc_channel;
-    adc_acquisition_time_t acquisition_time;
-    adc_conversion_clock_source_t conversion_clock;
-    adc_result_format_t result_format;
-    adc_voltage_reference_t voltage_referance;
-}adc_config_t;
+    adc_channel_select_et adc_channel;
+    adc_acquisition_time_et acquisition_time;
+    adc_conversion_clock_source_et conversion_clock;
+    adc_result_format_et result_format;
+    adc_voltage_reference_et voltage_referance;
+}adc_config_st;
 
 typedef uint16 adc_result_t;
 
-Std_ReturnType ADC_Init(const adc_config_t* _adc);
-Std_ReturnType ADC_DeInit(const adc_config_t* _adc);
-Std_ReturnType ADC_select_channel(const adc_config_t* _adc,adc_channel_select_t _channel);
-Std_ReturnType ADC_Start_Conversion(const adc_config_t* _adc);
-Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_status_t*_status);
-Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*_result);
-Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t* _adc,adc_channel_select_t _channel,
-                                                                      adc_result_t*_result);
-Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_t* _adc,adc_channel_select_t _channel);
+Std_ReturnType ADC_Init(const adc_config_st* _adc);
+Std_ReturnType ADC_DeInit(const adc_config_st* _adc);
+Std_ReturnType ADC_select_channel(const adc_config_st* _adc,adc_channel_select_et _channel);
+Std_ReturnType ADC_Start_Conversion(const adc_config_st* _adc);
+Std_ReturnType ADC_Is_Conversion_Done(const adc_config_st* _adc,adc_conversion_status_et*_status);
+Std_ReturnType ADC_Get_Conversion_Results(const adc_config_st* _adc,adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel_select_et _channel,
+                                                                           adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel);
 # 8 "MCAL/ADC/mcal_adc.c" 2
 
-static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_t _channel);
-static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc);
-static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc);
-# 22 "MCAL/ADC/mcal_adc.c"
-Std_ReturnType ADC_Init(const adc_config_t* _adc)
+static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_et _channel);
+static Std_ReturnType adc_select_result_formate(const adc_config_st* _adc);
+static Std_ReturnType adc_select_voltage_reference(const adc_config_st* _adc);
+# 23 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Init(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==_adc)
@@ -4922,9 +4919,8 @@ Std_ReturnType ADC_Init(const adc_config_t* _adc)
 
 
          adc_select_voltage_reference(_adc);
-# 85 "MCAL/ADC/mcal_adc.c"
+# 83 "MCAL/ADC/mcal_adc.c"
          (ADCON0bits.ADON=1);
-
     }
     return ERRORSTATUS;
 }
@@ -4933,7 +4929,9 @@ Std_ReturnType ADC_Init(const adc_config_t* _adc)
 
 
 
-Std_ReturnType ADC_DeInit(const adc_config_t* _adc)
+
+
+Std_ReturnType ADC_DeInit(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==_adc)
@@ -4949,17 +4947,11 @@ Std_ReturnType ADC_DeInit(const adc_config_t* _adc)
 
 
 
-
     }
     return ERRORSTATUS;
 }
-
-
-
-
-
-
-Std_ReturnType ADC_select_channel(const adc_config_t* _adc,adc_channel_select_t _channel)
+# 121 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_select_channel(const adc_config_st* _adc,adc_channel_select_et _channel)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==_adc)
@@ -4981,7 +4973,9 @@ Std_ReturnType ADC_select_channel(const adc_config_t* _adc,adc_channel_select_t 
 
 
 
-Std_ReturnType ADC_Start_Conversion(const adc_config_t* _adc)
+
+
+Std_ReturnType ADC_Start_Conversion(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==_adc)
@@ -4994,8 +4988,8 @@ Std_ReturnType ADC_Start_Conversion(const adc_config_t* _adc)
     }
     return ERRORSTATUS;
 }
-# 164 "MCAL/ADC/mcal_adc.c"
-Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_status_t*_status)
+# 168 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Is_Conversion_Done(const adc_config_st* _adc,adc_conversion_status_et*_status)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ((((void*)0)==_adc)||(((void*)0)==_status))
@@ -5008,13 +5002,8 @@ Std_ReturnType ADC_Is_Conversion_Done(const adc_config_t* _adc,adc_conversion_st
     }
     return ERRORSTATUS;
 }
-
-
-
-
-
-
-Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*_result)
+# 189 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Get_Conversion_Results(const adc_config_st* _adc,adc_result_t*_result)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ((((void*)0)==_adc)||(((void*)0)==_result))
@@ -5025,7 +5014,7 @@ Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*
     {
         if(ADC_RESULT_LEFT==_adc->result_format)
          {
-             *_result =(adc_result_t)(((ADRESH<<8)+ADRESL)>>6);
+             *_result =(adc_result_t)(((ADRESH<<8)+(ADRESL<<6))>>6);
          }
          else if(ADC_RESULT_RIGHT==_adc->result_format)
          {
@@ -5039,15 +5028,8 @@ Std_ReturnType ADC_Get_Conversion_Results(const adc_config_t* _adc,adc_result_t*
     }
     return ERRORSTATUS;
 }
-
-
-
-
-
-
-
-Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t* _adc,adc_channel_select_t _channel,
-                                                            adc_result_t*_result)
+# 223 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel_select_et _channel,adc_result_t*_result)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if ((((void*)0)==_adc)||(((void*)0)==_result))
@@ -5069,8 +5051,8 @@ Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t* _adc,adc_channel_
     }
     return ERRORSTATUS;
 }
-
-Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_t* _adc,adc_channel_select_t _channel)
+# 253 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel)
 {
  Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==_adc)
@@ -5086,7 +5068,7 @@ Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_t* _adc,adc_channel
     }
     return ERRORSTATUS;
 }
-static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_t _channel)
+static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_et _channel)
 {
 Std_ReturnType ERRORSTATUS=(Std_ReturnType) 0x01;
        switch (_channel)
@@ -5108,7 +5090,7 @@ Std_ReturnType ERRORSTATUS=(Std_ReturnType) 0x01;
 
     return ERRORSTATUS;
 }
-static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc)
+static Std_ReturnType adc_select_result_formate(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==_adc)
@@ -5132,7 +5114,7 @@ static Std_ReturnType adc_select_result_formate(const adc_config_t* _adc)
     }
     return ERRORSTATUS;
 }
-static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc)
+static Std_ReturnType adc_select_voltage_reference(const adc_config_st* _adc)
 {
     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
     if (((void*)0)==_adc)
@@ -5160,7 +5142,6 @@ static Std_ReturnType adc_select_voltage_reference(const adc_config_t* _adc)
 
 void ADC_ISR(void)
 {
-
 
 
 

@@ -15,6 +15,9 @@
 /* Macro Defines */
 
 /* Macro Functions */
+
+
+/* ADC*/
 #if ADC_INT_ENABLE==FEATURE_ENABLE
 #define INT_ADC_ENABLE()                          (PIE1bits.ADIE = 1 )
 #define INT_ADC_DISABLE()                         (PIE1bits.ADIE = 0 )
