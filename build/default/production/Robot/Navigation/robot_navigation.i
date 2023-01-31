@@ -34,35 +34,35 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\xc8debug.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\features.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 18 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
-# 122 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 122 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned size_t;
-# 168 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 168 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 int24_t;
-# 204 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 204 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __uint24 uint24_t;
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 int atoi (const char *);
@@ -84,12 +84,23 @@ unsigned long long strtoull (const char *restrict, char **restrict, int);
 int rand (void);
 void srand (unsigned);
 
+void *malloc (size_t);
+void *calloc (size_t, size_t);
+void *realloc (void *, size_t);
+void free (void *);
+
           void abort (void);
 int atexit (void (*) (void));
           void exit (int);
           void _Exit (int);
 
 void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
+
+
+
+
+
+
 
 __attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
 
@@ -109,13 +120,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-
-
-
-
-
-size_t __ctype_get_mb_cur_max(void);
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 2 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\xc8debug.h" 2 3
 
 
 
@@ -131,21 +136,21 @@ extern void __builtin_software_breakpoint(void);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 127 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uintptr_t;
-# 142 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 142 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long intptr_t;
-# 158 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 158 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef signed char int8_t;
 
 
 
 
 typedef short int16_t;
-# 173 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 173 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int32_t;
 
 
@@ -153,7 +158,7 @@ typedef long int32_t;
 
 
 typedef long long int64_t;
-# 188 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 188 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long intmax_t;
 
 
@@ -166,7 +171,7 @@ typedef unsigned char uint8_t;
 
 
 typedef unsigned short uint16_t;
-# 209 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 209 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uint32_t;
 
 
@@ -174,9 +179,9 @@ typedef unsigned long uint32_t;
 
 
 typedef unsigned long long uint64_t;
-# 229 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 229 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long long uintmax_t;
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 2 3
 
 
 typedef int8_t int_fast8_t;
@@ -209,13 +214,13 @@ typedef uint24_t uint_fast24_t;
 typedef uint32_t uint_least32_t;
 
 typedef uint64_t uint_least64_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/stdint.h" 1 3
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/stdint.h" 1 3
 typedef int16_t int_fast16_t;
 typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 2 3
 # 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\builtins.h" 2 3
 
 
@@ -4504,9 +4509,9 @@ typedef uint8 Std_ReturnType;
 # 12 "Robot/Navigation/../../MCAL/CCP/../GPIO/hal_gpio.h"
 # 1 "Robot/Navigation/../../MCAL/CCP/../GPIO/../std_libraries.h" 1
 # 11 "Robot/Navigation/../../MCAL/CCP/../GPIO/../std_libraries.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
 
 
 
@@ -4518,14 +4523,14 @@ typedef void * va_list[1];
 
 
 typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
 typedef union _G_fpos64_t {
  char __opaque[16];
  double __align;
@@ -4578,28 +4583,34 @@ char *gets(char *);
 int fputs(const char *restrict, FILE *restrict);
 int puts(const char *);
 
-#pragma printf_check(printf) const
-#pragma printf_check(vprintf) const
-#pragma printf_check(sprintf) const
-#pragma printf_check(snprintf) const
-#pragma printf_check(vsprintf) const
-#pragma printf_check(vsnprintf) const
-
+__attribute__((__format__(__printf__, 1, 2)))
 int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
 int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
 int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
 int snprintf(char *restrict, size_t, const char *restrict, ...);
 
+__attribute__((__format__(__printf__, 1, 0)))
 int vprintf(const char *restrict, __isoc_va_list);
 int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
 int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
 int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
 
+__attribute__((__format__(__scanf__, 1, 2)))
 int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
 int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
 int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
 int vscanf(const char *restrict, __isoc_va_list);
 int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
 int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
 
 void perror(const char *);
@@ -4645,12 +4656,12 @@ char *tempnam(const char *, const char *);
 # 11 "Robot/Navigation/../../MCAL/CCP/../GPIO/../std_libraries.h" 2
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 2 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 2 3
 
 
 void *memcpy (void *restrict, const void *restrict, size_t);
@@ -4683,7 +4694,7 @@ char *strtok (char *restrict, const char *restrict);
 size_t strlen (const char *);
 
 char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
 char *strtok_r (char *restrict, const char *restrict, char **restrict);
 int strerror_r (int, char *, size_t);
 char *stpcpy(char *restrict, const char *restrict);
@@ -4791,9 +4802,54 @@ typedef enum {
 # 13 "Robot/Navigation/../../MCAL/CCP/../Interrupts/mcal_internal_interrupt.h" 2
 # 14 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h" 2
 
-# 1 "Robot/Navigation/../../MCAL/CCP/ccp_cfg.h" 1
+# 1 "Robot/Navigation/../../MCAL/CCP/../TIMER2/mcal_timer2.h" 1
+# 33 "Robot/Navigation/../../MCAL/CCP/../TIMER2/mcal_timer2.h"
+typedef enum{
+    TIMER2_PRESCALER_DIV_BY_1=0,
+    TIMER2_PRESCALER_DIV_BY_4,
+    TIMER2_PRESCALER_DIV_BY_16
+}timer2_prescaler_select_et;
+
+typedef enum{
+    TIMER2_postscaler_DIV_BY_1=0,
+    TIMER2_postscaler_DIV_BY_2,
+    TIMER2_postscaler_DIV_BY_3,
+    TIMER2_postscaler_DIV_BY_4,
+    TIMER2_postscaler_DIV_BY_5,
+    TIMER2_postscaler_DIV_BY_6,
+    TIMER2_postscaler_DIV_BY_7,
+    TIMER2_postscaler_DIV_BY_8,
+    TIMER2_postscaler_DIV_BY_9,
+    TIMER2_postscaler_DIV_BY_10,
+    TIMER2_postscaler_DIV_BY_11,
+    TIMER2_postscaler_DIV_BY_12,
+    TIMER2_postscaler_DIV_BY_13,
+    TIMER2_postscaler_DIV_BY_14,
+    TIMER2_postscaler_DIV_BY_15,
+    TIMER2_postscaler_DIV_BY_16
+}timer2_postscaler_select_et;
+
+typedef struct{
+    uint8 timer2_preload_value;
+
+
+
+
+
+
+    timer2_prescaler_select_et timer2_prescaler_value;
+    timer2_postscaler_select_et timer2_postscaler_value;
+}timer2_st;
+
+Std_ReturnType Timer2_Init(const timer2_st* _timer2);
+Std_ReturnType Timer2_DeInit(const timer2_st* _timer2);
+Std_ReturnType Timer2_Write_Value(const timer2_st* _timer2,uint8 value);
+Std_ReturnType Timer2_Read_Value(const timer2_st* _timer2,uint8 *value);
 # 15 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h" 2
-# 73 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
+
+# 1 "Robot/Navigation/../../MCAL/CCP/ccp_cfg.h" 1
+# 16 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h" 2
+# 74 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
 typedef enum{
     CCP_CAPTURE_MODE_SELECTED = 0,
     CCP_COMPARE_MODE_SELECTED,
@@ -4837,8 +4893,7 @@ typedef struct{
     ccp_capture_timer_et ccp_capture_timer;
 
     uint32 PWM_Frequency;
-    uint8 timer2_postscaler_value : 4;
-    uint8 timer2_prescaler_value : 2;
+    timer2_st timer2;
 # 127 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
 }ccp_st;
 
@@ -4871,14 +4926,7 @@ typedef struct {
 
     tmr0_prescalar_et prescalar_value ;
     uint16_t preloaded_value ;
-
-
-        InterruptHandler timer0_InterruptHandler ;
-
-            uint8_t priority : 1 ;
-
-
-
+# 86 "Robot/Navigation/../../MCAL/Timer0/hal_timer0.h"
     uint8_t timer_mode : 1 ;
     uint8_t reg_bit_size : 1 ;
     uint8_t prescaler_enable : 1 ;
@@ -5004,11 +5052,11 @@ typedef struct{
     uint8 mode_2_cfg;
 }servo_driver_st;
 
-Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
+Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,uint8*ack);
 Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
-Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
+Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle,uint8*ack);
 # 38 "Robot/Navigation/./robot_navigation.h" 2
-# 105 "Robot/Navigation/./robot_navigation.h"
+# 98 "Robot/Navigation/./robot_navigation.h"
 typedef enum {
     NAV_MOV_STOPPED = 0,
     NAV_MOV_FORW,
@@ -5018,17 +5066,13 @@ typedef enum {
     NAV_MOV_BACKW_STEER_RIGHT,
     NAV_MOV_BACKW_STEER_LEFT
 }Nav_Movement_State_et;
-
-
-
-
-Std_ReturnType Robot_Nav_Init(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Move_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Right_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Left_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Move_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Right_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Left_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
+# 120 "Robot/Navigation/./robot_navigation.h"
+Std_ReturnType Robot_Nav_Init(void);
+Std_ReturnType Robot_Steer_Stop(void);
+Std_ReturnType Robot_Move_Forward(void);
+Std_ReturnType Robot_Move_Backward(void);
+Std_ReturnType Robot_Steer_Right_Forward(void);
+Std_ReturnType Robot_Steer_Left_Forward(void);
 
 
 
@@ -5042,7 +5086,7 @@ Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
 
 
 
-static dc_motor_st W1_W5_W2_W6_Motor_Control =
+static dc_motor_st W1_W3_W5_Motor_Control =
 {
     .dc_motor[0].port = PORTD_INDEX ,
     .dc_motor[0].pin = GPIO_PIN0 ,
@@ -5054,7 +5098,7 @@ static dc_motor_st W1_W5_W2_W6_Motor_Control =
     .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT
 };
 
-static dc_motor_st W3_Motor_Control =
+static dc_motor_st W2_W4_W6_Motor_Control =
 {
     .dc_motor[0].port = PORTD_INDEX ,
     .dc_motor[0].pin = GPIO_PIN2 ,
@@ -5066,301 +5110,123 @@ static dc_motor_st W3_Motor_Control =
     .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT
 };
 
-static dc_motor_st W4_Motor_Control =
-{
-    .dc_motor[0].port = PORTD_INDEX ,
-    .dc_motor[0].pin = GPIO_PIN4 ,
-    .dc_motor[0].logic = GPIO_LOW ,
-    .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT ,
-    .dc_motor[1].port = PORTD_INDEX ,
-    .dc_motor[1].pin = GPIO_PIN5 ,
-    .dc_motor[1].logic = GPIO_LOW ,
-    .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT
-};
 
 
-static timer0_config_st Timer0 =
-{
-    .timer_mode = 0x00U ,
-    .timer0_InterruptHandler = Timer0_Handler ,
-    .reg_bit_size = 0x00U ,
-    .prescaler_enable = 0x00U ,
-    .preloaded_value = 34286 ,
-    .prescalar_value = TMR0_PRESCALER_BY_256 ,
-    .priority = INT_HIGH_PRI
-
-};
 
 
-static ccp_st CCP1_Obj =
+ccp_st CCP1_Obj =
 {
     .ccp_inst = CCP1_INST ,
     .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 10000,
+    .PWM_Frequency = 500,
     .ccp_pin.port = PORTC_INDEX,
     .ccp_pin.pin = GPIO_PIN2,
     .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2_prescaler_value = 1,
+    .timer2.timer2_preload_value=249,
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
 };
-
-
-static ccp_st CCP2_Obj =
+ccp_st CCP2_Obj =
 {
     .ccp_inst = CCP2_INST ,
     .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 10000,
+    .PWM_Frequency = 500,
     .ccp_pin.port = PORTC_INDEX,
     .ccp_pin.pin = GPIO_PIN1,
     .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2_prescaler_value = 1,
-    .timer2_postscaler_value = 1
+    .timer2.timer2_preload_value=249,
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
 };
 # 7 "Robot/Navigation/robot_navigation.c" 2
+# 195 "Robot/Navigation/robot_navigation.c"
+void Timer0_Handler()
+{
+}
 
-
-
-
-
-Std_ReturnType Robot_Nav_Init(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Nav_Init(void)
 {
     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
 
-        ECU_DC_Motor_Init(&W1_W5_W2_W6_Motor_Control);
-        ECU_DC_Motor_Init(&W3_Motor_Control);
-        ECU_DC_Motor_Init(&W4_Motor_Control);
 
-        HAL_Timer0_Init(&Timer0);
+        ECU_DC_Motor_Init(&W1_W3_W5_Motor_Control);
+        ECU_DC_Motor_Init(&W2_W4_W6_Motor_Control);
+
+
 
         CCP_Init(&CCP1_Obj);
         CCP_Init(&CCP2_Obj);
-        CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-        CCP_PWM_Set_Duty(&CCP2_Obj , 100);
+        CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+        CCP_PWM_Set_Duty(&CCP2_Obj , 95);
         CCP_PWM_Start(&CCP1_Obj);
         CCP_PWM_Start(&CCP2_Obj);
 
 
 
 
-    }
 
     return ret_val ;
 }
-
-
-Std_ReturnType Robot_Move_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Move_Forward(void)
 {
     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
 
-        if(Movement_State == NAV_MOV_FORW)
-        {
-
-        }
-        else
-        {
             Movement_State = NAV_MOV_FORW ;
-            ECU_DC_Motor_Run_Left(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 100);
-        }
-    }
+            ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+            ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+
+
+
+
+            CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+            CCP_PWM_Set_Duty(&CCP2_Obj , 95);
 
     return ret_val ;
 }
-Std_ReturnType Robot_Steer_Right_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Move_Backward(void)
+{
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
+      Movement_State = NAV_MOV_BACKW ;
+            ECU_DC_Motor_Run_Right(&W1_W3_W5_Motor_Control);
+            ECU_DC_Motor_Run_Right(&W2_W4_W6_Motor_Control);
+
+
+
+
+            CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+            CCP_PWM_Set_Duty(&CCP2_Obj , 95);
+    return ret_val ;
+}
+
+Std_ReturnType Robot_Steer_Right_Forward(void)
 {
     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
 
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_FORW_STEER_RIGHT)
-        {
-
-        }
-        else
-        {
             Movement_State = NAV_MOV_FORW_STEER_RIGHT ;
-            ECU_DC_Motor_Run_Left(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + 35 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + 55 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + 35 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + 55 );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 70);
-        }
-
-    }
+            ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+            ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+            CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+            CCP_PWM_Set_Duty(&CCP2_Obj , 85);
 
     return ret_val ;
 }
-Std_ReturnType Robot_Steer_Left_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Steer_Left_Forward(void)
 {
     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
-
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_FORW_STEER_LEFT)
-        {
-
-        }
-        else
-        {
             Movement_State = NAV_MOV_FORW_STEER_LEFT ;
-            ECU_DC_Motor_Run_Left(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + -55 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + -35 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + -55 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + -35 );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 70);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 100);
-        }
+            ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+            ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+            CCP_PWM_Set_Duty(&CCP1_Obj , 85);
+            CCP_PWM_Set_Duty(&CCP2_Obj , 95);
 
-    }
 
     return ret_val ;
 }
-Std_ReturnType Robot_Move_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Steer_Stop(void)
 {
-    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
-
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_BACKW)
-        {
-
-        }
-        else
-        {
-            Movement_State = NAV_MOV_BACKW ;
-            ECU_DC_Motor_Run_Right(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Right(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Right(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 100);
-        }
-    }
-
-    return ret_val ;
-}
-
-
-
-Std_ReturnType Robot_Steer_Right_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
-{
-    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
-
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_BACKW_STEER_RIGHT)
-        {
-
-        }
-        else
-        {
-            Movement_State = NAV_MOV_BACKW_STEER_RIGHT ;
-            ECU_DC_Motor_Run_Right(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Right(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Right(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + (35 * -1) );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + (55 * -1) );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + (35 * -1) );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + (55 * -1) );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 70);
-        }
-    }
-
-    return ret_val ;
-}
-
-
-
-Std_ReturnType Robot_Steer_Left_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
-{
-    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
-
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_BACKW_STEER_LEFT)
-        {
-
-        }
-        else
-        {
-           Movement_State = NAV_MOV_BACKW_STEER_LEFT ;
-           ECU_DC_Motor_Run_Right(&W1_W5_W2_W6_Motor_Control);
-           ECU_DC_Motor_Run_Right(&W3_Motor_Control);
-           ECU_DC_Motor_Run_Right(&W4_Motor_Control);
-           Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + (-55 * -1) );
-           Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + (-35 * -1) );
-           Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + (-55 * -1) );
-           Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + (-35 * -1) );
-           CCP_PWM_Set_Duty(&CCP1_Obj , 70);
-           CCP_PWM_Set_Duty(&CCP2_Obj , 100);
-        }
-
-    }
-
-    return ret_val ;
-}
-
-void Timer0_Handler()
-{
-    ECU_DC_Motor_Stop(&W1_W5_W2_W6_Motor_Control);
-    ECU_DC_Motor_Stop(&W3_Motor_Control);
-    ECU_DC_Motor_Stop(&W4_Motor_Control);
+    ECU_DC_Motor_Stop(&W1_W3_W5_Motor_Control);
+    ECU_DC_Motor_Stop(&W2_W4_W6_Motor_Control);
 }

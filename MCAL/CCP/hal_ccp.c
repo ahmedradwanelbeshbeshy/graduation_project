@@ -181,7 +181,7 @@ Std_ReturnType CCP_PWM_Set_Duty(const ccp_st *_ccp_obj, const uint8 _duty){
         ret = E_NOT_OK;
     }
     else{
-        l_duty_temp = (uint16)(4 * (PR2 + 1) * (_duty / 100.0));
+        l_duty_temp = (uint16)((PR2+1)*(_duty/100.0)*4);
         
         if(CCP1_INST == _ccp_obj->ccp_inst){
             CCP1CONbits.DC1B = (uint8)(l_duty_temp & 0x0003);
@@ -262,6 +262,12 @@ void CCP2_ISR(void){
 
 #if (CCP1_CFG_SELECTED_MODE==CCP_CFG_PWM_MODE_SELECTED) || (CCP2_CFG_SELECTED_MODE==CCP_CFG_PWM_MODE_SELECTED)
 static void CCP_PWM_Mode_Config(const ccp_st *_ccp_obj){
+        
+    /* PWM Frequency Initialization */
+  /*volatile float32 _pretemp=0;
+    _pretemp=((_XTAL_FREQ / ((_ccp_obj->PWM_Frequency )* 4.0 * _ccp_obj->timer2.timer2_prescaler_value) - 1));*/
+    PR2 = _ccp_obj->timer2.timer2_preload_value ;
+    Timer2_Init(&(_ccp_obj->timer2));
     if(CCP1_INST == _ccp_obj->ccp_inst){
         if(CCP_PWM_MODE == _ccp_obj->ccp_mode_variant){
             CCP1_SET_MODE(CCP_PWM_MODE);
@@ -275,9 +281,8 @@ static void CCP_PWM_Mode_Config(const ccp_st *_ccp_obj){
         else {/* Nothing */}
     }
     else{ /* Nothing */ }
-           
-    /* PWM Frequency Initialization */
-    PR2 = (uint8)((_XTAL_FREQ / (_ccp_obj->PWM_Frequency * 4.0 * _ccp_obj->timer2_prescaler_value) - 1));
+       
+    
 }
 #endif
 

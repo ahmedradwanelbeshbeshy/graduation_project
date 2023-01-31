@@ -10,12 +10,11 @@ static void I2C_Slave_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj);
 
 static void I2C_Pin_Configurations(void);
 static void I2C_Interrupt_configuration(const mssp_i2c_st *i2c_obj);
-
-#if MSSP_I2C_Interrupt_FEATURE_ENABLE ==Interrupt_FEATURE_ENABLE
+#if MSSP_I2C_INT_ENABLE==FEATURE_ENABLE
 static void (*I2C_DefaultInterruptHandler)(void)=NULL;
 static void (*I2C_Report_Receive_Overflow)(void)=NULL;
 #endif
-#if MSSP_I2C_BUS_COL_Interrupt_FEATURE_ENABLE ==Interrupt_FEATURE_ENABLE 
+#if MSSP_I2C_BUS_COL_INT_ENABLE==FEATURE_ENABLE
 static void (*I2C_Report_Write_Collision)(void)=NULL;
 #endif
 
@@ -80,7 +79,7 @@ Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj)
         }
         else { /* Nothing */ }
                /*interrupt initialization */
-#if (MSSP_I2C_Interrupt_FEATURE_ENABLE ==Interrupt_FEATURE_ENABLE)||(MSSP_I2C_BUS_COL_Interrupt_FEATURE_ENABLE ==Interrupt_FEATURE_ENABLE )
+#if ( MSSP_I2C_INT_ENABLE==FEATURE_ENABLE)||(MSSP_I2C_BUS_COL_INT_ENABLE ==FEATURE_ENABLE )
 
         I2C_Interrupt_configuration(i2c_obj);
 #endif
@@ -102,10 +101,10 @@ Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj)
     {
         /*disable the i2c*/
         MSSP_MODULE_DISABLE_CFG();
-#if MSSP_I2C_Interrupt_FEATURE_ENABLE ==Interrupt_FEATURE_ENABLE
+#if  MSSP_I2C_INT_ENABLE==FEATURE_ENABLE
        INT_MSSP_I2C_DISABLE();
 #endif
-#if MSSP_I2C_BUS_COL_Interrupt_FEATURE_ENABLE ==Interrupt_FEATURE_ENABLE 
+#if MSSP_I2C_BUS_COL_INT_ENABLE ==FEATURE_ENABLE
        INT_MSSP_I2C_BUS_COL_DISABLE();  
 #endif
          
@@ -211,7 +210,8 @@ Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 
         /* Report the acknowledge received from the slave */
         if(I2C_ACK_RECEIVED_FROM_SLAVE == SSPCON2bits.ACKSTAT)
         {
-            *_ack = I2C_ACK_RECEIVED_FROM_SLAVE; /* Acknowledge was received from slave */
+            //*_ack = I2C_ACK_RECEIVED_FROM_SLAVE; /* Acknowledge was received from slave */
+            (*_ack)++;
         }
         else
         {
@@ -287,7 +287,7 @@ Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 
 
 void I2C_ISR(void)
 {
-#if MSSP_I2C_Interrupt_FEATURE_ENABLE ==Interrupt_FEATURE_ENABLE
+#if MSSP_I2C_INT_ENABLE==FEATURE_ENABLE
 
     INT_MSSP_I2C_CLEAR_FLAG();
     if(I2C_DefaultInterruptHandler)
@@ -299,7 +299,7 @@ void I2C_ISR(void)
 }
 void I2C_BC_ISR(void)
 {
-#if MSSP_I2C_BUS_COL_Interrupt_FEATURE_ENABLE ==Interrupt_FEATURE_ENABLE
+#if MSSP_I2C_BUS_COL_INT_ENABLE ==FEATURE_ENABLE
     INT_MSSP_I2C_BUS_COL_CLEAR_FLAG(); 
     if(I2C_Report_Write_Collision)
     {
@@ -345,7 +345,7 @@ static void I2C_Pin_Configurations(void)
 }
 static void I2C_Interrupt_configuration(const mssp_i2c_st *i2c_obj)
 {
-#if MSSP_I2C_INT_ENABLE ==FEATURE_ENABLE
+#if MSSP_I2C_INT_ENABLE==FEATURE_ENABLE
        INT_MSSP_I2C_DISABLE();
 #if INT_PRI_LEVELS_ENABLE==FEATURE_ENABLE
         INT_PRI_FET_EN();

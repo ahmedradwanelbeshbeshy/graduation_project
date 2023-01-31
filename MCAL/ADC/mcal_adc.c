@@ -75,9 +75,9 @@ Std_ReturnType ADC_Init(const adc_config_st* _adc)
                  INT_GLOBAL_EN();
                  INT_PERIPHERAL_EN();
             #endif 
-            ADC_Interrupt_Handler=_adc->ADC_Interupt_handler;
             INT_ADC_ENABLE();
             INT_ADC_CLEAR_FLAG();
+            ADC_Interrupt_Handler=_adc->ADC_Interupt_handler;
             #endif               
         /* enable the ADC */
          ADC_CONVERTER_ENABLE();

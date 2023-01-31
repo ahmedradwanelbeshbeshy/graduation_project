@@ -13,9 +13,8 @@
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
-                <sourceRootElem>MCAL</sourceRootElem>
-                <sourceRootElem>ECU</sourceRootElem>
-                <sourceRootElem>Robot</sourceRootElem>
+                <sourceRootElem>../test</sourceRootElem>
+                <sourceRootElem>.</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

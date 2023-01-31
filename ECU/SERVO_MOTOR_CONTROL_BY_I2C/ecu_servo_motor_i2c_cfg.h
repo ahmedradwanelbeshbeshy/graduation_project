@@ -18,6 +18,7 @@
  * OSC_clock =25MHZ
  * update rate 50HZ
  * prescaler=121=0x79
+ * prescaler=122=0x7A
  * 
  **/
 #define ECU_SM_PRE_SCALE_REG_VAL           0x79

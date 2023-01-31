@@ -1,1 +1,13 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"8 ECU/ecu_layer_init.c
+[; ;ECU/ecu_layer_init.c: 8: void Ecu_Layer_Initialize(void)
+[v _Ecu_Layer_Initialize `(v ~T0 @X0 1 ef ]
+"9
+[; ;ECU/ecu_layer_init.c: 9: {
+{
+[e :U _Ecu_Layer_Initialize ]
+[f ]
+"12
+[; ;ECU/ecu_layer_init.c: 12: }
+[e :UE 1 ]
+}

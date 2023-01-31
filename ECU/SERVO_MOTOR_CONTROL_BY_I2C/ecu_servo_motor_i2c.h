@@ -230,9 +230,9 @@ typedef struct{
     uint8 mode_2_cfg;
 }servo_driver_st;
 /* ----------------- Software Interfaces Declarations -----------------*/
-Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
+Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,uint8*ack);
 Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
-Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
+Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle,uint8*ack);
 
 
 #endif	/* ECU_SERVO_MOTOR_I2C_H */
