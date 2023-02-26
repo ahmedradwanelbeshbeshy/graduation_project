@@ -16,7 +16,7 @@
 
 /*******************INCLUDE SECTION***************/
 #include "../../../MCAL/GPIO/hal_gpio.h"
-#include"DHT11_cfg.h"
+#include"DHT_CFG.h"
 /* Macro Defines */
 
 /* Macro Functions */

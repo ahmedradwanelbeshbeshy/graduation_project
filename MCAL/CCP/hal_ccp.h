@@ -12,7 +12,6 @@
 #include "../mcal_std_types.h"
 #include "../GPIO/hal_gpio.h"
 #include "../Interrupts/mcal_internal_interrupt.h"
-#include"../TIMER2/mcal_timer2.h"
 #include "ccp_cfg.h"
 
 /* ----------------- Macro Declarations -----------------*/
@@ -114,7 +113,8 @@ typedef struct{
     ccp_capture_timer_et ccp_capture_timer;
 #if (CCP1_CFG_SELECTED_MODE==CCP_CFG_PWM_MODE_SELECTED) || (CCP2_CFG_SELECTED_MODE==CCP_CFG_PWM_MODE_SELECTED)
     uint32 PWM_Frequency;      /* CCP PWM mode frequency */
-    timer2_st timer2;
+    uint8 timer2_postscaler_value : 4;
+    uint8 timer2_prescaler_value : 2;
 #endif
 #if CCP1_INT_ENABLE==FEATURE_ENABLE
     void (* CCP1_InterruptHandler)(void);   /* Call back used for all CCP1 Modes */

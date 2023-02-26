@@ -66,9 +66,6 @@
           <itemPath>MCAL/Timer0/hal_timer0.h</itemPath>
           <itemPath>MCAL/Timer0/hal_timer0_config.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="TIMER2" displayName="TIMER2" projectFiles="true">
-          <itemPath>MCAL/TIMER2/mcal_timer2.h</itemPath>
-        </logicalFolder>
         <logicalFolder name="WATCH_DOG_TIMER"
                        displayName="WATCH_DOG_TIMER"
                        projectFiles="true">
@@ -85,11 +82,10 @@
         </logicalFolder>
         <logicalFolder name="sensors" displayName="sensors" projectFiles="true">
           <logicalFolder name="DHT11" displayName="DHT11" projectFiles="true">
-            <itemPath>Robot/sensors/DHT11/DHT11.h</itemPath>
-            <itemPath>Robot/sensors/DHT11/DHT11_cfg.h</itemPath>
+            <itemPath>Robot/sensors/DHT11/DHT_CFG.h</itemPath>
+            <itemPath>Robot/sensors/DHT11/DHT.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="ULTRA_SONIC" displayName="ULTRA_SONIC" projectFiles="true">
-            <itemPath>Robot/sensors/ULTRA_SONIC/ultrasonic.h</itemPath>
+          <logicalFolder name="ultrasonic" displayName="ultrasonic" projectFiles="true">
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
@@ -151,9 +147,6 @@
         <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
           <itemPath>MCAL/Timer0/hal_timer0.c</itemPath>
         </logicalFolder>
-        <logicalFolder name="TIMER2" displayName="TIMER2" projectFiles="true">
-          <itemPath>MCAL/TIMER2/mcal_timer2.c</itemPath>
-        </logicalFolder>
         <logicalFolder name="WATCH_DOG_TIMER"
                        displayName="WATCH_DOG_TIMER"
                        projectFiles="true">
@@ -167,10 +160,9 @@
         </logicalFolder>
         <logicalFolder name="sensors" displayName="sensors" projectFiles="true">
           <logicalFolder name="DHT11" displayName="DHT11" projectFiles="true">
-            <itemPath>Robot/sensors/DHT11/DHT11.c</itemPath>
+            <itemPath>Robot/sensors/DHT11/DHT.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="ULTRA_SONIC" displayName="ULTRA_SONIC" projectFiles="true">
-            <itemPath>Robot/sensors/ULTRA_SONIC/ultarsonic.c</itemPath>
+          <logicalFolder name="ultrasonic" displayName="ultrasonic" projectFiles="true">
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
@@ -180,12 +172,13 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>application.c</itemPath>
     <itemPath>application.h</itemPath>
+    <itemPath>application.c</itemPath>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../test</Elem>
-    <Elem>.</Elem>
+    <Elem>MCAL</Elem>
+    <Elem>ECU</Elem>
+    <Elem>Robot</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -197,7 +190,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.36</languageToolchainVersion>
+        <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>

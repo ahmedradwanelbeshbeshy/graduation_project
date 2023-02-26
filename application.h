@@ -11,7 +11,7 @@
 /*include section*/
 #include"MCAL/std_libraries.h"
 #include"MCAL/GPIO/hal_gpio.h"
-//#include"MCAL/Interrupts/mcal_external_interrupt.h"
+#include"MCAL/Interrupts/mcal_external_interrupt.h"
 
 /*macros declarations section*/
 

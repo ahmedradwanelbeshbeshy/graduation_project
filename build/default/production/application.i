@@ -7,31 +7,27 @@
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "application.c" 2
-
-
-
-
-
+# 10 "application.c"
 # 1 "./application.h" 1
 # 12 "./application.h"
 # 1 "./MCAL/std_libraries.h" 1
 # 11 "./MCAL/std_libraries.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
 
 
 
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 2 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\features.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
 
 
 
@@ -43,20 +39,20 @@ typedef void * va_list[1];
 
 
 typedef void * __isoc_va_list[1];
-# 122 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 122 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned size_t;
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long ssize_t;
-# 168 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 168 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 int24_t;
-# 204 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 204 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __uint24 uint24_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
 typedef union _G_fpos64_t {
  char __opaque[16];
  double __align;
@@ -109,34 +105,28 @@ char *gets(char *);
 int fputs(const char *restrict, FILE *restrict);
 int puts(const char *);
 
-__attribute__((__format__(__printf__, 1, 2)))
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
 int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
 int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
 int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
 int snprintf(char *restrict, size_t, const char *restrict, ...);
 
-__attribute__((__format__(__printf__, 1, 0)))
 int vprintf(const char *restrict, __isoc_va_list);
 int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
 int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
 int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
 
-__attribute__((__format__(__scanf__, 1, 2)))
 int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
 int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
 int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
 int vscanf(const char *restrict, __isoc_va_list);
 int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
 int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
 
 void perror(const char *);
@@ -181,12 +171,12 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 11 "./MCAL/std_libraries.h" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 1 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 18 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 int atoi (const char *);
@@ -208,23 +198,12 @@ unsigned long long strtoull (const char *restrict, char **restrict, int);
 int rand (void);
 void srand (unsigned);
 
-void *malloc (size_t);
-void *calloc (size_t, size_t);
-void *realloc (void *, size_t);
-void free (void *);
-
           void abort (void);
 int atexit (void (*) (void));
           void exit (int);
           void _Exit (int);
 
 void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
-
-
-
-
-
-
 
 __attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
 
@@ -244,14 +223,20 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
+
+
+
+
+
+size_t __ctype_get_mb_cur_max(void);
 # 12 "./MCAL/std_libraries.h" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 2 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 2 3
 
 
 void *memcpy (void *restrict, const void *restrict, size_t);
@@ -284,7 +269,7 @@ char *strtok (char *restrict, const char *restrict);
 size_t strlen (const char *);
 
 char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
 char *strtok_r (char *restrict, const char *restrict, char **restrict);
 int strerror_r (int, char *, size_t);
 char *stpcpy(char *restrict, const char *restrict);
@@ -4516,14 +4501,16 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 # 14 "./MCAL/std_libraries.h" 2
-# 12 "./application.h" 2
 
-# 1 "./MCAL/GPIO/hal_gpio.h" 1
-# 13 "./MCAL/GPIO/hal_gpio.h"
-# 1 "./MCAL/GPIO/../device_config.h" 1
-# 11 "./MCAL/GPIO/../device_config.h"
-# 1 "./MCAL/compiler.h" 1
-# 12 "./MCAL/compiler.h"
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
+
+
+
+
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
+
+
+
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4532,8 +4519,8 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\xc8debug.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\xc8debug.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 3
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 24 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
@@ -4541,21 +4528,21 @@ extern void __builtin_software_breakpoint(void);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 1 3
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 127 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uintptr_t;
-# 142 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 142 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long intptr_t;
-# 158 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 158 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef signed char int8_t;
 
 
 
 
 typedef short int16_t;
-# 173 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 173 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int32_t;
 
 
@@ -4563,7 +4550,7 @@ typedef long int32_t;
 
 
 typedef long long int64_t;
-# 188 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 188 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long intmax_t;
 
 
@@ -4576,7 +4563,7 @@ typedef unsigned char uint8_t;
 
 
 typedef unsigned short uint16_t;
-# 209 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 209 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uint32_t;
 
 
@@ -4584,9 +4571,9 @@ typedef unsigned long uint32_t;
 
 
 typedef unsigned long long uint64_t;
-# 229 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 229 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long long uintmax_t;
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 2 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
 
 
 typedef int8_t int_fast8_t;
@@ -4619,13 +4606,13 @@ typedef uint24_t uint_fast24_t;
 typedef uint32_t uint_least32_t;
 
 typedef uint64_t uint_least64_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/stdint.h" 1 3
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/stdint.h" 1 3
 typedef int16_t int_fast16_t;
 typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 2 3
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
 # 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\builtins.h" 2 3
 
 
@@ -4650,15 +4637,7 @@ extern __attribute__((nonreentrant)) void _delay3(uint8_t);
 
 
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
+# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -4684,8 +4663,14 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 12 "./MCAL/compiler.h" 2
+# 15 "./MCAL/std_libraries.h" 2
+# 12 "./application.h" 2
+
+# 1 "./MCAL/GPIO/hal_gpio.h" 1
+# 13 "./MCAL/GPIO/hal_gpio.h"
+# 1 "./MCAL/GPIO/../device_config.h" 1
+# 11 "./MCAL/GPIO/../device_config.h"
+# 1 "./MCAL/compiler.h" 1
 # 11 "./MCAL/GPIO/../device_config.h" 2
 # 13 "./MCAL/GPIO/hal_gpio.h" 2
 
@@ -4769,7 +4754,70 @@ Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
 Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 13 "./application.h" 2
-# 22 "./application.h"
+
+# 1 "./MCAL/Interrupts/mcal_external_interrupt.h" 1
+# 13 "./MCAL/Interrupts/mcal_external_interrupt.h"
+# 1 "./MCAL/Interrupts/./mcal_interrupt_config.h" 1
+# 15 "./MCAL/Interrupts/./mcal_interrupt_config.h"
+# 1 "./MCAL/Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "./MCAL/Interrupts/./mcal_interrupt_config.h" 2
+# 71 "./MCAL/Interrupts/./mcal_interrupt_config.h"
+typedef void ( *InterruptHandler) (void);
+
+
+typedef enum {
+    INT_LOW_PRI = 0,
+    INT_HIGH_PRI
+
+} interrupt_pri_et;
+# 13 "./MCAL/Interrupts/mcal_external_interrupt.h" 2
+# 119 "./MCAL/Interrupts/mcal_external_interrupt.h"
+typedef enum {
+    INTERRUPT_INT0,
+    INTERRUPT_INT1,
+    INTERRUPT_INT2
+}interrupt_INTx_src_et;
+
+
+typedef enum {
+    INT_FALLING_EDGE,
+    INT_RISING_EDGE
+
+}interrupt_INTx_edge_et;
+
+
+
+typedef struct {
+    void (* Ext_Interrupt_Handler ) (void);
+    interrupt_INTx_edge_et edge ;
+    interrupt_INTx_src_et src ;
+    interrupt_pri_et priority ;
+} Interrupt_INTx_st;
+
+typedef struct {
+        void (* Ext_Interrupt_Handler_High ) (void);
+        void (* Ext_Interrupt_Handler_Low ) (void);
+        interrupt_pri_et priority ;
+        pin_config_st pin ;
+} Interrupt_RBx_st;
+
+
+
+
+Std_ReturnType Interrupt_INTx_INIT(const Interrupt_INTx_st *int_obj);
+Std_ReturnType Interrupt_INTx_DeINIT(const Interrupt_INTx_st *int_obj);
+
+Std_ReturnType Interrupt_RBx_INIT(const Interrupt_RBx_st *int_obj);
+Std_ReturnType Interrupt_RBx_DeINIT(const Interrupt_RBx_st *int_obj);
+# 14 "./application.h" 2
+
+
+
+
+
+
+
+
 typedef struct {
     uint8_t flag_0 : 1 ;
     uint8_t flag_1 : 1 ;
@@ -4783,120 +4831,7 @@ typedef struct {
 
 
 void application_intialize(void);
-# 6 "application.c" 2
-
-# 1 "./MCAL/EUSART/mcal_EUSART.h" 1
-# 15 "./MCAL/EUSART/mcal_EUSART.h"
-# 1 "./MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h" 1
-# 13 "./MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h"
-# 1 "./MCAL/EUSART/../Interrupts/mcal_interrupt_config.h" 1
-# 15 "./MCAL/EUSART/../Interrupts/mcal_interrupt_config.h"
-# 1 "./MCAL/EUSART/../Interrupts/mcal_interrupt_gen_config.h" 1
-# 15 "./MCAL/EUSART/../Interrupts/mcal_interrupt_config.h" 2
-# 71 "./MCAL/EUSART/../Interrupts/mcal_interrupt_config.h"
-typedef void ( *InterruptHandler) (void);
-
-
-typedef enum {
-    INT_LOW_PRI = 0,
-    INT_HIGH_PRI
-
-} interrupt_pri_et;
-# 13 "./MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h" 2
-# 15 "./MCAL/EUSART/mcal_EUSART.h" 2
-
-
-
-# 1 "./MCAL/EUSART/mcal_EUSART_config.h" 1
-# 18 "./MCAL/EUSART/mcal_EUSART.h" 2
-# 97 "./MCAL/EUSART/mcal_EUSART.h"
-typedef enum {
-    BAUDRATE_ASYNC_8BIT_LOW_SPEED ,
-    BAUDRATE_ASYNC_8BIT_HIGH_SPEED ,
-    BAUDRATE_ASYNC_16BIT_LOW_SPEED ,
-    BAUDRATE_ASYNC_16BIT_HIGH_SPEED
-
-}uart_baud_rate_config_et;
-
-
-typedef struct {
-
-
-
-
-
-
-    uint8_t uart_tx_9th_bit_role : 2 ;
-
-    uint8_t tx_enable : 1 ;
-    uint8_t tx_9th_bit_en : 1 ;
-    uint8_t tx_reserved : 4;
-
-}uart_tx_config_st;
-
-
-typedef struct {
-
-
-    InterruptHandler rx_InterruptHandler ;
-
-    InterruptHandler oerr_InterruptHandler ;
-    InterruptHandler ferr_InterruptHandler ;
-
-    uint8_t uart_rx_priority : 1 ;
-
-
-
-    uint8_t uart_rx_9th_bit_role : 2 ;
-
-    uint8_t rx_enable : 1 ;
-    uint8_t rx_9th_bit_en : 1 ;
-    uint8_t rx_reserved : 4 ;
-}uart_rx_config_st;
-# 155 "./MCAL/EUSART/mcal_EUSART.h"
-typedef struct {
-
-    uint16_t uart_baud_rate_value ;
-    uart_tx_config_st tx_config ;
-    uart_rx_config_st rx_config ;
-    uart_baud_rate_config_et baud_rate_config ;
-
-
-}uart_config_st;
-# 188 "./MCAL/EUSART/mcal_EUSART.h"
-Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj);
-# 198 "./MCAL/EUSART/mcal_EUSART.h"
-Std_ReturnType EUSART_Async_Deinit(const uart_config_st *_eusart_obj);
-# 209 "./MCAL/EUSART/mcal_EUSART.h"
-Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_st *_eusart_obj , uint16_t data);
-# 222 "./MCAL/EUSART/mcal_EUSART.h"
-Std_ReturnType EUSART_Async_Check_For_Errors(void);
-# 235 "./MCAL/EUSART/mcal_EUSART.h"
-Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16_t *data);
-
-
-Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t *data);
-
-Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t data);
-
-Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len);
-# 7 "application.c" 2
-
-# 1 "./ECU/Bluetooth/Bluetooth.h" 1
-# 15 "./ECU/Bluetooth/Bluetooth.h"
-# 1 "./ECU/Bluetooth/Bluetooth_cfg.h" 1
-# 15 "./ECU/Bluetooth/Bluetooth.h" 2
-# 27 "./ECU/Bluetooth/Bluetooth.h"
-Std_ReturnType Bluetooth_Init(uart_config_st *_uart_obj);
-
-Std_ReturnType Bluetooth_Send_Data_Blocking(const uart_config_st *_uart_obj , uint8_t data);
-Std_ReturnType Bluetooth_Recieve_Data_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
-
-Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t data );
-Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
-
-Std_ReturnType Bluetooth_Send_String_Blocking(const uart_config_st *_uart_obj , uint8_t *data , uint8_t length );
-# 8 "application.c" 2
+# 10 "application.c" 2
 
 # 1 "./ECU/LCD_for_test_gps/ecu_char_lcd.h" 1
 # 13 "./ECU/LCD_for_test_gps/ecu_char_lcd.h"
@@ -4947,267 +4882,15 @@ Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
 Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
 Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
 Std_ReturnType convert_float32_to_string(float32 value,uint8*str);
-# 9 "application.c" 2
-
-# 1 "./MCAL/CCP/hal_ccp.h" 1
-# 15 "./MCAL/CCP/hal_ccp.h"
-# 1 "./MCAL/CCP/../TIMER2/mcal_timer2.h" 1
-# 33 "./MCAL/CCP/../TIMER2/mcal_timer2.h"
-typedef enum{
-    TIMER2_PRESCALER_DIV_BY_1=0,
-    TIMER2_PRESCALER_DIV_BY_4,
-    TIMER2_PRESCALER_DIV_BY_16
-}timer2_prescaler_select_et;
-
-typedef enum{
-    TIMER2_postscaler_DIV_BY_1=0,
-    TIMER2_postscaler_DIV_BY_2,
-    TIMER2_postscaler_DIV_BY_3,
-    TIMER2_postscaler_DIV_BY_4,
-    TIMER2_postscaler_DIV_BY_5,
-    TIMER2_postscaler_DIV_BY_6,
-    TIMER2_postscaler_DIV_BY_7,
-    TIMER2_postscaler_DIV_BY_8,
-    TIMER2_postscaler_DIV_BY_9,
-    TIMER2_postscaler_DIV_BY_10,
-    TIMER2_postscaler_DIV_BY_11,
-    TIMER2_postscaler_DIV_BY_12,
-    TIMER2_postscaler_DIV_BY_13,
-    TIMER2_postscaler_DIV_BY_14,
-    TIMER2_postscaler_DIV_BY_15,
-    TIMER2_postscaler_DIV_BY_16
-}timer2_postscaler_select_et;
-
-typedef struct{
-    uint8 timer2_preload_value;
-
-
-
-
-
-
-    timer2_prescaler_select_et timer2_prescaler_value;
-    timer2_postscaler_select_et timer2_postscaler_value;
-}timer2_st;
-
-Std_ReturnType Timer2_Init(const timer2_st* _timer2);
-Std_ReturnType Timer2_DeInit(const timer2_st* _timer2);
-Std_ReturnType Timer2_Write_Value(const timer2_st* _timer2,uint8 value);
-Std_ReturnType Timer2_Read_Value(const timer2_st* _timer2,uint8 *value);
-# 15 "./MCAL/CCP/hal_ccp.h" 2
-
-# 1 "./MCAL/CCP/ccp_cfg.h" 1
-# 16 "./MCAL/CCP/hal_ccp.h" 2
-# 74 "./MCAL/CCP/hal_ccp.h"
-typedef enum{
-    CCP_CAPTURE_MODE_SELECTED = 0,
-    CCP_COMPARE_MODE_SELECTED,
-    CCP_PWM_MODE_SELECTED
-}ccp_mode_et;
-
-
-
-
-
-typedef union{
-    struct{
-        uint8 ccpr_low;
-        uint8 ccpr_high;
-    };
-    struct{
-        uint16 ccpr_16Bit;
-    };
-}cpp_reg_ut;
-
-typedef enum{
-    CCP1_INST = 0,
-    CCP2_INST
-}ccp_inst_et;
-
-typedef enum{
-    CCP1_CCP2_TIMER3 = 0,
-    CCP1_TIMER1_CCP2_TIMER3,
-    CCP1_CCP2_TIMER1
-}ccp_capture_timer_et;
-
-
-
-
-
-typedef struct{
-    ccp_inst_et ccp_inst;
-    ccp_mode_et ccp_mode;
-    uint8 ccp_mode_variant;
-    pin_config_st ccp_pin;
-    ccp_capture_timer_et ccp_capture_timer;
-
-    uint32 PWM_Frequency;
-    timer2_st timer2;
-# 127 "./MCAL/CCP/hal_ccp.h"
-}ccp_st;
-
-
-Std_ReturnType CCP_Init(const ccp_st *_ccp_obj);
-Std_ReturnType CCP_DeInit(const ccp_st *_ccp_obj);
-# 144 "./MCAL/CCP/hal_ccp.h"
-Std_ReturnType CCP_PWM_Set_Duty(const ccp_st *_ccp_obj, const uint8 _duty);
-Std_ReturnType CCP_PWM_Start(const ccp_st *_ccp_obj);
-Std_ReturnType CCP_PWM_Stop(const ccp_st *_ccp_obj);
-# 10 "application.c" 2
-
-# 1 "./MCAL/I2C/mcal_i2c.h" 1
-# 16 "./MCAL/I2C/mcal_i2c.h"
-# 1 "./MCAL/I2C/mcal_i2c_cfg.h" 1
-# 16 "./MCAL/I2C/mcal_i2c.h" 2
-# 103 "./MCAL/I2C/mcal_i2c.h"
-typedef struct{
- uint8 i2c_mode_cfg;
-    uint8 i2c_slave_address;
- uint8 i2c_mode : 1;
- uint8 i2c_slew_rate : 1;
- uint8 i2c_SMBus_control : 1;
- uint8 i2c_general_call : 1;
- uint8 i2c_master_rec_mode : 1;
- uint8 i2c_reserved : 3;
-
-
-    interrupt_pri_et mssp_i2c_priority;
-    interrupt_pri_et mssp_i2c_bc_priority;
-
-
-}i2c_configs_st;
-
-typedef struct{
- uint32 i2c_clock;
-    i2c_configs_st i2c_cfg;
-
-    void (*I2C_Report_Write_Collision)(void);
-    void (*I2C_DefaultInterruptHandler)(void);
-
-
-
-
-    void (*I2C_Report_Receive_Overflow)(void);
-
-
-}mssp_i2c_st;
-
-Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
-Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
-
-Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
-Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
-Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
-
-Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
-
-Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
 # 11 "application.c" 2
 
-# 1 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 1
-# 13 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
-# 1 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h" 1
-# 13 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 2
-# 207 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
-typedef enum{
-    servo_index_1=0,
-    servo_index_2,
-    servo_index_3,
-    servo_index_4,
-    servo_index_5,
-    servo_index_6,
-    servo_index_7,
-    servo_index_8,
-    servo_index_9,
-    servo_index_10,
-    servo_index_11,
-    servo_index_12,
-    servo_index_13,
-    servo_index_14,
-    servo_index_15,
-    servo_index_16,
-}servo_index_et;
-
-typedef struct{
-    uint8 slave_address;
-    uint8 frequancy;
-    uint8 mode_1_cfg;
-    uint8 mode_2_cfg;
-}servo_driver_st;
-
-Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,uint8*ack);
-Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
-Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle,uint8*ack);
-# 12 "application.c" 2
-
-# 1 "./Robot/sensors/DHT11/DHT11.h" 1
-# 19 "./Robot/sensors/DHT11/DHT11.h"
-# 1 "./Robot/sensors/DHT11/DHT11_cfg.h" 1
-# 19 "./Robot/sensors/DHT11/DHT11.h" 2
-# 29 "./Robot/sensors/DHT11/DHT11.h"
+# 1 "./Robot/sensors/DHT11/DHT.h" 1
+# 19 "./Robot/sensors/DHT11/DHT.h"
+# 1 "./Robot/sensors/DHT11/DHT_CFG.h" 1
+# 19 "./Robot/sensors/DHT11/DHT.h" 2
+# 29 "./Robot/sensors/DHT11/DHT.h"
 Std_ReturnType Get_Temp_HUM(uint8* RH_Decimal,uint8* RH_Integral,uint8* T_Decimal,uint8* T_Integral,uint8* Checksum);
-# 13 "application.c" 2
-
-# 1 "./Robot/sensors/ULTRA_SONIC/ultrasonic.h" 1
-# 18 "./Robot/sensors/ULTRA_SONIC/ultrasonic.h"
-# 1 "./Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0.h" 1
-# 12 "./Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0.h"
-# 1 "./Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0_config.h" 1
-# 12 "./Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0.h" 2
-# 63 "./Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0.h"
-typedef enum {
-    TMR0_PRESCALER_BY_2 = 0,
-    TMR0_PRESCALER_BY_4,
-    TMR0_PRESCALER_BY_8,
-    TMR0_PRESCALER_BY_16,
-    TMR0_PRESCALER_BY_32,
-    TMR0_PRESCALER_BY_64,
-    TMR0_PRESCALER_BY_128,
-    TMR0_PRESCALER_BY_256
-}tmr0_prescalar_et;
-
-typedef struct {
-
-    tmr0_prescalar_et prescalar_value ;
-    uint16_t preloaded_value ;
-# 86 "./Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0.h"
-    uint8_t timer_mode : 1 ;
-    uint8_t reg_bit_size : 1 ;
-    uint8_t prescaler_enable : 1 ;
-    uint8_t edge : 1 ;
-    uint8_t timer0_reserved : 3 ;
-}timer0_config_st;
-# 103 "./Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0.h"
-Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
-# 112 "./Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0.h"
-Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
-
-
-Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t *result);
-
-Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t val);
-# 18 "./Robot/sensors/ULTRA_SONIC/ultrasonic.h" 2
-
-
-
-
-
-
-typedef struct{
-    pin_config_st trig_pin;
-    pin_config_st echo_pin;
-}ultrasonic_config_st;
-
-Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config);
-Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance);
-# 14 "application.c" 2
-
-
-
+# 12 "application.c" 2
 
 
 char_lcd_4bit_t lcd1=
@@ -5244,73 +4927,29 @@ char_lcd_4bit_t lcd1=
 
 };
 
-
-
 pin_config_st pinc0={
    .direction=GPIO_DIRECTION_OUTPUT,
    .logic=GPIO_HIGH,
    .pin=GPIO_PIN0,
    .port=PORTC_INDEX
 };
-pin_config_st pinc1={
-   .direction=GPIO_DIRECTION_OUTPUT,
-   .logic=GPIO_HIGH,
-   .pin=GPIO_PIN1,
-   .port=PORTC_INDEX
-};
 
-
-
-uint8 RH_Decimal,RH_Integral,T_Decimal,T_Integral,Checksum;
-
-
-
-
-float32 distance;
-uint8 dis[9]={};
-
- ultrasonic_config_st ultrasonic={
-     .trig_pin.direction=GPIO_DIRECTION_OUTPUT,
-     .trig_pin.logic=GPIO_LOW,
-     .trig_pin.pin=GPIO_PIN1,
-     .trig_pin.port=PORTB_INDEX,
-
-     .echo_pin.direction=GPIO_DIRECTION_INPUT,
-     .echo_pin.logic=GPIO_LOW,
-     .echo_pin.pin=GPIO_PIN0,
-     .echo_pin.port=PORTB_INDEX
- };
- timer0_config_st timer0={
-   .preloaded_value=0,
-   .prescaler_enable=0x00U,
-   .prescalar_value=TMR0_PRESCALER_BY_2,
-   .reg_bit_size=0x00U,
-   .timer_mode=0x00U
- };
+ uint8 RH_Decimal,RH_Integral,T_Decimal,T_Integral,Checksum;
 
 int main()
 {
 
-
     application_intialize();
-
     lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
     lcd_4bit_send_string_data_pos(&lcd1,2,1,"              ");
     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
     GPIO_Pin_Write_Logic(&pinc0,GPIO_HIGH);
     _delay((unsigned long)((1000)*(8000000/4000.0)));
-    GPIO_Pin_Write_Logic(&pinc0,GPIO_HIGH);
-    _delay((unsigned long)((500)*(8000000/4000.0)));
-
    while(1)
     {
-
-
-
-
-       _delay((unsigned long)((500)*(8000000/4000.0)));
-
-       Get_Temp_HUM(&RH_Decimal,&RH_Integral,&T_Decimal,&T_Integral,&Checksum);
+        GPIO_Pin_Toggle_Logic(&pinc0);
+        _delay((unsigned long)((500)*(8000000/4000.0)));
+        Get_Temp_HUM(& RH_Decimal,& RH_Integral,& T_Decimal,& T_Integral,& Checksum);
 
        lcd_4bit_send_string_data_pos(&lcd1,1,1,"hume:");
        lcd_4bit_send_char_data_pos(&lcd1,1,6,48+RH_Decimal/10);
@@ -5318,13 +4957,11 @@ int main()
        lcd_4bit_send_string_data_pos(&lcd1,1,8,".");
        lcd_4bit_send_char_data_pos(&lcd1,1,9,48+RH_Integral/10);
 
-
        lcd_4bit_send_string_data_pos(&lcd1,2,1,"temp:");
        lcd_4bit_send_char_data_pos(&lcd1,2,6,48+T_Decimal/10);
        lcd_4bit_send_char_data_pos(&lcd1,2,7,48+T_Decimal%10);
        lcd_4bit_send_string_data_pos(&lcd1,2,8,".");
        lcd_4bit_send_char_data_pos(&lcd1,2,9,48+T_Integral/10);
-
        if (Checksum==((RH_Decimal+RH_Integral+T_Decimal+T_Integral)&0xff))
        {
            lcd_4bit_send_string_data_pos(&lcd1,2,13,"1");
@@ -5333,14 +4970,6 @@ int main()
        {
            lcd_4bit_send_string_data_pos(&lcd1,2,13,"0");
        }
-       _delay((unsigned long)((1000)*(8000000/4000.0)));
-       Get_Distance(&ultrasonic,&timer0,&distance);
-
-       convert_float32_to_string(distance,dis);
-       lcd_4bit_send_string_data_pos(&lcd1,2,1,"             ");
-       lcd_4bit_send_string_data_pos(&lcd1,2,1,dis);
-       _delay((unsigned long)((2000)*(8000000/4000.0)));
-       lcd_4bit_send_string_data_pos(&lcd1,2,1,"              ");
 
 
    }
@@ -5349,7 +4978,5 @@ int main()
 void application_intialize(void)
 {
     GPIO_Pin_Initialize(&pinc0);
-    GPIO_Pin_Initialize(&pinc1);
     lcd_4bit_initialize(&lcd1);
-    Ultra_Sonic_Init(&ultrasonic,&timer0);
 }

@@ -4,7 +4,7 @@
  *
  * Created on January 21, 2023, 6:09 PM
  */
-#include "DHT11.h"
+#include "DHT.h"
 
  static void DHT11_Start(void);  			/* send start pulse to DHT11 module */
  static void DHT11_Check_Response(void);  	/* wait for response from DHT11 module */
@@ -66,3 +66,4 @@ static void DHT11_Read_Data(uint8* data)
     }
  
 }
+

@@ -7,24 +7,10 @@ MCAL/GPIO/../device_config.h  \
 MCAL/compiler.h  \
 MCAL/GPIO/../mcal_std_types.h  \
 MCAL/GPIO/hal_gpio_cfg.h  \
-MCAL/EUSART/mcal_EUSART.h  \
-MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h  \
-MCAL/EUSART/../Interrupts/mcal_interrupt_config.h  \
-MCAL/EUSART/../Interrupts/mcal_interrupt_gen_config.h  \
-MCAL/EUSART/mcal_EUSART_config.h  \
-ECU/Bluetooth/Bluetooth.h  \
-ECU/Bluetooth/Bluetooth_cfg.h  \
+MCAL/Interrupts/mcal_external_interrupt.h  \
+MCAL/Interrupts/./mcal_interrupt_config.h  \
+MCAL/Interrupts/mcal_interrupt_gen_config.h  \
 ECU/LCD_for_test_gps/ecu_char_lcd.h  \
 ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h  \
-MCAL/CCP/hal_ccp.h  \
-MCAL/CCP/../TIMER2/mcal_timer2.h  \
-MCAL/CCP/ccp_cfg.h  \
-MCAL/I2C/mcal_i2c.h  \
-MCAL/I2C/mcal_i2c_cfg.h  \
-ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h  \
-ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h  \
-Robot/sensors/DHT11/DHT11.h  \
-Robot/sensors/DHT11/DHT11_cfg.h  \
-Robot/sensors/ULTRA_SONIC/ultrasonic.h  \
-Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0.h  \
-Robot/sensors/ULTRA_SONIC/../../../MCAL/Timer0/hal_timer0_config.h 
+Robot/sensors/DHT11/DHT.h  \
+Robot/sensors/DHT11/DHT_CFG.h 

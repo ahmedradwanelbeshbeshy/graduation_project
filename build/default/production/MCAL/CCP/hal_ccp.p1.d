@@ -10,5 +10,4 @@ MCAL/CCP/../GPIO/hal_gpio_cfg.h  \
 MCAL/CCP/../Interrupts/mcal_internal_interrupt.h  \
 MCAL/CCP/../Interrupts/mcal_interrupt_config.h  \
 MCAL/CCP/../Interrupts/mcal_interrupt_gen_config.h  \
-MCAL/CCP/../TIMER2/mcal_timer2.h  \
 MCAL/CCP/ccp_cfg.h 

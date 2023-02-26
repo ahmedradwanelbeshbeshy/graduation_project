@@ -15,7 +15,7 @@
 
 # 1 "ECU/ecu_layer_init.h" 1
 # 21 "ECU/ecu_layer_init.h"
-void Ecu_Layer_Initialize(void);
+void application_intialize(void);
 # 7 "ECU/ecu_layer_init.c" 2
 
 void Ecu_Layer_Initialize(void)

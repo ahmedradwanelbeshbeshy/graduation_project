@@ -18,6 +18,6 @@
 
 /*function declarations section*/
 
-void Ecu_Layer_Initialize(void);
+void application_intialize(void);
 #endif	/* ECU_LAYER_INIT_H */
 
