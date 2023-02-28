@@ -32,7 +32,6 @@ W5----------W6
 /******************************************** Includes ********************************************/
 
 #include "../../MCAL/CCP/hal_ccp.h"
-#include "../../MCAL/Timer0/hal_timer0.h"
 #include "../../MCAL/I2C/mcal_i2c.h"
 #include "../../ECU/DC_Motor/ecu_dc_motor.h"
 #include "../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
@@ -57,8 +56,7 @@ W5----------W6
 #define NAV_SERVO_STEER_BACKW_DIRECTION      -1
 
 /* Starting Wheels Speed */
-#define NAV_SPEED_W2_W4_W6_DEFAULT      100
-#define NAV_SPEED_W1_W3_W5_DEFAULT      100
+
 
 
 /* Servo Steer Right Angle */
@@ -78,24 +76,19 @@ W5----------W6
 #define NAV_SERVO_STEER_LEFT_W6_ANGLE   -35
 
 
+/* Starting Wheels Speed */
+#define NAV_SPEED_W2_W4_W6_DEFAULT      95
+#define NAV_SPEED_W1_W3_W5_DEFAULT      95
 
 /* Servo Steer Right Speed */
 
-#define NAV_DC_MOTOR_STEER_RIGHT_W1_SPEED 100
-#define NAV_DC_MOTOR_STEER_RIGHT_W2_SPEED 70
-#define NAV_DC_MOTOR_STEER_RIGHT_W3_SPEED 100 
-#define NAV_DC_MOTOR_STEER_RIGHT_W4_SPEED 70 
-#define NAV_DC_MOTOR_STEER_RIGHT_W5_SPEED 100
-#define NAV_DC_MOTOR_STEER_RIGHT_W6_SPEED 70
+#define NAV_DC_MOTOR_STEER_RIGHT_W1_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_RIGHT_W2_row_SPEED 85
 
 /* Servo Steer Left Speed */
 
-#define NAV_DC_MOTOR_STEER_LEFT_W1_SPEED 70
-#define NAV_DC_MOTOR_STEER_LEFT_W2_SPEED 100
-#define NAV_DC_MOTOR_STEER_LEFT_W3_SPEED 70 
-#define NAV_DC_MOTOR_STEER_LEFT_W4_SPEED 100
-#define NAV_DC_MOTOR_STEER_LEFT_W5_SPEED 70
-#define NAV_DC_MOTOR_STEER_LEFT_W6_SPEED 100
+#define NAV_DC_MOTOR_STEER_LEFT_W1_row_SPEED 85
+#define NAV_DC_MOTOR_STEER_LEFT_W2_row_SPEED 95
 
 /******************************************** Macro Functions *************************************************************/
 
@@ -115,17 +108,21 @@ typedef enum {
 
 /******************************************** Software Interfaces (Prototypes) ********************************************/
 
-Std_ReturnType Robot_Nav_Init(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Move_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Right_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Left_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Move_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Right_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Left_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
+//Std_ReturnType Robot_Nav_Init(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
+//Std_ReturnType Robot_Move_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
+//Std_ReturnType Robot_Steer_Right_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
+//Std_ReturnType Robot_Steer_Left_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
+//Std_ReturnType Robot_Move_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
+//Std_ReturnType Robot_Steer_Right_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
+//Std_ReturnType Robot_Steer_Left_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
 
-
+Std_ReturnType Robot_Nav_Init(void);
+Std_ReturnType Robot_Steer_Stop(void);
+Std_ReturnType Robot_Move_Forward(void);
+Std_ReturnType Robot_Move_Backward(void);
+Std_ReturnType Robot_Steer_Right_Forward(void);
+Std_ReturnType Robot_Steer_Left_Forward(void);
 /******************************************** Function prototypes ********************************************/
-void Timer0_Handler();
 
 
 /******************************************** Global Shared Variables ********************************************/
@@ -135,7 +132,7 @@ Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
 
 /******************************************** Global Static Variables ********************************************/
 
-static dc_motor_st W1_W5_W2_W6_Motor_Control =
+static dc_motor_st W1_W3_W5_Motor_Control =
 {
     .dc_motor[0].port = PORTD_INDEX ,
     .dc_motor[0].pin = GPIO_PIN0 ,
@@ -147,7 +144,7 @@ static dc_motor_st W1_W5_W2_W6_Motor_Control =
     .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT  
 };
 
-static dc_motor_st W3_Motor_Control =
+static dc_motor_st W2_W4_W6_Motor_Control =
 {
     .dc_motor[0].port = PORTD_INDEX ,
     .dc_motor[0].pin = GPIO_PIN2 ,
@@ -159,54 +156,30 @@ static dc_motor_st W3_Motor_Control =
     .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT  
 };
 
-static dc_motor_st W4_Motor_Control =
-{
-    .dc_motor[0].port = PORTD_INDEX ,
-    .dc_motor[0].pin = GPIO_PIN4 ,
-    .dc_motor[0].logic = GPIO_LOW ,
-    .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT , 
-    .dc_motor[1].port = PORTD_INDEX ,
-    .dc_motor[1].pin = GPIO_PIN5 ,
-    .dc_motor[1].logic = GPIO_LOW ,
-    .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT  
-};
-
-
-static timer0_config_st Timer0 = 
-{
-    .timer_mode = TMR0_TIMER_MODE ,
-    .timer0_InterruptHandler = Timer0_Handler ,
-    .reg_bit_size = TMR0_16BIT ,
-    .prescaler_enable = TMR0_PRESCALER_ON ,
-    .preloaded_value = 34286 ,
-    .prescalar_value = TMR0_PRESCALER_BY_256 ,
-    .priority = INT_HIGH_PRI 
-    
-};
-
 /* CCP1 :  W1 , W3 , W5     (Left Side) */
-static ccp_st CCP1_Obj =
+ccp_st CCP1_Obj =
 {
     .ccp_inst = CCP1_INST ,
     .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 10000,
+    .PWM_Frequency = 500,
     .ccp_pin.port = PORTC_INDEX,
     .ccp_pin.pin = GPIO_PIN2,
     .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2_prescaler_value = CCP_TIMER2_PRESCALER_DIV_BY_1,   
+    .timer2.timer2_preload_value=249,/*((_XTAL_FREQ / ((_ccp_obj->PWM_Frequency )* 4.0 * _ccp_obj->timer2.timer2_prescaler_value) - 1))*/
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
 };
-
-/* CCP2 :  W2 , W4 , W6     (Right Side) */
-static ccp_st CCP2_Obj =
+ccp_st CCP2_Obj =
 {
     .ccp_inst = CCP2_INST ,
     .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 10000,
+    .PWM_Frequency = 500,
     .ccp_pin.port = PORTC_INDEX,
     .ccp_pin.pin = GPIO_PIN1,
     .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2_prescaler_value = CCP_TIMER2_PRESCALER_DIV_BY_1,   
-    .timer2_postscaler_value = CCP_TIMER2_POSTSCALER_DIV_BY_1
+    .timer2.timer2_preload_value=249,/*((_XTAL_FREQ / ((_ccp_obj->PWM_Frequency )* 4.0 * _ccp_obj->timer2.timer2_prescaler_value) - 1))*/
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
 };
 
 

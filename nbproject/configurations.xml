@@ -86,6 +86,7 @@
             <itemPath>Robot/sensors/DHT11/DHT.h</itemPath>
           </logicalFolder>
           <logicalFolder name="ultrasonic" displayName="ultrasonic" projectFiles="true">
+            <itemPath>Robot/sensors/ultrasonic/ultrasonic.h</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
@@ -163,6 +164,7 @@
             <itemPath>Robot/sensors/DHT11/DHT.c</itemPath>
           </logicalFolder>
           <logicalFolder name="ultrasonic" displayName="ultrasonic" projectFiles="true">
+            <itemPath>Robot/sensors/ultrasonic/ultrasonic.c</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>

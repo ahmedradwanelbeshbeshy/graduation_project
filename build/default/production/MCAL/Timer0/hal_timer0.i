@@ -4796,14 +4796,7 @@ typedef struct {
 
     tmr0_prescalar_et prescalar_value ;
     uint16_t preloaded_value ;
-
-
-        InterruptHandler timer0_InterruptHandler ;
-
-            uint8_t priority : 1 ;
-
-
-
+# 86 "MCAL/Timer0/hal_timer0.h"
     uint8_t timer_mode : 1 ;
     uint8_t reg_bit_size : 1 ;
     uint8_t prescaler_enable : 1 ;
@@ -4825,7 +4818,7 @@ Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
 
 
 
-    static InterruptHandler tmr0_InterruptHandler = ((void*)0) ;
+
 
 
 static uint16_t preloaded_val = 0 ;
@@ -4870,28 +4863,6 @@ Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config)
 
         ret_value = HAL_Timer0_Write_Val(_tmr0_config , _tmr0_config->preloaded_value);
         preloaded_val = _tmr0_config->preloaded_value ;
-
-
-
-
-            (INTCONbits.TMR0IE = 1 );
-            (INTCONbits.TMR0IF = 0);
-            tmr0_InterruptHandler = _tmr0_config->timer0_InterruptHandler ;
-
-
-                (RCONbits.IPEN = 1 );
-                switch(_tmr0_config->priority)
-                {
-                    case INT_HIGH_PRI:
-                        (INTCON2bits.TMR0IP = 1);
-                        (INTCONbits.GIEH = 1);
-                        break;
-                    case INT_LOW_PRI:
-                        (INTCON2bits.TMR0IP = 0);
-                        (INTCONbits.GIEH = 1);
-                        (INTCONbits.GIEL = 1);
-                        break;
-                }
 # 97 "MCAL/Timer0/hal_timer0.c"
         (T0CONbits.TMR0ON = 1 );
     }
@@ -4911,7 +4882,7 @@ Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config)
     {
 
 
-            (INTCONbits.TMR0IE = 0 );
+
 
 
         (T0CONbits.TMR0ON = 0 );
@@ -4963,26 +4934,9 @@ Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
     }
     else
     {
-
-        if( 0x00U == _tmr0_config->reg_bit_size)
-        {
-
-
-
-
-            TMR0H = (uint8_t) (( (val + 2) >> 8));
-            TMR0L = (uint8_t) ( (val + 2) & 0x00ff);
-        }
-        else if(0x01U == _tmr0_config->reg_bit_size)
-        {
-
-
-
-
-            TMR0L = (uint8_t) ((val + 2) & 0x00ff);
-        }
-        else { ret_value = (Std_ReturnType) 0x00 ; }
-
+       TMR0H=(val)>>8;
+       TMR0L=(uint8)(val);
+# 210 "MCAL/Timer0/hal_timer0.c"
     }
 
     return ret_value ;
@@ -4991,23 +4945,5 @@ Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
 
 void TMR0_ISR(void)
 {
-
-
-    (INTCONbits.TMR0IF = 0);
-
-
-
-
-
-
-
-    TMR0H = (uint8_t) (( (preloaded_val + 2) >> 8));
-    TMR0L = (uint8_t) ((preloaded_val + 2) & 0x00ff);
-
-    if(tmr0_InterruptHandler)
-    {
-        tmr0_InterruptHandler();
-    }
-
-
+# 237 "MCAL/Timer0/hal_timer0.c"
 }

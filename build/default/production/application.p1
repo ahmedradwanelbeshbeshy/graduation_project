@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"73 ./Robot/sensors/DHT11/../../../MCAL/GPIO/hal_gpio.h
+"73 ./Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
 [s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S273 . pin port direction logic ]
 "59 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
@@ -16,6 +16,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E2962 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [c E2958 0 1 .. ]
 [n E2958 . GPIO_LOW GPIO_HIGH  ]
+"24 ./Robot/sensors/ultrasonic/ultrasonic.h
+[; ;./Robot/sensors/ultrasonic/ultrasonic.h: 24: typedef struct{
+[s S280 `S273 1 `S273 1 ]
+[n S280 . trig_pin echo_pin ]
+"70 application.c
+[; ;application.c: 70:  timer0_config_st timer0={
+[c E3146 0 1 2 3 4 5 6 7 .. ]
+[n E3146 . TMR0_PRESCALER_BY_2 TMR0_PRESCALER_BY_4 TMR0_PRESCALER_BY_8 TMR0_PRESCALER_BY_16 TMR0_PRESCALER_BY_32 TMR0_PRESCALER_BY_64 TMR0_PRESCALER_BY_128 TMR0_PRESCALER_BY_256  ]
+"74 ./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h
+[; ;./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h: 74: typedef struct {
+[s S279 `E3146 1 `us 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S279 . prescalar_value preloaded_value timer_mode reg_bit_size prescaler_enable edge timer0_reserved ]
 [p mainexit ]
 "34 ./application.h
 [; ;./application.h: 34: void application_intialize(void);
@@ -23,21 +35,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "79 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
 [; ;./ECU/LCD_for_test_gps/ecu_char_lcd.h: 79: Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
 [v _lcd_4bit_send_string_data_pos `(uc ~T0 @X0 0 ef4`*CS277`uc`uc`*uc ]
-"86 ./Robot/sensors/DHT11/../../../MCAL/GPIO/hal_gpio.h
+"86 ./Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
 [v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS273`E2958 ]
 [v F2926 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
 [v __delay `JF2926 ~T0 @X0 0 e ]
 [p i __delay ]
-"89 ./Robot/sensors/DHT11/../../../MCAL/GPIO/hal_gpio.h
+"89 ./Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
 [v _GPIO_Pin_Toggle_Logic `(uc ~T0 @X0 0 ef1`*CS273 ]
-"29 ./Robot/sensors/DHT11/DHT.h
-[; ;./Robot/sensors/DHT11/DHT.h: 29: Std_ReturnType Get_Temp_HUM(uint8* RH_Decimal,uint8* RH_Integral,uint8* T_Decimal,uint8* T_Integral,uint8* Checksum);
-[v _Get_Temp_HUM `(uc ~T0 @X0 0 ef5`*uc`*uc`*uc`*uc`*uc ]
-"76 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
-[; ;./ECU/LCD_for_test_gps/ecu_char_lcd.h: 76: Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
-[v _lcd_4bit_send_char_data_pos `(uc ~T0 @X0 0 ef4`*CS277`uc`uc`uc ]
-"90 ./Robot/sensors/DHT11/../../../MCAL/GPIO/hal_gpio.h
+"90
 [v _GPIO_Pin_Initialize `(uc ~T0 @X0 0 ef1`*CS273 ]
 "72 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
 [; ;./ECU/LCD_for_test_gps/ecu_char_lcd.h: 72: Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
@@ -380,149 +386,126 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"55
-[; ;application.c: 55:  uint8 RH_Decimal,RH_Integral,T_Decimal,T_Integral,Checksum;
-[v _RH_Decimal `uc ~T0 @X0 1 e ]
-[v _RH_Integral `uc ~T0 @X0 1 e ]
-[v _T_Decimal `uc ~T0 @X0 1 e ]
-[v _T_Integral `uc ~T0 @X0 1 e ]
-[v _Checksum `uc ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"56
+[; ;application.c: 56: float32 distance;
+[v _distance `f ~T0 @X0 1 e ]
 "57
-[; ;application.c: 57: int main()
+[; ;application.c: 57: uint8 dis[10]={};
+[v _dis `uc ~T0 @X0 -> 10 `i e ]
+[i _dis
+:U ..
+..
+]
+"59
+[; ;application.c: 59:  ultrasonic_config_st ultrasonic={
+[v _ultrasonic `S280 ~T0 @X0 1 e ]
+[i _ultrasonic
+:U ..
+:U ..
+:U ..
+:U ..
+-> . `E2966 1 `uc
+-> . `E2976 1 `uc
+-> . `E2962 0 `uc
+-> . `E2958 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E2966 0 `uc
+-> . `E2976 1 `uc
+-> . `E2962 1 `uc
+-> . `E2958 0 `uc
+..
+..
+..
+..
+]
+"70
+[; ;application.c: 70:  timer0_config_st timer0={
+[v _timer0 `S279 ~T0 @X0 1 e ]
+[i _timer0
+:U ..
+:U ..
+. `E3146 0
+-> -> 0 `i `us
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+..
+..
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"79
+[; ;application.c: 79: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"58
-[; ;application.c: 58: {
+"80
+[; ;application.c: 80: {
 {
 [e :U _main ]
 [f ]
-"60
-[; ;application.c: 60:     application_intialize();
-[e ( _application_intialize ..  ]
-"61
-[; ;application.c: 61:     lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
-"62
-[; ;application.c: 62:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"              ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 1 `i `uc :s 2C ]
-"63
-[; ;application.c: 63:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 1 `i `uc :s 3C ]
-"64
-[; ;application.c: 64:     GPIO_Pin_Write_Logic(&pinc0,GPIO_HIGH);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U _pinc0 `*CS273 . `E2958 1 ]
-"65
-[; ;application.c: 65:     _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"66
-[; ;application.c: 66:    while(1)
-[e :U 281 ]
-"67
-[; ;application.c: 67:     {
-{
-"68
-[; ;application.c: 68:         GPIO_Pin_Toggle_Logic(&pinc0);
-[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pinc0 `*CS273 ]
-"69
-[; ;application.c: 69:         _delay((unsigned long)((500)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"70
-[; ;application.c: 70:         Get_Temp_HUM(& RH_Decimal,& RH_Integral,& T_Decimal,& T_Integral,& Checksum);
-[e ( _Get_Temp_HUM (4 , , , , &U _RH_Decimal &U _RH_Integral &U _T_Decimal &U _T_Integral &U _Checksum ]
-"72
-[; ;application.c: 72:        lcd_4bit_send_string_data_pos(&lcd1,1,1,"hume:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 1 `i `uc -> -> 1 `i `uc :s 4C ]
-"73
-[; ;application.c: 73:        lcd_4bit_send_char_data_pos(&lcd1,1,6,48+RH_Decimal/10);
-[e ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 1 `i `uc -> -> 6 `i `uc -> + -> 48 `i / -> _RH_Decimal `i -> 10 `i `uc ]
-"74
-[; ;application.c: 74:        lcd_4bit_send_char_data_pos(&lcd1,1,7,48+RH_Decimal%10);
-[e ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 1 `i `uc -> -> 7 `i `uc -> + -> 48 `i % -> _RH_Decimal `i -> 10 `i `uc ]
-"75
-[; ;application.c: 75:        lcd_4bit_send_string_data_pos(&lcd1,1,8,".");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 1 `i `uc -> -> 8 `i `uc :s 5C ]
-"76
-[; ;application.c: 76:        lcd_4bit_send_char_data_pos(&lcd1,1,9,48+RH_Integral/10);
-[e ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 1 `i `uc -> -> 9 `i `uc -> + -> 48 `i / -> _RH_Integral `i -> 10 `i `uc ]
-"78
-[; ;application.c: 78:        lcd_4bit_send_string_data_pos(&lcd1,2,1,"temp:");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 1 `i `uc :s 6C ]
-"79
-[; ;application.c: 79:        lcd_4bit_send_char_data_pos(&lcd1,2,6,48+T_Decimal/10);
-[e ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 6 `i `uc -> + -> 48 `i / -> _T_Decimal `i -> 10 `i `uc ]
-"80
-[; ;application.c: 80:        lcd_4bit_send_char_data_pos(&lcd1,2,7,48+T_Decimal%10);
-[e ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 7 `i `uc -> + -> 48 `i % -> _T_Decimal `i -> 10 `i `uc ]
-"81
-[; ;application.c: 81:        lcd_4bit_send_string_data_pos(&lcd1,2,8,".");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 8 `i `uc :s 7C ]
-"82
-[; ;application.c: 82:        lcd_4bit_send_char_data_pos(&lcd1,2,9,48+T_Integral/10);
-[e ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 9 `i `uc -> + -> 48 `i / -> _T_Integral `i -> 10 `i `uc ]
 "83
-[; ;application.c: 83:        if (Checksum==((RH_Decimal+RH_Integral+T_Decimal+T_Integral)&0xff))
-[e $ ! == -> _Checksum `i & + + + -> _RH_Decimal `i -> _RH_Integral `i -> _T_Decimal `i -> _T_Integral `i -> 255 `i 283  ]
+[; ;application.c: 83:     application_intialize();
+[e ( _application_intialize ..  ]
 "84
-[; ;application.c: 84:        {
-{
+[; ;application.c: 84:     lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
 "85
-[; ;application.c: 85:            lcd_4bit_send_string_data_pos(&lcd1,2,13,"1");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 13 `i `uc :s 8C ]
+[; ;application.c: 85:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"              ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 1 `i `uc :s 2C ]
 "86
-[; ;application.c: 86:        }
-}
-[e $U 284  ]
+[; ;application.c: 86:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 1 `i `uc :s 3C ]
 "87
-[; ;application.c: 87:        else
-[e :U 283 ]
+[; ;application.c: 87:     GPIO_Pin_Write_Logic(&pinc0,GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U _pinc0 `*CS273 . `E2958 1 ]
 "88
-[; ;application.c: 88:        {
-{
+[; ;application.c: 88:     _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "89
-[; ;application.c: 89:            lcd_4bit_send_string_data_pos(&lcd1,2,13,"0");
-[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS277 -> -> 2 `i `uc -> -> 13 `i `uc :s 9C ]
+[; ;application.c: 89:    while(1)
+[e :U 283 ]
 "90
-[; ;application.c: 90:        }
+[; ;application.c: 90:     {
+{
+"91
+[; ;application.c: 91:        GPIO_Pin_Toggle_Logic(&pinc0);
+[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pinc0 `*CS273 ]
+"92
+[; ;application.c: 92:            _delay((unsigned long)((500)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"100
+[; ;application.c: 100:    }
 }
-[e :U 284 ]
-"93
-[; ;application.c: 93:    }
-}
-[e :U 280 ]
-[e $U 281  ]
 [e :U 282 ]
-"94
-[; ;application.c: 94:    return 0;
+[e $U 283  ]
+[e :U 284 ]
+"101
+[; ;application.c: 101:    return 0;
 [e ) -> 0 `i ]
-[e $UE 279  ]
-"95
-[; ;application.c: 95: }
-[e :UE 279 ]
+[e $UE 281  ]
+"102
+[; ;application.c: 102: }
+[e :UE 281 ]
 }
-"96
-[; ;application.c: 96: void application_intialize(void)
+"103
+[; ;application.c: 103: void application_intialize(void)
 [v _application_intialize `(v ~T0 @X0 1 ef ]
-"97
-[; ;application.c: 97: {
+"104
+[; ;application.c: 104: {
 {
 [e :U _application_intialize ]
 [f ]
-"98
-[; ;application.c: 98:     GPIO_Pin_Initialize(&pinc0);
+"105
+[; ;application.c: 105:     GPIO_Pin_Initialize(&pinc0);
 [e ( _GPIO_Pin_Initialize (1 -> &U _pinc0 `*CS273 ]
-"99
-[; ;application.c: 99:     lcd_4bit_initialize(&lcd1);
+"106
+[; ;application.c: 106:     lcd_4bit_initialize(&lcd1);
 [e ( _lcd_4bit_initialize (1 -> &U _lcd1 `*CS277 ]
-"100
-[; ;application.c: 100: }
+"108
+[; ;application.c: 108: }
 [e :UE 285 ]
 }
-[a 6C 116 101 109 112 58 0 ]
-[a 4C 104 117 109 101 58 0 ]
-[a 8C 49 0 ]
-[a 9C 48 0 ]
-[a 5C 46 0 ]
-[a 7C 46 0 ]
 [a 3C 45 62 32 0 ]
 [a 1C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
 [a 2C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]

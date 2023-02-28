@@ -11,9 +11,8 @@ Robot/Navigation/../../MCAL/CCP/../GPIO/hal_gpio_cfg.h  \
 Robot/Navigation/../../MCAL/CCP/../Interrupts/mcal_internal_interrupt.h  \
 Robot/Navigation/../../MCAL/CCP/../Interrupts/mcal_interrupt_config.h  \
 Robot/Navigation/../../MCAL/CCP/../Interrupts/mcal_interrupt_gen_config.h  \
+Robot/Navigation/../../MCAL/CCP/../TIMER2/mcal_timer2.h  \
 Robot/Navigation/../../MCAL/CCP/ccp_cfg.h  \
-Robot/Navigation/../../MCAL/Timer0/hal_timer0.h  \
-Robot/Navigation/../../MCAL/Timer0/hal_timer0_config.h  \
 Robot/Navigation/../../MCAL/I2C/mcal_i2c.h  \
 Robot/Navigation/../../MCAL/I2C/mcal_i2c_cfg.h  \
 Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h  \

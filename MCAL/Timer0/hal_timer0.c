@@ -187,26 +187,26 @@ Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
     }
     else 
     {
-        
-        if( TMR0_16BIT ==  _tmr0_config->reg_bit_size)
-        {
-            /* + 2 because of :
-             *  If the TMR0 register is written to, the increment is inhibited
-             *  for the following two instruction cycles (datasheet: 11.1)
-             */
-            TMR0H = (uint8_t) (( (val + 2) >> 8));
-            TMR0L = (uint8_t) (  (val + 2) & 0x00ff);
-        }
-        else if(TMR0_8BIT ==  _tmr0_config->reg_bit_size)
-        {
-            /* + 2 because of :
-             *  If the TMR0 register is written to, the increment is inhibited
-             *  for the following two instruction cycles (datasheet: 11.1)
-             */
-            TMR0L = (uint8_t) ((val + 2) & 0x00ff);
-        }
-        else { ret_value = E_NOT_OK ; }
-        
+       TMR0H=(val)>>8;
+       TMR0L=(uint8)(val);
+//        if( TMR0_16BIT ==  _tmr0_config->reg_bit_size)
+//        {
+//            /* + 2 because of :
+//             *  If the TMR0 register is written to, the increment is inhibited
+//             *  for the following two instruction cycles (datasheet: 11.1)
+//             */
+//            TMR0H = (uint8_t) (( (val + 2) >> 8));
+//            TMR0L = (uint8_t) (  (val + 2) & 0x00ff);
+//        }
+//        else if(TMR0_8BIT ==  _tmr0_config->reg_bit_size)
+//        {
+//            /* + 2 because of :
+//             *  If the TMR0 register is written to, the increment is inhibited
+//             *  for the following two instruction cycles (datasheet: 11.1)
+//             */
+//            TMR0L = (uint8_t) ((val + 2) & 0x00ff);
+//        }
+//        else { ret_value = E_NOT_OK ; }
     }
     
     return ret_value ;

@@ -4791,9 +4791,54 @@ typedef enum {
 # 13 "Robot/Navigation/../../MCAL/CCP/../Interrupts/mcal_internal_interrupt.h" 2
 # 14 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h" 2
 
-# 1 "Robot/Navigation/../../MCAL/CCP/ccp_cfg.h" 1
+# 1 "Robot/Navigation/../../MCAL/CCP/../TIMER2/mcal_timer2.h" 1
+# 33 "Robot/Navigation/../../MCAL/CCP/../TIMER2/mcal_timer2.h"
+typedef enum{
+    TIMER2_PRESCALER_DIV_BY_1=0,
+    TIMER2_PRESCALER_DIV_BY_4,
+    TIMER2_PRESCALER_DIV_BY_16
+}timer2_prescaler_select_et;
+
+typedef enum{
+    TIMER2_postscaler_DIV_BY_1=0,
+    TIMER2_postscaler_DIV_BY_2,
+    TIMER2_postscaler_DIV_BY_3,
+    TIMER2_postscaler_DIV_BY_4,
+    TIMER2_postscaler_DIV_BY_5,
+    TIMER2_postscaler_DIV_BY_6,
+    TIMER2_postscaler_DIV_BY_7,
+    TIMER2_postscaler_DIV_BY_8,
+    TIMER2_postscaler_DIV_BY_9,
+    TIMER2_postscaler_DIV_BY_10,
+    TIMER2_postscaler_DIV_BY_11,
+    TIMER2_postscaler_DIV_BY_12,
+    TIMER2_postscaler_DIV_BY_13,
+    TIMER2_postscaler_DIV_BY_14,
+    TIMER2_postscaler_DIV_BY_15,
+    TIMER2_postscaler_DIV_BY_16
+}timer2_postscaler_select_et;
+
+typedef struct{
+    uint8 timer2_preload_value;
+
+
+
+
+
+
+    timer2_prescaler_select_et timer2_prescaler_value;
+    timer2_postscaler_select_et timer2_postscaler_value;
+}timer2_st;
+
+Std_ReturnType Timer2_Init(const timer2_st* _timer2);
+Std_ReturnType Timer2_DeInit(const timer2_st* _timer2);
+Std_ReturnType Timer2_Write_Value(const timer2_st* _timer2,uint8 value);
+Std_ReturnType Timer2_Read_Value(const timer2_st* _timer2,uint8 *value);
 # 15 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h" 2
-# 73 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
+
+# 1 "Robot/Navigation/../../MCAL/CCP/ccp_cfg.h" 1
+# 16 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h" 2
+# 74 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
 typedef enum{
     CCP_CAPTURE_MODE_SELECTED = 0,
     CCP_COMPARE_MODE_SELECTED,
@@ -4837,8 +4882,7 @@ typedef struct{
     ccp_capture_timer_et ccp_capture_timer;
 
     uint32 PWM_Frequency;
-    uint8 timer2_postscaler_value : 4;
-    uint8 timer2_prescaler_value : 2;
+    timer2_st timer2;
 # 127 "Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
 }ccp_st;
 
@@ -4850,53 +4894,6 @@ Std_ReturnType CCP_PWM_Set_Duty(const ccp_st *_ccp_obj, const uint8 _duty);
 Std_ReturnType CCP_PWM_Start(const ccp_st *_ccp_obj);
 Std_ReturnType CCP_PWM_Stop(const ccp_st *_ccp_obj);
 # 34 "Robot/Navigation/./robot_navigation.h" 2
-
-# 1 "Robot/Navigation/../../MCAL/Timer0/hal_timer0.h" 1
-# 12 "Robot/Navigation/../../MCAL/Timer0/hal_timer0.h"
-# 1 "Robot/Navigation/../../MCAL/Timer0/hal_timer0_config.h" 1
-# 12 "Robot/Navigation/../../MCAL/Timer0/hal_timer0.h" 2
-# 63 "Robot/Navigation/../../MCAL/Timer0/hal_timer0.h"
-typedef enum {
-    TMR0_PRESCALER_BY_2 = 0,
-    TMR0_PRESCALER_BY_4,
-    TMR0_PRESCALER_BY_8,
-    TMR0_PRESCALER_BY_16,
-    TMR0_PRESCALER_BY_32,
-    TMR0_PRESCALER_BY_64,
-    TMR0_PRESCALER_BY_128,
-    TMR0_PRESCALER_BY_256
-}tmr0_prescalar_et;
-
-typedef struct {
-
-    tmr0_prescalar_et prescalar_value ;
-    uint16_t preloaded_value ;
-
-
-        InterruptHandler timer0_InterruptHandler ;
-
-            uint8_t priority : 1 ;
-
-
-
-    uint8_t timer_mode : 1 ;
-    uint8_t reg_bit_size : 1 ;
-    uint8_t prescaler_enable : 1 ;
-    uint8_t edge : 1 ;
-    uint8_t timer0_reserved : 3 ;
-}timer0_config_st;
-# 103 "Robot/Navigation/../../MCAL/Timer0/hal_timer0.h"
-Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
-# 112 "Robot/Navigation/../../MCAL/Timer0/hal_timer0.h"
-Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
-
-
-Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t *result);
-
-Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t val);
-# 35 "Robot/Navigation/./robot_navigation.h" 2
 
 # 1 "Robot/Navigation/../../MCAL/I2C/mcal_i2c.h" 1
 # 16 "Robot/Navigation/../../MCAL/I2C/mcal_i2c.h"
@@ -4947,7 +4944,7 @@ Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 a
 
 Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
 Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
-# 36 "Robot/Navigation/./robot_navigation.h" 2
+# 35 "Robot/Navigation/./robot_navigation.h" 2
 
 # 1 "Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h" 1
 # 13 "Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h"
@@ -4971,7 +4968,7 @@ Std_ReturnType ECU_DC_Motor_Init(const dc_motor_st *dc_motor);
 Std_ReturnType ECU_DC_Motor_Run_Left(const dc_motor_st *dc_motor);
 Std_ReturnType ECU_DC_Motor_Run_Right(const dc_motor_st *dc_motor);
 Std_ReturnType ECU_DC_Motor_Stop(const dc_motor_st *dc_motor);
-# 37 "Robot/Navigation/./robot_navigation.h" 2
+# 36 "Robot/Navigation/./robot_navigation.h" 2
 
 # 1 "Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 1
 # 13 "Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
@@ -5007,8 +5004,8 @@ typedef struct{
 Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
 Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
 Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
-# 38 "Robot/Navigation/./robot_navigation.h" 2
-# 105 "Robot/Navigation/./robot_navigation.h"
+# 37 "Robot/Navigation/./robot_navigation.h" 2
+# 98 "Robot/Navigation/./robot_navigation.h"
 typedef enum {
     NAV_MOV_STOPPED = 0,
     NAV_MOV_FORW,
@@ -5018,21 +5015,14 @@ typedef enum {
     NAV_MOV_BACKW_STEER_RIGHT,
     NAV_MOV_BACKW_STEER_LEFT
 }Nav_Movement_State_et;
+# 119 "Robot/Navigation/./robot_navigation.h"
+Std_ReturnType Robot_Nav_Init(void);
+Std_ReturnType Robot_Steer_Stop(void);
+Std_ReturnType Robot_Move_Forward(void);
+Std_ReturnType Robot_Move_Backward(void);
+Std_ReturnType Robot_Steer_Right_Forward(void);
+Std_ReturnType Robot_Steer_Left_Forward(void);
 
-
-
-
-Std_ReturnType Robot_Nav_Init(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Move_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Right_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Left_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Move_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Right_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-Std_ReturnType Robot_Steer_Left_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj);
-
-
-
-void Timer0_Handler();
 
 
 
@@ -5042,7 +5032,7 @@ Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
 
 
 
-static dc_motor_st W1_W5_W2_W6_Motor_Control =
+static dc_motor_st W1_W3_W5_Motor_Control =
 {
     .dc_motor[0].port = PORTD_INDEX ,
     .dc_motor[0].pin = GPIO_PIN0 ,
@@ -5054,7 +5044,7 @@ static dc_motor_st W1_W5_W2_W6_Motor_Control =
     .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT
 };
 
-static dc_motor_st W3_Motor_Control =
+static dc_motor_st W2_W4_W6_Motor_Control =
 {
     .dc_motor[0].port = PORTD_INDEX ,
     .dc_motor[0].pin = GPIO_PIN2 ,
@@ -5066,301 +5056,120 @@ static dc_motor_st W3_Motor_Control =
     .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT
 };
 
-static dc_motor_st W4_Motor_Control =
-{
-    .dc_motor[0].port = PORTD_INDEX ,
-    .dc_motor[0].pin = GPIO_PIN4 ,
-    .dc_motor[0].logic = GPIO_LOW ,
-    .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT ,
-    .dc_motor[1].port = PORTD_INDEX ,
-    .dc_motor[1].pin = GPIO_PIN5 ,
-    .dc_motor[1].logic = GPIO_LOW ,
-    .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT
-};
 
-
-static timer0_config_st Timer0 =
-{
-    .timer_mode = 0x00U ,
-    .timer0_InterruptHandler = Timer0_Handler ,
-    .reg_bit_size = 0x00U ,
-    .prescaler_enable = 0x00U ,
-    .preloaded_value = 34286 ,
-    .prescalar_value = TMR0_PRESCALER_BY_256 ,
-    .priority = INT_HIGH_PRI
-
-};
-
-
-static ccp_st CCP1_Obj =
+ccp_st CCP1_Obj =
 {
     .ccp_inst = CCP1_INST ,
     .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 10000,
+    .PWM_Frequency = 500,
     .ccp_pin.port = PORTC_INDEX,
     .ccp_pin.pin = GPIO_PIN2,
     .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2_prescaler_value = 1,
+    .timer2.timer2_preload_value=249,
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
 };
-
-
-static ccp_st CCP2_Obj =
+ccp_st CCP2_Obj =
 {
     .ccp_inst = CCP2_INST ,
     .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 10000,
+    .PWM_Frequency = 500,
     .ccp_pin.port = PORTC_INDEX,
     .ccp_pin.pin = GPIO_PIN1,
     .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2_prescaler_value = 1,
-    .timer2_postscaler_value = 1
+    .timer2.timer2_preload_value=249,
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
 };
 # 7 "Robot/Navigation/robot_navigation.c" 2
+# 195 "Robot/Navigation/robot_navigation.c"
+void Timer0_Handler()
+{
+}
 
-
-
-
-
-Std_ReturnType Robot_Nav_Init(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Nav_Init(void)
 {
     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
 
-        ECU_DC_Motor_Init(&W1_W5_W2_W6_Motor_Control);
-        ECU_DC_Motor_Init(&W3_Motor_Control);
-        ECU_DC_Motor_Init(&W4_Motor_Control);
 
-        HAL_Timer0_Init(&Timer0);
+        ECU_DC_Motor_Init(&W1_W3_W5_Motor_Control);
+        ECU_DC_Motor_Init(&W2_W4_W6_Motor_Control);
+
+
 
         CCP_Init(&CCP1_Obj);
         CCP_Init(&CCP2_Obj);
-        CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-        CCP_PWM_Set_Duty(&CCP2_Obj , 100);
+        CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+        CCP_PWM_Set_Duty(&CCP2_Obj , 95);
         CCP_PWM_Start(&CCP1_Obj);
         CCP_PWM_Start(&CCP2_Obj);
 
 
 
 
-    }
 
     return ret_val ;
 }
-
-
-Std_ReturnType Robot_Move_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Move_Forward(void)
 {
     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
 
-        if(Movement_State == NAV_MOV_FORW)
-        {
-
-        }
-        else
-        {
             Movement_State = NAV_MOV_FORW ;
-            ECU_DC_Motor_Run_Left(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 100);
-        }
-    }
+            ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+            ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+
+
+
+
+            CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+            CCP_PWM_Set_Duty(&CCP2_Obj , 95);
 
     return ret_val ;
 }
-Std_ReturnType Robot_Steer_Right_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Move_Backward(void)
+{
+    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
+      Movement_State = NAV_MOV_BACKW ;
+            ECU_DC_Motor_Run_Right(&W1_W3_W5_Motor_Control);
+            ECU_DC_Motor_Run_Right(&W2_W4_W6_Motor_Control);
+
+
+
+
+            CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+            CCP_PWM_Set_Duty(&CCP2_Obj , 95);
+    return ret_val ;
+}
+
+Std_ReturnType Robot_Steer_Right_Forward(void)
 {
     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
 
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
 
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_FORW_STEER_RIGHT)
-        {
-
-        }
-        else
-        {
             Movement_State = NAV_MOV_FORW_STEER_RIGHT ;
-            ECU_DC_Motor_Run_Left(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + 35 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + 55 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + 35 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + 55 );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 70);
-        }
-
-    }
+            ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+            ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+            CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+            CCP_PWM_Set_Duty(&CCP2_Obj , 85);
 
     return ret_val ;
 }
-Std_ReturnType Robot_Steer_Left_Forward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Steer_Left_Forward(void)
 {
     Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
-
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_FORW_STEER_LEFT)
-        {
-
-        }
-        else
-        {
             Movement_State = NAV_MOV_FORW_STEER_LEFT ;
-            ECU_DC_Motor_Run_Left(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Left(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + -55 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + -35 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + -55 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + -35 );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 70);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 100);
-        }
+            ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+            ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+            CCP_PWM_Set_Duty(&CCP1_Obj , 85);
+            CCP_PWM_Set_Duty(&CCP2_Obj , 95);
 
-    }
 
     return ret_val ;
 }
-Std_ReturnType Robot_Move_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
+Std_ReturnType Robot_Steer_Stop(void)
 {
-    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
-
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_BACKW)
-        {
-
-        }
-        else
-        {
-            Movement_State = NAV_MOV_BACKW ;
-            ECU_DC_Motor_Run_Right(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Right(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Right(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 100);
-        }
-    }
-
-    return ret_val ;
-}
-
-
-
-Std_ReturnType Robot_Steer_Right_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
-{
-    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
-
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_BACKW_STEER_RIGHT)
-        {
-
-        }
-        else
-        {
-            Movement_State = NAV_MOV_BACKW_STEER_RIGHT ;
-            ECU_DC_Motor_Run_Right(&W1_W5_W2_W6_Motor_Control);
-            ECU_DC_Motor_Run_Right(&W3_Motor_Control);
-            ECU_DC_Motor_Run_Right(&W4_Motor_Control);
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + (35 * -1) );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + (55 * -1) );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + (35 * -1) );
-            Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + (55 * -1) );
-            CCP_PWM_Set_Duty(&CCP1_Obj , 100);
-            CCP_PWM_Set_Duty(&CCP2_Obj , 70);
-        }
-    }
-
-    return ret_val ;
-}
-
-
-
-Std_ReturnType Robot_Steer_Left_Backward(const mssp_i2c_st *_i2c_obj , const servo_driver_st *servo_driver_obj)
-{
-    Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
-
-    if((((void*)0) == _i2c_obj) || (((void*)0) == servo_driver_obj))
-    {
-        ret_val = (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        HAL_Timer0_Write_Val(&Timer0 , 34286);
-        if(Movement_State == NAV_MOV_BACKW_STEER_LEFT)
-        {
-
-        }
-        else
-        {
-           Movement_State = NAV_MOV_BACKW_STEER_LEFT ;
-           ECU_DC_Motor_Run_Right(&W1_W5_W2_W6_Motor_Control);
-           ECU_DC_Motor_Run_Right(&W3_Motor_Control);
-           ECU_DC_Motor_Run_Right(&W4_Motor_Control);
-           Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_1 , 90 + (-55 * -1) );
-           Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_2 , 90 + (-35 * -1) );
-           Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_3 , 90 + (-55 * -1) );
-           Servo_SetAngle(_i2c_obj , servo_driver_obj , servo_index_4 , 90 + (-35 * -1) );
-           CCP_PWM_Set_Duty(&CCP1_Obj , 70);
-           CCP_PWM_Set_Duty(&CCP2_Obj , 100);
-        }
-
-    }
-
-    return ret_val ;
-}
-
-void Timer0_Handler()
-{
-    ECU_DC_Motor_Stop(&W1_W5_W2_W6_Motor_Control);
-    ECU_DC_Motor_Stop(&W3_Motor_Control);
-    ECU_DC_Motor_Stop(&W4_Motor_Control);
+    ECU_DC_Motor_Stop(&W1_W3_W5_Motor_Control);
+    ECU_DC_Motor_Stop(&W2_W4_W6_Motor_Control);
 }

@@ -4884,12 +4884,64 @@ Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
 Std_ReturnType convert_float32_to_string(float32 value,uint8*str);
 # 11 "application.c" 2
 
-# 1 "./Robot/sensors/DHT11/DHT.h" 1
-# 19 "./Robot/sensors/DHT11/DHT.h"
-# 1 "./Robot/sensors/DHT11/DHT_CFG.h" 1
-# 19 "./Robot/sensors/DHT11/DHT.h" 2
-# 29 "./Robot/sensors/DHT11/DHT.h"
-Std_ReturnType Get_Temp_HUM(uint8* RH_Decimal,uint8* RH_Integral,uint8* T_Decimal,uint8* T_Integral,uint8* Checksum);
+# 1 "./Robot/sensors/ultrasonic/ultrasonic.h" 1
+# 18 "./Robot/sensors/ultrasonic/ultrasonic.h"
+# 1 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 1
+# 12 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+# 1 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0_config.h" 1
+# 12 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 2
+
+
+# 1 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_internal_interrupt.h" 1
+# 14 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 2
+# 63 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+typedef enum {
+    TMR0_PRESCALER_BY_2 = 0,
+    TMR0_PRESCALER_BY_4,
+    TMR0_PRESCALER_BY_8,
+    TMR0_PRESCALER_BY_16,
+    TMR0_PRESCALER_BY_32,
+    TMR0_PRESCALER_BY_64,
+    TMR0_PRESCALER_BY_128,
+    TMR0_PRESCALER_BY_256
+}tmr0_prescalar_et;
+
+typedef struct {
+
+    tmr0_prescalar_et prescalar_value ;
+    uint16_t preloaded_value ;
+# 86 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+    uint8_t timer_mode : 1 ;
+    uint8_t reg_bit_size : 1 ;
+    uint8_t prescaler_enable : 1 ;
+    uint8_t edge : 1 ;
+    uint8_t timer0_reserved : 3 ;
+}timer0_config_st;
+# 103 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
+# 112 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
+
+
+Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
+        uint16_t *result);
+
+Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
+        uint16_t val);
+# 18 "./Robot/sensors/ultrasonic/ultrasonic.h" 2
+
+
+
+
+
+
+typedef struct{
+    pin_config_st trig_pin;
+    pin_config_st echo_pin;
+}ultrasonic_config_st;
+
+Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config);
+Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance);
 # 12 "application.c" 2
 
 
@@ -4934,10 +4986,33 @@ pin_config_st pinc0={
    .port=PORTC_INDEX
 };
 
- uint8 RH_Decimal,RH_Integral,T_Decimal,T_Integral,Checksum;
+
+float32 distance;
+uint8 dis[10]={};
+
+ ultrasonic_config_st ultrasonic={
+     .trig_pin.direction=GPIO_DIRECTION_OUTPUT,
+     .trig_pin.logic=GPIO_LOW,
+     .trig_pin.pin=GPIO_PIN1,
+     .trig_pin.port=PORTB_INDEX,
+
+     .echo_pin.direction=GPIO_DIRECTION_INPUT,
+     .echo_pin.logic=GPIO_LOW,
+     .echo_pin.pin=GPIO_PIN0,
+     .echo_pin.port=PORTB_INDEX
+ };
+ timer0_config_st timer0={
+   .preloaded_value=0,
+   .prescaler_enable=0x00U,
+   .prescalar_value=TMR0_PRESCALER_BY_2,
+   .reg_bit_size=0x00U,
+   .timer_mode=0x00U
+ };
+
 
 int main()
 {
+
 
     application_intialize();
     lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
@@ -4947,29 +5022,13 @@ int main()
     _delay((unsigned long)((1000)*(8000000/4000.0)));
    while(1)
     {
-        GPIO_Pin_Toggle_Logic(&pinc0);
-        _delay((unsigned long)((500)*(8000000/4000.0)));
-        Get_Temp_HUM(& RH_Decimal,& RH_Integral,& T_Decimal,& T_Integral,& Checksum);
+       GPIO_Pin_Toggle_Logic(&pinc0);
+           _delay((unsigned long)((500)*(8000000/4000.0)));
 
-       lcd_4bit_send_string_data_pos(&lcd1,1,1,"hume:");
-       lcd_4bit_send_char_data_pos(&lcd1,1,6,48+RH_Decimal/10);
-       lcd_4bit_send_char_data_pos(&lcd1,1,7,48+RH_Decimal%10);
-       lcd_4bit_send_string_data_pos(&lcd1,1,8,".");
-       lcd_4bit_send_char_data_pos(&lcd1,1,9,48+RH_Integral/10);
 
-       lcd_4bit_send_string_data_pos(&lcd1,2,1,"temp:");
-       lcd_4bit_send_char_data_pos(&lcd1,2,6,48+T_Decimal/10);
-       lcd_4bit_send_char_data_pos(&lcd1,2,7,48+T_Decimal%10);
-       lcd_4bit_send_string_data_pos(&lcd1,2,8,".");
-       lcd_4bit_send_char_data_pos(&lcd1,2,9,48+T_Integral/10);
-       if (Checksum==((RH_Decimal+RH_Integral+T_Decimal+T_Integral)&0xff))
-       {
-           lcd_4bit_send_string_data_pos(&lcd1,2,13,"1");
-       }
-       else
-       {
-           lcd_4bit_send_string_data_pos(&lcd1,2,13,"0");
-       }
+
+
+
 
 
    }
@@ -4979,4 +5038,5 @@ void application_intialize(void)
 {
     GPIO_Pin_Initialize(&pinc0);
     lcd_4bit_initialize(&lcd1);
+
 }

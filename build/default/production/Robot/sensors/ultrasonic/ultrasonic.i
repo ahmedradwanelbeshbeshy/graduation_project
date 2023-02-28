@@ -1,4 +1,4 @@
-# 1 "MCAL/CCP/hal_ccp.c"
+# 1 "Robot/sensors/ultrasonic/ultrasonic.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,43 +6,25 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL/CCP/hal_ccp.c" 2
+# 1 "Robot/sensors/ultrasonic/ultrasonic.c" 2
 
 
 
 
 
 
-
-# 1 "MCAL/CCP/hal_ccp.h" 1
-# 11 "MCAL/CCP/hal_ccp.h"
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
-# 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
+# 1 "Robot/sensors/ultrasonic/ultrasonic.h" 1
+# 17 "Robot/sensors/ultrasonic/ultrasonic.h"
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/hal_gpio.h" 1
+# 12 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/hal_gpio.h"
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../std_libraries.h" 1
+# 11 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../std_libraries.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
 
 
 
@@ -50,17 +32,157 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
 # 122 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned size_t;
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
 # 168 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 int24_t;
 # 204 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __uint24 uint24_t;
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 11 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../std_libraries.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 1 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 18 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int wchar_t;
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdlib.h" 2 3
 
 
@@ -114,142 +236,69 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 2 3
+# 12 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../std_libraries.h" 2
 
-
-
-
-
-
-
-
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 24 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\builtins.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 127 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uintptr_t;
-# 142 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long intptr_t;
-# 158 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef signed char int8_t;
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 2 3
+
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 
 
-typedef short int16_t;
-# 173 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int32_t;
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 13 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../std_libraries.h" 2
 
-
-
-
-
-typedef long long int64_t;
-# 188 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long intmax_t;
-
-
-
-
-
-typedef unsigned char uint8_t;
-
-
-
-
-typedef unsigned short uint16_t;
-# 209 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uint32_t;
-
-
-
-
-
-typedef unsigned long long uint64_t;
-# 229 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long long uintmax_t;
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-
-
-typedef int8_t int_fast8_t;
-
-typedef int64_t int_fast64_t;
-
-
-typedef int8_t int_least8_t;
-typedef int16_t int_least16_t;
-
-typedef int24_t int_least24_t;
-typedef int24_t int_fast24_t;
-
-typedef int32_t int_least32_t;
-
-typedef int64_t int_least64_t;
-
-
-typedef uint8_t uint_fast8_t;
-
-typedef uint64_t uint_fast64_t;
-
-
-typedef uint8_t uint_least8_t;
-typedef uint16_t uint_least16_t;
-
-typedef uint24_t uint_least24_t;
-typedef uint24_t uint_fast24_t;
-
-typedef uint32_t uint_least32_t;
-
-typedef uint64_t uint_least64_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/stdint.h" 1 3
-typedef int16_t int_fast16_t;
-typedef int32_t int_fast32_t;
-typedef uint16_t uint_fast16_t;
-typedef uint32_t uint_fast32_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\builtins.h" 2 3
-
-
-#pragma intrinsic(__nop)
-extern void __nop(void);
-
-
-#pragma intrinsic(_delay)
-extern __attribute__((nonreentrant)) void _delay(uint32_t);
-#pragma intrinsic(_delaywdt)
-extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
-
-#pragma intrinsic(_delay3)
-extern __attribute__((nonreentrant)) void _delay3(uint8_t);
-# 25 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-
-
-
-
-
-
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
-# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
-# 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
-
-
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18_chip_select.h" 1 3
-# 370 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18_chip_select.h" 3
-# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
-# 45 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 1 3
+# 45 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 # 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\__at.h" 1 3
-# 46 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 2 3
+# 46 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 2 3
 
 
 
@@ -305,7 +354,7 @@ typedef union {
     };
 } PORTAbits_t;
 extern volatile PORTAbits_t PORTAbits __attribute__((address(0xF80)));
-# 190 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 190 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PORTB __attribute__((address(0xF81)));
 
 __asm("PORTB equ 0F81h");
@@ -348,7 +397,7 @@ typedef union {
     };
 } PORTBbits_t;
 extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
-# 361 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 361 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PORTC __attribute__((address(0xF82)));
 
 __asm("PORTC equ 0F82h");
@@ -395,7 +444,7 @@ typedef union {
     };
 } PORTCbits_t;
 extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
-# 536 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 536 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PORTD __attribute__((address(0xF83)));
 
 __asm("PORTD equ 0F83h");
@@ -434,7 +483,7 @@ typedef union {
     };
 } PORTDbits_t;
 extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
-# 678 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 678 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PORTE __attribute__((address(0xF84)));
 
 __asm("PORTE equ 0F84h");
@@ -494,7 +543,7 @@ typedef union {
     };
 } PORTEbits_t;
 extern volatile PORTEbits_t PORTEbits __attribute__((address(0xF84)));
-# 881 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 881 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char LATA __attribute__((address(0xF89)));
 
 __asm("LATA equ 0F89h");
@@ -523,7 +572,7 @@ typedef union {
     };
 } LATAbits_t;
 extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
-# 993 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 993 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char LATB __attribute__((address(0xF8A)));
 
 __asm("LATB equ 0F8Ah");
@@ -552,7 +601,7 @@ typedef union {
     };
 } LATBbits_t;
 extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
-# 1105 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1105 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char LATC __attribute__((address(0xF8B)));
 
 __asm("LATC equ 0F8Bh");
@@ -581,7 +630,7 @@ typedef union {
     };
 } LATCbits_t;
 extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
-# 1217 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1217 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char LATD __attribute__((address(0xF8C)));
 
 __asm("LATD equ 0F8Ch");
@@ -610,7 +659,7 @@ typedef union {
     };
 } LATDbits_t;
 extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
-# 1329 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1329 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char LATE __attribute__((address(0xF8D)));
 
 __asm("LATE equ 0F8Dh");
@@ -629,7 +678,7 @@ typedef union {
     };
 } LATEbits_t;
 extern volatile LATEbits_t LATEbits __attribute__((address(0xF8D)));
-# 1381 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1381 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char TRISA __attribute__((address(0xF92)));
 
 __asm("TRISA equ 0F92h");
@@ -663,7 +712,7 @@ typedef union {
     };
 } TRISAbits_t;
 extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
-# 1496 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1496 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned TRISA0 :1;
@@ -687,7 +736,7 @@ typedef union {
     };
 } DDRAbits_t;
 extern volatile DDRAbits_t DDRAbits __attribute__((address(0xF92)));
-# 1603 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1603 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char TRISB __attribute__((address(0xF93)));
 
 __asm("TRISB equ 0F93h");
@@ -721,7 +770,7 @@ typedef union {
     };
 } TRISBbits_t;
 extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF93)));
-# 1718 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1718 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned TRISB0 :1;
@@ -745,7 +794,7 @@ typedef union {
     };
 } DDRBbits_t;
 extern volatile DDRBbits_t DDRBbits __attribute__((address(0xF93)));
-# 1825 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1825 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char TRISC __attribute__((address(0xF94)));
 
 __asm("TRISC equ 0F94h");
@@ -779,7 +828,7 @@ typedef union {
     };
 } TRISCbits_t;
 extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
-# 1940 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 1940 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned TRISC0 :1;
@@ -803,7 +852,7 @@ typedef union {
     };
 } DDRCbits_t;
 extern volatile DDRCbits_t DDRCbits __attribute__((address(0xF94)));
-# 2047 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2047 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char TRISD __attribute__((address(0xF95)));
 
 __asm("TRISD equ 0F95h");
@@ -837,7 +886,7 @@ typedef union {
     };
 } TRISDbits_t;
 extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
-# 2162 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2162 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned TRISD0 :1;
@@ -861,7 +910,7 @@ typedef union {
     };
 } DDRDbits_t;
 extern volatile DDRDbits_t DDRDbits __attribute__((address(0xF95)));
-# 2269 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2269 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char TRISE __attribute__((address(0xF96)));
 
 __asm("TRISE equ 0F96h");
@@ -891,7 +940,7 @@ typedef union {
     };
 } TRISEbits_t;
 extern volatile TRISEbits_t TRISEbits __attribute__((address(0xF96)));
-# 2355 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2355 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned TRISE0 :1;
@@ -911,7 +960,7 @@ typedef union {
     };
 } DDREbits_t;
 extern volatile DDREbits_t DDREbits __attribute__((address(0xF96)));
-# 2433 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2433 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char OSCTUNE __attribute__((address(0xF9B)));
 
 __asm("OSCTUNE equ 0F9Bh");
@@ -933,7 +982,7 @@ typedef union {
     };
 } OSCTUNEbits_t;
 extern volatile OSCTUNEbits_t OSCTUNEbits __attribute__((address(0xF9B)));
-# 2498 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2498 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PIE1 __attribute__((address(0xF9D)));
 
 __asm("PIE1 equ 0F9Dh");
@@ -957,7 +1006,7 @@ typedef union {
     };
 } PIE1bits_t;
 extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
-# 2575 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2575 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PIR1 __attribute__((address(0xF9E)));
 
 __asm("PIR1 equ 0F9Eh");
@@ -981,7 +1030,7 @@ typedef union {
     };
 } PIR1bits_t;
 extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
-# 2652 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2652 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char IPR1 __attribute__((address(0xF9F)));
 
 __asm("IPR1 equ 0F9Fh");
@@ -1005,7 +1054,7 @@ typedef union {
     };
 } IPR1bits_t;
 extern volatile IPR1bits_t IPR1bits __attribute__((address(0xF9F)));
-# 2729 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2729 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PIE2 __attribute__((address(0xFA0)));
 
 __asm("PIE2 equ 0FA0h");
@@ -1028,7 +1077,7 @@ typedef union {
     };
 } PIE2bits_t;
 extern volatile PIE2bits_t PIE2bits __attribute__((address(0xFA0)));
-# 2795 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2795 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PIR2 __attribute__((address(0xFA1)));
 
 __asm("PIR2 equ 0FA1h");
@@ -1051,7 +1100,7 @@ typedef union {
     };
 } PIR2bits_t;
 extern volatile PIR2bits_t PIR2bits __attribute__((address(0xFA1)));
-# 2861 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2861 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char IPR2 __attribute__((address(0xFA2)));
 
 __asm("IPR2 equ 0FA2h");
@@ -1074,7 +1123,7 @@ typedef union {
     };
 } IPR2bits_t;
 extern volatile IPR2bits_t IPR2bits __attribute__((address(0xFA2)));
-# 2927 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2927 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char EECON1 __attribute__((address(0xFA6)));
 
 __asm("EECON1 equ 0FA6h");
@@ -1097,7 +1146,7 @@ typedef union {
     };
 } EECON1bits_t;
 extern volatile EECON1bits_t EECON1bits __attribute__((address(0xFA6)));
-# 2993 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 2993 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char EECON2 __attribute__((address(0xFA7)));
 
 __asm("EECON2 equ 0FA7h");
@@ -1168,7 +1217,7 @@ typedef union {
     };
 } RCSTAbits_t;
 extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAB)));
-# 3130 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3130 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned RX9D :1;
@@ -1201,7 +1250,7 @@ typedef union {
     };
 } RCSTA1bits_t;
 extern volatile RCSTA1bits_t RCSTA1bits __attribute__((address(0xFAB)));
-# 3231 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3231 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char TXSTA __attribute__((address(0xFAC)));
 
 __asm("TXSTA equ 0FACh");
@@ -1242,7 +1291,7 @@ typedef union {
     };
 } TXSTAbits_t;
 extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0xFAC)));
-# 3363 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3363 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned TX9D :1;
@@ -1273,7 +1322,7 @@ typedef union {
     };
 } TXSTA1bits_t;
 extern volatile TXSTA1bits_t TXSTA1bits __attribute__((address(0xFAC)));
-# 3487 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3487 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char TXREG __attribute__((address(0xFAD)));
 
 __asm("TXREG equ 0FADh");
@@ -1355,7 +1404,7 @@ typedef union {
     };
 } T3CONbits_t;
 extern volatile T3CONbits_t T3CONbits __attribute__((address(0xFB1)));
-# 3642 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3642 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short TMR3 __attribute__((address(0xFB2)));
 
 __asm("TMR3 equ 0FB2h");
@@ -1403,7 +1452,7 @@ typedef union {
     };
 } CMCONbits_t;
 extern volatile CMCONbits_t CMCONbits __attribute__((address(0xFB4)));
-# 3753 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3753 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char CVRCON __attribute__((address(0xFB5)));
 
 __asm("CVRCON equ 0FB5h");
@@ -1429,7 +1478,7 @@ typedef union {
     };
 } CVRCONbits_t;
 extern volatile CVRCONbits_t CVRCONbits __attribute__((address(0xFB5)));
-# 3832 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3832 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char ECCP1AS __attribute__((address(0xFB6)));
 
 __asm("ECCP1AS equ 0FB6h");
@@ -1453,7 +1502,7 @@ typedef union {
     };
 } ECCP1ASbits_t;
 extern volatile ECCP1ASbits_t ECCP1ASbits __attribute__((address(0xFB6)));
-# 3914 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3914 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PWM1CON __attribute__((address(0xFB7)));
 
 __asm("PWM1CON equ 0FB7h");
@@ -1475,7 +1524,7 @@ typedef union {
     };
 } PWM1CONbits_t;
 extern volatile PWM1CONbits_t PWM1CONbits __attribute__((address(0xFB7)));
-# 3984 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 3984 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char BAUDCON __attribute__((address(0xFB8)));
 
 __asm("BAUDCON equ 0FB8h");
@@ -1509,7 +1558,7 @@ typedef union {
     };
 } BAUDCONbits_t;
 extern volatile BAUDCONbits_t BAUDCONbits __attribute__((address(0xFB8)));
-# 4074 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4074 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned ABDEN :1;
@@ -1533,7 +1582,7 @@ typedef union {
     };
 } BAUDCTLbits_t;
 extern volatile BAUDCTLbits_t BAUDCTLbits __attribute__((address(0xFB8)));
-# 4156 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4156 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char CCP2CON __attribute__((address(0xFBA)));
 
 __asm("CCP2CON equ 0FBAh");
@@ -1559,7 +1608,7 @@ typedef union {
     };
 } CCP2CONbits_t;
 extern volatile CCP2CONbits_t CCP2CONbits __attribute__((address(0xFBA)));
-# 4235 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4235 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short CCPR2 __attribute__((address(0xFBB)));
 
 __asm("CCPR2 equ 0FBBh");
@@ -1609,7 +1658,7 @@ typedef union {
     };
 } CCP1CONbits_t;
 extern volatile CCP1CONbits_t CCP1CONbits __attribute__((address(0xFBD)));
-# 4353 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4353 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short CCPR1 __attribute__((address(0xFBE)));
 
 __asm("CCPR1 equ 0FBEh");
@@ -1653,7 +1702,7 @@ typedef union {
     };
 } ADCON2bits_t;
 extern volatile ADCON2bits_t ADCON2bits __attribute__((address(0xFC0)));
-# 4445 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4445 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
 
 __asm("ADCON1 equ 0FC1h");
@@ -1680,7 +1729,7 @@ typedef union {
     };
 } ADCON1bits_t;
 extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0xFC1)));
-# 4530 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4530 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char ADCON0 __attribute__((address(0xFC2)));
 
 __asm("ADCON0 equ 0FC2h");
@@ -1726,7 +1775,7 @@ typedef union {
     };
 } ADCON0bits_t;
 extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
-# 4649 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4649 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short ADRES __attribute__((address(0xFC3)));
 
 __asm("ADRES equ 0FC3h");
@@ -1766,7 +1815,7 @@ typedef union {
     };
 } SSPCON2bits_t;
 extern volatile SSPCON2bits_t SSPCON2bits __attribute__((address(0xFC5)));
-# 4732 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4732 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char SSPCON1 __attribute__((address(0xFC6)));
 
 __asm("SSPCON1 equ 0FC6h");
@@ -1788,7 +1837,7 @@ typedef union {
     };
 } SSPCON1bits_t;
 extern volatile SSPCON1bits_t SSPCON1bits __attribute__((address(0xFC6)));
-# 4802 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 4802 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char SSPSTAT __attribute__((address(0xFC7)));
 
 __asm("SSPSTAT equ 0FC7h");
@@ -1866,7 +1915,7 @@ typedef union {
     };
 } SSPSTATbits_t;
 extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0xFC7)));
-# 5023 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5023 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char SSPADD __attribute__((address(0xFC8)));
 
 __asm("SSPADD equ 0FC8h");
@@ -1903,7 +1952,7 @@ typedef union {
     };
 } T2CONbits_t;
 extern volatile T2CONbits_t T2CONbits __attribute__((address(0xFCA)));
-# 5108 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5108 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char PR2 __attribute__((address(0xFCB)));
 
 __asm("PR2 equ 0FCBh");
@@ -1936,7 +1985,7 @@ typedef union {
     };
 } PR2bits_t;
 extern volatile PR2bits_t PR2bits __attribute__((address(0xFCB)));
-# 5167 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5167 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned :7;
@@ -1959,7 +2008,7 @@ typedef union {
     };
 } MEMCONbits_t;
 extern volatile MEMCONbits_t MEMCONbits __attribute__((address(0xFCB)));
-# 5218 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5218 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char TMR2 __attribute__((address(0xFCC)));
 
 __asm("TMR2 equ 0FCCh");
@@ -2001,7 +2050,7 @@ typedef union {
     };
 } T1CONbits_t;
 extern volatile T1CONbits_t T1CONbits __attribute__((address(0xFCD)));
-# 5328 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5328 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short TMR1 __attribute__((address(0xFCE)));
 
 __asm("TMR1 equ 0FCEh");
@@ -2067,7 +2116,7 @@ typedef union {
     };
 } RCONbits_t;
 extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
-# 5482 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5482 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char WDTCON __attribute__((address(0xFD1)));
 
 __asm("WDTCON equ 0FD1h");
@@ -2082,7 +2131,7 @@ typedef union {
     };
 } WDTCONbits_t;
 extern volatile WDTCONbits_t WDTCONbits __attribute__((address(0xFD1)));
-# 5510 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5510 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char HLVDCON __attribute__((address(0xFD2)));
 
 __asm("HLVDCON equ 0FD2h");
@@ -2125,7 +2174,7 @@ typedef union {
     };
 } HLVDCONbits_t;
 extern volatile HLVDCONbits_t HLVDCONbits __attribute__((address(0xFD2)));
-# 5649 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5649 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 typedef union {
     struct {
         unsigned HLVDL :4;
@@ -2158,7 +2207,7 @@ typedef union {
     };
 } LVDCONbits_t;
 extern volatile LVDCONbits_t LVDCONbits __attribute__((address(0xFD2)));
-# 5780 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5780 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 
 __asm("OSCCON equ 0FD3h");
@@ -2182,7 +2231,7 @@ typedef union {
     };
 } OSCCONbits_t;
 extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
-# 5857 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5857 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char T0CON __attribute__((address(0xFD5)));
 
 __asm("T0CON equ 0FD5h");
@@ -2206,7 +2255,7 @@ typedef union {
     };
 } T0CONbits_t;
 extern volatile T0CONbits_t T0CONbits __attribute__((address(0xFD5)));
-# 5934 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 5934 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short TMR0 __attribute__((address(0xFD6)));
 
 __asm("TMR0 equ 0FD6h");
@@ -2250,7 +2299,7 @@ typedef union {
     };
 } STATUSbits_t;
 extern volatile STATUSbits_t STATUSbits __attribute__((address(0xFD8)));
-# 6026 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 6026 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short FSR2 __attribute__((address(0xFD9)));
 
 __asm("FSR2 equ 0FD9h");
@@ -2373,7 +2422,7 @@ __asm("INDF1 equ 0FE7h");
 extern volatile unsigned char WREG __attribute__((address(0xFE8)));
 
 __asm("WREG equ 0FE8h");
-# 6157 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 6157 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short FSR0 __attribute__((address(0xFE9)));
 
 __asm("FSR0 equ 0FE9h");
@@ -2458,7 +2507,7 @@ typedef union {
     };
 } INTCON3bits_t;
 extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
-# 6305 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 6305 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char INTCON2 __attribute__((address(0xFF1)));
 
 __asm("INTCON2 equ 0FF1h");
@@ -2485,7 +2534,7 @@ typedef union {
     };
 } INTCON2bits_t;
 extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
-# 6375 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 6375 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned char INTCON __attribute__((address(0xFF2)));
 
 __asm("INTCON equ 0FF2h");
@@ -2519,7 +2568,7 @@ typedef union {
     };
 } INTCONbits_t;
 extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-# 6492 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 6492 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile unsigned short PROD __attribute__((address(0xFF3)));
 
 __asm("PROD equ 0FF3h");
@@ -2645,7 +2694,7 @@ typedef union {
     };
 } STKPTRbits_t;
 extern volatile STKPTRbits_t STKPTRbits __attribute__((address(0xFFC)));
-# 6692 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 6692 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile __uint24 TOS __attribute__((address(0xFFD)));
 
 
@@ -2671,7 +2720,7 @@ __asm("TOSH equ 0FFEh");
 extern volatile unsigned char TOSU __attribute__((address(0xFFF)));
 
 __asm("TOSU equ 0FFFh");
-# 6731 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
+# 6731 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc/pic18f4620.h" 3
 extern volatile __bit ABDEN __attribute__((address(0x7DC0)));
 
 
@@ -4458,7 +4507,149 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 371 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18_chip_select.h" 2 3
+# 14 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../std_libraries.h" 2
+
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\../pic18.h" 1 3
+
+
+
+
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 1 3
+
+
+
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
+# 18 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\xc8debug.h" 3
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+# 24 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\builtins.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+typedef int24_t int_fast24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+typedef uint24_t uint_fast24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
+# 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\builtins.h" 2 3
+
+
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+
+#pragma intrinsic(_delay)
+extern __attribute__((nonreentrant)) void _delay(uint32_t);
+#pragma intrinsic(_delaywdt)
+extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
+
+#pragma intrinsic(_delay3)
+extern __attribute__((nonreentrant)) void _delay3(uint8_t);
+# 25 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
+
+
+
+
+
+
+
+
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 1 3
+# 34 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
+# 5 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\htc.h" 2 3
+# 6 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
+
+
+# 1 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18_chip_select.h" 1 3
 # 9 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 2 3
 # 19 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
@@ -4479,10 +4670,17 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 11 "MCAL/CCP/hal_ccp.h" 2
+# 15 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../std_libraries.h" 2
+# 12 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "MCAL/CCP/../mcal_std_types.h" 1
-# 20 "MCAL/CCP/../mcal_std_types.h"
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../device_config.h" 1
+# 11 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../device_config.h"
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../compiler.h" 1
+# 11 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../device_config.h" 2
+# 13 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/hal_gpio.h" 2
+
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../mcal_std_types.h" 1
+# 20 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned char uint8_t;
 
@@ -4497,221 +4695,11 @@ typedef signed long sint32;
 typedef float float32;
 
 typedef uint8 Std_ReturnType;
-# 12 "MCAL/CCP/hal_ccp.h" 2
-
-# 1 "MCAL/CCP/../GPIO/hal_gpio.h" 1
-# 12 "MCAL/CCP/../GPIO/hal_gpio.h"
-# 1 "MCAL/CCP/../GPIO/../std_libraries.h" 1
-# 11 "MCAL/CCP/../GPIO/../std_libraries.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-#pragma printf_check(printf) const
-#pragma printf_check(vprintf) const
-#pragma printf_check(sprintf) const
-#pragma printf_check(snprintf) const
-#pragma printf_check(vsprintf) const
-#pragma printf_check(vsnprintf) const
-
-int printf(const char *restrict, ...);
-int fprintf(FILE *restrict, const char *restrict, ...);
-int sprintf(char *restrict, const char *restrict, ...);
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-int scanf(const char *restrict, ...);
-int fscanf(FILE *restrict, const char *restrict, ...);
-int sscanf(const char *restrict, const char *restrict, ...);
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 11 "MCAL/CCP/../GPIO/../std_libraries.h" 2
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 2 3
-
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "MCAL/CCP/../GPIO/../std_libraries.h" 2
-# 12 "MCAL/CCP/../GPIO/hal_gpio.h" 2
-
-# 1 "MCAL/CCP/../GPIO/../device_config.h" 1
-# 11 "MCAL/CCP/../GPIO/../device_config.h"
-# 1 "MCAL/CCP/../compiler.h" 1
-# 11 "MCAL/CCP/../GPIO/../device_config.h" 2
-# 13 "MCAL/CCP/../GPIO/hal_gpio.h" 2
-
-
-# 1 "MCAL/CCP/../GPIO/hal_gpio_cfg.h" 1
-# 15 "MCAL/CCP/../GPIO/hal_gpio.h" 2
-# 42 "MCAL/CCP/../GPIO/hal_gpio.h"
+# 14 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/hal_gpio.h" 2
+
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/hal_gpio_cfg.h" 1
+# 15 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/hal_gpio.h" 2
+# 42 "Robot/sensors/ultrasonic/../../../MCAL/GPIO/hal_gpio.h"
 typedef enum{
    GPIO_LOW=0,
    GPIO_HIGH
@@ -4770,15 +4758,21 @@ Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direct
 Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
 Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
-# 13 "MCAL/CCP/hal_ccp.h" 2
+# 17 "Robot/sensors/ultrasonic/ultrasonic.h" 2
 
-# 1 "MCAL/CCP/../Interrupts/mcal_internal_interrupt.h" 1
-# 13 "MCAL/CCP/../Interrupts/mcal_internal_interrupt.h"
-# 1 "MCAL/CCP/../Interrupts/mcal_interrupt_config.h" 1
-# 15 "MCAL/CCP/../Interrupts/mcal_interrupt_config.h"
-# 1 "MCAL/CCP/../Interrupts/mcal_interrupt_gen_config.h" 1
-# 15 "MCAL/CCP/../Interrupts/mcal_interrupt_config.h" 2
-# 71 "MCAL/CCP/../Interrupts/mcal_interrupt_config.h"
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 1
+# 12 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0_config.h" 1
+# 12 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 2
+
+
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_internal_interrupt.h" 1
+# 13 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_internal_interrupt.h"
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_interrupt_config.h" 1
+# 15 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_interrupt_config.h"
+# 1 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_interrupt_config.h" 2
+# 71 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_interrupt_config.h"
 typedef void ( *InterruptHandler) (void);
 
 
@@ -4787,394 +4781,110 @@ typedef enum {
     INT_HIGH_PRI
 
 } interrupt_pri_et;
-# 13 "MCAL/CCP/../Interrupts/mcal_internal_interrupt.h" 2
-# 14 "MCAL/CCP/hal_ccp.h" 2
+# 13 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_internal_interrupt.h" 2
+# 14 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 2
+# 63 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+typedef enum {
+    TMR0_PRESCALER_BY_2 = 0,
+    TMR0_PRESCALER_BY_4,
+    TMR0_PRESCALER_BY_8,
+    TMR0_PRESCALER_BY_16,
+    TMR0_PRESCALER_BY_32,
+    TMR0_PRESCALER_BY_64,
+    TMR0_PRESCALER_BY_128,
+    TMR0_PRESCALER_BY_256
+}tmr0_prescalar_et;
 
-# 1 "MCAL/CCP/../TIMER2/mcal_timer2.h" 1
-# 33 "MCAL/CCP/../TIMER2/mcal_timer2.h"
-typedef enum{
-    TIMER2_PRESCALER_DIV_BY_1=0,
-    TIMER2_PRESCALER_DIV_BY_4,
-    TIMER2_PRESCALER_DIV_BY_16
-}timer2_prescaler_select_et;
+typedef struct {
 
-typedef enum{
-    TIMER2_postscaler_DIV_BY_1=0,
-    TIMER2_postscaler_DIV_BY_2,
-    TIMER2_postscaler_DIV_BY_3,
-    TIMER2_postscaler_DIV_BY_4,
-    TIMER2_postscaler_DIV_BY_5,
-    TIMER2_postscaler_DIV_BY_6,
-    TIMER2_postscaler_DIV_BY_7,
-    TIMER2_postscaler_DIV_BY_8,
-    TIMER2_postscaler_DIV_BY_9,
-    TIMER2_postscaler_DIV_BY_10,
-    TIMER2_postscaler_DIV_BY_11,
-    TIMER2_postscaler_DIV_BY_12,
-    TIMER2_postscaler_DIV_BY_13,
-    TIMER2_postscaler_DIV_BY_14,
-    TIMER2_postscaler_DIV_BY_15,
-    TIMER2_postscaler_DIV_BY_16
-}timer2_postscaler_select_et;
-
-typedef struct{
-    uint8 timer2_preload_value;
+    tmr0_prescalar_et prescalar_value ;
+    uint16_t preloaded_value ;
+# 86 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+    uint8_t timer_mode : 1 ;
+    uint8_t reg_bit_size : 1 ;
+    uint8_t prescaler_enable : 1 ;
+    uint8_t edge : 1 ;
+    uint8_t timer0_reserved : 3 ;
+}timer0_config_st;
+# 103 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
+# 112 "Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
 
 
+Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
+        uint16_t *result);
 
+Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
+        uint16_t val);
+# 18 "Robot/sensors/ultrasonic/ultrasonic.h" 2
 
-
-
-    timer2_prescaler_select_et timer2_prescaler_value;
-    timer2_postscaler_select_et timer2_postscaler_value;
-}timer2_st;
-
-Std_ReturnType Timer2_Init(const timer2_st* _timer2);
-Std_ReturnType Timer2_DeInit(const timer2_st* _timer2);
-Std_ReturnType Timer2_Write_Value(const timer2_st* _timer2,uint8 value);
-Std_ReturnType Timer2_Read_Value(const timer2_st* _timer2,uint8 *value);
-# 15 "MCAL/CCP/hal_ccp.h" 2
-
-# 1 "MCAL/CCP/ccp_cfg.h" 1
-# 16 "MCAL/CCP/hal_ccp.h" 2
-# 74 "MCAL/CCP/hal_ccp.h"
-typedef enum{
-    CCP_CAPTURE_MODE_SELECTED = 0,
-    CCP_COMPARE_MODE_SELECTED,
-    CCP_PWM_MODE_SELECTED
-}ccp_mode_et;
-
-
-
-
-
-typedef union{
-    struct{
-        uint8 ccpr_low;
-        uint8 ccpr_high;
-    };
-    struct{
-        uint16 ccpr_16Bit;
-    };
-}cpp_reg_ut;
-
-typedef enum{
-    CCP1_INST = 0,
-    CCP2_INST
-}ccp_inst_et;
-
-typedef enum{
-    CCP1_CCP2_TIMER3 = 0,
-    CCP1_TIMER1_CCP2_TIMER3,
-    CCP1_CCP2_TIMER1
-}ccp_capture_timer_et;
 
 
 
 
 
 typedef struct{
-    ccp_inst_et ccp_inst;
-    ccp_mode_et ccp_mode;
-    uint8 ccp_mode_variant;
-    pin_config_st ccp_pin;
-    ccp_capture_timer_et ccp_capture_timer;
+    pin_config_st trig_pin;
+    pin_config_st echo_pin;
+}ultrasonic_config_st;
 
-    uint32 PWM_Frequency;
-    timer2_st timer2;
-# 127 "MCAL/CCP/hal_ccp.h"
-}ccp_st;
+Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config);
+Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance);
+# 7 "Robot/sensors/ultrasonic/ultrasonic.c" 2
 
-
-Std_ReturnType CCP_Init(const ccp_st *_ccp_obj);
-Std_ReturnType CCP_DeInit(const ccp_st *_ccp_obj);
-# 144 "MCAL/CCP/hal_ccp.h"
-Std_ReturnType CCP_PWM_Set_Duty(const ccp_st *_ccp_obj, const uint8 _duty);
-Std_ReturnType CCP_PWM_Start(const ccp_st *_ccp_obj);
-Std_ReturnType CCP_PWM_Stop(const ccp_st *_ccp_obj);
-# 8 "MCAL/CCP/hal_ccp.c" 2
-# 18 "MCAL/CCP/hal_ccp.c"
-static void CCP_Interrupt_Config(const ccp_st *_ccp_obj);
-static void CCP_PWM_Mode_Config(const ccp_st *_ccp_obj);
-static void CCP_Mode_Timer_Select(const ccp_st *_ccp_obj);
-static Std_ReturnType CCP_Capture_Mode_Config(const ccp_st *_ccp_obj);
-static Std_ReturnType CCP_Compare_Mode_Config(const ccp_st *_ccp_obj);
-
-Std_ReturnType CCP_Init(const ccp_st *_ccp_obj){
-    Std_ReturnType ret = (Std_ReturnType) 0x00;
-    if(((void*)0) == _ccp_obj){
-        ret = (Std_ReturnType) 0x00;
+static void send_trig_pulse(const ultrasonic_config_st* ultrasonic_object);
+Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if ( ((void*)0)==ultrasonic_object||((void*)0)==_tmr0_config)
+    {
+        ERRORSTATUS = (Std_ReturnType) 0x00;
     }
-    else{
-
-        if(CCP1_INST == _ccp_obj->ccp_inst){
-            (CCP1CONbits.CCP1M = ((uint8)0x00));
-        }
-        else if(CCP2_INST == _ccp_obj->ccp_inst){
-            (CCP2CONbits.CCP2M = ((uint8)0x00));
-        }
-        else { }
-
-
-        if(CCP_CAPTURE_MODE_SELECTED == _ccp_obj->ccp_mode){
-            ret = CCP_Capture_Mode_Config(_ccp_obj);
-        }
-
-        else if(CCP_COMPARE_MODE_SELECTED == _ccp_obj->ccp_mode){
-            ret = CCP_Compare_Mode_Config(_ccp_obj);
-        }
-
-
-        else if(CCP_PWM_MODE_SELECTED == _ccp_obj->ccp_mode){
-            CCP_PWM_Mode_Config(_ccp_obj);
-        }
-
-        else { }
-
-
-        ret = GPIO_Pin_Initialize(&(_ccp_obj->ccp_pin));
-
-        CCP_Interrupt_Config(_ccp_obj);
-
-        ret = (Std_ReturnType) 0x01;
+    else
+    {
+        GPIO_Pin_Initialize(&(ultrasonic_object->trig_pin));
+        GPIO_Pin_Initialize(&(ultrasonic_object->echo_pin));
+        HAL_Timer0_Init(_tmr0_config);
     }
-    return ret;
+    return ERRORSTATUS;
+
 }
+Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance)
+{
+    logic_et logic=0;
+    uint16 timer_val=0;
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if ( ((void*)0)==distance)
+    {
+        ERRORSTATUS = (Std_ReturnType) 0x00;
 
-Std_ReturnType CCP_DeInit(const ccp_st *_ccp_obj){
-    Std_ReturnType ret = (Std_ReturnType) 0x00;
-    if(((void*)0) == _ccp_obj){
-        ret = (Std_ReturnType) 0x00;
     }
-    else{
-        if(CCP1_INST == _ccp_obj->ccp_inst){
-            (CCP1CONbits.CCP1M = ((uint8)0x00));
-
-
-
-
+    else
+    {
+        (T0CONbits.TMR0ON = 0 );
+        HAL_Timer0_Write_Val(_tmr0_config ,0);
+        send_trig_pulse(ultrasonic_object);
+        while(!logic)
+        {
+           GPIO_Pin_Read_Logic(&(ultrasonic_object->echo_pin),&logic);
         }
-        else if(CCP2_INST == _ccp_obj->ccp_inst){
-            (CCP2CONbits.CCP2M = ((uint8)0x00));
-
-
-
+        (T0CONbits.TMR0ON = 1 );
+        while(logic)
+        {
+           GPIO_Pin_Read_Logic(&(ultrasonic_object->echo_pin),&logic);
         }
-        else { }
+        (T0CONbits.TMR0ON = 0 );
+        HAL_Timer0_Read_Val(_tmr0_config ,&timer_val);
 
-        ret = (Std_ReturnType) 0x01;
+        *distance=timer_val/(float32)58.8;
+
     }
-    return ret;
+    return ERRORSTATUS;
 }
-# 176 "MCAL/CCP/hal_ccp.c"
-Std_ReturnType CCP_PWM_Set_Duty(const ccp_st *_ccp_obj, const uint8 _duty){
-    Std_ReturnType ret = (Std_ReturnType) 0x00;
-    uint16 l_duty_temp = 0;
-
-    if(((void*)0) == _ccp_obj){
-        ret = (Std_ReturnType) 0x00;
-    }
-    else{
-        l_duty_temp = (uint16)((PR2+1)*(_duty/100.0)*4);
-
-        if(CCP1_INST == _ccp_obj->ccp_inst){
-            CCP1CONbits.DC1B = (uint8)(l_duty_temp & 0x0003);
-            CCPR1L = (uint8)(l_duty_temp >> 2);
-        }
-        else if(CCP2_INST == _ccp_obj->ccp_inst){
-            CCP2CONbits.DC2B = (uint8)(l_duty_temp & 0x0003);
-            CCPR2L = (uint8)(l_duty_temp >> 2);
-        }
-        else{ }
-
-        ret = (Std_ReturnType) 0x01;
-    }
-
-    return ret;
-}
-
-Std_ReturnType CCP_PWM_Start(const ccp_st *_ccp_obj){
-    Std_ReturnType ret = (Std_ReturnType) 0x00;
-
-    if(((void*)0) == _ccp_obj){
-        ret = (Std_ReturnType) 0x00;
-    }
-    else{
-        if(CCP1_INST == _ccp_obj->ccp_inst){
-            CCP1CONbits.CCP1M = ((uint8)0x0C);
-        }
-        else if(CCP2_INST == _ccp_obj->ccp_inst){
-            CCP2CONbits.CCP2M = ((uint8)0x0C);
-        }
-        else{ }
-        ret = (Std_ReturnType) 0x01;
-    }
-
-    return ret;
-}
-
-Std_ReturnType CCP_PWM_Stop(const ccp_st *_ccp_obj){
-    Std_ReturnType ret = (Std_ReturnType) 0x00;
-
-    if(((void*)0) == _ccp_obj){
-        ret = (Std_ReturnType) 0x00;
-    }
-    else{
-        if(CCP1_INST == _ccp_obj->ccp_inst){
-            CCP1CONbits.CCP1M = ((uint8)0x00);
-        }
-        else if(CCP2_INST == _ccp_obj->ccp_inst){
-            CCP2CONbits.CCP2M = ((uint8)0x00);
-        }
-        else{ }
-        ret = (Std_ReturnType) 0x01;
-    }
-
-    return ret;
-}
-# 264 "MCAL/CCP/hal_ccp.c"
-static void CCP_PWM_Mode_Config(const ccp_st *_ccp_obj){
-
-
-
-
-    PR2 = _ccp_obj->timer2.timer2_preload_value ;
-    Timer2_Init(&(_ccp_obj->timer2));
-    if(CCP1_INST == _ccp_obj->ccp_inst){
-        if(((uint8)0x0C) == _ccp_obj->ccp_mode_variant){
-            (CCP1CONbits.CCP1M = ((uint8)0x0C));
-        }
-        else { }
-    }
-    else if(CCP2_INST == _ccp_obj->ccp_inst){
-        if(((uint8)0x0C) == _ccp_obj->ccp_mode_variant){
-            (CCP2CONbits.CCP2M = ((uint8)0x0C));
-        }
-        else { }
-    }
-    else{ }
-           }
-
-
-static void CCP_Interrupt_Config(const ccp_st *_ccp_obj){
-# 337 "MCAL/CCP/hal_ccp.c"
-}
-
-static void CCP_Mode_Timer_Select(const ccp_st *_ccp_obj){
-    if(CCP1_CCP2_TIMER3 == _ccp_obj->ccp_capture_timer){
-
-        T3CONbits.T3CCP1 = 0;
-        T3CONbits.T3CCP2 = 1;
-    }
-    else if(CCP1_TIMER1_CCP2_TIMER3 == _ccp_obj->ccp_capture_timer){
-
-
-        T3CONbits.T3CCP1 = 1;
-        T3CONbits.T3CCP2 = 0;
-    }
-    else if(CCP1_CCP2_TIMER1 == _ccp_obj->ccp_capture_timer){
-
-        T3CONbits.T3CCP1 = 0;
-        T3CONbits.T3CCP2 = 0;
-    }
-    else{ }
-}
-
-static Std_ReturnType CCP_Capture_Mode_Config(const ccp_st *_ccp_obj){
-    Std_ReturnType ret = (Std_ReturnType) 0x01;
-
-    if(CCP1_INST == _ccp_obj->ccp_inst){
-
-        switch(_ccp_obj->ccp_mode_variant){
-            case ((uint8)0x04) :
-                (CCP1CONbits.CCP1M = ((uint8)0x04));
-                break;
-            case ((uint8)0x05) :
-                (CCP1CONbits.CCP1M = ((uint8)0x05));
-                break;
-            case ((uint8)0x06) :
-                (CCP1CONbits.CCP1M = ((uint8)0x06));
-                break;
-            case ((uint8)0x07) :
-                (CCP1CONbits.CCP1M = ((uint8)0x07));
-                break;
-            default : ret = (Std_ReturnType) 0x00;
-        }
-    }
-    else if(CCP2_INST == _ccp_obj->ccp_inst){
-
-        switch(_ccp_obj->ccp_mode_variant){
-            case ((uint8)0x04) :
-                (CCP2CONbits.CCP2M = ((uint8)0x04));
-            break;
-            case ((uint8)0x05) :
-                (CCP2CONbits.CCP2M = ((uint8)0x05));
-                break;
-            case ((uint8)0x06) :
-                (CCP2CONbits.CCP2M = ((uint8)0x06));
-                break;
-            case ((uint8)0x07) :
-                (CCP2CONbits.CCP2M = ((uint8)0x07));
-                break;
-            default :
-                ret = (Std_ReturnType) 0x00;
-        }
-    }
-    else{ }
-
-    CCP_Mode_Timer_Select(_ccp_obj);
-
-    return ret;
-}
-
-static Std_ReturnType CCP_Compare_Mode_Config(const ccp_st *_ccp_obj){
-    Std_ReturnType ret = (Std_ReturnType) 0x01;
-
-    if(CCP1_INST == _ccp_obj->ccp_inst){
-
-        switch(_ccp_obj->ccp_mode_variant){
-            case ((uint8)0x08) :
-                (CCP1CONbits.CCP1M = ((uint8)0x08));
-                break;
-            case ((uint8)0x09) :
-                (CCP1CONbits.CCP1M = ((uint8)0x09));
-                break;
-            case ((uint8)0x02) :
-                (CCP1CONbits.CCP1M = ((uint8)0x02));
-                break;
-            case ((uint8)0x0A) :
-                (CCP1CONbits.CCP1M = ((uint8)0x0A));
-                break;
-            case ((uint8)0x0B) :
-                (CCP1CONbits.CCP1M = ((uint8)0x0B));
-                break;
-            default : ret = (Std_ReturnType) 0x00;
-        }
-    }
-    else if(CCP2_INST == _ccp_obj->ccp_inst){
-
-        switch(_ccp_obj->ccp_mode_variant){
-            case ((uint8)0x08) :
-                (CCP2CONbits.CCP2M = ((uint8)0x08));
-                break;
-            case ((uint8)0x09) :
-                (CCP2CONbits.CCP2M = ((uint8)0x09));
-                break;
-            case ((uint8)0x02) :
-                (CCP2CONbits.CCP2M = ((uint8)0x02));
-                break;
-            case ((uint8)0x0A) :
-                (CCP2CONbits.CCP2M = ((uint8)0x0A));
-                break;
-            case ((uint8)0x0B) :
-                (CCP2CONbits.CCP2M = ((uint8)0x0B));
-                break;
-            default : ret = (Std_ReturnType) 0x00;
-        }
-    }
-    else{ }
-
-    CCP_Mode_Timer_Select(_ccp_obj);
-
-    return ret;
+static void send_trig_pulse(const ultrasonic_config_st* ultrasonic_object)
+{
+    GPIO_Pin_Write_Logic(&(ultrasonic_object->trig_pin),GPIO_HIGH);
+    _delay((unsigned long)((10)*(8000000/4000000.0)));
+    GPIO_Pin_Write_Logic(&(ultrasonic_object->trig_pin),GPIO_LOW);
 }
