@@ -32,6 +32,9 @@
           <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h</itemPath>
           <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="Stepper" displayName="Stepper" projectFiles="true">
+          <itemPath>ECU/Stepper/ecu_stepper.h</itemPath>
+        </logicalFolder>
         <itemPath>ECU/ecu_layer_init.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
@@ -122,6 +125,9 @@
                        projectFiles="true">
           <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="Stepper" displayName="Stepper" projectFiles="true">
+          <itemPath>ECU/Stepper/ecu_stepper.c</itemPath>
+        </logicalFolder>
         <itemPath>ECU/ecu_layer_init.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
@@ -192,7 +198,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.30</languageToolchainVersion>
+        <languageToolchainVersion>2.36</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
