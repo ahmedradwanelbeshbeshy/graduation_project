@@ -23,7 +23,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Robot/sensors/ultrasonic/ultrasonic.c: 27:     logic_et logic=0;
 [c E2967 0 1 .. ]
 [n E2967 . GPIO_LOW GPIO_HIGH  ]
-"5863 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+"5863 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [s S253 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S253 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
 "5871
@@ -48,10 +48,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "86 Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
 [v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS273`E2967 ]
 [v F2935 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+"12 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
 [v __delay `JF2935 ~T0 @X0 0 e ]
 [p i __delay ]
-"55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+"55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
 [; <" PORTB equ 0F81h ;# ">

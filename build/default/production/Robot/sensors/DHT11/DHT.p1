@@ -8,7 +8,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11
 [; ;Robot/sensors/DHT11/DHT.c: 11:  static void DHT11_Read_Data(uint8* data);
 [v _DHT11_Read_Data `(v ~T0 @X0 0 sf1`*uc ]
-"2058 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+"2058 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S79 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
 "2068
@@ -23,7 +23,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Robot/sensors/DHT11/DHT.c: 34:     TRISDbits.TRISD7=GPIO_DIRECTION_OUTPUT;
 [c E2971 0 1 .. ]
 [n E2971 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
-"1223 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+"1223 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S55 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
 "1233
@@ -39,10 +39,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [c E2967 0 1 .. ]
 [n E2967 . GPIO_LOW GPIO_HIGH  ]
 [v F2935 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+"12 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
 [v __delay `JF2935 ~T0 @X0 0 e ]
 [p i __delay ]
-"542 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+"542 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [s S30 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S30 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "552
@@ -59,7 +59,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S29 . . . . . ]
 "573
 [v _PORTDbits `VS29 ~T0 @X0 0 e@3971 ]
-"55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+"55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
 [; <" PORTB equ 0F81h ;# ">

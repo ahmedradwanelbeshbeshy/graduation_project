@@ -2,8 +2,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "73 ./Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
 [s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S273 . pin port direction logic ]
-"55 application.c
-[; ;application.c: 55: pin_config_st step_pin1 =
+"59 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
+[; ;./ECU/LCD_for_test_gps/ecu_char_lcd.h: 59: typedef struct{
+[s S278 `S273 1 `S273 1 `S273 -> 4 `i ]
+[n S278 . lcd_rs_pin lcd_enable_pin lcd_data_pins ]
+"14 application.c
+[; ;application.c: 14: char_lcd_4bit_t lcd1=
 [c E2975 0 1 2 3 4 5 6 7 .. ]
 [n E2975 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
 [c E2985 0 1 2 3 4 .. ]
@@ -12,18 +16,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E2971 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [c E2967 0 1 .. ]
 [n E2967 . GPIO_LOW GPIO_HIGH  ]
-"13 ./ECU/Stepper/ecu_stepper.h
-[; ;./ECU/Stepper/ecu_stepper.h: 13: {
-[s S276 `S273 1 `S273 1 ]
-[n S276 . step_pin dir_pin ]
 [p mainexit ]
-"26
-[; ;./ECU/Stepper/ecu_stepper.h: 26: Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper);
-[v _Ecu_Stepper_Init `(uc ~T0 @X0 0 ef1`*S276 ]
-"27
-[; ;./ECU/Stepper/ecu_stepper.h: 27: Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper);
-[v _Ecu_Stepper_Step `(uc ~T0 @X0 0 ef1`*S276 ]
-"55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+"35 ./application.h
+[; ;./application.h: 35: void application_intialize(void);
+[v _application_intialize `(v ~T0 @X0 0 ef ]
+"79 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
+[; ;./ECU/LCD_for_test_gps/ecu_char_lcd.h: 79: Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
+[v _lcd_4bit_send_string_data_pos `(uc ~T0 @X0 0 ef4`*CS278`uc`uc`*uc ]
+"86 ./Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
+[v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS273`E2967 ]
+[v F2935 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+[v __delay `JF2935 ~T0 @X0 0 e ]
+[p i __delay ]
+"89 ./Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
+[v _GPIO_Pin_Toggle_Logic `(uc ~T0 @X0 0 ef1`*CS273 ]
+"90
+[v _GPIO_Pin_Initialize `(uc ~T0 @X0 0 ef1`*CS273 ]
+"72 ./ECU/LCD_for_test_gps/ecu_char_lcd.h
+[; ;./ECU/LCD_for_test_gps/ecu_char_lcd.h: 72: Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
+[v _lcd_4bit_initialize `(uc ~T0 @X0 0 ef1`*CS278 ]
+"55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
 [; <" PORTB equ 0F81h ;# ">
@@ -297,84 +310,141 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6716
 [; <" TOSU equ 0FFFh ;# ">
-"55 application.c
-[; ;application.c: 55: pin_config_st step_pin1 =
-[v _step_pin1 `S273 ~T0 @X0 1 e ]
-[i _step_pin1
+"14 application.c
+[; ;application.c: 14: char_lcd_4bit_t lcd1=
+[v _lcd1 `S278 ~T0 @X0 1 e ]
+[i _lcd1
+:U ..
+:U ..
+:U ..
+:U ..
+-> . `E2975 0 `uc
+-> . `E2985 3 `uc
+-> . `E2971 0 `uc
+-> . `E2967 0 `uc
+..
+..
 :U ..
 :U ..
 -> . `E2975 1 `uc
--> . `E2985 2 `uc
+-> . `E2985 3 `uc
 -> . `E2971 0 `uc
 -> . `E2967 0 `uc
 ..
 ..
-]
-"63
-[; ;application.c: 63: pin_config_st dir_pin1 =
-[v _dir_pin1 `S273 ~T0 @X0 1 e ]
-[i _dir_pin1
 :U ..
 :U ..
 -> . `E2975 2 `uc
--> . `E2985 2 `uc
+-> . `E2985 3 `uc
+-> . `E2971 0 `uc
+-> . `E2967 0 `uc
+..
+:U ..
+-> . `E2975 3 `uc
+-> . `E2985 3 `uc
+-> . `E2971 0 `uc
+-> . `E2967 0 `uc
+..
+:U ..
+-> . `E2975 4 `uc
+-> . `E2985 3 `uc
+-> . `E2971 0 `uc
+-> . `E2967 0 `uc
+..
+:U ..
+-> . `E2975 5 `uc
+-> . `E2985 3 `uc
 -> . `E2971 0 `uc
 -> . `E2967 0 `uc
 ..
 ..
+..
+..
 ]
-"71
-[; ;application.c: 71: stepper_config_st stepper1 ;
-[v _stepper1 `S276 ~T0 @X0 1 e ]
-"74
-[; ;application.c: 74: uint16_t counter = 0 ;
-[v _counter `us ~T0 @X0 1 e ]
-[i _counter
--> -> 0 `i `us
+"48
+[; ;application.c: 48: pin_config_st pinc0={
+[v _pinc0 `S273 ~T0 @X0 1 e ]
+[i _pinc0
+:U ..
+:U ..
+-> . `E2975 0 `uc
+-> . `E2985 2 `uc
+-> . `E2971 0 `uc
+-> . `E2967 1 `uc
+..
+..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"101
-[; ;application.c: 101: int main()
+"55
+[; ;application.c: 55: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"102
-[; ;application.c: 102: {
+"56
+[; ;application.c: 56: {
 {
 [e :U _main ]
 [f ]
-"103
-[; ;application.c: 103:     stepper1.step_pin = step_pin1 ;
-[e = . _stepper1 0 _step_pin1 ]
-"104
-[; ;application.c: 104:     stepper1.dir_pin = dir_pin1 ;
-[e = . _stepper1 1 _dir_pin1 ]
-"105
-[; ;application.c: 105:     Ecu_Stepper_Init(&stepper1);
-[e ( _Ecu_Stepper_Init (1 &U _stepper1 ]
-"107
-[; ;application.c: 107:     for (counter = 0 ; counter < 200 ; counter++)
-{
-[e = _counter -> -> 0 `i `us ]
-[e $ < -> _counter `ui -> -> 200 `i `ui 283  ]
-[e $U 284  ]
-[e :U 283 ]
-"108
-[; ;application.c: 108:     {
-{
-"109
-[; ;application.c: 109:         Ecu_Stepper_Step(&stepper1);
-[e ( _Ecu_Stepper_Step (1 &U _stepper1 ]
-"110
-[; ;application.c: 110:     }
-}
-[e ++ _counter -> -> 1 `i `us ]
-[e $ < -> _counter `ui -> -> 200 `i `ui 283  ]
+"57
+[; ;application.c: 57:     application_intialize();
+[e ( _application_intialize ..  ]
+"58
+[; ;application.c: 58:     lcd_4bit_send_string_data_pos(&lcd1,1,1,"              ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS278 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
+"59
+[; ;application.c: 59:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"              ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS278 -> -> 2 `i `uc -> -> 1 `i `uc :s 2C ]
+"60
+[; ;application.c: 60:     lcd_4bit_send_string_data_pos(&lcd1,2,1,"-> ");
+[e ( _lcd_4bit_send_string_data_pos (4 , , , -> &U _lcd1 `*CS278 -> -> 2 `i `uc -> -> 1 `i `uc :s 3C ]
+"61
+[; ;application.c: 61:     GPIO_Pin_Write_Logic(&pinc0,GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U _pinc0 `*CS273 . `E2967 1 ]
+"62
+[; ;application.c: 62:     _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"63
+[; ;application.c: 63:    while(1)
 [e :U 284 ]
+"64
+[; ;application.c: 64:     {
+{
+"65
+[; ;application.c: 65:        GPIO_Pin_Toggle_Logic(&pinc0);
+[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pinc0 `*CS273 ]
+"66
+[; ;application.c: 66:            _delay((unsigned long)((500)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"67
+[; ;application.c: 67:    }
 }
-"130
-[; ;application.c: 130:    return 0;
+[e :U 283 ]
+[e $U 284  ]
+[e :U 285 ]
+"68
+[; ;application.c: 68:    return 0;
 [e ) -> 0 `i ]
 [e $UE 282  ]
-"131
-[; ;application.c: 131: }
+"69
+[; ;application.c: 69: }
 [e :UE 282 ]
 }
+"70
+[; ;application.c: 70: void application_intialize(void)
+[v _application_intialize `(v ~T0 @X0 1 ef ]
+"71
+[; ;application.c: 71: {
+{
+[e :U _application_intialize ]
+[f ]
+"72
+[; ;application.c: 72:     GPIO_Pin_Initialize(&pinc0);
+[e ( _GPIO_Pin_Initialize (1 -> &U _pinc0 `*CS273 ]
+"73
+[; ;application.c: 73:     lcd_4bit_initialize(&lcd1);
+[e ( _lcd_4bit_initialize (1 -> &U _lcd1 `*CS278 ]
+"74
+[; ;application.c: 74: }
+[e :UE 286 ]
+}
+[a 3C 45 62 32 0 ]
+[a 1C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
+[a 2C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
