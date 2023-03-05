@@ -1,0 +1,526 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"73 Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . pin port direction logic ]
+"24 Robot/sensors/ultrasonic/ultrasonic.h
+[; ;Robot/sensors/ultrasonic/ultrasonic.h: 24: typedef struct{
+[s S275 `S273 1 `S273 1 ]
+[n S275 . trig_pin echo_pin ]
+"9 Robot/sensors/ultrasonic/ultrasonic.c
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 9: Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config)
+[c E3027 0 1 2 3 4 5 6 7 .. ]
+[n E3027 . TMR0_PRESCALER_BY_2 TMR0_PRESCALER_BY_4 TMR0_PRESCALER_BY_8 TMR0_PRESCALER_BY_16 TMR0_PRESCALER_BY_32 TMR0_PRESCALER_BY_64 TMR0_PRESCALER_BY_128 TMR0_PRESCALER_BY_256  ]
+"74 Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h
+[; ;Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h: 74: typedef struct {
+[s S274 `E3027 1 `us 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S274 . prescalar_value preloaded_value timer_mode reg_bit_size prescaler_enable edge timer0_reserved ]
+"90 Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
+[v _GPIO_Pin_Initialize `(uc ~T0 @X0 0 ef1`*CS273 ]
+"103 Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h
+[; ;Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h: 103: Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
+[v _HAL_Timer0_Init `(uc ~T0 @X0 0 ef1`*CS274 ]
+"27 Robot/sensors/ultrasonic/ultrasonic.c
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 27:     logic_et logic=0;
+[c E2958 0 1 .. ]
+[n E2958 . GPIO_LOW GPIO_HIGH  ]
+"5863 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+[s S253 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S253 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
+"5871
+[s S254 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S254 . T0PS0 T0PS1 T0PS2 . T016BIT ]
+"5862
+[u S252 `S253 1 `S254 1 ]
+[n S252 . . . ]
+"5879
+[v _T0CONbits `VS252 ~T0 @X0 0 e@4053 ]
+"118 Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h
+[; ;Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h: 118: Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
+[v _HAL_Timer0_Write_Val `(uc ~T0 @X0 0 ef2`*CS274`us ]
+"8 Robot/sensors/ultrasonic/ultrasonic.c
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 8: static void send_trig_pulse(const ultrasonic_config_st* ultrasonic_object);
+[v _send_trig_pulse `(v ~T0 @X0 0 sf1`*CS275 ]
+"87 Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
+[v _GPIO_Pin_Read_Logic `(uc ~T0 @X0 0 ef2`*CS273`*E2958 ]
+"115 Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h
+[; ;Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h: 115: Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
+[v _HAL_Timer0_Read_Val `(uc ~T0 @X0 0 ef2`*CS274`*us ]
+"86 Robot/sensors/ultrasonic/../../../MCAL/Timer0/../GPIO/hal_gpio.h
+[v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS273`E2958 ]
+[v F2926 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+[v __delay `JF2926 ~T0 @X0 0 e ]
+[p i __delay ]
+"55 C:/Users/ahmed radwan/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
+[; <" PORTA equ 0F80h ;# ">
+"192
+[; <" PORTB equ 0F81h ;# ">
+"363
+[; <" PORTC equ 0F82h ;# ">
+"538
+[; <" PORTD equ 0F83h ;# ">
+"680
+[; <" PORTE equ 0F84h ;# ">
+"883
+[; <" LATA equ 0F89h ;# ">
+"995
+[; <" LATB equ 0F8Ah ;# ">
+"1107
+[; <" LATC equ 0F8Bh ;# ">
+"1219
+[; <" LATD equ 0F8Ch ;# ">
+"1331
+[; <" LATE equ 0F8Dh ;# ">
+"1383
+[; <" TRISA equ 0F92h ;# ">
+"1388
+[; <" DDRA equ 0F92h ;# ">
+"1605
+[; <" TRISB equ 0F93h ;# ">
+"1610
+[; <" DDRB equ 0F93h ;# ">
+"1827
+[; <" TRISC equ 0F94h ;# ">
+"1832
+[; <" DDRC equ 0F94h ;# ">
+"2049
+[; <" TRISD equ 0F95h ;# ">
+"2054
+[; <" DDRD equ 0F95h ;# ">
+"2271
+[; <" TRISE equ 0F96h ;# ">
+"2276
+[; <" DDRE equ 0F96h ;# ">
+"2435
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"2500
+[; <" PIE1 equ 0F9Dh ;# ">
+"2577
+[; <" PIR1 equ 0F9Eh ;# ">
+"2654
+[; <" IPR1 equ 0F9Fh ;# ">
+"2731
+[; <" PIE2 equ 0FA0h ;# ">
+"2797
+[; <" PIR2 equ 0FA1h ;# ">
+"2863
+[; <" IPR2 equ 0FA2h ;# ">
+"2929
+[; <" EECON1 equ 0FA6h ;# ">
+"2995
+[; <" EECON2 equ 0FA7h ;# ">
+"3002
+[; <" EEDATA equ 0FA8h ;# ">
+"3009
+[; <" EEADR equ 0FA9h ;# ">
+"3016
+[; <" EEADRH equ 0FAAh ;# ">
+"3023
+[; <" RCSTA equ 0FABh ;# ">
+"3028
+[; <" RCSTA1 equ 0FABh ;# ">
+"3233
+[; <" TXSTA equ 0FACh ;# ">
+"3238
+[; <" TXSTA1 equ 0FACh ;# ">
+"3489
+[; <" TXREG equ 0FADh ;# ">
+"3494
+[; <" TXREG1 equ 0FADh ;# ">
+"3501
+[; <" RCREG equ 0FAEh ;# ">
+"3506
+[; <" RCREG1 equ 0FAEh ;# ">
+"3513
+[; <" SPBRG equ 0FAFh ;# ">
+"3518
+[; <" SPBRG1 equ 0FAFh ;# ">
+"3525
+[; <" SPBRGH equ 0FB0h ;# ">
+"3532
+[; <" T3CON equ 0FB1h ;# ">
+"3644
+[; <" TMR3 equ 0FB2h ;# ">
+"3651
+[; <" TMR3L equ 0FB2h ;# ">
+"3658
+[; <" TMR3H equ 0FB3h ;# ">
+"3665
+[; <" CMCON equ 0FB4h ;# ">
+"3755
+[; <" CVRCON equ 0FB5h ;# ">
+"3834
+[; <" ECCP1AS equ 0FB6h ;# ">
+"3916
+[; <" PWM1CON equ 0FB7h ;# ">
+"3986
+[; <" BAUDCON equ 0FB8h ;# ">
+"3991
+[; <" BAUDCTL equ 0FB8h ;# ">
+"4158
+[; <" CCP2CON equ 0FBAh ;# ">
+"4237
+[; <" CCPR2 equ 0FBBh ;# ">
+"4244
+[; <" CCPR2L equ 0FBBh ;# ">
+"4251
+[; <" CCPR2H equ 0FBCh ;# ">
+"4258
+[; <" CCP1CON equ 0FBDh ;# ">
+"4355
+[; <" CCPR1 equ 0FBEh ;# ">
+"4362
+[; <" CCPR1L equ 0FBEh ;# ">
+"4369
+[; <" CCPR1H equ 0FBFh ;# ">
+"4376
+[; <" ADCON2 equ 0FC0h ;# ">
+"4447
+[; <" ADCON1 equ 0FC1h ;# ">
+"4532
+[; <" ADCON0 equ 0FC2h ;# ">
+"4651
+[; <" ADRES equ 0FC3h ;# ">
+"4658
+[; <" ADRESL equ 0FC3h ;# ">
+"4665
+[; <" ADRESH equ 0FC4h ;# ">
+"4672
+[; <" SSPCON2 equ 0FC5h ;# ">
+"4734
+[; <" SSPCON1 equ 0FC6h ;# ">
+"4804
+[; <" SSPSTAT equ 0FC7h ;# ">
+"5025
+[; <" SSPADD equ 0FC8h ;# ">
+"5032
+[; <" SSPBUF equ 0FC9h ;# ">
+"5039
+[; <" T2CON equ 0FCAh ;# ">
+"5110
+[; <" PR2 equ 0FCBh ;# ">
+"5115
+[; <" MEMCON equ 0FCBh ;# ">
+"5220
+[; <" TMR2 equ 0FCCh ;# ">
+"5227
+[; <" T1CON equ 0FCDh ;# ">
+"5330
+[; <" TMR1 equ 0FCEh ;# ">
+"5337
+[; <" TMR1L equ 0FCEh ;# ">
+"5344
+[; <" TMR1H equ 0FCFh ;# ">
+"5351
+[; <" RCON equ 0FD0h ;# ">
+"5484
+[; <" WDTCON equ 0FD1h ;# ">
+"5512
+[; <" HLVDCON equ 0FD2h ;# ">
+"5517
+[; <" LVDCON equ 0FD2h ;# ">
+"5782
+[; <" OSCCON equ 0FD3h ;# ">
+"5859
+[; <" T0CON equ 0FD5h ;# ">
+"5936
+[; <" TMR0 equ 0FD6h ;# ">
+"5943
+[; <" TMR0L equ 0FD6h ;# ">
+"5950
+[; <" TMR0H equ 0FD7h ;# ">
+"5957
+[; <" STATUS equ 0FD8h ;# ">
+"6028
+[; <" FSR2 equ 0FD9h ;# ">
+"6035
+[; <" FSR2L equ 0FD9h ;# ">
+"6042
+[; <" FSR2H equ 0FDAh ;# ">
+"6049
+[; <" PLUSW2 equ 0FDBh ;# ">
+"6056
+[; <" PREINC2 equ 0FDCh ;# ">
+"6063
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"6070
+[; <" POSTINC2 equ 0FDEh ;# ">
+"6077
+[; <" INDF2 equ 0FDFh ;# ">
+"6084
+[; <" BSR equ 0FE0h ;# ">
+"6091
+[; <" FSR1 equ 0FE1h ;# ">
+"6098
+[; <" FSR1L equ 0FE1h ;# ">
+"6105
+[; <" FSR1H equ 0FE2h ;# ">
+"6112
+[; <" PLUSW1 equ 0FE3h ;# ">
+"6119
+[; <" PREINC1 equ 0FE4h ;# ">
+"6126
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"6133
+[; <" POSTINC1 equ 0FE6h ;# ">
+"6140
+[; <" INDF1 equ 0FE7h ;# ">
+"6147
+[; <" WREG equ 0FE8h ;# ">
+"6159
+[; <" FSR0 equ 0FE9h ;# ">
+"6166
+[; <" FSR0L equ 0FE9h ;# ">
+"6173
+[; <" FSR0H equ 0FEAh ;# ">
+"6180
+[; <" PLUSW0 equ 0FEBh ;# ">
+"6187
+[; <" PREINC0 equ 0FECh ;# ">
+"6194
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"6201
+[; <" POSTINC0 equ 0FEEh ;# ">
+"6208
+[; <" INDF0 equ 0FEFh ;# ">
+"6215
+[; <" INTCON3 equ 0FF0h ;# ">
+"6307
+[; <" INTCON2 equ 0FF1h ;# ">
+"6377
+[; <" INTCON equ 0FF2h ;# ">
+"6494
+[; <" PROD equ 0FF3h ;# ">
+"6501
+[; <" PRODL equ 0FF3h ;# ">
+"6508
+[; <" PRODH equ 0FF4h ;# ">
+"6515
+[; <" TABLAT equ 0FF5h ;# ">
+"6524
+[; <" TBLPTR equ 0FF6h ;# ">
+"6531
+[; <" TBLPTRL equ 0FF6h ;# ">
+"6538
+[; <" TBLPTRH equ 0FF7h ;# ">
+"6545
+[; <" TBLPTRU equ 0FF8h ;# ">
+"6554
+[; <" PCLAT equ 0FF9h ;# ">
+"6561
+[; <" PC equ 0FF9h ;# ">
+"6568
+[; <" PCL equ 0FF9h ;# ">
+"6575
+[; <" PCLATH equ 0FFAh ;# ">
+"6582
+[; <" PCLATU equ 0FFBh ;# ">
+"6589
+[; <" STKPTR equ 0FFCh ;# ">
+"6695
+[; <" TOS equ 0FFDh ;# ">
+"6702
+[; <" TOSL equ 0FFDh ;# ">
+"6709
+[; <" TOSH equ 0FFEh ;# ">
+"6716
+[; <" TOSU equ 0FFFh ;# ">
+"9 Robot/sensors/ultrasonic/ultrasonic.c
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 9: Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config)
+[v _Ultra_Sonic_Init `(uc ~T0 @X0 1 ef2`*CS275`*CS274 ]
+"10
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 10: {
+{
+[e :U _Ultra_Sonic_Init ]
+"9
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 9: Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config)
+[v _ultrasonic_object `*CS275 ~T0 @X0 1 r1 ]
+[v __tmr0_config `*CS274 ~T0 @X0 1 r2 ]
+"10
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 10: {
+[f ]
+"11
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 11:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"12
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 12:     if ( ((void*)0)==ultrasonic_object||((void*)0)==_tmr0_config)
+[e $ ! || == -> -> -> 0 `i `*v `*CS275 _ultrasonic_object == -> -> -> 0 `i `*v `*CS274 __tmr0_config 277  ]
+"13
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 13:     {
+{
+"14
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 14:         ERRORSTATUS = (Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"15
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 15:     }
+}
+[e $U 278  ]
+"16
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 16:     else
+[e :U 277 ]
+"17
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 17:     {
+{
+"18
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 18:         GPIO_Pin_Initialize(&(ultrasonic_object->trig_pin));
+[e ( _GPIO_Pin_Initialize (1 &U . *U _ultrasonic_object 0 ]
+"19
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 19:         GPIO_Pin_Initialize(&(ultrasonic_object->echo_pin));
+[e ( _GPIO_Pin_Initialize (1 &U . *U _ultrasonic_object 1 ]
+"20
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 20:         HAL_Timer0_Init(_tmr0_config);
+[e ( _HAL_Timer0_Init (1 __tmr0_config ]
+"21
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 21:     }
+}
+[e :U 278 ]
+"22
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 22:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 276  ]
+"24
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 24: }
+[e :UE 276 ]
+}
+"25
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 25: Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance)
+[v _Get_Distance `(uc ~T0 @X0 1 ef3`*CS275`*CS274`*f ]
+"26
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 26: {
+{
+[e :U _Get_Distance ]
+"25
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 25: Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance)
+[v _ultrasonic_object `*CS275 ~T0 @X0 1 r1 ]
+[v __tmr0_config `*CS274 ~T0 @X0 1 r2 ]
+[v _distance `*f ~T0 @X0 1 r3 ]
+"26
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 26: {
+[f ]
+"27
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 27:     logic_et logic=0;
+[v _logic `E2958 ~T0 @X0 1 a ]
+[e = _logic -> -> 0 `i `E2958 ]
+"28
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 28:     uint16 timer_val=0;
+[v _timer_val `us ~T0 @X0 1 a ]
+[e = _timer_val -> -> 0 `i `us ]
+"29
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 29:     Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"30
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 30:     if ( ((void*)0)==distance)
+[e $ ! == -> -> -> 0 `i `*v `*f _distance 280  ]
+"31
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 31:     {
+{
+"32
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 32:         ERRORSTATUS = (Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"34
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 34:     }
+}
+[e $U 281  ]
+"35
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 35:     else
+[e :U 280 ]
+"36
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 36:     {
+{
+"37
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 37:         (T0CONbits.TMR0ON = 0 );
+[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
+"38
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 38:         HAL_Timer0_Write_Val(_tmr0_config ,0);
+[e ( _HAL_Timer0_Write_Val (2 , __tmr0_config -> -> 0 `i `us ]
+"39
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 39:         send_trig_pulse(ultrasonic_object);
+[e ( _send_trig_pulse (1 _ultrasonic_object ]
+"40
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 40:         while(!logic)
+[e $U 282  ]
+[e :U 283 ]
+"41
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 41:         {
+{
+"42
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 42:            GPIO_Pin_Read_Logic(&(ultrasonic_object->echo_pin),&logic);
+[e ( _GPIO_Pin_Read_Logic (2 , &U . *U _ultrasonic_object 1 &U _logic ]
+"43
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 43:         }
+}
+[e :U 282 ]
+"40
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 40:         while(!logic)
+[e $ ! != -> _logic `ui -> -> 0 `i `ui 283  ]
+[e :U 284 ]
+"44
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 44:         (T0CONbits.TMR0ON = 1 );
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+"45
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 45:         while(logic)
+[e $U 285  ]
+[e :U 286 ]
+"46
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 46:         {
+{
+"47
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 47:            GPIO_Pin_Read_Logic(&(ultrasonic_object->echo_pin),&logic);
+[e ( _GPIO_Pin_Read_Logic (2 , &U . *U _ultrasonic_object 1 &U _logic ]
+"48
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 48:         }
+}
+[e :U 285 ]
+"45
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 45:         while(logic)
+[e $ != -> _logic `ui -> -> 0 `i `ui 286  ]
+[e :U 287 ]
+"49
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 49:         (T0CONbits.TMR0ON = 0 );
+[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
+"50
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 50:         HAL_Timer0_Read_Val(_tmr0_config ,&timer_val);
+[e ( _HAL_Timer0_Read_Val (2 , __tmr0_config &U _timer_val ]
+"52
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 52:         *distance=timer_val/(float32)58.8;
+[e = *U _distance / -> -> _timer_val `ui `f -> .58.8 `f ]
+"54
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 54:     }
+}
+[e :U 281 ]
+"55
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 55:     return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 279  ]
+"56
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 56: }
+[e :UE 279 ]
+}
+"57
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 57: static void send_trig_pulse(const ultrasonic_config_st* ultrasonic_object)
+[v _send_trig_pulse `(v ~T0 @X0 1 sf1`*CS275 ]
+"58
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 58: {
+{
+[e :U _send_trig_pulse ]
+"57
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 57: static void send_trig_pulse(const ultrasonic_config_st* ultrasonic_object)
+[v _ultrasonic_object `*CS275 ~T0 @X0 1 r1 ]
+"58
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 58: {
+[f ]
+"59
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 59:     GPIO_Pin_Write_Logic(&(ultrasonic_object->trig_pin),GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , &U . *U _ultrasonic_object 0 . `E2958 1 ]
+"60
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 60:     _delay((unsigned long)((10)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"61
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 61:     GPIO_Pin_Write_Logic(&(ultrasonic_object->trig_pin),GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , &U . *U _ultrasonic_object 0 . `E2958 0 ]
+"62
+[; ;Robot/sensors/ultrasonic/ultrasonic.c: 62: }
+[e :UE 288 ]
+}

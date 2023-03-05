@@ -1,0 +1,25 @@
+/* 
+ * File:   Bluetooth_cfg.h
+ * Author: ahmed radwan
+ *
+ * Created on October 1, 2022, 10:20 PM
+ */
+
+#ifndef BLUETOOTH_CFG_H
+#define	BLUETOOTH_CFG_H
+
+#define BLUETOOTH_CHANNEL_NAME "AT+RNAME:Robot\r\n"
+#define BLUETOOTH_CHANNEL_NAME_NO_OF_CHAR (11+5)
+
+#define BLUETOOTH_CHANNEL_ROLE "AT+ROLE:0\r\n"
+#define BLUETOOTH_CHANNEL_ROLE_NO_OF_CHAR (11)
+
+#define BLUETOOTH_CHANNEL_PASS "AT+PSWD:1234\r\n"
+#define BLUETOOTH_CHANNEL_PASS_NO_OF_CHAR (10+4)
+
+#define BLUETOOTH_CHANNEL_BAUD_RATE "AT+UART:9600,0,0\r\n"
+#define BLUETOOTH_CHANNEL_BAUD_RATE_NO_OF_CHAR (14+4)
+
+
+#endif	/* BLUETOOTH_CFG_H */
+
