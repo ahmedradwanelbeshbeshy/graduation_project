@@ -15,4 +15,5 @@ ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h  \
 Robot/sensors/ultrasonic/ultrasonic.h  \
 Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h  \
 Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0_config.h  \
-Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_internal_interrupt.h 
+Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_internal_interrupt.h  \
+ECU/stepper/ecu_stepper.h 

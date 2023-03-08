@@ -21,6 +21,7 @@ typedef unsigned char        uint8;
 typedef unsigned char        uint8_t;// by ahmed radwan  to test interrupt driver
 
 typedef unsigned short       uint16;
+typedef unsigned short       uint16_t;
 typedef unsigned long        uint32;
 
 

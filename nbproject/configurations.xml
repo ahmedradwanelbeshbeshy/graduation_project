@@ -32,6 +32,9 @@
           <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h</itemPath>
           <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="stepper" displayName="stepper" projectFiles="true">
+          <itemPath>ECU/stepper/ecu_stepper.h</itemPath>
+        </logicalFolder>
         <itemPath>ECU/ecu_layer_init.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
@@ -122,6 +125,9 @@
                        projectFiles="true">
           <itemPath>ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="stepper" displayName="stepper" projectFiles="true">
+          <itemPath>ECU/stepper/ecu_stepper.c</itemPath>
+        </logicalFolder>
         <itemPath>ECU/ecu_layer_init.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
@@ -187,16 +193,16 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC18F4620</targetDevice>
+        <targetDevice>PIC18F46K20</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.30</languageToolchainVersion>
+        <languageToolchainVersion>2.36</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.3.36"/>
+        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.4.87"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
