@@ -10,10 +10,9 @@ MCAL/GPIO/hal_gpio_cfg.h  \
 MCAL/Interrupts/mcal_external_interrupt.h  \
 MCAL/Interrupts/./mcal_interrupt_config.h  \
 MCAL/Interrupts/mcal_interrupt_gen_config.h  \
-ECU/LCD_for_test_gps/ecu_char_lcd.h  \
-ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h  \
-Robot/sensors/ultrasonic/ultrasonic.h  \
-Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h  \
-Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0_config.h  \
-Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_internal_interrupt.h  \
-ECU/stepper/ecu_stepper.h 
+MCAL/TIMER1/TIMER1.h  \
+MCAL/TIMER1/../Interrupts/mcal_internal_interrupt.h  \
+MCAL/I2C/mcal_i2c.h  \
+MCAL/I2C/mcal_i2c_cfg.h  \
+ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h  \
+ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h 

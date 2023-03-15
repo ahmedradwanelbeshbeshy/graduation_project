@@ -21,7 +21,7 @@
 #define INT_EXTERNAL_ON_CHANGE_FEATURE_ENABLE      FEATURE_ENABLE
 #define ADC_INT_ENABLE                             FEATURE_DISABLE
 #define TIMER0_INT_ENABLE                          FEATURE_DISABLE
-//#define TIMER1_INT_ENABLE                          FEATURE_DISABLE
+#define TIMER1_INT_ENABLE                          FEATURE_ENABLE
 #define TIMER2_INT_ENABLE                          FEATURE_DISABLE
 //#define TIMER3_INT_ENABLE                          FEATURE_ENABLE
 //#define CCP1_INT_ENABLE                            FEATURE_ENABLE

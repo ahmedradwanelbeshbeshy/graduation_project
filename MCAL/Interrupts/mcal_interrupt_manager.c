@@ -202,6 +202,11 @@ void __interrupt(low_priority) InterruptManagerLow(void)
 
 void __interrupt() InterruptManager(void)
 {
+    if( (INT_ENABLE == PIE1bits.TMR1IE)  && (INT_OCCUR == PIR1bits.TMR1IF) )
+    {
+        TMR1_ISR();
+    }
+    else { /* Do Nothing */}
     
     if( (INT_ENABLE == INTCONbits.INT0IE)  && (INT_OCCUR == INTCONbits.INT0IF) )
     {
@@ -307,11 +312,7 @@ void __interrupt() InterruptManager(void)
     }
     else { /* Do Nothing */}
     
-    if( (INT_ENABLE == PIE1bits.TMR1IE)  && (INT_OCCUR == PIR1bits.TMR1IF) )
-    {
-        TMR1_ISR();
-    }
-    else { /* Do Nothing */}
+
     
     
     
@@ -326,6 +327,19 @@ void __interrupt() InterruptManager(void)
     if( (INT_ENABLE == PIE1bits.TXIE)  && (INT_OCCUR == PIR1bits.TXIF) )
     {
         EUSART_Tx_ISR();
+    }
+    else { /* Do Nothing */}
+    
+     /***************************************** I2C **********************************************************/
+    if( (INT_ENABLE == PIE2bits.BCLIE)  && (INT_OCCUR == PIR2bits.BCLIF) )
+    {
+        //MSSP_I2C_BC_ISR();
+    }
+    else { /* Do Nothing */}
+    
+    if( (INT_ENABLE == PIE1bits.SSPIE)  && (INT_OCCUR == PIR1bits.SSPIF) )
+    {
+        //MSSP_I2C_ISR();
     }
     else { /* Do Nothing */}
 }

@@ -50,7 +50,10 @@ Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *
     else
     {
         uint8 reg_addrees=6+(servo_no*4)+2;
-        uint16 angle_in_reg=(uint16)(angle*1.14+205);
+       // uint16 angle_in_reg=(uint16)(angle*1.14+205);
+         uint16 angle_in_reg=(uint16)(angle*1.138+204);   /*1ms-2ms = 5%->10% = 0->180 coffetiont is 1.138*/
+        //uint16 angle_in_reg=(uint16)(angle*.57+204);     /*1ms-1.5ms = 5%->7.5% = 0->180 coffetiont is .57*/
+        //uint16 angle_in_reg=(uint16)(angle*.57+307);  /*1.5ms-2ms = 7.5%->10% = 0->180 coffetiont is .57*/
 //        PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,0x00);
 //        reg_addrees++;
 //        PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,0x00);

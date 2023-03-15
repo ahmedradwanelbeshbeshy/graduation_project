@@ -5281,7 +5281,10 @@ Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *
     else
     {
         uint8 reg_addrees=6+(servo_no*4)+2;
-        uint16 angle_in_reg=(uint16)(angle*1.14+205);
+
+         uint16 angle_in_reg=(uint16)(angle*1.138+204);
+
+
 
 
 

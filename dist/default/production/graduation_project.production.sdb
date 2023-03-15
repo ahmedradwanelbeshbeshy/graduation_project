@@ -332,7 +332,7 @@ TMR0_PRESCALER_BY_256 7
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"17 F:\graduation_project\application.c
+"16 F:\graduation_project\application.c
 [e E3193 . `uc
 GPIO_PIN0 0
 GPIO_PIN1 1
@@ -358,9 +358,41 @@ GPIO_DIRECTION_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"53
+"42
+[e E3250 . `uc
+INT_LOW_PRI 0
+INT_HIGH_PRI 1
+]
+"21 F:\graduation_project\MCAL/TIMER1/TIMER1.c
+[e E3250 . `uc
+INT_LOW_PRI 0
+INT_HIGH_PRI 1
+]
+[e E3266 . `uc
+TIMER1_PRESCALER_DIV_BY_1 0
+TIMER1_PRESCALER_DIV_BY_2 1
+TIMER1_PRESCALER_DIV_BY_4 2
+TIMER1_PRESCALER_DIV_BY_8 3
+]
+[e E3254 . `uc
+TIMER1_COUNTER_MODE_CFG 0
+TIMER1_TIMER_MODE_CFG 1
+]
+[e E3258 . `uc
+TIMER1_SYNC_COUNTER_MODE_CFG 0
+TIMER1_ASYNC_COUNTER_MODE_CFG 1
+]
+[e E3272 . `uc
+TIMER1_RW_REG_8BIT_MODE 0
+TIMER1_RW_REG_16BIT_MODE 1
+]
+[e E3262 . `uc
+TIMER1_OSC_HW_DISABLE 0
+TIMER1_OSC_HW_ENABLE 1
+]
+"54 F:\graduation_project\application.c
 [v _main main `(i  1 e 2 0 ]
-"70
+"86
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -426,12 +458,8 @@ GPIO_HIGH 1
 [v _lcd_8bits_set_courser lcd_8bits_set_courser `(uc  1 s 1 lcd_8bits_set_courser ]
 "591
 [v _lcd_4bits_set_courser lcd_4bits_set_courser `(uc  1 s 1 lcd_4bits_set_courser ]
-"65 F:\graduation_project\ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c
+"68 F:\graduation_project\ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c
 [v _PCA_Write_Reg PCA_Write_Reg `(v  1 s 1 PCA_Write_Reg ]
-"9 F:\graduation_project\ECU/stepper/ecu_stepper.c
-[v _Ecu_Stepper_Init Ecu_Stepper_Init `(uc  1 e 1 0 ]
-"25
-[v _Ecu_Stepper_Step Ecu_Stepper_Step `(uc  1 e 1 0 ]
 "121 F:\graduation_project\MCAL/ADC/mcal_adc.c
 [v _ADC_select_channel ADC_select_channel `(uc  1 e 1 0 ]
 "145
@@ -578,6 +606,14 @@ GPIO_HIGH 1
 [v _HAL_Timer0_Write_Val HAL_Timer0_Write_Val `(uc  1 e 1 0 ]
 "216
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"131 F:\graduation_project\MCAL/TIMER1/TIMER1.c
+[v _Timer1_Prescaler_Config Timer1_Prescaler_Config `T(v  1 s 1 Timer1_Prescaler_Config ]
+"135
+[v _Timer1_Mode_Select Timer1_Mode_Select `T(v  1 s 1 Timer1_Mode_Select ]
+"156
+[v _Timer1_RW_Mode_Select Timer1_RW_Mode_Select `T(v  1 s 1 Timer1_RW_Mode_Select ]
+"168
+[v _Timer1_Preload_Value Timer1_Preload_Value `T(v  1 s 1 Timer1_Preload_Value ]
 "32 F:\graduation_project\Robot/sensors/DHT11/DHT.c
 [v _DHT11_Start DHT11_Start `(v  1 s 1 DHT11_Start ]
 "41
@@ -586,22 +622,33 @@ GPIO_HIGH 1
 [v _DHT11_Read_Data DHT11_Read_Data `(v  1 s 1 DHT11_Read_Data ]
 "57 F:\graduation_project\Robot/sensors/ultrasonic/ultrasonic.c
 [v _send_trig_pulse send_trig_pulse `(v  1 s 1 send_trig_pulse ]
+"13 F:\graduation_project\application.c
+[v _counter counter `VEus  1 e 2 0 ]
+"14
+[v _angle1 angle1 `VEuc  1 e 1 0 ]
+"15
+[v _state state `VEuc  1 e 1 0 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"17 F:\graduation_project\application.c
-[v _pinc0 pinc0 `S131  1 e 1 0 ]
-"26
-[v _step_pin1 step_pin1 `S131  1 e 1 0 ]
-"34
-[v _dir_pin1 dir_pin1 `S131  1 e 1 0 ]
+"16
+[v _pinc0 pinc0 `VES131  1 e 1 0 ]
+"23
+[v _pinc1 pinc1 `S131  1 e 1 0 ]
+[s S513 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3250 1 mssp_i2c_priority 1 3 `E3250 1 mssp_i2c_bc_priority 1 4 ]
 "42
-[s S624 . 2 `S131 1 step_pin 1 0 `S131 1 dir_pin 1 1 ]
-[v _stepper1 stepper1 `S624  1 e 2 0 ]
-"45
-[v _counter counter `us  1 e 2 0 ]
+[s S527 . 15 `ul 1 i2c_clock 4 0 `S513 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v _i2c_obj i2c_obj `S527  1 e 15 0 ]
+"52
+[v _ack ack `uc  1 e 1 0 ]
 [s S1448 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -1237,6 +1284,35 @@ GPIO_HIGH 1
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "5705
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+[s S4378 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+]
+"5933
+[s S4381 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 T1RUN 1 0 :1:6 
+`uc 1 RD16 1 0 :1:7 
+]
+[s S4389 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S4395 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 T1RD16 1 0 :1:7 
+]
+[u S4400 . 1 `S4378 1 . 1 0 `S4381 1 . 1 0 `S4389 1 . 1 0 `S4395 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES4400  1 e 1 @4045 ]
+"6010
+[v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
+"6017
+[v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
 [s S3791 . 1 `uc 1 SWDTEN 1 0 :1:0 
 ]
 "6170
@@ -1350,6 +1426,10 @@ GPIO_HIGH 1
 [v _flags flags `VES2862  1 s 1 flags ]
 "13 F:\graduation_project\MCAL/Timer0/hal_timer0.c
 [v _preloaded_val preloaded_val `us  1 s 2 preloaded_val ]
+"14 F:\graduation_project\MCAL/TIMER1/TIMER1.c
+[v _Timer1_PreLoaded_Value_Store Timer1_PreLoaded_Value_Store `us  1 e 2 0 ]
+"18
+[v _Timer1_Interrupt_Handler Timer1_Interrupt_Handler `*.37(v  1 s 2 Timer1_Interrupt_Handler ]
 "130 F:\graduation_project\Robot/Navigation/robot_navigation.h
 [v _Movement_State Movement_State `E3432  1 e 1 0 ]
 "135
@@ -1363,27 +1443,137 @@ GPIO_HIGH 1
 [v _CCP1_Obj CCP1_Obj `S987  1 e 12 0 ]
 "172
 [v _CCP2_Obj CCP2_Obj `S987  1 e 12 0 ]
-"53 F:\graduation_project\application.c
+"54 F:\graduation_project\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"69
+"85
 } 0
-"70
+"86
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
 {
-"74
+"92
 } 0
-"9 F:\graduation_project\ECU/stepper/ecu_stepper.c
-[v _Ecu_Stepper_Init Ecu_Stepper_Init `(uc  1 e 1 0 ]
+"23 F:\graduation_project\MCAL/I2C/mcal_i2c.c
+[v _MSSP_I2C_Init MSSP_I2C_Init `(uc  1 e 1 0 ]
 {
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S624 . 2 `S131 1 step_pin 1 0 `S131 1 dir_pin 1 1 ]
-[v Ecu_Stepper_Init@stepper stepper `*.39S624  1 p 2 17 ]
-"24
+[s S513 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3250 1 mssp_i2c_priority 1 3 `E3250 1 mssp_i2c_bc_priority 1 4 ]
+[s S527 . 15 `ul 1 i2c_clock 4 0 `S513 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v MSSP_I2C_Init@i2c_obj i2c_obj `*.39CS527  1 p 2 0 ]
+"92
+} 0
+"325
+[v _I2C_Slave_Mode_Clock_Configurations I2C_Slave_Mode_Clock_Configurations `(v  1 s 1 I2C_Slave_Mode_Clock_Configurations ]
+{
+[s S513 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3250 1 mssp_i2c_priority 1 3 `E3250 1 mssp_i2c_bc_priority 1 4 ]
+[s S527 . 15 `ul 1 i2c_clock 4 0 `S513 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v I2C_Slave_Mode_Clock_Configurations@i2c_obj i2c_obj `*.39CS527  1 p 2 4 ]
+"337
+} 0
+"339
+[v _I2C_Pin_Configurations I2C_Pin_Configurations `(v  1 s 1 I2C_Pin_Configurations ]
+{
+"345
+} 0
+"310
+[v _I2C_Master_Mode_Clock_Configurations I2C_Master_Mode_Clock_Configurations `(v  1 s 1 I2C_Master_Mode_Clock_Configurations ]
+{
+[s S513 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3250 1 mssp_i2c_priority 1 3 `E3250 1 mssp_i2c_bc_priority 1 4 ]
+[s S527 . 15 `ul 1 i2c_clock 4 0 `S513 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v I2C_Master_Mode_Clock_Configurations@i2c_obj i2c_obj `*.39CS527  1 p 2 69 ]
+"324
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 14 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 13 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 4 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 12 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 68 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 67 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 59 ]
+"70
+} 0
+"11 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 37 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 30 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 35 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 42 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 41 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 34 ]
+"11
+[v ___fldiv@b b `d  1 p 4 18 ]
+[v ___fldiv@a a `d  1 p 4 22 ]
+"185
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 58 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 57 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 56 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 55 ]
+"10
+[v ___fladd@b b `d  1 p 4 43 ]
+[v ___fladd@a a `d  1 p 4 47 ]
+"237
+} 0
+"346 F:\graduation_project\MCAL/I2C/mcal_i2c.c
+[v _I2C_Interrupt_configuration I2C_Interrupt_configuration `(v  1 s 1 I2C_Interrupt_configuration ]
+{
+[s S513 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3250 1 mssp_i2c_priority 1 3 `E3250 1 mssp_i2c_bc_priority 1 4 ]
+[s S527 . 15 `ul 1 i2c_clock 4 0 `S513 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v I2C_Interrupt_configuration@i2c_obj i2c_obj `*.39CS527  1 p 2 4 ]
+"405
 } 0
 "158 F:\graduation_project\MCAL/GPIO/hal_gpio.c
 [v _GPIO_Pin_Initialize GPIO_Pin_Initialize `(uc  1 e 1 0 ]
@@ -1399,6 +1589,21 @@ GPIO_HIGH 1
 [v GPIO_Pin_Initialize@_pin_config _pin_config `*.39CS131  1 p 2 14 ]
 "172
 } 0
+"82
+[v _GPIO_Pin_Write_Logic GPIO_Pin_Write_Logic `(uc  1 e 1 0 ]
+{
+"84
+[v GPIO_Pin_Write_Logic@ERRORSTATUS ERRORSTATUS `uc  1 a 1 13 ]
+[s S131 . 1 `uc 1 pin 1 0 :3:0 
+`uc 1 port 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"82
+[v GPIO_Pin_Write_Logic@_pin_config _pin_config `*.39CS131  1 p 2 4 ]
+[v GPIO_Pin_Write_Logic@logic logic `E3185  1 p 1 6 ]
+"105
+} 0
 "25
 [v _GPIO_Pin_Direction_Initialize GPIO_Pin_Direction_Initialize `(uc  1 e 1 0 ]
 {
@@ -1413,7 +1618,51 @@ GPIO_HIGH 1
 [v GPIO_Pin_Direction_Initialize@_pin_config _pin_config `*.39CS131  1 p 2 4 ]
 "48
 } 0
-"135
+"196 F:\graduation_project\MCAL/I2C/mcal_i2c.c
+[v _MSSP_I2C_Master_Write_Blocking MSSP_I2C_Master_Write_Blocking `(uc  1 e 1 0 ]
+{
+[s S513 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3250 1 mssp_i2c_priority 1 3 `E3250 1 mssp_i2c_bc_priority 1 4 ]
+[s S527 . 15 `ul 1 i2c_clock 4 0 `S513 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v MSSP_I2C_Master_Write_Blocking@i2c_obj i2c_obj `*.39CS527  1 p 2 4 ]
+[v MSSP_I2C_Master_Write_Blocking@i2c_data i2c_data `uc  1 p 1 6 ]
+[v MSSP_I2C_Master_Write_Blocking@_ack _ack `*.39uc  1 p 2 7 ]
+"222
+} 0
+"166
+[v _MSSP_I2C_Master_Send_Stop MSSP_I2C_Master_Send_Stop `(uc  1 e 1 0 ]
+{
+[s S513 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3250 1 mssp_i2c_priority 1 3 `E3250 1 mssp_i2c_bc_priority 1 4 ]
+[s S527 . 15 `ul 1 i2c_clock 4 0 `S513 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v MSSP_I2C_Master_Send_Stop@i2c_obj i2c_obj `*.39CS527  1 p 2 4 ]
+"194
+} 0
+"116
+[v _MSSP_I2C_Master_Send_Start MSSP_I2C_Master_Send_Start `(uc  1 e 1 0 ]
+{
+[s S513 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3250 1 mssp_i2c_priority 1 3 `E3250 1 mssp_i2c_bc_priority 1 4 ]
+[s S527 . 15 `ul 1 i2c_clock 4 0 `S513 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v MSSP_I2C_Master_Send_Start@i2c_obj i2c_obj `*.39CS527  1 p 2 4 ]
+"143
+} 0
+"135 F:\graduation_project\MCAL/GPIO/hal_gpio.c
 [v _GPIO_Pin_Toggle_Logic GPIO_Pin_Toggle_Logic `(uc  1 e 1 0 ]
 {
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
@@ -1423,33 +1672,6 @@ GPIO_HIGH 1
 ]
 [v GPIO_Pin_Toggle_Logic@_pin_config _pin_config `*.39CS131  1 p 2 4 ]
 "147
-} 0
-"25 F:\graduation_project\ECU/stepper/ecu_stepper.c
-[v _Ecu_Stepper_Step Ecu_Stepper_Step `(uc  1 e 1 0 ]
-{
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S624 . 2 `S131 1 step_pin 1 0 `S131 1 dir_pin 1 1 ]
-[v Ecu_Stepper_Step@stepper stepper `*.39S624  1 p 2 14 ]
-"39
-} 0
-"82 F:\graduation_project\MCAL/GPIO/hal_gpio.c
-[v _GPIO_Pin_Write_Logic GPIO_Pin_Write_Logic `(uc  1 e 1 0 ]
-{
-"84
-[v GPIO_Pin_Write_Logic@ERRORSTATUS ERRORSTATUS `uc  1 a 1 13 ]
-[s S131 . 1 `uc 1 pin 1 0 :3:0 
-`uc 1 port 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"82
-[v GPIO_Pin_Write_Logic@_pin_config _pin_config `*.39CS131  1 p 2 4 ]
-[v GPIO_Pin_Write_Logic@logic logic `E3185  1 p 1 6 ]
-"105
 } 0
 "101 F:\graduation_project\MCAL/Interrupts/mcal_interrupt_manager.c
 [v _InterruptManagerLow InterruptManagerLow `IIL(v  1 e 1 0 ]

@@ -5205,196 +5205,216 @@ typedef struct {
 void application_intialize(void);
 # 10 "application.c" 2
 
-# 1 "./ECU/LCD_for_test_gps/ecu_char_lcd.h" 1
-# 13 "./ECU/LCD_for_test_gps/ecu_char_lcd.h"
-# 1 "./ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h" 1
-# 13 "./ECU/LCD_for_test_gps/ecu_char_lcd.h" 2
-# 59 "./ECU/LCD_for_test_gps/ecu_char_lcd.h"
-typedef struct{
-    pin_config_st lcd_rs_pin;
-    pin_config_st lcd_enable_pin;
-    pin_config_st lcd_data_pins[4];
-}char_lcd_4bit_t;
+# 1 "./MCAL/TIMER1/TIMER1.h" 1
+# 16 "./MCAL/TIMER1/TIMER1.h"
+# 1 "./MCAL/TIMER1/../Interrupts/mcal_internal_interrupt.h" 1
+# 16 "./MCAL/TIMER1/TIMER1.h" 2
+# 45 "./MCAL/TIMER1/TIMER1.h"
+typedef enum{
+    TIMER1_COUNTER_MODE_CFG=0,
+    TIMER1_TIMER_MODE_CFG
+}timer1_mode_cfg_t;
+
+typedef enum{
+    TIMER1_SYNC_COUNTER_MODE_CFG=0,
+    TIMER1_ASYNC_COUNTER_MODE_CFG
+}timer1_sync_cfg_t;
+
+typedef enum{
+    TIMER1_OSC_HW_DISABLE=0,
+    TIMER1_OSC_HW_ENABLE
+}timer1_ocs_cfg_t;
+
+typedef enum{
+    TIMER1_PRESCALER_DIV_BY_1=0,
+    TIMER1_PRESCALER_DIV_BY_2,
+    TIMER1_PRESCALER_DIV_BY_4,
+    TIMER1_PRESCALER_DIV_BY_8,
+}timer1_prescaler_select_t;
+
+typedef enum{
+    TIMER1_RW_REG_8BIT_MODE=0,
+    TIMER1_RW_REG_16BIT_MODE
+}timer1_Read_Write_Mode_select_t;
+
+
 
 typedef struct{
-    pin_config_st lcd_rs_pin;
-    pin_config_st lcd_enable_pin;
-    pin_config_st lcd_data_pins[8];
-}char_lcd_8bit_t;
+    uint16 timer1_preload_value;
+
+    void(*Timer1_InterruptHandler)(void);
+
+    interrupt_pri_et priority;
 
 
-Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
-Std_ReturnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command);
+    timer1_prescaler_select_t timer1_prescaler_value;
+    timer1_mode_cfg_t timer1_mode;
+    timer1_sync_cfg_t counter_mode;
+    timer1_Read_Write_Mode_select_t timer1_register_mode;
+    timer1_ocs_cfg_t timer1_osc_cfg;
+}timer1_t;
 
-Std_ReturnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data);
-Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
-
-Std_ReturnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str);
-Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
-
-Std_ReturnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
-
-
-
-
-
-Std_ReturnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd);
-Std_ReturnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command);
-
-Std_ReturnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data);
-Std_ReturnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
-
-Std_ReturnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str);
-Std_ReturnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
-
-Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
-
-
-Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
-Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
-Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
-Std_ReturnType convert_float32_to_string(float32 value,uint8*str);
+Std_ReturnType Timer1_Init(const timer1_t* _timer1);
+Std_ReturnType Timer1_DeInit(const timer1_t* _timer1);
+Std_ReturnType Timer1_Write_Value(const timer1_t* _timer1,uint16 value);
+Std_ReturnType Timer1_Read_Value(const timer1_t* _timer1,uint16 *value);
 # 11 "application.c" 2
 
-# 1 "./Robot/sensors/ultrasonic/ultrasonic.h" 1
-# 18 "./Robot/sensors/ultrasonic/ultrasonic.h"
-# 1 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 1
-# 12 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
-# 1 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0_config.h" 1
-# 12 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 2
-
-
-# 1 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/../Interrupts/mcal_internal_interrupt.h" 1
-# 14 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 2
-# 63 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
-typedef enum {
-    TMR0_PRESCALER_BY_2 = 0,
-    TMR0_PRESCALER_BY_4,
-    TMR0_PRESCALER_BY_8,
-    TMR0_PRESCALER_BY_16,
-    TMR0_PRESCALER_BY_32,
-    TMR0_PRESCALER_BY_64,
-    TMR0_PRESCALER_BY_128,
-    TMR0_PRESCALER_BY_256
-}tmr0_prescalar_et;
-
-typedef struct {
-
-    tmr0_prescalar_et prescalar_value ;
-    uint16_t preloaded_value ;
-# 86 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
-    uint8_t timer_mode : 1 ;
-    uint8_t reg_bit_size : 1 ;
-    uint8_t prescaler_enable : 1 ;
-    uint8_t edge : 1 ;
-    uint8_t timer0_reserved : 3 ;
-}timer0_config_st;
-# 103 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
-Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
-# 112 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
-Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
-
-
-Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t *result);
-
-Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t val);
-# 18 "./Robot/sensors/ultrasonic/ultrasonic.h" 2
-
-
-
-
-
-
-typedef struct{
-    pin_config_st trig_pin;
-    pin_config_st echo_pin;
-}ultrasonic_config_st;
-
-Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config);
-Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance);
-# 12 "application.c" 2
-
-# 1 "./ECU/stepper/ecu_stepper.h" 1
-# 19 "./ECU/stepper/ecu_stepper.h"
-typedef struct
+void servo();
+volatile uint16 counter=0;
+volatile uint8 angle1=90;
+volatile uint8 state=0;
+volatile pin_config_st pinc0 =
 {
-    pin_config_st step_pin ;
-    pin_config_st dir_pin ;
-} stepper_config_st ;
-
-typedef enum
-{
-    DIR_CCW= 0,
-    DIR_CW
-} stepper_direction_et ;
-
-
-
-Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper);
-Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper);
-Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir);
-# 13 "application.c" 2
-
-
-
-
-pin_config_st pinc0={
-   .direction=GPIO_DIRECTION_OUTPUT,
-   .logic=GPIO_HIGH,
-   .pin=GPIO_PIN0,
-   .port=PORTC_INDEX
+  .port = PORTC_INDEX ,
+  .pin = GPIO_PIN0 ,
+  .logic = GPIO_HIGH,
+  .direction = GPIO_DIRECTION_OUTPUT
 };
-
-
-
-pin_config_st step_pin1 =
+pin_config_st pinc1 =
 {
   .port = PORTC_INDEX ,
   .pin = GPIO_PIN1 ,
-  .logic = GPIO_LOW,
+  .logic = GPIO_HIGH,
   .direction = GPIO_DIRECTION_OUTPUT
 };
+# 39 "application.c"
+# 1 "./MCAL/I2C/mcal_i2c.h" 1
+# 16 "./MCAL/I2C/mcal_i2c.h"
+# 1 "./MCAL/I2C/mcal_i2c_cfg.h" 1
+# 16 "./MCAL/I2C/mcal_i2c.h" 2
+# 103 "./MCAL/I2C/mcal_i2c.h"
+typedef struct{
+ uint8 i2c_mode_cfg;
+    uint8 i2c_slave_address;
+ uint8 i2c_mode : 1;
+ uint8 i2c_slew_rate : 1;
+ uint8 i2c_SMBus_control : 1;
+ uint8 i2c_general_call : 1;
+ uint8 i2c_master_rec_mode : 1;
+ uint8 i2c_reserved : 3;
 
-pin_config_st dir_pin1 =
-{
-  .port = PORTC_INDEX ,
-  .pin = GPIO_PIN2 ,
-  .logic = GPIO_LOW,
-  .direction = GPIO_DIRECTION_OUTPUT
+
+    interrupt_pri_et mssp_i2c_priority;
+    interrupt_pri_et mssp_i2c_bc_priority;
+
+
+}i2c_configs_st;
+
+typedef struct{
+ uint32 i2c_clock;
+    i2c_configs_st i2c_cfg;
+
+    void (*I2C_Report_Write_Collision)(void);
+    void (*I2C_DefaultInterruptHandler)(void);
+
+
+
+
+    void (*I2C_Report_Receive_Overflow)(void);
+
+
+}mssp_i2c_st;
+
+Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
+
+Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
+
+Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+
+Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+# 39 "application.c" 2
+
+# 1 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 1
+# 13 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
+# 1 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h" 1
+# 13 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 2
+# 207 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
+typedef enum{
+    servo_index_1=0,
+    servo_index_2,
+    servo_index_3,
+    servo_index_4,
+    servo_index_5,
+    servo_index_6,
+    servo_index_7,
+    servo_index_8,
+    servo_index_9,
+    servo_index_10,
+    servo_index_11,
+    servo_index_12,
+    servo_index_13,
+    servo_index_14,
+    servo_index_15,
+    servo_index_16,
+}servo_index_et;
+
+typedef struct{
+    uint8 slave_address;
+    uint8 frequancy;
+    uint8 mode_1_cfg;
+    uint8 mode_2_cfg;
+}servo_driver_st;
+
+Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
+Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
+Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
+# 40 "application.c" 2
+
+
+mssp_i2c_st i2c_obj={
+  .i2c_cfg.i2c_mode= 1,
+  .i2c_cfg.i2c_mode_cfg=0x08U,
+  .i2c_clock=100000,
+  .i2c_cfg.i2c_SMBus_control=0,
+  .i2c_cfg.i2c_slew_rate=1,
+  .I2C_DefaultInterruptHandler=((void*)0),
+  .I2C_Report_Receive_Overflow=((void*)0),
+  .I2C_Report_Write_Collision=((void*)0)
 };
-
-stepper_config_st stepper1 ;
-
-
-uint16_t counter = 0 ;
-
-
-
-
-
-
+uint8 ack;
 
 int main()
 {
-    stepper1.step_pin = step_pin1 ;
-    stepper1.dir_pin = dir_pin1 ;
-
     application_intialize();
-    GPIO_Pin_Write_Logic(&pinc0,GPIO_HIGH);
-    _delay((unsigned long)((1000)*(8000000/4000.0)));
-   while(1)
-    {
-       GPIO_Pin_Toggle_Logic(&pinc0);
-           _delay((unsigned long)((500)*(8000000/4000.0)));
-               for (counter = 0 ; counter < 200 ; counter++)
-        Ecu_Stepper_Step(&stepper1);
-   }
-   return 0;
+
+
+     while(1)
+     {
+         GPIO_Pin_Toggle_Logic(&pinc1);
+          _delay((unsigned long)((500)*(8000000/4000.0)));
+
+
+    MSSP_I2C_Master_Send_Start(&i2c_obj);
+
+    MSSP_I2C_Master_Write_Blocking(&i2c_obj,8,&ack);
+
+    MSSP_I2C_Master_Write_Blocking(&i2c_obj,'1',&ack);
+
+    MSSP_I2C_Master_Send_Stop(&i2c_obj);
+    _delay((unsigned long)((500)*(8000000/4000.0)));
+
+    MSSP_I2C_Master_Send_Start(&i2c_obj);
+
+    MSSP_I2C_Master_Write_Blocking(&i2c_obj,8,&ack);
+
+    MSSP_I2C_Master_Write_Blocking(&i2c_obj,'0',&ack);
+
+    MSSP_I2C_Master_Send_Stop(&i2c_obj);
+     }
+
+    return 0;
+
 }
 void application_intialize(void)
 {
-    Ecu_Stepper_Init(&stepper1);
     GPIO_Pin_Initialize(&pinc0);
+    GPIO_Pin_Initialize(&pinc1);
+    MSSP_I2C_Init(&i2c_obj);
+
 }
