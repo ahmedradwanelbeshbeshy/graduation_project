@@ -72,6 +72,9 @@
         <logicalFolder name="TIMER1" displayName="TIMER1" projectFiles="true">
           <itemPath>MCAL/TIMER1/TIMER1.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="TIMER2" displayName="TIMER2" projectFiles="true">
+          <itemPath>MCAL/TIMER2/mcal_timer2.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="WATCH_DOG_TIMER"
                        displayName="WATCH_DOG_TIMER"
                        projectFiles="true">
@@ -159,6 +162,9 @@
         </logicalFolder>
         <logicalFolder name="TIMER1" displayName="TIMER1" projectFiles="true">
           <itemPath>MCAL/TIMER1/TIMER1.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="TIMER2" displayName="TIMER2" projectFiles="true">
+          <itemPath>MCAL/TIMER2/mcal_timer2.c</itemPath>
         </logicalFolder>
         <logicalFolder name="WATCH_DOG_TIMER"
                        displayName="WATCH_DOG_TIMER"

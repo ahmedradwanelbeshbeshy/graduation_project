@@ -1,4 +1,4 @@
-# 1 "ECU/stepper/ecu_stepper.c"
+# 1 "MCAL/TIMER2/mcal_timer2.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,19 +6,17 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ECU/stepper/ecu_stepper.c" 2
+# 1 "MCAL/TIMER2/mcal_timer2.c" 2
 
 
 
 
 
 
-# 1 "ECU/stepper/ecu_stepper.h" 1
-# 11 "ECU/stepper/ecu_stepper.h"
-# 1 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 1
-# 12 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h"
-# 1 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 1
-# 11 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h"
+# 1 "MCAL/TIMER2/mcal_timer2.h" 1
+# 12 "MCAL/TIMER2/mcal_timer2.h"
+# 1 "MCAL/TIMER2/../std_libraries.h" 1
+# 11 "MCAL/TIMER2/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -182,7 +180,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
+# 11 "MCAL/TIMER2/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 3
@@ -247,7 +245,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
+# 12 "MCAL/TIMER2/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
@@ -304,7 +302,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
+# 13 "MCAL/TIMER2/../std_libraries.h" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc/pic18f46k20.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc/pic18f46k20.h" 3
@@ -4967,7 +4965,7 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 14 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
+# 14 "MCAL/TIMER2/../std_libraries.h" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
@@ -5041,17 +5039,11 @@ extern __attribute__((nonreentrant)) void _delay(unsigned long);
 extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 15 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
-# 12 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 2
+# 15 "MCAL/TIMER2/../std_libraries.h" 2
+# 12 "MCAL/TIMER2/mcal_timer2.h" 2
 
-# 1 "ECU/stepper/../../MCAL/GPIO/../device_config.h" 1
-# 11 "ECU/stepper/../../MCAL/GPIO/../device_config.h"
-# 1 "ECU/stepper/../../MCAL/GPIO/../compiler.h" 1
-# 11 "ECU/stepper/../../MCAL/GPIO/../device_config.h" 2
-# 13 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 2
-
-# 1 "ECU/stepper/../../MCAL/GPIO/../mcal_std_types.h" 1
-# 20 "ECU/stepper/../../MCAL/GPIO/../mcal_std_types.h"
+# 1 "MCAL/TIMER2/../mcal_std_types.h" 1
+# 20 "MCAL/TIMER2/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned char uint8_t;
 
@@ -5067,11 +5059,20 @@ typedef signed long sint32;
 typedef float float32;
 
 typedef uint8 Std_ReturnType;
-# 14 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 2
+# 13 "MCAL/TIMER2/mcal_timer2.h" 2
 
-# 1 "ECU/stepper/../../MCAL/GPIO/hal_gpio_cfg.h" 1
-# 15 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 2
-# 42 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h"
+# 1 "MCAL/TIMER2/../GPIO/hal_gpio.h" 1
+# 13 "MCAL/TIMER2/../GPIO/hal_gpio.h"
+# 1 "MCAL/TIMER2/../GPIO/../device_config.h" 1
+# 11 "MCAL/TIMER2/../GPIO/../device_config.h"
+# 1 "MCAL/TIMER2/../compiler.h" 1
+# 11 "MCAL/TIMER2/../GPIO/../device_config.h" 2
+# 13 "MCAL/TIMER2/../GPIO/hal_gpio.h" 2
+
+
+# 1 "MCAL/TIMER2/../GPIO/hal_gpio_cfg.h" 1
+# 15 "MCAL/TIMER2/../GPIO/hal_gpio.h" 2
+# 42 "MCAL/TIMER2/../GPIO/hal_gpio.h"
 typedef enum{
    GPIO_LOW=0,
    GPIO_HIGH
@@ -5130,84 +5131,131 @@ Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direct
 Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
 Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
-# 11 "ECU/stepper/ecu_stepper.h" 2
+# 14 "MCAL/TIMER2/mcal_timer2.h" 2
+
+# 1 "MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h" 1
+# 13 "MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h"
+# 1 "MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h" 1
+# 15 "MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h"
+# 1 "MCAL/TIMER2/../Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h" 2
+# 71 "MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h"
+typedef void ( *InterruptHandler) (void);
+
+
+typedef enum {
+    INT_LOW_PRI = 0,
+    INT_HIGH_PRI
+
+} interrupt_pri_et;
+# 13 "MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h" 2
+# 15 "MCAL/TIMER2/mcal_timer2.h" 2
+# 33 "MCAL/TIMER2/mcal_timer2.h"
+typedef enum{
+    TIMER2_PRESCALER_DIV_BY_1=0,
+    TIMER2_PRESCALER_DIV_BY_4,
+    TIMER2_PRESCALER_DIV_BY_16
+}timer2_prescaler_select_et;
+
+typedef enum{
+    TIMER2_postscaler_DIV_BY_1=0,
+    TIMER2_postscaler_DIV_BY_2,
+    TIMER2_postscaler_DIV_BY_3,
+    TIMER2_postscaler_DIV_BY_4,
+    TIMER2_postscaler_DIV_BY_5,
+    TIMER2_postscaler_DIV_BY_6,
+    TIMER2_postscaler_DIV_BY_7,
+    TIMER2_postscaler_DIV_BY_8,
+    TIMER2_postscaler_DIV_BY_9,
+    TIMER2_postscaler_DIV_BY_10,
+    TIMER2_postscaler_DIV_BY_11,
+    TIMER2_postscaler_DIV_BY_12,
+    TIMER2_postscaler_DIV_BY_13,
+    TIMER2_postscaler_DIV_BY_14,
+    TIMER2_postscaler_DIV_BY_15,
+    TIMER2_postscaler_DIV_BY_16
+}timer2_postscaler_select_et;
+
+typedef struct{
+    uint8 timer2_preload_value;
 
 
 
 
 
 
+    timer2_prescaler_select_et timer2_prescaler_value;
+    timer2_postscaler_select_et timer2_postscaler_value;
+}timer2_st;
 
-
-typedef struct
-{
-    pin_config_st step_pin ;
-    pin_config_st dir_pin ;
-} stepper_config_st ;
-
-typedef enum
-{
-    DIR_CCW= 0,
-    DIR_CW
-} stepper_direction_et ;
+Std_ReturnType Timer2_Init(const timer2_st* _timer2);
+Std_ReturnType Timer2_DeInit(const timer2_st* _timer2);
+Std_ReturnType Timer2_Write_Value(const timer2_st* _timer2,uint8 value);
+Std_ReturnType Timer2_Read_Value(const timer2_st* _timer2,uint8 *value);
+# 7 "MCAL/TIMER2/mcal_timer2.c" 2
 
 
 
-Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper);
-Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper);
-Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir);
-# 7 "ECU/stepper/ecu_stepper.c" 2
 
 
-Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper)
-{
-    if(((void*)0) == stepper)
-    {
-        return (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        GPIO_Pin_Initialize(&(stepper->step_pin));
-        GPIO_Pin_Initialize(&(stepper->dir_pin));
-        GPIO_Pin_Direction_Initialize(&(stepper->dir_pin));
-        GPIO_Pin_Direction_Initialize(&(stepper->step_pin));
-        GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
-        GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
-    }
-    return (Std_ReturnType) 0x01 ;
+
+uint8 Timer2_PreLoaded_Value_Store = 0;
+
+Std_ReturnType Timer2_Init(const timer2_st* _timer2) {
+  Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
+  if (((void*)0) == _timer2) {
+    ERRORSTATUS = (Std_ReturnType) 0x00;
+  } else {
+
+    (T2CONbits.TMR2ON=0);
+
+    (T2CONbits.T2CKPS=_timer2->timer2_prescaler_value);
+
+    (T2CONbits.T2OUTPS=_timer2->timer2_postscaler_value);
+
+    TMR2 = _timer2->timer2_preload_value;
+    Timer2_PreLoaded_Value_Store = _timer2->timer2_preload_value;
+# 53 "MCAL/TIMER2/mcal_timer2.c"
+    (T2CONbits.TMR2ON=1);
+  }
+  return ERRORSTATUS;
 }
-Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
-{
-    if(((void*)0) == stepper)
-    {
-        return (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        GPIO_Pin_Write_Logic(&(stepper->step_pin) , 1);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
-        GPIO_Pin_Write_Logic(&(stepper->step_pin) , 0);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
+Std_ReturnType Timer2_DeInit(const timer2_st* _timer2) {
+  Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
+  if (((void*)0) == _timer2) {
+    ERRORSTATUS = (Std_ReturnType) 0x00;
+  } else {
+    (T2CONbits.TMR2ON=0);
 
-    }
-    return (Std_ReturnType) 0x01 ;
+
+
+  }
+  return ERRORSTATUS;
 }
-Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
-{
-    if(((void*)0) == stepper)
-    {
-        return (Std_ReturnType) 0x00 ;
-    }
-    else
-    {
-        if(dir == DIR_CW)
-        {
-            GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_HIGH);
-        }
-        else
-        {
-            GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
-        }
-    }
-    return (Std_ReturnType) 0x01 ;
+Std_ReturnType Timer2_Write_Value(const timer2_st* _timer2, uint8 value) {
+  Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
+  if (((void*)0) == _timer2) {
+    ERRORSTATUS = (Std_ReturnType) 0x00;
+  } else {
+    TMR2 = value;
+  }
+  return ERRORSTATUS;
+}
+Std_ReturnType Timer2_Read_Value(const timer2_st* _timer2, uint8* value) {
+  Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
+  if ((((void*)0) == _timer2) || (((void*)0) == value)) {
+    ERRORSTATUS = (Std_ReturnType) 0x00;
+  } else {
+    *value = TMR2;
+  }
+  return ERRORSTATUS;
+}
+void TMR2_ISR(void) {
+
+
+
+
+
+
+
 }

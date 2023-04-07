@@ -7,7 +7,13 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "application.c" 2
-# 10 "application.c"
+
+
+
+
+
+
+
 # 1 "./application.h" 1
 # 12 "./application.h"
 # 1 "./MCAL/std_libraries.h" 1
@@ -5127,13 +5133,17 @@ Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 13 "./application.h" 2
 
-# 1 "./MCAL/Interrupts/mcal_external_interrupt.h" 1
-# 13 "./MCAL/Interrupts/mcal_external_interrupt.h"
-# 1 "./MCAL/Interrupts/./mcal_interrupt_config.h" 1
-# 15 "./MCAL/Interrupts/./mcal_interrupt_config.h"
-# 1 "./MCAL/Interrupts/mcal_interrupt_gen_config.h" 1
-# 15 "./MCAL/Interrupts/./mcal_interrupt_config.h" 2
-# 71 "./MCAL/Interrupts/./mcal_interrupt_config.h"
+# 1 "./Robot/Navigation/robot_navigation.h" 1
+# 35 "./Robot/Navigation/robot_navigation.h"
+# 1 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h" 1
+# 15 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h"
+# 1 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h" 1
+# 13 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h"
+# 1 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h" 1
+# 15 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h"
+# 1 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h" 2
+# 71 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h"
 typedef void ( *InterruptHandler) (void);
 
 
@@ -5142,7 +5152,356 @@ typedef enum {
     INT_HIGH_PRI
 
 } interrupt_pri_et;
-# 13 "./MCAL/Interrupts/mcal_external_interrupt.h" 2
+# 13 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h" 2
+# 15 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h" 2
+# 33 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h"
+typedef enum{
+    TIMER2_PRESCALER_DIV_BY_1=0,
+    TIMER2_PRESCALER_DIV_BY_4,
+    TIMER2_PRESCALER_DIV_BY_16
+}timer2_prescaler_select_et;
+
+typedef enum{
+    TIMER2_postscaler_DIV_BY_1=0,
+    TIMER2_postscaler_DIV_BY_2,
+    TIMER2_postscaler_DIV_BY_3,
+    TIMER2_postscaler_DIV_BY_4,
+    TIMER2_postscaler_DIV_BY_5,
+    TIMER2_postscaler_DIV_BY_6,
+    TIMER2_postscaler_DIV_BY_7,
+    TIMER2_postscaler_DIV_BY_8,
+    TIMER2_postscaler_DIV_BY_9,
+    TIMER2_postscaler_DIV_BY_10,
+    TIMER2_postscaler_DIV_BY_11,
+    TIMER2_postscaler_DIV_BY_12,
+    TIMER2_postscaler_DIV_BY_13,
+    TIMER2_postscaler_DIV_BY_14,
+    TIMER2_postscaler_DIV_BY_15,
+    TIMER2_postscaler_DIV_BY_16
+}timer2_postscaler_select_et;
+
+typedef struct{
+    uint8 timer2_preload_value;
+
+
+
+
+
+
+    timer2_prescaler_select_et timer2_prescaler_value;
+    timer2_postscaler_select_et timer2_postscaler_value;
+}timer2_st;
+
+Std_ReturnType Timer2_Init(const timer2_st* _timer2);
+Std_ReturnType Timer2_DeInit(const timer2_st* _timer2);
+Std_ReturnType Timer2_Write_Value(const timer2_st* _timer2,uint8 value);
+Std_ReturnType Timer2_Read_Value(const timer2_st* _timer2,uint8 *value);
+# 35 "./Robot/Navigation/robot_navigation.h" 2
+
+# 1 "./Robot/Navigation/../../MCAL/CCP/hal_ccp.h" 1
+# 16 "./Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
+# 1 "./Robot/Navigation/../../MCAL/CCP/ccp_cfg.h" 1
+# 16 "./Robot/Navigation/../../MCAL/CCP/hal_ccp.h" 2
+# 74 "./Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
+typedef enum{
+    CCP_CAPTURE_MODE_SELECTED = 0,
+    CCP_COMPARE_MODE_SELECTED,
+    CCP_PWM_MODE_SELECTED
+}ccp_mode_et;
+
+
+
+
+
+typedef union{
+    struct{
+        uint8 ccpr_low;
+        uint8 ccpr_high;
+    };
+    struct{
+        uint16 ccpr_16Bit;
+    };
+}cpp_reg_ut;
+
+typedef enum{
+    CCP1_INST = 0,
+    CCP2_INST
+}ccp_inst_et;
+
+typedef enum{
+    CCP1_CCP2_TIMER3 = 0,
+    CCP1_TIMER1_CCP2_TIMER3,
+    CCP1_CCP2_TIMER1
+}ccp_capture_timer_et;
+
+
+
+
+
+typedef struct{
+    ccp_inst_et ccp_inst;
+    ccp_mode_et ccp_mode;
+    uint8 ccp_mode_variant;
+    pin_config_st ccp_pin;
+    ccp_capture_timer_et ccp_capture_timer;
+
+    uint32 PWM_Frequency;
+    timer2_st timer2;
+# 127 "./Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
+}ccp_st;
+
+
+Std_ReturnType CCP_Init(const ccp_st *_ccp_obj);
+Std_ReturnType CCP_DeInit(const ccp_st *_ccp_obj);
+# 144 "./Robot/Navigation/../../MCAL/CCP/hal_ccp.h"
+Std_ReturnType CCP_PWM_Set_Duty(const ccp_st *_ccp_obj, const uint8 _duty);
+Std_ReturnType CCP_PWM_Start(const ccp_st *_ccp_obj);
+Std_ReturnType CCP_PWM_Stop(const ccp_st *_ccp_obj);
+# 36 "./Robot/Navigation/robot_navigation.h" 2
+
+# 1 "./Robot/Navigation/../../MCAL/I2C/mcal_i2c.h" 1
+# 16 "./Robot/Navigation/../../MCAL/I2C/mcal_i2c.h"
+# 1 "./Robot/Navigation/../../MCAL/I2C/mcal_i2c_cfg.h" 1
+# 16 "./Robot/Navigation/../../MCAL/I2C/mcal_i2c.h" 2
+# 103 "./Robot/Navigation/../../MCAL/I2C/mcal_i2c.h"
+typedef struct{
+ uint8 i2c_mode_cfg;
+    uint8 i2c_slave_address;
+ uint8 i2c_mode : 1;
+ uint8 i2c_slew_rate : 1;
+ uint8 i2c_SMBus_control : 1;
+ uint8 i2c_general_call : 1;
+ uint8 i2c_master_rec_mode : 1;
+ uint8 i2c_reserved : 3;
+
+
+
+
+
+
+}i2c_configs_st;
+
+typedef struct{
+ uint32 i2c_clock;
+    i2c_configs_st i2c_cfg;
+# 133 "./Robot/Navigation/../../MCAL/I2C/mcal_i2c.h"
+}mssp_i2c_st;
+
+Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
+
+Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
+Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
+
+Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+
+Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
+Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
+# 37 "./Robot/Navigation/robot_navigation.h" 2
+
+# 1 "./Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h" 1
+# 13 "./Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h"
+# 1 "./Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor_config.h" 1
+# 13 "./Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h" 2
+# 25 "./Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h"
+typedef enum {
+    DC_MOTOR_PIN_OFF = 0,
+    DC_MOTOR_PIN_ON
+}dc_motor_pin_state_et ;
+
+typedef struct {
+    pin_config_st dc_motor;
+
+} dc_motor_st ;
+
+
+
+
+Std_ReturnType ECU_DC_Motor_Init(const dc_motor_st *dc_motor);
+Std_ReturnType ECU_DC_Motor_Run_Left(const dc_motor_st *dc_motor);
+Std_ReturnType ECU_DC_Motor_Run_Right(const dc_motor_st *dc_motor);
+Std_ReturnType ECU_DC_Motor_Stop(const dc_motor_st *dc_motor);
+# 38 "./Robot/Navigation/robot_navigation.h" 2
+
+# 1 "./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 1
+# 13 "./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
+# 1 "./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h" 1
+# 13 "./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 2
+# 207 "./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
+typedef enum{
+    servo_index_1=0,
+    servo_index_2,
+    servo_index_3,
+    servo_index_4,
+    servo_index_5,
+    servo_index_6,
+    servo_index_7,
+    servo_index_8,
+    servo_index_9,
+    servo_index_10,
+    servo_index_11,
+    servo_index_12,
+    servo_index_13,
+    servo_index_14,
+    servo_index_15,
+    servo_index_16,
+}servo_index_et;
+
+typedef struct{
+    uint8 slave_address;
+    uint8 frequancy;
+    uint8 mode_1_cfg;
+    uint8 mode_2_cfg;
+}servo_driver_st;
+
+Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
+Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
+Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
+# 39 "./Robot/Navigation/robot_navigation.h" 2
+# 102 "./Robot/Navigation/robot_navigation.h"
+typedef enum {
+    NAV_MOV_STOPPED = 0,
+    NAV_MOV_FORW,
+    NAV_MOV_FORW_STEER_RIGHT,
+    NAV_MOV_FORW_STEER_LEFT,
+    NAV_MOV_BACKW,
+    NAV_MOV_BACKW_STEER_RIGHT,
+    NAV_MOV_BACKW_STEER_LEFT
+}Nav_Movement_State_et;
+# 123 "./Robot/Navigation/robot_navigation.h"
+Std_ReturnType Robot_Nav_Init(void);
+Std_ReturnType Robot_Steer_Stop(void);
+Std_ReturnType Robot_Move_Forward(void);
+Std_ReturnType Robot_Move_Backward(void);
+Std_ReturnType Robot_Steer_Right_Forward(void);
+Std_ReturnType Robot_Steer_Left_Forward(void);
+
+
+
+
+
+Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
+
+
+
+
+static dc_motor_st W1_W3_W5_Motor_Control =
+{
+    .dc_motor.port = PORTD_INDEX ,
+    .dc_motor.pin = GPIO_PIN0 ,
+    .dc_motor.logic = GPIO_LOW ,
+    .dc_motor.direction = GPIO_DIRECTION_OUTPUT ,
+
+};
+
+static dc_motor_st W2_W4_W6_Motor_Control =
+{
+    .dc_motor.port = PORTD_INDEX ,
+    .dc_motor.pin = GPIO_PIN1 ,
+    .dc_motor.logic = GPIO_LOW ,
+    .dc_motor.direction = GPIO_DIRECTION_OUTPUT ,
+
+};
+
+
+ccp_st CCP1_Obj =
+{
+    .ccp_inst = CCP1_INST ,
+    .ccp_mode = CCP_PWM_MODE_SELECTED,
+    .PWM_Frequency = 500,
+    .ccp_pin.port = PORTC_INDEX,
+    .ccp_pin.pin = GPIO_PIN2,
+    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
+    .timer2.timer2_preload_value=249,
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
+};
+ccp_st CCP2_Obj =
+{
+    .ccp_inst = CCP2_INST ,
+    .ccp_mode = CCP_PWM_MODE_SELECTED,
+    .PWM_Frequency = 500,
+    .ccp_pin.port = PORTC_INDEX,
+    .ccp_pin.pin = GPIO_PIN1,
+    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
+    .timer2.timer2_preload_value=249,
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
+};
+
+
+mssp_i2c_st i2c_obj={
+  .i2c_cfg.i2c_mode= 1,
+  .i2c_cfg.i2c_mode_cfg=0x08U,
+  .i2c_clock=100000,
+  .i2c_cfg.i2c_SMBus_control=0,
+  .i2c_cfg.i2c_slew_rate=1,
+
+
+
+};
+servo_driver_st servo_driver_obj={
+   .slave_address=0x80,
+   .frequancy=0x79,
+   .mode_1_cfg=0x21,
+   .mode_2_cfg=0x04
+};
+# 14 "./application.h" 2
+
+# 1 "./ECU/LCD_for_test_gps/ecu_char_lcd.h" 1
+# 13 "./ECU/LCD_for_test_gps/ecu_char_lcd.h"
+# 1 "./ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h" 1
+# 13 "./ECU/LCD_for_test_gps/ecu_char_lcd.h" 2
+# 59 "./ECU/LCD_for_test_gps/ecu_char_lcd.h"
+typedef struct{
+    pin_config_st lcd_rs_pin;
+    pin_config_st lcd_enable_pin;
+    pin_config_st lcd_data_pins[4];
+}char_lcd_4bit_t;
+
+typedef struct{
+    pin_config_st lcd_rs_pin;
+    pin_config_st lcd_enable_pin;
+    pin_config_st lcd_data_pins[8];
+}char_lcd_8bit_t;
+
+
+Std_ReturnType lcd_4bit_initialize(const char_lcd_4bit_t *lcd);
+Std_ReturnType lcd_4bit_send_command(const char_lcd_4bit_t *lcd,uint8 command);
+
+Std_ReturnType lcd_4bit_send_char_data(const char_lcd_4bit_t *lcd,uint8 data);
+Std_ReturnType lcd_4bit_send_char_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
+
+Std_ReturnType lcd_4bit_send_string_data(const char_lcd_4bit_t *lcd,uint8* str);
+Std_ReturnType lcd_4bit_send_string_data_pos(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
+
+Std_ReturnType lcd_4bit_send_custom_char(const char_lcd_4bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
+
+
+
+
+
+Std_ReturnType lcd_8bit_initialize(const char_lcd_8bit_t *lcd);
+Std_ReturnType lcd_8bit_send_command(const char_lcd_8bit_t *lcd,uint8 command);
+
+Std_ReturnType lcd_8bit_send_char_data(const char_lcd_8bit_t *lcd,uint8 data);
+Std_ReturnType lcd_8bit_send_char_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8 data);
+
+Std_ReturnType lcd_8bit_send_string_data(const char_lcd_8bit_t *lcd,uint8* str);
+Std_ReturnType lcd_8bit_send_string_data_pos(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,uint8* str);
+
+Std_ReturnType lcd_8bit_send_custom_char(const char_lcd_8bit_t *lcd,uint8 rows,uint8 colums,const uint8 _char[],uint8 pos);
+
+
+Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
+Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
+Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
+Std_ReturnType convert_float32_to_string(float32 value,uint8*str);
+# 15 "./application.h" 2
+
+# 1 "./MCAL/Interrupts/mcal_external_interrupt.h" 1
 # 119 "./MCAL/Interrupts/mcal_external_interrupt.h"
 typedef enum {
     INTERRUPT_INT0,
@@ -5181,7 +5540,7 @@ Std_ReturnType Interrupt_INTx_DeINIT(const Interrupt_INTx_st *int_obj);
 
 Std_ReturnType Interrupt_RBx_INIT(const Interrupt_RBx_st *int_obj);
 Std_ReturnType Interrupt_RBx_DeINIT(const Interrupt_RBx_st *int_obj);
-# 14 "./application.h" 2
+# 16 "./application.h" 2
 
 
 
@@ -5203,218 +5562,53 @@ typedef struct {
 
 
 void application_intialize(void);
-# 10 "application.c" 2
-
-# 1 "./MCAL/TIMER1/TIMER1.h" 1
-# 16 "./MCAL/TIMER1/TIMER1.h"
-# 1 "./MCAL/TIMER1/../Interrupts/mcal_internal_interrupt.h" 1
-# 16 "./MCAL/TIMER1/TIMER1.h" 2
-# 45 "./MCAL/TIMER1/TIMER1.h"
-typedef enum{
-    TIMER1_COUNTER_MODE_CFG=0,
-    TIMER1_TIMER_MODE_CFG
-}timer1_mode_cfg_t;
-
-typedef enum{
-    TIMER1_SYNC_COUNTER_MODE_CFG=0,
-    TIMER1_ASYNC_COUNTER_MODE_CFG
-}timer1_sync_cfg_t;
-
-typedef enum{
-    TIMER1_OSC_HW_DISABLE=0,
-    TIMER1_OSC_HW_ENABLE
-}timer1_ocs_cfg_t;
-
-typedef enum{
-    TIMER1_PRESCALER_DIV_BY_1=0,
-    TIMER1_PRESCALER_DIV_BY_2,
-    TIMER1_PRESCALER_DIV_BY_4,
-    TIMER1_PRESCALER_DIV_BY_8,
-}timer1_prescaler_select_t;
-
-typedef enum{
-    TIMER1_RW_REG_8BIT_MODE=0,
-    TIMER1_RW_REG_16BIT_MODE
-}timer1_Read_Write_Mode_select_t;
+# 8 "application.c" 2
 
 
-
-typedef struct{
-    uint16 timer1_preload_value;
-
-    void(*Timer1_InterruptHandler)(void);
-
-    interrupt_pri_et priority;
-
-
-    timer1_prescaler_select_t timer1_prescaler_value;
-    timer1_mode_cfg_t timer1_mode;
-    timer1_sync_cfg_t counter_mode;
-    timer1_Read_Write_Mode_select_t timer1_register_mode;
-    timer1_ocs_cfg_t timer1_osc_cfg;
-}timer1_t;
-
-Std_ReturnType Timer1_Init(const timer1_t* _timer1);
-Std_ReturnType Timer1_DeInit(const timer1_t* _timer1);
-Std_ReturnType Timer1_Write_Value(const timer1_t* _timer1,uint16 value);
-Std_ReturnType Timer1_Read_Value(const timer1_t* _timer1,uint16 *value);
-# 11 "application.c" 2
-
-void servo();
-volatile uint16 counter=0;
-volatile uint8 angle1=90;
-volatile uint8 state=0;
-volatile pin_config_st pinc0 =
-{
-  .port = PORTC_INDEX ,
-  .pin = GPIO_PIN0 ,
-  .logic = GPIO_HIGH,
-  .direction = GPIO_DIRECTION_OUTPUT
+extern ccp_st CCP1_Obj;
+pin_config_st pinc0={
+   .direction=GPIO_DIRECTION_OUTPUT,
+   .logic=GPIO_LOW,
+   .pin=GPIO_PIN1,
+   .port=PORTC_INDEX
 };
-pin_config_st pinc1 =
-{
-  .port = PORTC_INDEX ,
-  .pin = GPIO_PIN1 ,
-  .logic = GPIO_HIGH,
-  .direction = GPIO_DIRECTION_OUTPUT
-};
-# 39 "application.c"
-# 1 "./MCAL/I2C/mcal_i2c.h" 1
-# 16 "./MCAL/I2C/mcal_i2c.h"
-# 1 "./MCAL/I2C/mcal_i2c_cfg.h" 1
-# 16 "./MCAL/I2C/mcal_i2c.h" 2
-# 103 "./MCAL/I2C/mcal_i2c.h"
-typedef struct{
- uint8 i2c_mode_cfg;
-    uint8 i2c_slave_address;
- uint8 i2c_mode : 1;
- uint8 i2c_slew_rate : 1;
- uint8 i2c_SMBus_control : 1;
- uint8 i2c_general_call : 1;
- uint8 i2c_master_rec_mode : 1;
- uint8 i2c_reserved : 3;
 
-
-    interrupt_pri_et mssp_i2c_priority;
-    interrupt_pri_et mssp_i2c_bc_priority;
-
-
-}i2c_configs_st;
-
-typedef struct{
- uint32 i2c_clock;
-    i2c_configs_st i2c_cfg;
-
-    void (*I2C_Report_Write_Collision)(void);
-    void (*I2C_DefaultInterruptHandler)(void);
-
-
-
-
-    void (*I2C_Report_Receive_Overflow)(void);
-
-
-}mssp_i2c_st;
-
-Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
-Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj);
-
-Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_st *i2c_obj);
-Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_st *i2c_obj);
-Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_st *i2c_obj);
-
-Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
-
-Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_st *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 ack, uint8 *i2c_data);
-# 39 "application.c" 2
-
-# 1 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 1
-# 13 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
-# 1 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h" 1
-# 13 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h" 2
-# 207 "./ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
-typedef enum{
-    servo_index_1=0,
-    servo_index_2,
-    servo_index_3,
-    servo_index_4,
-    servo_index_5,
-    servo_index_6,
-    servo_index_7,
-    servo_index_8,
-    servo_index_9,
-    servo_index_10,
-    servo_index_11,
-    servo_index_12,
-    servo_index_13,
-    servo_index_14,
-    servo_index_15,
-    servo_index_16,
-}servo_index_et;
-
-typedef struct{
-    uint8 slave_address;
-    uint8 frequancy;
-    uint8 mode_1_cfg;
-    uint8 mode_2_cfg;
-}servo_driver_st;
-
-Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
-Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
-Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
-# 40 "application.c" 2
-
-
-mssp_i2c_st i2c_obj={
-  .i2c_cfg.i2c_mode= 1,
-  .i2c_cfg.i2c_mode_cfg=0x08U,
-  .i2c_clock=100000,
-  .i2c_cfg.i2c_SMBus_control=0,
-  .i2c_cfg.i2c_slew_rate=1,
-  .I2C_DefaultInterruptHandler=((void*)0),
-  .I2C_Report_Receive_Overflow=((void*)0),
-  .I2C_Report_Write_Collision=((void*)0)
-};
-uint8 ack;
-
+uint8 string[4]={0};
 int main()
 {
     application_intialize();
+    GPIO_Pin_Toggle_Logic(&pinc0);
+    while(1)
+    {
+      GPIO_Pin_Toggle_Logic(&pinc0);
 
-
-     while(1)
-     {
-         GPIO_Pin_Toggle_Logic(&pinc1);
-          _delay((unsigned long)((500)*(8000000/4000.0)));
-
-
-    MSSP_I2C_Master_Send_Start(&i2c_obj);
-
-    MSSP_I2C_Master_Write_Blocking(&i2c_obj,8,&ack);
-
-    MSSP_I2C_Master_Write_Blocking(&i2c_obj,'1',&ack);
-
-    MSSP_I2C_Master_Send_Stop(&i2c_obj);
-    _delay((unsigned long)((500)*(8000000/4000.0)));
-
-    MSSP_I2C_Master_Send_Start(&i2c_obj);
-
-    MSSP_I2C_Master_Write_Blocking(&i2c_obj,8,&ack);
-
-    MSSP_I2C_Master_Write_Blocking(&i2c_obj,'0',&ack);
-
-    MSSP_I2C_Master_Send_Stop(&i2c_obj);
-     }
-
+      Robot_Steer_Stop();
+      _delay((unsigned long)((1000)*(8000000/4000.0)));
+      Robot_Move_Forward();
+      _delay((unsigned long)((1000)*(8000000/4000.0)));
+      Robot_Steer_Stop();
+      _delay((unsigned long)((1000)*(8000000/4000.0)));
+      Robot_Move_Backward();
+      _delay((unsigned long)((1000)*(8000000/4000.0)));
+      Robot_Steer_Stop();
+      _delay((unsigned long)((1000)*(8000000/4000.0)));
+      CCP_PWM_Set_Duty(&CCP1_Obj,60);
+      _delay((unsigned long)((2000)*(8000000/4000.0)));
+      Robot_Steer_Stop();
+      _delay((unsigned long)((1000)*(8000000/4000.0)));
+      CCP_PWM_Set_Duty(&CCP1_Obj,70);
+      _delay((unsigned long)((2000)*(8000000/4000.0)));
+      Robot_Steer_Stop();
+      _delay((unsigned long)((1000)*(8000000/4000.0)));
+      CCP_PWM_Set_Duty(&CCP1_Obj,80);
+     _delay((unsigned long)((2000)*(8000000/4000.0)));
+    }
     return 0;
-
 }
 void application_intialize(void)
 {
     GPIO_Pin_Initialize(&pinc0);
-    GPIO_Pin_Initialize(&pinc1);
-    MSSP_I2C_Init(&i2c_obj);
+    Robot_Nav_Init();
+
 
 }

@@ -11,6 +11,8 @@
 /*include section*/
 #include"MCAL/std_libraries.h"
 #include"MCAL/GPIO/hal_gpio.h"
+#include "Robot/Navigation/robot_navigation.h"
+#include "ECU/LCD_for_test_gps/ecu_char_lcd.h"
 #include"MCAL/Interrupts/mcal_external_interrupt.h"
 
 /*macros declarations section*/

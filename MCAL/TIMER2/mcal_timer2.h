@@ -24,7 +24,7 @@
 
   
 #define TIMER2_PRESCALER_SET_VALUE(_value)   (T2CONbits.T2CKPS=_value)
-#define TIMER2_POSTSCALER_SET_VALUE(_value)  (T2CONbits.TOUTPS=_value)
+#define TIMER2_POSTSCALER_SET_VALUE(_value)  (T2CONbits.T2OUTPS=_value)
 
 
 

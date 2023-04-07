@@ -7,12 +7,19 @@ MCAL/GPIO/../device_config.h  \
 MCAL/compiler.h  \
 MCAL/GPIO/../mcal_std_types.h  \
 MCAL/GPIO/hal_gpio_cfg.h  \
-MCAL/Interrupts/mcal_external_interrupt.h  \
-MCAL/Interrupts/./mcal_interrupt_config.h  \
-MCAL/Interrupts/mcal_interrupt_gen_config.h  \
-MCAL/TIMER1/TIMER1.h  \
-MCAL/TIMER1/../Interrupts/mcal_internal_interrupt.h  \
-MCAL/I2C/mcal_i2c.h  \
-MCAL/I2C/mcal_i2c_cfg.h  \
-ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h  \
-ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h 
+Robot/Navigation/robot_navigation.h  \
+Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h  \
+Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h  \
+Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h  \
+Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_gen_config.h  \
+Robot/Navigation/../../MCAL/CCP/hal_ccp.h  \
+Robot/Navigation/../../MCAL/CCP/ccp_cfg.h  \
+Robot/Navigation/../../MCAL/I2C/mcal_i2c.h  \
+Robot/Navigation/../../MCAL/I2C/mcal_i2c_cfg.h  \
+Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h  \
+Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor_config.h  \
+Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h  \
+Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h  \
+ECU/LCD_for_test_gps/ecu_char_lcd.h  \
+ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h  \
+MCAL/Interrupts/mcal_external_interrupt.h 

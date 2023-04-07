@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ECU/Bluetooth/Bluetooth.c ECU/DC_Motor/ecu_dc_motor.c ECU/IR_Sensor/IR_SENSOR.c ECU/LCD_for_test_gps/ecu_char_lcd.c ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c ECU/stepper/ecu_stepper.c ECU/ecu_layer_init.c MCAL/ADC/mcal_adc.c MCAL/CCP/hal_ccp.c MCAL/EUSART/mcal_EUSART.c MCAL/GPIO/hal_gpio.c MCAL/I2C/mcal_i2c.c MCAL/Interrupts/mcal_interrupt_manager.c MCAL/Interrupts/mcal_internal_interrupt.c MCAL/Interrupts/mcal_external_interrupt.c MCAL/Timer0/hal_timer0.c MCAL/WATCH_DOG_TIMER/WDT.c MCAL/device_config.c Robot/Navigation/robot_navigation.c Robot/sensors/DHT11/DHT.c Robot/sensors/ultrasonic/ultrasonic.c application.c MCAL/TIMER1/TIMER1.c
+SOURCEFILES_QUOTED_IF_SPACED=ECU/Bluetooth/Bluetooth.c ECU/DC_Motor/ecu_dc_motor.c ECU/IR_Sensor/IR_SENSOR.c ECU/LCD_for_test_gps/ecu_char_lcd.c ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c ECU/stepper/ecu_stepper.c ECU/ecu_layer_init.c MCAL/ADC/mcal_adc.c MCAL/CCP/hal_ccp.c MCAL/EUSART/mcal_EUSART.c MCAL/GPIO/hal_gpio.c MCAL/I2C/mcal_i2c.c MCAL/Interrupts/mcal_interrupt_manager.c MCAL/Interrupts/mcal_internal_interrupt.c MCAL/Interrupts/mcal_external_interrupt.c MCAL/Timer0/hal_timer0.c MCAL/TIMER1/TIMER1.c MCAL/WATCH_DOG_TIMER/WDT.c MCAL/device_config.c Robot/Navigation/robot_navigation.c Robot/sensors/DHT11/DHT.c Robot/sensors/ultrasonic/ultrasonic.c application.c MCAL/TIMER2/mcal_timer2.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1 ${OBJECTDIR}/ECU/DC_Motor/ecu_dc_motor.p1 ${OBJECTDIR}/ECU/IR_Sensor/IR_SENSOR.p1 ${OBJECTDIR}/ECU/LCD_for_test_gps/ecu_char_lcd.p1 ${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1 ${OBJECTDIR}/ECU/stepper/ecu_stepper.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1 ${OBJECTDIR}/MCAL/ADC/mcal_adc.p1 ${OBJECTDIR}/MCAL/CCP/hal_ccp.p1 ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1 ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1 ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/Robot/Navigation/robot_navigation.p1 ${OBJECTDIR}/Robot/sensors/DHT11/DHT.p1 ${OBJECTDIR}/Robot/sensors/ultrasonic/ultrasonic.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d ${OBJECTDIR}/ECU/DC_Motor/ecu_dc_motor.p1.d ${OBJECTDIR}/ECU/IR_Sensor/IR_SENSOR.p1.d ${OBJECTDIR}/ECU/LCD_for_test_gps/ecu_char_lcd.p1.d ${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1.d ${OBJECTDIR}/ECU/stepper/ecu_stepper.p1.d ${OBJECTDIR}/ECU/ecu_layer_init.p1.d ${OBJECTDIR}/MCAL/ADC/mcal_adc.p1.d ${OBJECTDIR}/MCAL/CCP/hal_ccp.p1.d ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1.d ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1.d ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1.d ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1.d ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1.d ${OBJECTDIR}/MCAL/device_config.p1.d ${OBJECTDIR}/Robot/Navigation/robot_navigation.p1.d ${OBJECTDIR}/Robot/sensors/DHT11/DHT.p1.d ${OBJECTDIR}/Robot/sensors/ultrasonic/ultrasonic.p1.d ${OBJECTDIR}/application.p1.d ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1 ${OBJECTDIR}/ECU/DC_Motor/ecu_dc_motor.p1 ${OBJECTDIR}/ECU/IR_Sensor/IR_SENSOR.p1 ${OBJECTDIR}/ECU/LCD_for_test_gps/ecu_char_lcd.p1 ${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1 ${OBJECTDIR}/ECU/stepper/ecu_stepper.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1 ${OBJECTDIR}/MCAL/ADC/mcal_adc.p1 ${OBJECTDIR}/MCAL/CCP/hal_ccp.p1 ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1 ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1 ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/Robot/Navigation/robot_navigation.p1 ${OBJECTDIR}/Robot/sensors/DHT11/DHT.p1 ${OBJECTDIR}/Robot/sensors/ultrasonic/ultrasonic.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1.d ${OBJECTDIR}/ECU/DC_Motor/ecu_dc_motor.p1.d ${OBJECTDIR}/ECU/IR_Sensor/IR_SENSOR.p1.d ${OBJECTDIR}/ECU/LCD_for_test_gps/ecu_char_lcd.p1.d ${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1.d ${OBJECTDIR}/ECU/stepper/ecu_stepper.p1.d ${OBJECTDIR}/ECU/ecu_layer_init.p1.d ${OBJECTDIR}/MCAL/ADC/mcal_adc.p1.d ${OBJECTDIR}/MCAL/CCP/hal_ccp.p1.d ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1.d ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1.d ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1.d ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1.d ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1.d ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1.d ${OBJECTDIR}/MCAL/device_config.p1.d ${OBJECTDIR}/Robot/Navigation/robot_navigation.p1.d ${OBJECTDIR}/Robot/sensors/DHT11/DHT.p1.d ${OBJECTDIR}/Robot/sensors/ultrasonic/ultrasonic.p1.d ${OBJECTDIR}/application.p1.d ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1 ${OBJECTDIR}/ECU/DC_Motor/ecu_dc_motor.p1 ${OBJECTDIR}/ECU/IR_Sensor/IR_SENSOR.p1 ${OBJECTDIR}/ECU/LCD_for_test_gps/ecu_char_lcd.p1 ${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1 ${OBJECTDIR}/ECU/stepper/ecu_stepper.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1 ${OBJECTDIR}/MCAL/ADC/mcal_adc.p1 ${OBJECTDIR}/MCAL/CCP/hal_ccp.p1 ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1 ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1 ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/Robot/Navigation/robot_navigation.p1 ${OBJECTDIR}/Robot/sensors/DHT11/DHT.p1 ${OBJECTDIR}/Robot/sensors/ultrasonic/ultrasonic.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1
+OBJECTFILES=${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1 ${OBJECTDIR}/ECU/DC_Motor/ecu_dc_motor.p1 ${OBJECTDIR}/ECU/IR_Sensor/IR_SENSOR.p1 ${OBJECTDIR}/ECU/LCD_for_test_gps/ecu_char_lcd.p1 ${OBJECTDIR}/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.p1 ${OBJECTDIR}/ECU/stepper/ecu_stepper.p1 ${OBJECTDIR}/ECU/ecu_layer_init.p1 ${OBJECTDIR}/MCAL/ADC/mcal_adc.p1 ${OBJECTDIR}/MCAL/CCP/hal_ccp.p1 ${OBJECTDIR}/MCAL/EUSART/mcal_EUSART.p1 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.p1 ${OBJECTDIR}/MCAL/I2C/mcal_i2c.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_interrupt_manager.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_internal_interrupt.p1 ${OBJECTDIR}/MCAL/Interrupts/mcal_external_interrupt.p1 ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1 ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1 ${OBJECTDIR}/MCAL/device_config.p1 ${OBJECTDIR}/Robot/Navigation/robot_navigation.p1 ${OBJECTDIR}/Robot/sensors/DHT11/DHT.p1 ${OBJECTDIR}/Robot/sensors/ultrasonic/ultrasonic.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1
 
 # Source Files
-SOURCEFILES=ECU/Bluetooth/Bluetooth.c ECU/DC_Motor/ecu_dc_motor.c ECU/IR_Sensor/IR_SENSOR.c ECU/LCD_for_test_gps/ecu_char_lcd.c ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c ECU/stepper/ecu_stepper.c ECU/ecu_layer_init.c MCAL/ADC/mcal_adc.c MCAL/CCP/hal_ccp.c MCAL/EUSART/mcal_EUSART.c MCAL/GPIO/hal_gpio.c MCAL/I2C/mcal_i2c.c MCAL/Interrupts/mcal_interrupt_manager.c MCAL/Interrupts/mcal_internal_interrupt.c MCAL/Interrupts/mcal_external_interrupt.c MCAL/Timer0/hal_timer0.c MCAL/WATCH_DOG_TIMER/WDT.c MCAL/device_config.c Robot/Navigation/robot_navigation.c Robot/sensors/DHT11/DHT.c Robot/sensors/ultrasonic/ultrasonic.c application.c MCAL/TIMER1/TIMER1.c
+SOURCEFILES=ECU/Bluetooth/Bluetooth.c ECU/DC_Motor/ecu_dc_motor.c ECU/IR_Sensor/IR_SENSOR.c ECU/LCD_for_test_gps/ecu_char_lcd.c ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c ECU/stepper/ecu_stepper.c ECU/ecu_layer_init.c MCAL/ADC/mcal_adc.c MCAL/CCP/hal_ccp.c MCAL/EUSART/mcal_EUSART.c MCAL/GPIO/hal_gpio.c MCAL/I2C/mcal_i2c.c MCAL/Interrupts/mcal_interrupt_manager.c MCAL/Interrupts/mcal_internal_interrupt.c MCAL/Interrupts/mcal_external_interrupt.c MCAL/Timer0/hal_timer0.c MCAL/TIMER1/TIMER1.c MCAL/WATCH_DOG_TIMER/WDT.c MCAL/device_config.c Robot/Navigation/robot_navigation.c Robot/sensors/DHT11/DHT.c Robot/sensors/ultrasonic/ultrasonic.c application.c MCAL/TIMER2/mcal_timer2.c
 
 
 
@@ -222,6 +222,14 @@ ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1: MCAL/Timer0/hal_timer0.c  nbproject/Make
 	@-${MV} ${OBJECTDIR}/MCAL/Timer0/hal_timer0.d ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1: MCAL/TIMER1/TIMER1.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL/TIMER1" 
+	@${RM} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 MCAL/TIMER1/TIMER1.c 
+	@-${MV} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.d ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1: MCAL/WATCH_DOG_TIMER/WDT.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/MCAL/WATCH_DOG_TIMER" 
 	@${RM} ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1.d 
@@ -270,13 +278,13 @@ ${OBJECTDIR}/application.p1: application.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/application.d ${OBJECTDIR}/application.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/application.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1: MCAL/TIMER1/TIMER1.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/MCAL/TIMER1" 
-	@${RM} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d 
-	@${RM} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 MCAL/TIMER1/TIMER1.c 
-	@-${MV} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.d ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1: MCAL/TIMER2/mcal_timer2.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL/TIMER2" 
+	@${RM} ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1 MCAL/TIMER2/mcal_timer2.c 
+	@-${MV} ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.d ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/ECU/Bluetooth/Bluetooth.p1: ECU/Bluetooth/Bluetooth.c  nbproject/Makefile-${CND_CONF}.mk 
@@ -407,6 +415,14 @@ ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1: MCAL/Timer0/hal_timer0.c  nbproject/Make
 	@-${MV} ${OBJECTDIR}/MCAL/Timer0/hal_timer0.d ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MCAL/Timer0/hal_timer0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1: MCAL/TIMER1/TIMER1.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL/TIMER1" 
+	@${RM} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 MCAL/TIMER1/TIMER1.c 
+	@-${MV} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.d ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1: MCAL/WATCH_DOG_TIMER/WDT.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/MCAL/WATCH_DOG_TIMER" 
 	@${RM} ${OBJECTDIR}/MCAL/WATCH_DOG_TIMER/WDT.p1.d 
@@ -455,13 +471,13 @@ ${OBJECTDIR}/application.p1: application.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/application.d ${OBJECTDIR}/application.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/application.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1: MCAL/TIMER1/TIMER1.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/MCAL/TIMER1" 
-	@${RM} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d 
-	@${RM} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1 MCAL/TIMER1/TIMER1.c 
-	@-${MV} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.d ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/MCAL/TIMER1/TIMER1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1: MCAL/TIMER2/mcal_timer2.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL/TIMER2" 
+	@${RM} ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1 MCAL/TIMER2/mcal_timer2.c 
+	@-${MV} ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.d ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL/TIMER2/mcal_timer2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

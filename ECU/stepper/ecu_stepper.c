@@ -21,6 +21,7 @@ Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper)
         GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
         GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
     }
+    return E_OK ;
 }
 Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
 {
@@ -36,6 +37,7 @@ Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
         __delay_ms(PULSE_DURATION_LOW_MILLI_SEC);
 
     }
+    return E_OK ;
 }
 Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
 {
@@ -54,4 +56,5 @@ Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper
             GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
         }
     }
+    return E_OK ;
 }

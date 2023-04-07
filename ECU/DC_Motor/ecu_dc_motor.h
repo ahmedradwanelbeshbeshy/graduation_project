@@ -27,16 +27,8 @@ typedef enum {
     DC_MOTOR_PIN_ON
 }dc_motor_pin_state_et ;
 
-
-
-// typedef struct {
-//     dc_motor_pin_t forward_pin ;
-//     dc_motor_pin_t reverse_pin ;
-
-// }dc_motor_t ;
-
 typedef struct {
-    pin_config_st dc_motor[2]; // array of two pins
+    pin_config_st dc_motor; 
 
 } dc_motor_st ;
 

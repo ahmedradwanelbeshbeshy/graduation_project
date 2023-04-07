@@ -1,0 +1,507 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"15 MCAL/TIMER2/mcal_timer2.c
+[; ;MCAL/TIMER2/mcal_timer2.c: 15: Std_ReturnType Timer2_Init(const timer2_st* _timer2) {
+[c E3254 0 1 2 .. ]
+[n E3254 . TIMER2_PRESCALER_DIV_BY_1 TIMER2_PRESCALER_DIV_BY_4 TIMER2_PRESCALER_DIV_BY_16  ]
+[c E3259 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 .. ]
+[n E3259 . TIMER2_postscaler_DIV_BY_1 TIMER2_postscaler_DIV_BY_2 TIMER2_postscaler_DIV_BY_3 TIMER2_postscaler_DIV_BY_4 TIMER2_postscaler_DIV_BY_5 TIMER2_postscaler_DIV_BY_6 TIMER2_postscaler_DIV_BY_7 TIMER2_postscaler_DIV_BY_8 TIMER2_postscaler_DIV_BY_9 TIMER2_postscaler_DIV_BY_10 TIMER2_postscaler_DIV_BY_11 TIMER2_postscaler_DIV_BY_12 TIMER2_postscaler_DIV_BY_13 TIMER2_postscaler_DIV_BY_14 TIMER2_postscaler_DIV_BY_15 TIMER2_postscaler_DIV_BY_16  ]
+"58 MCAL/TIMER2/mcal_timer2.h
+[; ;MCAL/TIMER2/mcal_timer2.h: 58: typedef struct{
+[s S307 `uc 1 `E3254 1 `E3259 1 ]
+[n S307 . timer2_preload_value timer2_prescaler_value timer2_postscaler_value ]
+"5718 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
+[s S243 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S243 . T2CKPS TMR2ON T2OUTPS ]
+"5723
+[s S244 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S244 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"5717
+[u S242 `S243 1 `S244 1 ]
+[n S242 . . . ]
+"5733
+[v _T2CONbits `VS242 ~T0 @X0 0 e@4042 ]
+"5893
+[v _TMR2 `Vuc ~T0 @X0 0 e@4044 ]
+"54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
+[; <" SSPMSK equ 0F77h ;# ">
+"124
+[; <" SLRCON equ 0F78h ;# ">
+"168
+[; <" CM2CON1 equ 0F79h ;# ">
+"207
+[; <" CM2CON0 equ 0F7Ah ;# ">
+"277
+[; <" CM1CON0 equ 0F7Bh ;# ">
+"347
+[; <" WPUB equ 0F7Ch ;# ">
+"409
+[; <" IOCB equ 0F7Dh ;# ">
+"448
+[; <" ANSEL equ 0F7Eh ;# ">
+"510
+[; <" ANSELH equ 0F7Fh ;# ">
+"554
+[; <" PORTA equ 0F80h ;# ">
+"790
+[; <" PORTB equ 0F81h ;# ">
+"998
+[; <" PORTC equ 0F82h ;# ">
+"1186
+[; <" PORTD equ 0F83h ;# ">
+"1328
+[; <" PORTE equ 0F84h ;# ">
+"1534
+[; <" LATA equ 0F89h ;# ">
+"1646
+[; <" LATB equ 0F8Ah ;# ">
+"1758
+[; <" LATC equ 0F8Bh ;# ">
+"1870
+[; <" LATD equ 0F8Ch ;# ">
+"1982
+[; <" LATE equ 0F8Dh ;# ">
+"2034
+[; <" TRISA equ 0F92h ;# ">
+"2039
+[; <" DDRA equ 0F92h ;# ">
+"2256
+[; <" TRISB equ 0F93h ;# ">
+"2261
+[; <" DDRB equ 0F93h ;# ">
+"2478
+[; <" TRISC equ 0F94h ;# ">
+"2483
+[; <" DDRC equ 0F94h ;# ">
+"2700
+[; <" TRISD equ 0F95h ;# ">
+"2705
+[; <" DDRD equ 0F95h ;# ">
+"2922
+[; <" TRISE equ 0F96h ;# ">
+"2927
+[; <" DDRE equ 0F96h ;# ">
+"3074
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"3144
+[; <" PIE1 equ 0F9Dh ;# ">
+"3221
+[; <" PIR1 equ 0F9Eh ;# ">
+"3298
+[; <" IPR1 equ 0F9Fh ;# ">
+"3375
+[; <" PIE2 equ 0FA0h ;# ">
+"3455
+[; <" PIR2 equ 0FA1h ;# ">
+"3535
+[; <" IPR2 equ 0FA2h ;# ">
+"3615
+[; <" EECON1 equ 0FA6h ;# ">
+"3681
+[; <" EECON2 equ 0FA7h ;# ">
+"3688
+[; <" EEDATA equ 0FA8h ;# ">
+"3695
+[; <" EEADR equ 0FA9h ;# ">
+"3757
+[; <" EEADRH equ 0FAAh ;# ">
+"3783
+[; <" RCSTA equ 0FABh ;# ">
+"3788
+[; <" RCSTA1 equ 0FABh ;# ">
+"3993
+[; <" TXSTA equ 0FACh ;# ">
+"3998
+[; <" TXSTA1 equ 0FACh ;# ">
+"4249
+[; <" TXREG equ 0FADh ;# ">
+"4254
+[; <" TXREG1 equ 0FADh ;# ">
+"4261
+[; <" RCREG equ 0FAEh ;# ">
+"4266
+[; <" RCREG1 equ 0FAEh ;# ">
+"4273
+[; <" SPBRG equ 0FAFh ;# ">
+"4278
+[; <" SPBRG1 equ 0FAFh ;# ">
+"4285
+[; <" SPBRGH equ 0FB0h ;# ">
+"4292
+[; <" T3CON equ 0FB1h ;# ">
+"4404
+[; <" TMR3 equ 0FB2h ;# ">
+"4411
+[; <" TMR3L equ 0FB2h ;# ">
+"4418
+[; <" TMR3H equ 0FB3h ;# ">
+"4425
+[; <" CVRCON2 equ 0FB4h ;# ">
+"4452
+[; <" CVRCON equ 0FB5h ;# ">
+"4531
+[; <" ECCP1AS equ 0FB6h ;# ">
+"4613
+[; <" PWM1CON equ 0FB7h ;# ">
+"4683
+[; <" BAUDCON equ 0FB8h ;# ">
+"4688
+[; <" BAUDCTL equ 0FB8h ;# ">
+"4849
+[; <" PSTRCON equ 0FB9h ;# ">
+"4893
+[; <" CCP2CON equ 0FBAh ;# ">
+"4957
+[; <" CCPR2 equ 0FBBh ;# ">
+"4964
+[; <" CCPR2L equ 0FBBh ;# ">
+"4971
+[; <" CCPR2H equ 0FBCh ;# ">
+"4978
+[; <" CCP1CON equ 0FBDh ;# ">
+"5060
+[; <" CCPR1 equ 0FBEh ;# ">
+"5067
+[; <" CCPR1L equ 0FBEh ;# ">
+"5074
+[; <" CCPR1H equ 0FBFh ;# ">
+"5081
+[; <" ADCON2 equ 0FC0h ;# ">
+"5152
+[; <" ADCON1 equ 0FC1h ;# ">
+"5203
+[; <" ADCON0 equ 0FC2h ;# ">
+"5322
+[; <" ADRES equ 0FC3h ;# ">
+"5329
+[; <" ADRESL equ 0FC3h ;# ">
+"5336
+[; <" ADRESH equ 0FC4h ;# ">
+"5343
+[; <" SSPCON2 equ 0FC5h ;# ">
+"5405
+[; <" SSPCON1 equ 0FC6h ;# ">
+"5475
+[; <" SSPSTAT equ 0FC7h ;# ">
+"5700
+[; <" SSPADD equ 0FC8h ;# ">
+"5707
+[; <" SSPBUF equ 0FC9h ;# ">
+"5714
+[; <" T2CON equ 0FCAh ;# ">
+"5785
+[; <" PR2 equ 0FCBh ;# ">
+"5790
+[; <" MEMCON equ 0FCBh ;# ">
+"5895
+[; <" TMR2 equ 0FCCh ;# ">
+"5902
+[; <" T1CON equ 0FCDh ;# ">
+"6005
+[; <" TMR1 equ 0FCEh ;# ">
+"6012
+[; <" TMR1L equ 0FCEh ;# ">
+"6019
+[; <" TMR1H equ 0FCFh ;# ">
+"6026
+[; <" RCON equ 0FD0h ;# ">
+"6159
+[; <" WDTCON equ 0FD1h ;# ">
+"6187
+[; <" HLVDCON equ 0FD2h ;# ">
+"6192
+[; <" LVDCON equ 0FD2h ;# ">
+"6457
+[; <" OSCCON equ 0FD3h ;# ">
+"6534
+[; <" T0CON equ 0FD5h ;# ">
+"6604
+[; <" TMR0 equ 0FD6h ;# ">
+"6611
+[; <" TMR0L equ 0FD6h ;# ">
+"6618
+[; <" TMR0H equ 0FD7h ;# ">
+"6625
+[; <" STATUS equ 0FD8h ;# ">
+"6696
+[; <" FSR2 equ 0FD9h ;# ">
+"6703
+[; <" FSR2L equ 0FD9h ;# ">
+"6710
+[; <" FSR2H equ 0FDAh ;# ">
+"6717
+[; <" PLUSW2 equ 0FDBh ;# ">
+"6724
+[; <" PREINC2 equ 0FDCh ;# ">
+"6731
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"6738
+[; <" POSTINC2 equ 0FDEh ;# ">
+"6745
+[; <" INDF2 equ 0FDFh ;# ">
+"6752
+[; <" BSR equ 0FE0h ;# ">
+"6759
+[; <" FSR1 equ 0FE1h ;# ">
+"6766
+[; <" FSR1L equ 0FE1h ;# ">
+"6773
+[; <" FSR1H equ 0FE2h ;# ">
+"6780
+[; <" PLUSW1 equ 0FE3h ;# ">
+"6787
+[; <" PREINC1 equ 0FE4h ;# ">
+"6794
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"6801
+[; <" POSTINC1 equ 0FE6h ;# ">
+"6808
+[; <" INDF1 equ 0FE7h ;# ">
+"6815
+[; <" WREG equ 0FE8h ;# ">
+"6827
+[; <" FSR0 equ 0FE9h ;# ">
+"6834
+[; <" FSR0L equ 0FE9h ;# ">
+"6841
+[; <" FSR0H equ 0FEAh ;# ">
+"6848
+[; <" PLUSW0 equ 0FEBh ;# ">
+"6855
+[; <" PREINC0 equ 0FECh ;# ">
+"6862
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"6869
+[; <" POSTINC0 equ 0FEEh ;# ">
+"6876
+[; <" INDF0 equ 0FEFh ;# ">
+"6883
+[; <" INTCON3 equ 0FF0h ;# ">
+"6975
+[; <" INTCON2 equ 0FF1h ;# ">
+"7045
+[; <" INTCON equ 0FF2h ;# ">
+"7162
+[; <" PROD equ 0FF3h ;# ">
+"7169
+[; <" PRODL equ 0FF3h ;# ">
+"7176
+[; <" PRODH equ 0FF4h ;# ">
+"7183
+[; <" TABLAT equ 0FF5h ;# ">
+"7192
+[; <" TBLPTR equ 0FF6h ;# ">
+"7199
+[; <" TBLPTRL equ 0FF6h ;# ">
+"7206
+[; <" TBLPTRH equ 0FF7h ;# ">
+"7213
+[; <" TBLPTRU equ 0FF8h ;# ">
+"7222
+[; <" PCLAT equ 0FF9h ;# ">
+"7229
+[; <" PC equ 0FF9h ;# ">
+"7236
+[; <" PCL equ 0FF9h ;# ">
+"7243
+[; <" PCLATH equ 0FFAh ;# ">
+"7250
+[; <" PCLATU equ 0FFBh ;# ">
+"7257
+[; <" STKPTR equ 0FFCh ;# ">
+"7331
+[; <" TOS equ 0FFDh ;# ">
+"7338
+[; <" TOSL equ 0FFDh ;# ">
+"7345
+[; <" TOSH equ 0FFEh ;# ">
+"7352
+[; <" TOSU equ 0FFFh ;# ">
+"13 MCAL/TIMER2/mcal_timer2.c
+[; ;MCAL/TIMER2/mcal_timer2.c: 13: uint8 Timer2_PreLoaded_Value_Store = 0;
+[v _Timer2_PreLoaded_Value_Store `uc ~T0 @X0 1 e ]
+[i _Timer2_PreLoaded_Value_Store
+-> -> 0 `i `uc
+]
+"15
+[; ;MCAL/TIMER2/mcal_timer2.c: 15: Std_ReturnType Timer2_Init(const timer2_st* _timer2) {
+[v _Timer2_Init `(uc ~T0 @X0 1 ef1`*CS307 ]
+{
+[e :U _Timer2_Init ]
+[v __timer2 `*CS307 ~T0 @X0 1 r1 ]
+[f ]
+"16
+[; ;MCAL/TIMER2/mcal_timer2.c: 16:   Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"17
+[; ;MCAL/TIMER2/mcal_timer2.c: 17:   if (((void*)0) == _timer2) {
+[e $ ! == -> -> -> 0 `i `*v `*CS307 __timer2 309  ]
+{
+"18
+[; ;MCAL/TIMER2/mcal_timer2.c: 18:     ERRORSTATUS = (Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"19
+[; ;MCAL/TIMER2/mcal_timer2.c: 19:   } else {
+}
+[e $U 310  ]
+[e :U 309 ]
+{
+"21
+[; ;MCAL/TIMER2/mcal_timer2.c: 21:     (T2CONbits.TMR2ON=0);
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+"23
+[; ;MCAL/TIMER2/mcal_timer2.c: 23:     (T2CONbits.T2CKPS=_timer2->timer2_prescaler_value);
+[e = . . _T2CONbits 0 0 -> . *U __timer2 1 `uc ]
+"25
+[; ;MCAL/TIMER2/mcal_timer2.c: 25:     (T2CONbits.T2OUTPS=_timer2->timer2_postscaler_value);
+[e = . . _T2CONbits 0 2 -> . *U __timer2 2 `uc ]
+"27
+[; ;MCAL/TIMER2/mcal_timer2.c: 27:     TMR2 = _timer2->timer2_preload_value;
+[e = _TMR2 . *U __timer2 0 ]
+"28
+[; ;MCAL/TIMER2/mcal_timer2.c: 28:     Timer2_PreLoaded_Value_Store = _timer2->timer2_preload_value;
+[e = _Timer2_PreLoaded_Value_Store . *U __timer2 0 ]
+"53
+[; ;MCAL/TIMER2/mcal_timer2.c: 53:     (T2CONbits.TMR2ON=1);
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"54
+[; ;MCAL/TIMER2/mcal_timer2.c: 54:   }
+}
+[e :U 310 ]
+"55
+[; ;MCAL/TIMER2/mcal_timer2.c: 55:   return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 308  ]
+"56
+[; ;MCAL/TIMER2/mcal_timer2.c: 56: }
+[e :UE 308 ]
+}
+"57
+[; ;MCAL/TIMER2/mcal_timer2.c: 57: Std_ReturnType Timer2_DeInit(const timer2_st* _timer2) {
+[v _Timer2_DeInit `(uc ~T0 @X0 1 ef1`*CS307 ]
+{
+[e :U _Timer2_DeInit ]
+[v __timer2 `*CS307 ~T0 @X0 1 r1 ]
+[f ]
+"58
+[; ;MCAL/TIMER2/mcal_timer2.c: 58:   Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"59
+[; ;MCAL/TIMER2/mcal_timer2.c: 59:   if (((void*)0) == _timer2) {
+[e $ ! == -> -> -> 0 `i `*v `*CS307 __timer2 312  ]
+{
+"60
+[; ;MCAL/TIMER2/mcal_timer2.c: 60:     ERRORSTATUS = (Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"61
+[; ;MCAL/TIMER2/mcal_timer2.c: 61:   } else {
+}
+[e $U 313  ]
+[e :U 312 ]
+{
+"62
+[; ;MCAL/TIMER2/mcal_timer2.c: 62:     (T2CONbits.TMR2ON=0);
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+"66
+[; ;MCAL/TIMER2/mcal_timer2.c: 66:   }
+}
+[e :U 313 ]
+"67
+[; ;MCAL/TIMER2/mcal_timer2.c: 67:   return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 311  ]
+"68
+[; ;MCAL/TIMER2/mcal_timer2.c: 68: }
+[e :UE 311 ]
+}
+"69
+[; ;MCAL/TIMER2/mcal_timer2.c: 69: Std_ReturnType Timer2_Write_Value(const timer2_st* _timer2, uint8 value) {
+[v _Timer2_Write_Value `(uc ~T0 @X0 1 ef2`*CS307`uc ]
+{
+[e :U _Timer2_Write_Value ]
+[v __timer2 `*CS307 ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+[f ]
+"70
+[; ;MCAL/TIMER2/mcal_timer2.c: 70:   Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"71
+[; ;MCAL/TIMER2/mcal_timer2.c: 71:   if (((void*)0) == _timer2) {
+[e $ ! == -> -> -> 0 `i `*v `*CS307 __timer2 315  ]
+{
+"72
+[; ;MCAL/TIMER2/mcal_timer2.c: 72:     ERRORSTATUS = (Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"73
+[; ;MCAL/TIMER2/mcal_timer2.c: 73:   } else {
+}
+[e $U 316  ]
+[e :U 315 ]
+{
+"74
+[; ;MCAL/TIMER2/mcal_timer2.c: 74:     TMR2 = value;
+[e = _TMR2 _value ]
+"75
+[; ;MCAL/TIMER2/mcal_timer2.c: 75:   }
+}
+[e :U 316 ]
+"76
+[; ;MCAL/TIMER2/mcal_timer2.c: 76:   return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 314  ]
+"77
+[; ;MCAL/TIMER2/mcal_timer2.c: 77: }
+[e :UE 314 ]
+}
+"78
+[; ;MCAL/TIMER2/mcal_timer2.c: 78: Std_ReturnType Timer2_Read_Value(const timer2_st* _timer2, uint8* value) {
+[v _Timer2_Read_Value `(uc ~T0 @X0 1 ef2`*CS307`*uc ]
+{
+[e :U _Timer2_Read_Value ]
+[v __timer2 `*CS307 ~T0 @X0 1 r1 ]
+[v _value `*uc ~T0 @X0 1 r2 ]
+[f ]
+"79
+[; ;MCAL/TIMER2/mcal_timer2.c: 79:   Std_ReturnType ERRORSTATUS = (Std_ReturnType) 0x01;
+[v _ERRORSTATUS `uc ~T0 @X0 1 a ]
+[e = _ERRORSTATUS -> -> 1 `i `uc ]
+"80
+[; ;MCAL/TIMER2/mcal_timer2.c: 80:   if ((((void*)0) == _timer2) || (((void*)0) == value)) {
+[e $ ! || == -> -> -> 0 `i `*v `*CS307 __timer2 == -> -> -> 0 `i `*v `*uc _value 318  ]
+{
+"81
+[; ;MCAL/TIMER2/mcal_timer2.c: 81:     ERRORSTATUS = (Std_ReturnType) 0x00;
+[e = _ERRORSTATUS -> -> 0 `i `uc ]
+"82
+[; ;MCAL/TIMER2/mcal_timer2.c: 82:   } else {
+}
+[e $U 319  ]
+[e :U 318 ]
+{
+"83
+[; ;MCAL/TIMER2/mcal_timer2.c: 83:     *value = TMR2;
+[e = *U _value _TMR2 ]
+"84
+[; ;MCAL/TIMER2/mcal_timer2.c: 84:   }
+}
+[e :U 319 ]
+"85
+[; ;MCAL/TIMER2/mcal_timer2.c: 85:   return ERRORSTATUS;
+[e ) _ERRORSTATUS ]
+[e $UE 317  ]
+"86
+[; ;MCAL/TIMER2/mcal_timer2.c: 86: }
+[e :UE 317 ]
+}
+"87
+[; ;MCAL/TIMER2/mcal_timer2.c: 87: void TMR2_ISR(void) {
+[v _TMR2_ISR `(v ~T0 @X0 1 ef ]
+{
+[e :U _TMR2_ISR ]
+[f ]
+"95
+[; ;MCAL/TIMER2/mcal_timer2.c: 95: }
+[e :UE 320 ]
+}

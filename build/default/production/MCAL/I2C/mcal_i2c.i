@@ -5165,8 +5165,8 @@ typedef struct{
  uint8 i2c_reserved : 3;
 
 
-    interrupt_pri_et mssp_i2c_priority;
-    interrupt_pri_et mssp_i2c_bc_priority;
+
+
 
 
 }i2c_configs_st;
@@ -5174,16 +5174,7 @@ typedef struct{
 typedef struct{
  uint32 i2c_clock;
     i2c_configs_st i2c_cfg;
-
-    void (*I2C_Report_Write_Collision)(void);
-    void (*I2C_DefaultInterruptHandler)(void);
-
-
-
-
-    void (*I2C_Report_Receive_Overflow)(void);
-
-
+# 133 "MCAL/I2C/mcal_i2c.h"
 }mssp_i2c_st;
 
 Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);
@@ -5277,7 +5268,7 @@ Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj)
 
 
 
-        I2C_Interrupt_configuration(i2c_obj);
+
 
 
 
@@ -5298,10 +5289,10 @@ Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_st *i2c_obj)
 
         (SSPCON1bits.SSPEN = 0);
 
-       (PIE1bits.SSPIE = 0);
 
 
-       (PIE2bits.BCLIE = 0);
+
+
 
 
     }
@@ -5482,24 +5473,16 @@ Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_st *i2c_obj, uint8 
 
 void I2C_ISR(void)
 {
-
-
-    (PIR1bits.SSPIF = 0);
-    if(I2C_DefaultInterruptHandler)
-    {
-        I2C_DefaultInterruptHandler();
-    }
-
-
+# 299 "MCAL/I2C/mcal_i2c.c"
 }
 void I2C_BC_ISR(void)
 {
 
-    (PIR2bits.BCLIF = 0);
-    if(I2C_Report_Write_Collision)
-    {
-        I2C_Report_Write_Collision();
-    }
+
+
+
+
+
 
 }
 static void I2C_Master_Mode_Clock_Configurations(const mssp_i2c_st *i2c_obj)
@@ -5540,61 +5523,5 @@ static void I2C_Pin_Configurations(void)
 }
 static void I2C_Interrupt_configuration(const mssp_i2c_st *i2c_obj)
 {
-
-       (PIE1bits.SSPIE = 0);
-
-        (RCONbits.IPEN = 1 );
-        (INTCONbits.GIEH = 1);
-        (INTCONbits.GIEH = 0);
-        if(INT_HIGH_PRI==i2c_obj->i2c_cfg.mssp_i2c_priority)
-        {
-            (IPR1bits.SSPIP = 1);
-        }
-            else if(INT_LOW_PRI==i2c_obj->i2c_cfg.mssp_i2c_priority)
-            {
-                (IPR1bits.SSPIP = 0);
-            }
-            else{ }
-
-
-
-
-
-
-        (PIR1bits.SSPIF = 0);
-        (PIE1bits.SSPIE = 1);
-
-        I2C_DefaultInterruptHandler=i2c_obj->I2C_DefaultInterruptHandler;
-        I2C_Report_Receive_Overflow =i2c_obj->I2C_Report_Receive_Overflow;
-
-
-
-
-
-       (PIE2bits.BCLIE = 0);
-
-
-        (RCONbits.IPEN = 1 );
-        (INTCONbits.GIEH = 1);
-        (INTCONbits.GIEH = 0);
-        if(INT_HIGH_PRI==i2c_obj->i2c_cfg.mssp_i2c_bc_priority)
-        {
-            (IPR2bits.BCLIP = 1);
-        }
-        else if(INT_LOW_PRI==i2c_obj->i2c_cfg.mssp_i2c_bc_priority)
-        {
-            (IPR2bits.BCLIP = 0);
-        }
-        else{ }
-
-
-
-
-
-        (PIR2bits.BCLIF = 0);
-        (PIE2bits.BCLIE = 1);
-
-        I2C_Report_Write_Collision=i2c_obj->I2C_Report_Write_Collision;
-
-
+# 405 "MCAL/I2C/mcal_i2c.c"
 }

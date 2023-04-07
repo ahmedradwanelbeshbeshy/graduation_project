@@ -18,11 +18,13 @@ ROBOT CAR MODEL
 :::::Front:::::
 
 W1----------W2
+servo1      servo2
 
 W3----------W4
 
 
 W5----------W6
+servo3      servo4
 :::::Back:::::
 \            /
  \__________/
@@ -30,7 +32,7 @@ W5----------W6
 */
 
 /******************************************** Includes ********************************************/
-
+#include "../../MCAL/TIMER2/mcal_timer2.h"
 #include "../../MCAL/CCP/hal_ccp.h"
 #include "../../MCAL/I2C/mcal_i2c.h"
 #include "../../ECU/DC_Motor/ecu_dc_motor.h"
@@ -60,20 +62,20 @@ W5----------W6
 
 
 /* Servo Steer Right Angle */
-#define NAV_SERVO_STEER_RIGHT_W1_ANGLE   35
-#define NAV_SERVO_STEER_RIGHT_W2_ANGLE   55
+#define NAV_SERVO_STEER_RIGHT_W1_ANGLE   45 
+#define NAV_SERVO_STEER_RIGHT_W2_ANGLE   25
 #define NAV_SERVO_STEER_RIGHT_W3_ANGLE   0 /* No Steering Servo */
 #define NAV_SERVO_STEER_RIGHT_W4_ANGLE   0 /* No Steering Servo */
-#define NAV_SERVO_STEER_RIGHT_W5_ANGLE   35
-#define NAV_SERVO_STEER_RIGHT_W6_ANGLE   55
+#define NAV_SERVO_STEER_RIGHT_W5_ANGLE   135
+#define NAV_SERVO_STEER_RIGHT_W6_ANGLE   115
 
 /* Servo Steer Left Angle */
-#define NAV_SERVO_STEER_LEFT_W1_ANGLE   -55
-#define NAV_SERVO_STEER_LEFT_W2_ANGLE   -35
+#define NAV_SERVO_STEER_LEFT_W1_ANGLE   115
+#define NAV_SERVO_STEER_LEFT_W2_ANGLE   135
 #define NAV_SERVO_STEER_LEFT_W3_ANGLE    0 /* No Steering Servo */
 #define NAV_SERVO_STEER_LEFT_W4_ANGLE    0 /* No Steering Servo */
-#define NAV_SERVO_STEER_LEFT_W5_ANGLE   -55
-#define NAV_SERVO_STEER_LEFT_W6_ANGLE   -35
+#define NAV_SERVO_STEER_LEFT_W5_ANGLE   25
+#define NAV_SERVO_STEER_LEFT_W6_ANGLE   45
 
 
 /* Starting Wheels Speed */
@@ -89,6 +91,8 @@ W5----------W6
 
 #define NAV_DC_MOTOR_STEER_LEFT_W1_row_SPEED 85
 #define NAV_DC_MOTOR_STEER_LEFT_W2_row_SPEED 95
+
+#define NAV_DC_MOTOR_stop 0
 
 /******************************************** Macro Functions *************************************************************/
 
@@ -134,26 +138,20 @@ Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
 
 static dc_motor_st W1_W3_W5_Motor_Control =
 {
-    .dc_motor[0].port = PORTD_INDEX ,
-    .dc_motor[0].pin = GPIO_PIN0 ,
-    .dc_motor[0].logic = GPIO_LOW ,
-    .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT , 
-    .dc_motor[1].port = PORTD_INDEX ,
-    .dc_motor[1].pin = GPIO_PIN1 ,
-    .dc_motor[1].logic = GPIO_LOW ,
-    .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT  
+    .dc_motor.port = PORTD_INDEX ,
+    .dc_motor.pin = GPIO_PIN0 ,
+    .dc_motor.logic = GPIO_LOW ,
+    .dc_motor.direction = GPIO_DIRECTION_OUTPUT , 
+
 };
 
 static dc_motor_st W2_W4_W6_Motor_Control =
 {
-    .dc_motor[0].port = PORTD_INDEX ,
-    .dc_motor[0].pin = GPIO_PIN2 ,
-    .dc_motor[0].logic = GPIO_LOW ,
-    .dc_motor[0].direction = GPIO_DIRECTION_OUTPUT , 
-    .dc_motor[1].port = PORTD_INDEX ,
-    .dc_motor[1].pin = GPIO_PIN3 ,
-    .dc_motor[1].logic = GPIO_LOW ,
-    .dc_motor[1].direction = GPIO_DIRECTION_OUTPUT  
+    .dc_motor.port = PORTD_INDEX ,
+    .dc_motor.pin = GPIO_PIN1 ,
+    .dc_motor.logic = GPIO_LOW ,
+    .dc_motor.direction = GPIO_DIRECTION_OUTPUT , 
+
 };
 
 /* CCP1 :  W1 , W3 , W5     (Left Side) */
@@ -182,7 +180,23 @@ ccp_st CCP2_Obj =
     .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
 };
 
-
+/*i2c and servos */
+mssp_i2c_st i2c_obj={
+  .i2c_cfg.i2c_mode=  I2C_MSSP_MASTER_MODE,
+  .i2c_cfg.i2c_mode_cfg=I2C_MASTER_MODE_DEFINED_CLOCK,
+  .i2c_clock=100000,
+  .i2c_cfg.i2c_SMBus_control=I2C_SMBus_DISABLE,
+  .i2c_cfg.i2c_slew_rate=I2C_SLEW_RATE_DISABLE,
+  //.I2C_DefaultInterruptHandler=NULL,
+  //.I2C_Report_Receive_Overflow=NULL,
+  //.I2C_Report_Write_Collision=NULL
+};
+servo_driver_st servo_driver_obj={
+   .slave_address=SERVO_DRIVER_SLAVE_ADDRESS,
+   .frequancy=ECU_SM_PRE_SCALE_REG_VAL,
+   .mode_1_cfg=0x21,
+   .mode_2_cfg=0x04   
+};
 
 
 

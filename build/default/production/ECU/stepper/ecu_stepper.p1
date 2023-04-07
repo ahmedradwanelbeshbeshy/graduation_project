@@ -24,8 +24,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
 [v __delay `JF3167 ~T0 @X0 0 e ]
 [p i __delay ]
-"40 ECU/stepper/ecu_stepper.c
-[; ;ECU/stepper/ecu_stepper.c: 40: Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
+"42 ECU/stepper/ecu_stepper.c
+[; ;ECU/stepper/ecu_stepper.c: 42: Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
 [c E3252 0 1 .. ]
 [n E3252 . DIR_CCW DIR_CW  ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
@@ -378,127 +378,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 310 ]
 "24
-[; ;ECU/stepper/ecu_stepper.c: 24: }
+[; ;ECU/stepper/ecu_stepper.c: 24:     return (Std_ReturnType) 0x01 ;
+[e ) -> -> 1 `i `uc ]
+[e $UE 308  ]
+"25
+[; ;ECU/stepper/ecu_stepper.c: 25: }
 [e :UE 308 ]
 }
-"25
-[; ;ECU/stepper/ecu_stepper.c: 25: Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
-[v _Ecu_Stepper_Step `(uc ~T0 @X0 1 ef1`*S307 ]
 "26
-[; ;ECU/stepper/ecu_stepper.c: 26: {
+[; ;ECU/stepper/ecu_stepper.c: 26: Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
+[v _Ecu_Stepper_Step `(uc ~T0 @X0 1 ef1`*S307 ]
+"27
+[; ;ECU/stepper/ecu_stepper.c: 27: {
 {
 [e :U _Ecu_Stepper_Step ]
-"25
-[; ;ECU/stepper/ecu_stepper.c: 25: Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
-[v _stepper `*S307 ~T0 @X0 1 r1 ]
 "26
-[; ;ECU/stepper/ecu_stepper.c: 26: {
-[f ]
+[; ;ECU/stepper/ecu_stepper.c: 26: Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
+[v _stepper `*S307 ~T0 @X0 1 r1 ]
 "27
-[; ;ECU/stepper/ecu_stepper.c: 27:     if(((void*)0) == stepper)
-[e $ ! == -> -> -> 0 `i `*v `*S307 _stepper 312  ]
+[; ;ECU/stepper/ecu_stepper.c: 27: {
+[f ]
 "28
-[; ;ECU/stepper/ecu_stepper.c: 28:     {
-{
+[; ;ECU/stepper/ecu_stepper.c: 28:     if(((void*)0) == stepper)
+[e $ ! == -> -> -> 0 `i `*v `*S307 _stepper 312  ]
 "29
-[; ;ECU/stepper/ecu_stepper.c: 29:         return (Std_ReturnType) 0x00 ;
+[; ;ECU/stepper/ecu_stepper.c: 29:     {
+{
+"30
+[; ;ECU/stepper/ecu_stepper.c: 30:         return (Std_ReturnType) 0x00 ;
 [e ) -> -> 0 `i `uc ]
 [e $UE 311  ]
-"30
-[; ;ECU/stepper/ecu_stepper.c: 30:     }
+"31
+[; ;ECU/stepper/ecu_stepper.c: 31:     }
 }
 [e $U 313  ]
-"31
-[; ;ECU/stepper/ecu_stepper.c: 31:     else
-[e :U 312 ]
 "32
-[; ;ECU/stepper/ecu_stepper.c: 32:     {
-{
+[; ;ECU/stepper/ecu_stepper.c: 32:     else
+[e :U 312 ]
 "33
-[; ;ECU/stepper/ecu_stepper.c: 33:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , 1);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 -> -> 1 `i `E3185 ]
+[; ;ECU/stepper/ecu_stepper.c: 33:     {
+{
 "34
-[; ;ECU/stepper/ecu_stepper.c: 34:         _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;ECU/stepper/ecu_stepper.c: 34:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , 1);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 -> -> 1 `i `E3185 ]
 "35
-[; ;ECU/stepper/ecu_stepper.c: 35:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , 0);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 -> -> 0 `i `E3185 ]
-"36
-[; ;ECU/stepper/ecu_stepper.c: 36:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[; ;ECU/stepper/ecu_stepper.c: 35:         _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"38
-[; ;ECU/stepper/ecu_stepper.c: 38:     }
+"36
+[; ;ECU/stepper/ecu_stepper.c: 36:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , 0);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 -> -> 0 `i `E3185 ]
+"37
+[; ;ECU/stepper/ecu_stepper.c: 37:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"39
+[; ;ECU/stepper/ecu_stepper.c: 39:     }
 }
 [e :U 313 ]
-"39
-[; ;ECU/stepper/ecu_stepper.c: 39: }
+"40
+[; ;ECU/stepper/ecu_stepper.c: 40:     return (Std_ReturnType) 0x01 ;
+[e ) -> -> 1 `i `uc ]
+[e $UE 311  ]
+"41
+[; ;ECU/stepper/ecu_stepper.c: 41: }
 [e :UE 311 ]
 }
-"40
-[; ;ECU/stepper/ecu_stepper.c: 40: Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
+"42
+[; ;ECU/stepper/ecu_stepper.c: 42: Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
 [v _Ecu_Stepper_Change_Direction `(uc ~T0 @X0 1 ef2`*S307`E3252 ]
-"41
-[; ;ECU/stepper/ecu_stepper.c: 41: {
+"43
+[; ;ECU/stepper/ecu_stepper.c: 43: {
 {
 [e :U _Ecu_Stepper_Change_Direction ]
-"40
-[; ;ECU/stepper/ecu_stepper.c: 40: Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
+"42
+[; ;ECU/stepper/ecu_stepper.c: 42: Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
 [v _stepper `*S307 ~T0 @X0 1 r1 ]
 [v _dir `E3252 ~T0 @X0 1 r2 ]
-"41
-[; ;ECU/stepper/ecu_stepper.c: 41: {
-[f ]
-"42
-[; ;ECU/stepper/ecu_stepper.c: 42:     if(((void*)0) == stepper)
-[e $ ! == -> -> -> 0 `i `*v `*S307 _stepper 315  ]
 "43
-[; ;ECU/stepper/ecu_stepper.c: 43:     {
-{
+[; ;ECU/stepper/ecu_stepper.c: 43: {
+[f ]
 "44
-[; ;ECU/stepper/ecu_stepper.c: 44:         return (Std_ReturnType) 0x00 ;
+[; ;ECU/stepper/ecu_stepper.c: 44:     if(((void*)0) == stepper)
+[e $ ! == -> -> -> 0 `i `*v `*S307 _stepper 315  ]
+"45
+[; ;ECU/stepper/ecu_stepper.c: 45:     {
+{
+"46
+[; ;ECU/stepper/ecu_stepper.c: 46:         return (Std_ReturnType) 0x00 ;
 [e ) -> -> 0 `i `uc ]
 [e $UE 314  ]
-"45
-[; ;ECU/stepper/ecu_stepper.c: 45:     }
+"47
+[; ;ECU/stepper/ecu_stepper.c: 47:     }
 }
 [e $U 316  ]
-"46
-[; ;ECU/stepper/ecu_stepper.c: 46:     else
-[e :U 315 ]
-"47
-[; ;ECU/stepper/ecu_stepper.c: 47:     {
-{
 "48
-[; ;ECU/stepper/ecu_stepper.c: 48:         if(dir == DIR_CW)
-[e $ ! == -> _dir `ui -> . `E3252 1 `ui 317  ]
+[; ;ECU/stepper/ecu_stepper.c: 48:     else
+[e :U 315 ]
 "49
-[; ;ECU/stepper/ecu_stepper.c: 49:         {
+[; ;ECU/stepper/ecu_stepper.c: 49:     {
 {
 "50
-[; ;ECU/stepper/ecu_stepper.c: 50:             GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_HIGH);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 1 `*CS306 . `E3185 1 ]
+[; ;ECU/stepper/ecu_stepper.c: 50:         if(dir == DIR_CW)
+[e $ ! == -> _dir `ui -> . `E3252 1 `ui 317  ]
 "51
-[; ;ECU/stepper/ecu_stepper.c: 51:         }
+[; ;ECU/stepper/ecu_stepper.c: 51:         {
+{
+"52
+[; ;ECU/stepper/ecu_stepper.c: 52:             GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 1 `*CS306 . `E3185 1 ]
+"53
+[; ;ECU/stepper/ecu_stepper.c: 53:         }
 }
 [e $U 318  ]
-"52
-[; ;ECU/stepper/ecu_stepper.c: 52:         else
-[e :U 317 ]
-"53
-[; ;ECU/stepper/ecu_stepper.c: 53:         {
-{
 "54
-[; ;ECU/stepper/ecu_stepper.c: 54:             GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 1 `*CS306 . `E3185 0 ]
+[; ;ECU/stepper/ecu_stepper.c: 54:         else
+[e :U 317 ]
 "55
-[; ;ECU/stepper/ecu_stepper.c: 55:         }
+[; ;ECU/stepper/ecu_stepper.c: 55:         {
+{
+"56
+[; ;ECU/stepper/ecu_stepper.c: 56:             GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 1 `*CS306 . `E3185 0 ]
+"57
+[; ;ECU/stepper/ecu_stepper.c: 57:         }
 }
 [e :U 318 ]
-"56
-[; ;ECU/stepper/ecu_stepper.c: 56:     }
+"58
+[; ;ECU/stepper/ecu_stepper.c: 58:     }
 }
 [e :U 316 ]
-"57
-[; ;ECU/stepper/ecu_stepper.c: 57: }
+"59
+[; ;ECU/stepper/ecu_stepper.c: 59:     return (Std_ReturnType) 0x01 ;
+[e ) -> -> 1 `i `uc ]
+[e $UE 314  ]
+"60
+[; ;ECU/stepper/ecu_stepper.c: 60: }
 [e :UE 314 ]
 }

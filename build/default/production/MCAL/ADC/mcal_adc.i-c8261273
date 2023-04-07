@@ -1,4 +1,4 @@
-# 1 "ECU/stepper/ecu_stepper.c"
+# 1 "MCAL/ADC/mcal_adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,19 +6,18 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ECU/stepper/ecu_stepper.c" 2
+# 1 "MCAL/ADC/mcal_adc.c" 2
 
 
 
 
 
 
-# 1 "ECU/stepper/ecu_stepper.h" 1
-# 11 "ECU/stepper/ecu_stepper.h"
-# 1 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 1
-# 12 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h"
-# 1 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 1
-# 11 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h"
+
+# 1 "MCAL/ADC/mcal_adc.h" 1
+# 14 "MCAL/ADC/mcal_adc.h"
+# 1 "MCAL/ADC/../std_libraries.h" 1
+# 11 "MCAL/ADC/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -182,7 +181,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
+# 11 "MCAL/ADC/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 3
@@ -247,7 +246,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
+# 12 "MCAL/ADC/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
@@ -304,7 +303,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
+# 13 "MCAL/ADC/../std_libraries.h" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc/pic18f46k20.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc/pic18f46k20.h" 3
@@ -4967,7 +4966,7 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 14 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
+# 14 "MCAL/ADC/../std_libraries.h" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
@@ -5041,17 +5040,11 @@ extern __attribute__((nonreentrant)) void _delay(unsigned long);
 extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 15 "ECU/stepper/../../MCAL/GPIO/../std_libraries.h" 2
-# 12 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 2
+# 15 "MCAL/ADC/../std_libraries.h" 2
+# 14 "MCAL/ADC/mcal_adc.h" 2
 
-# 1 "ECU/stepper/../../MCAL/GPIO/../device_config.h" 1
-# 11 "ECU/stepper/../../MCAL/GPIO/../device_config.h"
-# 1 "ECU/stepper/../../MCAL/GPIO/../compiler.h" 1
-# 11 "ECU/stepper/../../MCAL/GPIO/../device_config.h" 2
-# 13 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 2
-
-# 1 "ECU/stepper/../../MCAL/GPIO/../mcal_std_types.h" 1
-# 20 "ECU/stepper/../../MCAL/GPIO/../mcal_std_types.h"
+# 1 "MCAL/ADC/../mcal_std_types.h" 1
+# 20 "MCAL/ADC/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned char uint8_t;
 
@@ -5067,11 +5060,38 @@ typedef signed long sint32;
 typedef float float32;
 
 typedef uint8 Std_ReturnType;
-# 14 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 2
+# 15 "MCAL/ADC/mcal_adc.h" 2
 
-# 1 "ECU/stepper/../../MCAL/GPIO/hal_gpio_cfg.h" 1
-# 15 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h" 2
-# 42 "ECU/stepper/../../MCAL/GPIO/hal_gpio.h"
+# 1 "MCAL/ADC/../Interrupts/mcal_internal_interrupt.h" 1
+# 13 "MCAL/ADC/../Interrupts/mcal_internal_interrupt.h"
+# 1 "MCAL/ADC/../Interrupts/mcal_interrupt_config.h" 1
+# 15 "MCAL/ADC/../Interrupts/mcal_interrupt_config.h"
+# 1 "MCAL/ADC/../Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "MCAL/ADC/../Interrupts/mcal_interrupt_config.h" 2
+# 71 "MCAL/ADC/../Interrupts/mcal_interrupt_config.h"
+typedef void ( *InterruptHandler) (void);
+
+
+typedef enum {
+    INT_LOW_PRI = 0,
+    INT_HIGH_PRI
+
+} interrupt_pri_et;
+# 13 "MCAL/ADC/../Interrupts/mcal_internal_interrupt.h" 2
+# 16 "MCAL/ADC/mcal_adc.h" 2
+
+# 1 "MCAL/ADC/../GPIO/hal_gpio.h" 1
+# 13 "MCAL/ADC/../GPIO/hal_gpio.h"
+# 1 "MCAL/ADC/../GPIO/../device_config.h" 1
+# 11 "MCAL/ADC/../GPIO/../device_config.h"
+# 1 "MCAL/ADC/../compiler.h" 1
+# 11 "MCAL/ADC/../GPIO/../device_config.h" 2
+# 13 "MCAL/ADC/../GPIO/hal_gpio.h" 2
+
+
+# 1 "MCAL/ADC/../GPIO/hal_gpio_cfg.h" 1
+# 15 "MCAL/ADC/../GPIO/hal_gpio.h" 2
+# 42 "MCAL/ADC/../GPIO/hal_gpio.h"
 typedef enum{
    GPIO_LOW=0,
    GPIO_HIGH
@@ -5130,84 +5150,372 @@ Std_ReturnType GPIO_Port_Get_Direction_Status (port_index_et port, uint8 *direct
 Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
 Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
-# 11 "ECU/stepper/ecu_stepper.h" 2
+# 17 "MCAL/ADC/mcal_adc.h" 2
+
+# 1 "MCAL/ADC/mcal_adc_cfg.h" 1
+# 18 "MCAL/ADC/mcal_adc.h" 2
+# 77 "MCAL/ADC/mcal_adc.h"
+typedef enum {
+    ADC_CHANEL_AN0=0,
+    ADC_CHANEL_AN1,
+    ADC_CHANEL_AN2,
+    ADC_CHANEL_AN3,
+    ADC_CHANEL_AN4,
+    ADC_CHANEL_AN5,
+    ADC_CHANEL_AN6,
+    ADC_CHANEL_AN7,
+    ADC_CHANEL_AN8,
+    ADC_CHANEL_AN9,
+    ADC_CHANEL_AN10,
+    ADC_CHANEL_AN11,
+    ADC_CHANEL_AN12
+
+}adc_channel_select_et;
 
 
 
 
 
-
-
-
-typedef struct
-{
-    pin_config_st step_pin ;
-    pin_config_st dir_pin ;
-} stepper_config_st ;
 
 typedef enum
 {
-    DIR_CCW= 0,
-    DIR_CW
-} stepper_direction_et ;
+    ADC_0_TAD=0,
+    ADC_2_TAD,
+    ADC_4_TAD,
+    ADC_6_TAD,
+    ADC_8_TAD,
+    ADC_12_TAD,
+    ADC_16_TAD,
+    ADC_20_TAD
+}adc_acquisition_time_et;
 
 
 
-Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper);
-Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper);
-Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir);
-# 7 "ECU/stepper/ecu_stepper.c" 2
 
 
-Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper)
+typedef enum
 {
-    if(((void*)0) == stepper)
+    ADC_CONVERSION_CLOCK_FOSC_DIV_2=0,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_8,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_4,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_64,
+}adc_conversion_clock_source_et;
+
+
+
+typedef enum
+{
+    ADC_RESULT_LEFT=0,
+    ADC_RESULT_RIGHT
+}adc_result_format_et;
+
+
+
+
+
+typedef enum
+{
+    ADC_VOLTAGE_REFERANCE_INTERNAL=0,
+    ADC_VOLTAGE_REFERANCE_EXTERNAL
+}adc_voltage_reference_et;
+
+typedef enum
+{
+    ADC_CONVERSION_STATUS_DONE=0,
+    ADC_CONVERSION_STATUS_INPROGRESS
+}adc_conversion_status_et;
+typedef struct
+{
+
+
+
+
+
+
+    adc_channel_select_et adc_channel;
+    adc_acquisition_time_et acquisition_time;
+    adc_conversion_clock_source_et conversion_clock;
+    adc_result_format_et result_format;
+    adc_voltage_reference_et voltage_referance;
+}adc_config_st;
+
+typedef uint16 adc_result_t;
+
+Std_ReturnType ADC_Init(const adc_config_st* _adc);
+Std_ReturnType ADC_DeInit(const adc_config_st* _adc);
+Std_ReturnType ADC_select_channel(const adc_config_st* _adc,adc_channel_select_et _channel);
+Std_ReturnType ADC_Start_Conversion(const adc_config_st* _adc);
+Std_ReturnType ADC_Is_Conversion_Done(const adc_config_st* _adc,adc_conversion_status_et*_status);
+Std_ReturnType ADC_Get_Conversion_Results(const adc_config_st* _adc,adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel_select_et _channel,
+                                                                           adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel);
+# 8 "MCAL/ADC/mcal_adc.c" 2
+
+static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_et _channel);
+static Std_ReturnType adc_select_result_formate(const adc_config_st* _adc);
+static Std_ReturnType adc_select_voltage_reference(const adc_config_st* _adc);
+# 23 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Init(const adc_config_st* _adc)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if (((void*)0)==_adc)
     {
-        return (Std_ReturnType) 0x00 ;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
-        GPIO_Pin_Initialize(&(stepper->step_pin));
-        GPIO_Pin_Initialize(&(stepper->dir_pin));
-        GPIO_Pin_Direction_Initialize(&(stepper->dir_pin));
-        GPIO_Pin_Direction_Initialize(&(stepper->step_pin));
-        GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
-        GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
+
+          (ADCON0bits.ADON=0);
+
+
+
+
+
+         ADCON2bits.ACQT=_adc->acquisition_time;
+
+
+         ADCON2bits.ADCS=_adc->conversion_clock;
+
+
+         ADCON0bits.CHS=_adc->adc_channel;
+
+
+        adc_channel_pin_config_as_input(_adc->adc_channel);
+
+
+         adc_select_result_formate(_adc);
+
+
+         adc_select_voltage_reference(_adc);
+# 83 "MCAL/ADC/mcal_adc.c"
+         (ADCON0bits.ADON=1);
     }
-    return (Std_ReturnType) 0x01 ;
+    return ERRORSTATUS;
 }
-Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
+
+
+
+
+
+
+
+Std_ReturnType ADC_DeInit(const adc_config_st* _adc)
 {
-    if(((void*)0) == stepper)
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if (((void*)0)==_adc)
     {
-        return (Std_ReturnType) 0x00 ;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
-        GPIO_Pin_Write_Logic(&(stepper->step_pin) , 1);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
-        GPIO_Pin_Write_Logic(&(stepper->step_pin) , 0);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
+
+        (ADCON0bits.ADON=0);
+
+
+
+
 
     }
-    return (Std_ReturnType) 0x01 ;
+    return ERRORSTATUS;
 }
-Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir)
+# 121 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_select_channel(const adc_config_st* _adc,adc_channel_select_et _channel)
 {
-    if(((void*)0) == stepper)
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if (((void*)0)==_adc)
     {
-        return (Std_ReturnType) 0x00 ;
+        ERRORSTATUS=(Std_ReturnType) 0x00;
     }
     else
     {
-        if(dir == DIR_CW)
-        {
-            GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_HIGH);
-        }
-        else
-        {
-            GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
-        }
+
+       ADCON0bits.CHS=_channel;
+
+
+       adc_channel_pin_config_as_input(_channel);
     }
-    return (Std_ReturnType) 0x01 ;
+    return ERRORSTATUS;
+}
+
+
+
+
+
+
+
+Std_ReturnType ADC_Start_Conversion(const adc_config_st* _adc)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if (((void*)0)==_adc)
+    {
+        ERRORSTATUS=(Std_ReturnType) 0x00;
+    }
+    else
+    {
+        (ADCON0bits.GODONE=1);
+    }
+    return ERRORSTATUS;
+}
+# 168 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Is_Conversion_Done(const adc_config_st* _adc,adc_conversion_status_et*_status)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if ((((void*)0)==_adc)||(((void*)0)==_status))
+    {
+        ERRORSTATUS=(Std_ReturnType) 0x00;
+    }
+    else
+    {
+      *_status=(uint8)!((ADCON0bits.GO_nDONE));
+    }
+    return ERRORSTATUS;
+}
+# 189 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Get_Conversion_Results(const adc_config_st* _adc,adc_result_t*_result)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if ((((void*)0)==_adc)||(((void*)0)==_result))
+    {
+        ERRORSTATUS=(Std_ReturnType) 0x00;
+    }
+    else
+    {
+        if(ADC_RESULT_LEFT==_adc->result_format)
+         {
+             *_result =(adc_result_t)(((ADRESH<<8)+(ADRESL<<6))>>6);
+         }
+         else if(ADC_RESULT_RIGHT==_adc->result_format)
+         {
+             *_result =(adc_result_t)((ADRESH<<8)+ADRESL);
+         }
+         else
+         {
+              *_result =(adc_result_t)((ADRESH<<8)+ADRESL);
+         }
+
+    }
+    return ERRORSTATUS;
+}
+# 223 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel_select_et _channel,adc_result_t*_result)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if ((((void*)0)==_adc)||(((void*)0)==_result))
+    {
+        ERRORSTATUS=(Std_ReturnType) 0x00;
+    }
+    else
+    {
+
+
+          ERRORSTATUS= ADC_select_channel(_adc,_channel);
+
+          ERRORSTATUS= ADC_Start_Conversion(_adc);
+
+          while((ADCON0bits.GO_nDONE))
+
+         ERRORSTATUS= ADC_Get_Conversion_Results(_adc,_result);
+          _delay((unsigned long)((20)*(8000000/4000.0)));
+    }
+    return ERRORSTATUS;
+}
+# 253 "MCAL/ADC/mcal_adc.c"
+Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel)
+{
+ Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if (((void*)0)==_adc)
+    {
+        ERRORSTATUS=(Std_ReturnType) 0x00;
+    }
+    else
+    {
+
+          ERRORSTATUS= ADC_select_channel(_adc,_channel);
+
+          ERRORSTATUS= ADC_Start_Conversion(_adc);
+    }
+    return ERRORSTATUS;
+}
+static Std_ReturnType adc_channel_pin_config_as_input(const adc_channel_select_et _channel)
+{
+Std_ReturnType ERRORSTATUS=(Std_ReturnType) 0x01;
+       switch (_channel)
+       {
+           case ADC_CHANEL_AN0: (TRISA|=( (uint8)1<<0x0 )); break;
+           case ADC_CHANEL_AN1: (TRISA|=( (uint8)1<<0x1 )); break;
+           case ADC_CHANEL_AN2: (TRISA|=( (uint8)1<<0x2 )); break;
+           case ADC_CHANEL_AN3: (TRISA|=( (uint8)1<<0x3 )); break;
+           case ADC_CHANEL_AN4: (TRISA|=( (uint8)1<<0x5 )); break;
+           case ADC_CHANEL_AN5: (TRISE|=( (uint8)1<<0x0 )); break;
+           case ADC_CHANEL_AN6: (TRISE|=( (uint8)1<<0x1 )); break;
+           case ADC_CHANEL_AN7: (TRISE|=( (uint8)1<<0x2 )); break;
+           case ADC_CHANEL_AN8: (TRISB|=( (uint8)1<<0x2 )); break;
+           case ADC_CHANEL_AN9: (TRISB|=( (uint8)1<<0x3 )); break;
+           case ADC_CHANEL_AN10: (TRISB|=( (uint8)1<<0x1 )); break;
+           case ADC_CHANEL_AN11: (TRISB|=( (uint8)1<<0x4 )); break;
+           case ADC_CHANEL_AN12: (TRISB|=( (uint8)1<<0x0 )); break;
+       }
+
+    return ERRORSTATUS;
+}
+static Std_ReturnType adc_select_result_formate(const adc_config_st* _adc)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if (((void*)0)==_adc)
+    {
+        ERRORSTATUS=(Std_ReturnType) 0x00;
+    }
+    else
+    {
+         if(ADC_RESULT_LEFT==_adc->result_format)
+         {
+             (ADCON2bits.ADFM=0);
+         }
+         else if(ADC_RESULT_RIGHT==_adc->result_format)
+         {
+             (ADCON2bits.ADFM=1);
+         }
+         else
+         {
+             (ADCON2bits.ADFM=1);
+         }
+    }
+    return ERRORSTATUS;
+}
+static Std_ReturnType adc_select_voltage_reference(const adc_config_st* _adc)
+{
+    Std_ReturnType ERRORSTATUS =(Std_ReturnType) 0x01;
+    if (((void*)0)==_adc)
+    {
+        ERRORSTATUS=(Std_ReturnType) 0x00;
+    }
+    else
+    {
+         if(ADC_VOLTAGE_REFERANCE_INTERNAL==_adc->voltage_referance)
+         {
+            do{ADCON1bits.VCFG1=0; ADCON1bits.VCFG0=0; }while(0);
+         }
+         else if(ADC_VOLTAGE_REFERANCE_EXTERNAL==_adc->voltage_referance)
+         {
+             do{ADCON1bits.VCFG1=1; ADCON1bits.VCFG0=1; }while(0);
+         }
+         else
+         {
+           do{ADCON1bits.VCFG1=0; ADCON1bits.VCFG0=0; }while(0);
+         }
+    }
+    return ERRORSTATUS;
+}
+
+
+void ADC_ISR(void)
+{
+
+
+
+
 }

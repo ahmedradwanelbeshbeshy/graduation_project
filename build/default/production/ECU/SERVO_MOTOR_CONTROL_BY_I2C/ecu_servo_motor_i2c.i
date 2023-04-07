@@ -5170,8 +5170,8 @@ typedef struct{
  uint8 i2c_reserved : 3;
 
 
-    interrupt_pri_et mssp_i2c_priority;
-    interrupt_pri_et mssp_i2c_bc_priority;
+
+
 
 
 }i2c_configs_st;
@@ -5179,16 +5179,7 @@ typedef struct{
 typedef struct{
  uint32 i2c_clock;
     i2c_configs_st i2c_cfg;
-
-    void (*I2C_Report_Write_Collision)(void);
-    void (*I2C_DefaultInterruptHandler)(void);
-
-
-
-
-    void (*I2C_Report_Receive_Overflow)(void);
-
-
+# 133 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h"
 }mssp_i2c_st;
 
 Std_ReturnType MSSP_I2C_Init(const mssp_i2c_st *i2c_obj);

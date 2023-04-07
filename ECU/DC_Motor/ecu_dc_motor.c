@@ -25,8 +25,7 @@ Std_ReturnType ECU_DC_Motor_Init(const dc_motor_st *dc_motor)
     }
     else
     {
-        GPIO_Pin_Initialize(&(dc_motor->dc_motor[DC_MOTOR_LEFT_PIN]));
-        GPIO_Pin_Initialize(&(dc_motor->dc_motor[DC_MOTOR_RIGHT_PIN]));
+        GPIO_Pin_Initialize(&(dc_motor->dc_motor)); 
     }
 
     return ret_value ;
@@ -46,8 +45,7 @@ Std_ReturnType ECU_DC_Motor_Run_Left(const dc_motor_st *dc_motor)
     }
     else
     {
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[DC_MOTOR_LEFT_PIN]) , GPIO_HIGH );
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[DC_MOTOR_RIGHT_PIN]) , GPIO_LOW );
+        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor), GPIO_HIGH );
     }
 
     return ret_value ;
@@ -67,8 +65,7 @@ Std_ReturnType ECU_DC_Motor_Run_Right(const dc_motor_st *dc_motor)
     }
     else
     {
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[DC_MOTOR_LEFT_PIN]) , GPIO_LOW );
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[DC_MOTOR_RIGHT_PIN]) , GPIO_HIGH );
+        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor), GPIO_LOW );
     }
 
     return ret_value ;
@@ -88,8 +85,7 @@ Std_ReturnType ECU_DC_Motor_Stop(const dc_motor_st *dc_motor)
     }
     else
     {
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[DC_MOTOR_LEFT_PIN]) , GPIO_LOW );
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[DC_MOTOR_RIGHT_PIN]) , GPIO_LOW );
+      // implemented in robot navgiation files 
     }
 
     return ret_value ;

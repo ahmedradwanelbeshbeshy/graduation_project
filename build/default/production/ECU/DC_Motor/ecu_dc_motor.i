@@ -5140,9 +5140,9 @@ typedef enum {
     DC_MOTOR_PIN_OFF = 0,
     DC_MOTOR_PIN_ON
 }dc_motor_pin_state_et ;
-# 38 "ECU/DC_Motor/ecu_dc_motor.h"
+
 typedef struct {
-    pin_config_st dc_motor[2];
+    pin_config_st dc_motor;
 
 } dc_motor_st ;
 
@@ -5164,8 +5164,7 @@ Std_ReturnType ECU_DC_Motor_Init(const dc_motor_st *dc_motor)
     }
     else
     {
-        GPIO_Pin_Initialize(&(dc_motor->dc_motor[0x01U]));
-        GPIO_Pin_Initialize(&(dc_motor->dc_motor[0x00U]));
+        GPIO_Pin_Initialize(&(dc_motor->dc_motor));
     }
 
     return ret_value ;
@@ -5185,8 +5184,7 @@ Std_ReturnType ECU_DC_Motor_Run_Left(const dc_motor_st *dc_motor)
     }
     else
     {
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[0x01U]) , GPIO_HIGH );
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[0x00U]) , GPIO_LOW );
+        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor), GPIO_HIGH );
     }
 
     return ret_value ;
@@ -5206,8 +5204,7 @@ Std_ReturnType ECU_DC_Motor_Run_Right(const dc_motor_st *dc_motor)
     }
     else
     {
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[0x01U]) , GPIO_LOW );
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[0x00U]) , GPIO_HIGH );
+        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor), GPIO_LOW );
     }
 
     return ret_value ;
@@ -5227,8 +5224,7 @@ Std_ReturnType ECU_DC_Motor_Stop(const dc_motor_st *dc_motor)
     }
     else
     {
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[0x01U]) , GPIO_LOW );
-        GPIO_Pin_Write_Logic(&(dc_motor->dc_motor[0x00U]) , GPIO_LOW );
+
     }
 
     return ret_value ;

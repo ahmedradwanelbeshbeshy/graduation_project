@@ -90,13 +90,12 @@ int main()
     {
        GPIO_Pin_Toggle_Logic(&pinc0);
            __delay_ms(500);
-
-//       Get_Distance(&ultrasonic,&timer0,&distance);
-//       convert_float32_to_string(distance,dis);
-//       lcd_4bit_send_string_data_pos(&lcd1,2,1,"             ");
-//       lcd_4bit_send_string_data_pos(&lcd1,2,1,dis);
-//       __delay_ms(2000);
-//       lcd_4bit_send_string_data_pos(&lcd1,2,1,"              ");
+       Get_Distance(&ultrasonic,&timer0,&distance);
+       convert_float32_to_string(distance,dis);
+       lcd_4bit_send_string_data_pos(&lcd1,2,1,"             ");
+       lcd_4bit_send_string_data_pos(&lcd1,2,1,dis);
+       __delay_ms(2000);
+       lcd_4bit_send_string_data_pos(&lcd1,2,1,"              ");
    }
    return 0;
 }
@@ -104,5 +103,5 @@ void application_intialize(void)
 {
     GPIO_Pin_Initialize(&pinc0);
     lcd_4bit_initialize(&lcd1);
-  // Ultra_Sonic_Init(&ultrasonic,&timer0);
+   Ultra_Sonic_Init(&ultrasonic,&timer0);
 }
