@@ -58,3 +58,34 @@ Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper
     }
     return E_OK ;
 }
+Std_ReturnType stepper_move_one_deg_cw(stepper_config_st *stepper)
+{
+    if(NULL == stepper)
+    {
+        return E_NOT_OK ;
+    }
+    else
+    {
+       GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_HIGH);
+        for(int i=0; i<= STEPPER_ONE_DEG_PULSE_NO; i++)
+        {
+            Ecu_Stepper_Step(stepper);
+        }
+    }
+}
+
+Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper)
+{
+    if(NULL == stepper)
+    {
+        return E_NOT_OK ;
+    }
+    else
+    {
+        GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
+        for(int i=0; i<= STEPPER_ONE_DEG_PULSE_NO; i++)
+        {
+            Ecu_Stepper_Step(stepper);
+        }
+    }
+}

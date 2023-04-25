@@ -126,6 +126,8 @@ Std_ReturnType Robot_Move_Forward(void);
 Std_ReturnType Robot_Move_Backward(void);
 Std_ReturnType Robot_Steer_Right_Forward(void);
 Std_ReturnType Robot_Steer_Left_Forward(void);
+Std_ReturnType Robot_Steer_Right_Backward(void);
+Std_ReturnType Robot_Steer_Left_Backward(void);
 /******************************************** Function prototypes ********************************************/
 
 
@@ -136,67 +138,8 @@ Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
 
 /******************************************** Global Static Variables ********************************************/
 
-static dc_motor_st W1_W3_W5_Motor_Control =
-{
-    .dc_motor.port = PORTD_INDEX ,
-    .dc_motor.pin = GPIO_PIN0 ,
-    .dc_motor.logic = GPIO_LOW ,
-    .dc_motor.direction = GPIO_DIRECTION_OUTPUT , 
 
-};
 
-static dc_motor_st W2_W4_W6_Motor_Control =
-{
-    .dc_motor.port = PORTD_INDEX ,
-    .dc_motor.pin = GPIO_PIN1 ,
-    .dc_motor.logic = GPIO_LOW ,
-    .dc_motor.direction = GPIO_DIRECTION_OUTPUT , 
-
-};
-
-/* CCP1 :  W1 , W3 , W5     (Left Side) */
-ccp_st CCP1_Obj =
-{
-    .ccp_inst = CCP1_INST ,
-    .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 500,
-    .ccp_pin.port = PORTC_INDEX,
-    .ccp_pin.pin = GPIO_PIN2,
-    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2.timer2_preload_value=249,/*((_XTAL_FREQ / ((_ccp_obj->PWM_Frequency )* 4.0 * _ccp_obj->timer2.timer2_prescaler_value) - 1))*/
-    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
-    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
-};
-ccp_st CCP2_Obj =
-{
-    .ccp_inst = CCP2_INST ,
-    .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 500,
-    .ccp_pin.port = PORTC_INDEX,
-    .ccp_pin.pin = GPIO_PIN1,
-    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2.timer2_preload_value=249,/*((_XTAL_FREQ / ((_ccp_obj->PWM_Frequency )* 4.0 * _ccp_obj->timer2.timer2_prescaler_value) - 1))*/
-    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
-    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
-};
-
-/*i2c and servos */
-mssp_i2c_st i2c_obj={
-  .i2c_cfg.i2c_mode=  I2C_MSSP_MASTER_MODE,
-  .i2c_cfg.i2c_mode_cfg=I2C_MASTER_MODE_DEFINED_CLOCK,
-  .i2c_clock=100000,
-  .i2c_cfg.i2c_SMBus_control=I2C_SMBus_DISABLE,
-  .i2c_cfg.i2c_slew_rate=I2C_SLEW_RATE_DISABLE,
-  //.I2C_DefaultInterruptHandler=NULL,
-  //.I2C_Report_Receive_Overflow=NULL,
-  //.I2C_Report_Write_Collision=NULL
-};
-servo_driver_st servo_driver_obj={
-   .slave_address=SERVO_DRIVER_SLAVE_ADDRESS,
-   .frequancy=ECU_SM_PRE_SCALE_REG_VAL,
-   .mode_1_cfg=0x21,
-   .mode_2_cfg=0x04   
-};
 
 
 

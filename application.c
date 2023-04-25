@@ -7,317 +7,445 @@
 
 #include "application.h"
 
-extern ccp_st CCP1_Obj;
-pin_config_st pinc0={
-   .direction=GPIO_DIRECTION_OUTPUT,
-   .logic=GPIO_LOW,
-   .pin=GPIO_PIN1,
-   .port=PORTC_INDEX 
+/*
+ROBOT CAR MODEL
+    .......
+.../       \...
+:::::Front:::::
+
+W1----------W2
+servo1      servo2
+
+W3----------W4
+
+
+W5----------W6
+servo3      servo4
+:::::Back:::::
+\            /
+ \__________/
+
+*/
+
+uint8 servo1Pos, servo2Pos, servo3Pos,servo4Pos=0,stepper_pos;//to store servo positions
+
+stepper_config_st stepper_base={
+    .dir_pin.direction=GPIO_DIRECTION_OUTPUT,
+    .dir_pin.logic=GPIO_LOW,
+    .dir_pin.pin=GPIO_PIN2,
+    .dir_pin.port=PORTD_INDEX,
+    
+    .step_pin.direction=GPIO_DIRECTION_OUTPUT,
+    .step_pin.logic=GPIO_LOW,
+    .step_pin.pin=GPIO_PIN3,
+    .step_pin.port=PORTD_INDEX
 };
 
-uint8 string[4]={0};
+
+/************************************ test pin section **********************************/
+
+pin_config_st TEST_PIN={
+   .direction=GPIO_DIRECTION_OUTPUT,
+   .logic=GPIO_LOW,
+   .pin=GPIO_PIN0,
+   .port=PORTC_INDEX 
+};
+/************************************ test pin section end **********************************/
+
+
+
+
+
+/***********************************battery_level section***********************************/
+/*
+void battery_level(void);
+adc_result_t battery_volt_adc_read;
+float32  battery_volt_f;
+
+adc_config_st battery_adc={
+    .adc_channel=ADC_CHANEL_AN0,
+    .conversion_clock=ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    .acquisition_time=ADC_12_TAD,
+    .result_format=ADC_RESULT_RIGHT,
+    .voltage_referance=ADC_VOLTAGE_REFERANCE_INTERNAL
+};
+*
+*/
+///***********************note the crystal OSC has been changed to be 24MHZ in device_config.h**********************/
+
+/***********************************battery_level section end *******************************/
+
+
+
+
+
+/************************************ usart & gps  section **********************************/
+
+void  usart_isr (void);
+void GPS_Service (void);
+
+uint8 gps=1;
+uint8 blue=1;
+uint8 gpstemp=0;
+uint8 counter;
+uint8 datasend='w';
+uint8 datarecive=0;
+
+uint8 latitude[13];
+uint8 longtude[13];
+
+uint8 i=0;
+
+uart_config_st _uart_obj = {
+  .baud_rate_config = BAUDRATE_ASYNC_8BIT_LOW_SPEED ,
+  .uart_baud_rate_value =9600,
+  .tx_config.tx_9th_bit_en = EUSART_ASYNCH_Tx_BIT_9_DISABLED ,
+  .tx_config.tx_enable = EUSART_ASYNCH_TX_EN ,
+  //.tx_config.uart_tx_priority = INT_HIGH_PRI ,
+  .rx_config.rx_9th_bit_en = EUSART_ASYNCH_Tx_BIT_9_DISABLED ,
+  .rx_config.rx_enable = EUSART_ASYNCH_RX_EN,
+  .rx_config.uart_rx_priority=INT_PRI_HIGH,
+  .rx_config.rx_InterruptHandler=usart_isr
+ 
+};
+
+pin_config_st selector={
+   .direction=GPIO_DIRECTION_OUTPUT,
+   .logic=GPIO_LOW,
+   .pin=GPIO_PIN4,
+   .port=PORTD_INDEX 
+};
+
+/************************************ usart & gps  section  end **********************************/
+
+
+
+/************************************dc motor  section **********************************/
+
+
+/* CCP1 :  W1 , W3 , W5     (Left Side) */
+ccp_st CCP1_Obj =
+{
+    .ccp_inst = CCP1_INST ,
+    .ccp_mode = CCP_PWM_MODE_SELECTED,
+    .PWM_Frequency = 500,
+    .ccp_pin.port = PORTC_INDEX,
+    .ccp_pin.pin = GPIO_PIN2,
+    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
+    .timer2.timer2_preload_value=249,/*((_XTAL_FREQ / ((_ccp_obj->PWM_Frequency )* 4.0 * _ccp_obj->timer2.timer2_prescaler_value) - 1))*/
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
+};
+/* CCP2 :  W1 , W4 , W6     (Right Side) */
+ccp_st CCP2_Obj =
+{
+    .ccp_inst = CCP2_INST ,
+    .ccp_mode = CCP_PWM_MODE_SELECTED,
+    .PWM_Frequency = 500,
+    .ccp_pin.port = PORTC_INDEX,
+    .ccp_pin.pin = GPIO_PIN1,
+    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
+    .timer2.timer2_preload_value=249,/*((_XTAL_FREQ / ((_ccp_obj->PWM_Frequency )* 4.0 * _ccp_obj->timer2.timer2_prescaler_value) - 1))*/
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
+};
+
+/************************************dc motor  section end**********************************/
+
+/************************************I2C section **********************************/
+
+/*i2c and servos */
+mssp_i2c_st i2c_obj={
+  .i2c_cfg.i2c_mode=  I2C_MSSP_MASTER_MODE,
+  .i2c_cfg.i2c_mode_cfg=I2C_MASTER_MODE_DEFINED_CLOCK,
+  .i2c_clock=100000,
+  .i2c_cfg.i2c_SMBus_control=I2C_SMBus_DISABLE,
+  .i2c_cfg.i2c_slew_rate=I2C_SLEW_RATE_DISABLE,
+  //.I2C_DefaultInterruptHandler=NULL,
+  //.I2C_Report_Receive_Overflow=NULL,
+  //.I2C_Report_Write_Collision=NULL
+};
+servo_driver_st servo_driver_obj={
+   .slave_address=SERVO_DRIVER_SLAVE_ADDRESS,
+   .frequancy=ECU_SM_PRE_SCALE_REG_VAL,
+   .mode_1_cfg=0x21,
+   .mode_2_cfg=0x04   
+};
+
+/************************************I2C section end**********************************/
+
+
+/************************************dht sensor section**********************************/
+
+uint8 RH_Decimal, RH_Integral, T_Decimal, T_Integral, Checksum;
+// to change dht pin check DHT_CFG.h file
+
+/************************************dht sensor section end**********************************/
+
+
+/************************************ultra sonic**********************************/
+
+float32 distance;
+// uint8 dis[10]={};// needed to display the result on the lcd
+
+ ultrasonic_config_st ultrasonic={
+     .trig_pin.direction=GPIO_DIRECTION_OUTPUT,
+     .trig_pin.logic=GPIO_LOW,
+     .trig_pin.pin=GPIO_PIN3,
+     .trig_pin.port=PORTB_INDEX, 
+     
+     .echo_pin.direction=GPIO_DIRECTION_INPUT,
+     .echo_pin.logic=GPIO_LOW,
+     .echo_pin.pin=GPIO_PIN2,
+     .echo_pin.port=PORTB_INDEX       
+ };
+ timer0_config_st timer0={
+   .preloaded_value=0,
+   .prescaler_enable=TMR0_PRESCALER_ON,
+   .prescalar_value=TMR0_PRESCALER_BY_2,
+   .reg_bit_size=TMR0_16BIT,
+   .timer_mode=TMR0_TIMER_MODE
+ };
+ 
+ /************************************ultra sonic end**********************************/
+
 int main()
 {
     application_intialize();
-    GPIO_Pin_Toggle_Logic(&pinc0);
+    GPIO_Pin_Toggle_Logic(&TEST_PIN);
     while(1)
     {
-      GPIO_Pin_Toggle_Logic(&pinc0);
-      //__delay_ms(3000);
-      Robot_Steer_Stop();
-      __delay_ms(1000);
-      Robot_Move_Forward();
-      __delay_ms(1000);
-      Robot_Steer_Stop();
-      __delay_ms(1000);
-      Robot_Move_Backward();
-      __delay_ms(1000);
-      Robot_Steer_Stop();
-      __delay_ms(1000);
-      CCP_PWM_Set_Duty(&CCP1_Obj,60);
-      __delay_ms(2000);
-      Robot_Steer_Stop();
-      __delay_ms(1000);
-      CCP_PWM_Set_Duty(&CCP1_Obj,70);
-      __delay_ms(2000);
-      Robot_Steer_Stop();
-      __delay_ms(1000);
-      CCP_PWM_Set_Duty(&CCP1_Obj,80);
-     __delay_ms(2000);
+switch(datarecive)
+        {
+            case NOTHING:
+                //no thing
+                Robot_Steer_Stop();
+                break;
+            case LEFT_FORWARD:
+                // left forward
+                Robot_Steer_Left_Forward();
+                break;
+            case FORWARD:
+                // forward
+                Robot_Move_Forward();
+                break;
+            case RIGHT_FORWARD:
+                // right forward
+                Robot_Steer_Right_Forward();
+                break;
+            case TURN_LEFT:
+                // turn left
+                break;
+            case TURN_RIGHT:
+                // turn right
+                break;
+            case LEFT_BACKWARD:
+                // left backward
+                Robot_Steer_Left_Backward();
+                break;
+            case BACKWARD:
+                //  backward
+                Robot_Move_Backward();
+                break;
+            case RIGHT_BACKWARD:
+                // right backward
+                Robot_Steer_Right_Backward();
+                break;
+            case ROTATE_LEFT:
+                // rotate left
+                break;
+            case ROTATE_RIGHT:
+                // rotate right 
+                 break;
+//->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>///////////robot arm section///////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-//
+             case BASE_DECREASE:
+                // base decrease
+                 stepper_move_one_deg_cw(&stepper_base);
+                 break;
+             
+             case BASE_INCREAS:
+                 // base increas
+                stepper_move_one_deg_ccw(&stepper_base);
+                break;
+             
+             case JOINT1_DECREASE:
+                  //joint1 decrease
+                  servo1Pos--;
+                  if(servo1Pos<1)
+                  {
+                    servo1Pos=1;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );    
+ 
+                  break;
+             
+             case JOINT1_INCREASE:
+                 //joint1 increase 
+                 servo1Pos++;
+                 if(servo1Pos>180)
+                 {
+                   servo1Pos=180;
+                 }
+                 Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );  
+                 break;
+          
+             case JOINT2_DECREASE:
+                  //joint2 decrease 
+                  servo2Pos--;
+                  if(servo2Pos<1)
+                  {
+                    servo2Pos=1;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_10 , servo2Pos );  
+                  break;
+             
+             case JOINT2_INCREASE:
+                  //joint2 increase 
+                  servo2Pos++;
+                  if(servo2Pos>180)
+                  {
+                    servo2Pos=180;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_10 , servo2Pos ); 
+                  break;
+                  
+             case JOINT3_DECREASE:
+                  //joint3 decrease 
+                  servo3Pos--;
+                  if(servo3Pos<1)
+                  {
+                    servo3Pos=1;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_11 , servo3Pos ); 
+                  break;
+             
+             case JOINT3_INCREASE:
+                  //joint3 increase
+                  servo3Pos++;
+                  if(servo3Pos>180)
+                  {
+                    servo3Pos=180;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_11 , servo3Pos ); 
+                  break;
+             
+             case JOINT4_DECREASE:
+                  //joint4 decrease 
+                  servo4Pos--;
+                  if(servo4Pos<1)
+                  {
+                    servo4Pos=1;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_12 , servo4Pos ); 
+                  break;
+             
+             case JOINT4_INCREASE:
+                  //joint4 increase
+                  servo4Pos++;
+                  if(servo4Pos>180)
+                  {
+                    servo4Pos=180;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_12 , servo4Pos ); 
+                  break;
+//->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>///////////sensors///////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-//
+             case GET_T_RH:
+                 //GET_temp_RH
+                 Get_Temp_HUM(&RH_Decimal, &RH_Integral, &T_Decimal, &T_Integral, &Checksum);
+                 break;
+             case GET_DISTANCE:
+                 //GET_DISTANCE
+                 Get_Distance(&ultrasonic,&timer0,&distance);
+                 break;
+             case GET_LOCATION:
+                 //GET_LOCATION
+                 GPS_Service();
+                 break;                  
+             default:
+                   // do no thing stay on your place
+                   break;
+        }
     }
     return 0;
 }
 void application_intialize(void)
 {
-    GPIO_Pin_Initialize(&pinc0);
+    GPIO_Pin_Initialize(&TEST_PIN);
+    GPIO_Pin_Initialize(&selector);
     Robot_Nav_Init();
-    
+    Ecu_Stepper_Init(&stepper_base);
+    Ultra_Sonic_Init(&ultrasonic,&timer0);
+    EUSART_Async_Init(&_uart_obj);
+//    ADC_Init(&battery_adc);    
+}
 
+void usart_isr (void)
+{
+    EUSART_Async_Read_Data(&_uart_obj,&datarecive);
+    Bluetooth_Send_Data_Non_Blocking(&_uart_obj,datasend);
+    GPIO_Pin_Toggle_Logic(&TEST_PIN);
+}
+void GPS_Service (void)
+{
+    uint8 key=1;
+    INT_EUSART_Rx_DISABLE();//disable rx interrupt 
+    GPIO_Pin_Write_Logic(&selector,GPIO_HIGH);
+
+    while (key)
+    {
+        EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp); // wait untill recive
+        if ('$'==gpstemp)
+        {
+            while (key)
+            {
+                    EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp); // wait untill recive
+                    if (','==gpstemp)
+                    {
+                        counter++;
+                        if (3==counter)
+                        {
+                            i=0;
+                            //lattitude
+                            do
+                            {
+                                EUSART_Async_Read_Data_Blocking(&_uart_obj,(latitude+i));
+                                i++;
+                            }while(','!=(latitude[i-1]));
+                            counter++;
+
+                        }
+                        else if(5==counter)
+                        {
+                            i=0;
+                            //longtude
+                            do{
+                                EUSART_Async_Read_Data_Blocking(&_uart_obj,(longtude+i));
+                                i++;
+                            }while(','!=(longtude[i-1]));
+                            key=0;
+                        }
+                    }
+            }
+        }
+    }
+      __delay_ms(2000);
+    GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
+    INT_EUSART_Rx_ENABLE() ;//rx interruptenable
 }
 
 
+/*
+void battery_level(void)
+{
+        ADC_Get_Conversion_Blocking(&battery_adc,ADC_CHANEL_AN0,&battery_volt_adc_read);
+        battery_volt_f=(float32)(battery_volt_adc_read*13)/1024;//13 get from 5*2.6->->-2.6=(r1+r2)/r2
+        
+        if(battery_volt_f<11.1)
+        {
 
+        }
+        else
+        { 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//#include "application.h"
-//#include "MCAL/EUSART/mcal_EUSART.h"
-//#include "ECU/Bluetooth/Bluetooth.h"
-//#include "ECU/LCD_for_test_gps/ecu_char_lcd.h"
-//#include"MCAL/WATCH_DOG_TIMER/WDT.h"
-//#include "MCAL/ADC/mcal_adc.h"
-//#include"Robot/Navigation/robot_navigation.h"
-///*****************************************************************************************************************/
-///***********************note the crystal OSC has been changed to be 24MHZ in device_config.h**********************/
-///*****************************************************************************************************************/
-//
-////void  usart_isr (void);
-////void GPS_Service (void);
-////void battery_level(void);
-//uint8 datasend='w';
-//uint8 datarecive=0;
-//uint8 gps=1;
-//uint8 blue=1;
-//uint8 i=0;
-//uint8 latitude[13];
-//uint8 longtude[13];
-//uint8 gpstemp=0;
-//uint8 counter;
-//uint8 battery_string[9];
-//float32 battery_volt_f;
-////uart_config_st _uart_obj = {
-////  .baud_rate_config = BAUDRATE_ASYNC_8BIT_LOW_SPEED ,
-////  .uart_baud_rate_value =9600,
-////  .tx_config.tx_9th_bit_en = EUSART_ASYNCH_Tx_BIT_9_DISABLED ,
-////  .tx_config.tx_enable = EUSART_ASYNCH_TX_EN ,
-////  //.tx_config.uart_tx_priority = INT_HIGH_PRI ,
-////  .rx_config.rx_9th_bit_en = EUSART_ASYNCH_Tx_BIT_9_DISABLED ,
-////  .rx_config.rx_enable = EUSART_ASYNCH_RX_EN,
-////  .rx_config.uart_rx_priority=INT_PRI_HIGH,
-////  .rx_config.rx_InterruptHandler=usart_isr
-//// 
-////};
-//char_lcd_4bit_t lcd1=
-//{
-//    .lcd_rs_pin.port=PORTC_INDEX,
-//    .lcd_rs_pin.pin=GPIO_PIN0,
-//    .lcd_rs_pin.direction=GPIO_DIRECTION_OUTPUT,
-//    .lcd_rs_pin.logic=GPIO_LOW,
-//    
-//    .lcd_enable_pin.port=PORTC_INDEX,
-//    .lcd_enable_pin.pin=GPIO_PIN1,
-//    .lcd_enable_pin.direction=GPIO_DIRECTION_OUTPUT,
-//    .lcd_enable_pin.logic=GPIO_LOW,    
-//    
-//    .lcd_data_pins[0].port=PORTC_INDEX,
-//    .lcd_data_pins[0].pin=GPIO_PIN2,
-//    .lcd_data_pins[0].direction=GPIO_DIRECTION_OUTPUT,
-//    .lcd_data_pins[0].logic=GPIO_LOW, 
-//    
-//    .lcd_data_pins[1].port=PORTC_INDEX,
-//    .lcd_data_pins[1].pin=GPIO_PIN3,
-//    .lcd_data_pins[1].direction=GPIO_DIRECTION_OUTPUT,
-//    .lcd_data_pins[1].logic=GPIO_LOW, 
-//    
-//    .lcd_data_pins[2].port=PORTC_INDEX,
-//    .lcd_data_pins[2].pin=GPIO_PIN4,
-//    .lcd_data_pins[2].direction=GPIO_DIRECTION_OUTPUT,
-//    .lcd_data_pins[2].logic=GPIO_LOW, 
-//    
-//    .lcd_data_pins[3].port=PORTC_INDEX,
-//    .lcd_data_pins[3].pin=GPIO_PIN5,
-//    .lcd_data_pins[3].direction=GPIO_DIRECTION_OUTPUT,
-//    .lcd_data_pins[3].logic=GPIO_LOW, 
-//    
-//};
-//pin_config_st pind2={
-//   .direction=GPIO_DIRECTION_OUTPUT,
-//   .logic=GPIO_LOW,
-//   .pin=GPIO_PIN2,
-//   .port=PORTD_INDEX 
-//};
-//pin_config_st pinb1={
-//   .direction=GPIO_DIRECTION_OUTPUT,
-//   .logic=GPIO_HIGH,
-//   .pin=GPIO_PIN1,
-//   .port=PORTB_INDEX 
-//};
-//pin_config_st pinb0={
-//   .direction=GPIO_DIRECTION_OUTPUT,
-//   .logic=GPIO_LOW,
-//   .pin=GPIO_PIN0,
-//   .port=PORTB_INDEX 
-//};
-//
-//pin_config_st selector={
-//   .direction=GPIO_DIRECTION_OUTPUT,
-//   .logic=GPIO_LOW,
-//   .pin=GPIO_PIN0,
-//   .port=PORTB_INDEX 
-//};
-//adc_result_t battery_volt_adc_read;
-//adc_config_st battery_adc={
-//    .adc_channel=ADC_CHANEL_AN0,
-//    .conversion_clock=ADC_CONVERSION_CLOCK_FOSC_DIV_32,
-//    .acquisition_time=ADC_12_TAD,
-//    .result_format=ADC_RESULT_RIGHT,
-//    .voltage_referance=ADC_VOLTAGE_REFERANCE_INTERNAL
-//};
-//int main()
-//{   
-//    
-//    application_intialize();
-//    GPIO_Pin_Toggle_Logic(&pinb0);
-//    Robot_Nav_Init();   
-//
-//   while(1)
-//    {
-//        GPIO_Pin_Toggle_Logic(&pinb1);
-//        __delay_ms(2000);
-//     Robot_Move_Forward();
-//        __delay_ms(7000);
-//        Robot_Steer_Stop();
-//        __delay_ms(2000);
-//        Robot_Move_Backward();
-//       __delay_ms(7000);
-//       Robot_Steer_Stop();
-//        __delay_ms(2000);
-//       Robot_Steer_Right_Forward();
-//       __delay_ms(7000);
-//       Robot_Steer_Stop();
-//        __delay_ms(2000);
-//       Robot_Steer_Left_Forward();
-//       __delay_ms(7000);
-//       Robot_Steer_Stop();
-//        __delay_ms(2000);
-//   }
-//   return 0;
-//}
-//void application_intialize(void)
-//{
-//    GPIO_Pin_Initialize(&pinb0);
-//    GPIO_Pin_Initialize(&pinb1);
-//    //GPIO_Pin_Initialize(&pind2);
-//    //GPIO_Pin_Initialize(&selector);
-//   // EUSART_Async_Init(&_uart_obj);
-//    //lcd_4bit_initialize(&lcd1);
-//    //ADC_Init(&battery_adc);
-//}
-////void usart_isr (void)
-////{
-////    EUSART_Async_Read_Data(&_uart_obj,&datarecive);
-////    Bluetooth_Send_Data_Non_Blocking(&_uart_obj,datasend);
-////    lcd_4bit_send_char_data_pos(&lcd1,2,4,datarecive);
-////    GPIO_Pin_Toggle_Logic(&pind2);
-////}
-////void GPS_Service (void)
-////{
-////    uint8 key=1;
-////    INT_EUSART_Rx_DISABLE();//disable rx interrupt 
-////    GPIO_Pin_Write_Logic(&selector,GPIO_HIGH);
-////
-////    while (key)
-////    {
-////        EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp); // wait untill recive
-////        if ('$'==gpstemp)
-////        {
-////            while (key)
-////            {
-////                    EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp); // wait untill recive
-////                    if (','==gpstemp)
-////                    {
-////                        counter++;
-////                        if (3==counter)
-////                        {
-////                            i=0;
-////                            //lattitude
-////                            do
-////                            {
-////                                EUSART_Async_Read_Data_Blocking(&_uart_obj,(latitude+i));
-////                                i++;
-////                            }while(','!=(latitude[i-1]));
-////                            counter++;
-////
-////                        }
-////                        else if(5==counter)
-////                        {
-////                            i=0;
-////                            //longtude
-////                            do{
-////                                EUSART_Async_Read_Data_Blocking(&_uart_obj,(longtude+i));
-////                                i++;
-////                            }while(','!=(longtude[i-1]));
-////                            key=0;
-////                        }
-////                    }
-////            }
-////        }
-////    }
-////    lcd_4bit_send_string_data_pos(&lcd1,1,1,"-             ");
-////    lcd_4bit_send_string_data_pos(&lcd1,2,1,"-             ");
-////    lcd_4bit_send_string_data_pos(&lcd1,1,1,latitude);
-////    lcd_4bit_send_string_data_pos(&lcd1,2,1,longtude);
-////        __delay_ms(2000);
-////    GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
-////    INT_EUSART_Rx_ENABLE() ;//rx interruptenable
-////}
-////void battery_level(void)
-////{
-////        ADC_Get_Conversion_Blocking(&battery_adc,ADC_CHANEL_AN0,&battery_volt_adc_read);
-////        battery_volt_f=(float32)(battery_volt_adc_read*13)/1024;//13 get from 5*2.6->->-2.6=(r1+r2)/r2
-////        convert_float32_to_string( battery_volt_f,battery_string);
-////        
-////        lcd_4bit_send_string_data_pos(&lcd1,1,9,"       ");
-////        lcd_4bit_send_string_data_pos(&lcd1,1,10,battery_string);
-////        if(battery_volt_f<11.1)
-////        {
-////           lcd_4bit_send_string_data_pos(&lcd1,2,0,"                "); 
-////           lcd_4bit_send_string_data_pos(&lcd1,2,3,"battery low");
-////           GPIO_Pin_Write_Logic(&pind0,GPIO_HIGH);
-////        }
-////        else
-////        { 
-////            lcd_4bit_send_string_data_pos(&lcd1,2,0,"                "); 
-////            GPIO_Pin_Write_Logic(&pind0,GPIO_LOW);
-////        } 
-////}
+        } 
+}*/

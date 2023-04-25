@@ -5133,17 +5133,15 @@ Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 13 "./application.h" 2
 
-# 1 "./Robot/Navigation/robot_navigation.h" 1
-# 35 "./Robot/Navigation/robot_navigation.h"
-# 1 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h" 1
-# 15 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h"
-# 1 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h" 1
-# 13 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h"
-# 1 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h" 1
-# 15 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h"
-# 1 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_gen_config.h" 1
-# 15 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h" 2
-# 71 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h"
+# 1 "./MCAL/EUSART/mcal_EUSART.h" 1
+# 15 "./MCAL/EUSART/mcal_EUSART.h"
+# 1 "./MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h" 1
+# 13 "./MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h"
+# 1 "./MCAL/EUSART/../Interrupts/mcal_interrupt_config.h" 1
+# 15 "./MCAL/EUSART/../Interrupts/mcal_interrupt_config.h"
+# 1 "./MCAL/EUSART/../Interrupts/mcal_interrupt_gen_config.h" 1
+# 15 "./MCAL/EUSART/../Interrupts/mcal_interrupt_config.h" 2
+# 71 "./MCAL/EUSART/../Interrupts/mcal_interrupt_config.h"
 typedef void ( *InterruptHandler) (void);
 
 
@@ -5152,8 +5150,105 @@ typedef enum {
     INT_HIGH_PRI
 
 } interrupt_pri_et;
-# 13 "./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h" 2
-# 15 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h" 2
+# 13 "./MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h" 2
+# 15 "./MCAL/EUSART/mcal_EUSART.h" 2
+
+
+
+# 1 "./MCAL/EUSART/mcal_EUSART_config.h" 1
+# 18 "./MCAL/EUSART/mcal_EUSART.h" 2
+# 97 "./MCAL/EUSART/mcal_EUSART.h"
+typedef enum {
+    BAUDRATE_ASYNC_8BIT_LOW_SPEED ,
+    BAUDRATE_ASYNC_8BIT_HIGH_SPEED ,
+    BAUDRATE_ASYNC_16BIT_LOW_SPEED ,
+    BAUDRATE_ASYNC_16BIT_HIGH_SPEED
+
+}uart_baud_rate_config_et;
+
+
+typedef struct {
+
+
+
+
+
+
+    uint8_t uart_tx_9th_bit_role : 2 ;
+
+    uint8_t tx_enable : 1 ;
+    uint8_t tx_9th_bit_en : 1 ;
+    uint8_t tx_reserved : 4;
+
+}uart_tx_config_st;
+
+
+typedef struct {
+
+
+    InterruptHandler rx_InterruptHandler ;
+
+    InterruptHandler oerr_InterruptHandler ;
+    InterruptHandler ferr_InterruptHandler ;
+
+    uint8_t uart_rx_priority : 1 ;
+
+
+
+    uint8_t uart_rx_9th_bit_role : 2 ;
+
+    uint8_t rx_enable : 1 ;
+    uint8_t rx_9th_bit_en : 1 ;
+    uint8_t rx_reserved : 4 ;
+}uart_rx_config_st;
+# 155 "./MCAL/EUSART/mcal_EUSART.h"
+typedef struct {
+
+    uint16_t uart_baud_rate_value ;
+    uart_tx_config_st tx_config ;
+    uart_rx_config_st rx_config ;
+    uart_baud_rate_config_et baud_rate_config ;
+
+
+}uart_config_st;
+# 188 "./MCAL/EUSART/mcal_EUSART.h"
+Std_ReturnType EUSART_Async_Init(const uart_config_st *_eusart_obj);
+# 198 "./MCAL/EUSART/mcal_EUSART.h"
+Std_ReturnType EUSART_Async_Deinit(const uart_config_st *_eusart_obj);
+# 209 "./MCAL/EUSART/mcal_EUSART.h"
+Std_ReturnType EUSART_Async_Transmit_Data(const uart_config_st *_eusart_obj , uint16_t data);
+# 222 "./MCAL/EUSART/mcal_EUSART.h"
+Std_ReturnType EUSART_Async_Check_For_Errors(void);
+# 235 "./MCAL/EUSART/mcal_EUSART.h"
+Std_ReturnType EUSART_Async_Read_Data(const uart_config_st *_eusart_obj , uint16_t *data);
+
+
+Std_ReturnType EUSART_Async_Read_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t *data);
+
+Std_ReturnType EUSART_Async_Transmit_Data_Blocking(const uart_config_st *_eusart_obj , uint16_t data);
+
+Std_ReturnType EUSART_Async_Transmit_Data_String_Blocking(const uart_config_st *_eusart_obj , uint8_t *data , uint16_t len);
+# 14 "./application.h" 2
+
+# 1 "./ECU/Bluetooth/Bluetooth.h" 1
+# 15 "./ECU/Bluetooth/Bluetooth.h"
+# 1 "./ECU/Bluetooth/Bluetooth_cfg.h" 1
+# 15 "./ECU/Bluetooth/Bluetooth.h" 2
+# 27 "./ECU/Bluetooth/Bluetooth.h"
+Std_ReturnType Bluetooth_Init(uart_config_st *_uart_obj);
+
+Std_ReturnType Bluetooth_Send_Data_Blocking(const uart_config_st *_uart_obj , uint8_t data);
+Std_ReturnType Bluetooth_Recieve_Data_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
+
+Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t data );
+Std_ReturnType Bluetooth_Recieve_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t *data );
+
+Std_ReturnType Bluetooth_Send_String_Blocking(const uart_config_st *_uart_obj , uint8_t *data , uint8_t length );
+# 15 "./application.h" 2
+
+# 1 "./Robot/Navigation/robot_navigation.h" 1
+# 35 "./Robot/Navigation/robot_navigation.h"
+# 1 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h" 1
 # 33 "./Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h"
 typedef enum{
     TIMER2_PRESCALER_DIV_BY_1=0,
@@ -5377,78 +5472,15 @@ Std_ReturnType Robot_Move_Forward(void);
 Std_ReturnType Robot_Move_Backward(void);
 Std_ReturnType Robot_Steer_Right_Forward(void);
 Std_ReturnType Robot_Steer_Left_Forward(void);
+Std_ReturnType Robot_Steer_Right_Backward(void);
+Std_ReturnType Robot_Steer_Left_Backward(void);
 
 
 
 
 
 Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
-
-
-
-
-static dc_motor_st W1_W3_W5_Motor_Control =
-{
-    .dc_motor.port = PORTD_INDEX ,
-    .dc_motor.pin = GPIO_PIN0 ,
-    .dc_motor.logic = GPIO_LOW ,
-    .dc_motor.direction = GPIO_DIRECTION_OUTPUT ,
-
-};
-
-static dc_motor_st W2_W4_W6_Motor_Control =
-{
-    .dc_motor.port = PORTD_INDEX ,
-    .dc_motor.pin = GPIO_PIN1 ,
-    .dc_motor.logic = GPIO_LOW ,
-    .dc_motor.direction = GPIO_DIRECTION_OUTPUT ,
-
-};
-
-
-ccp_st CCP1_Obj =
-{
-    .ccp_inst = CCP1_INST ,
-    .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 500,
-    .ccp_pin.port = PORTC_INDEX,
-    .ccp_pin.pin = GPIO_PIN2,
-    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2.timer2_preload_value=249,
-    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
-    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
-};
-ccp_st CCP2_Obj =
-{
-    .ccp_inst = CCP2_INST ,
-    .ccp_mode = CCP_PWM_MODE_SELECTED,
-    .PWM_Frequency = 500,
-    .ccp_pin.port = PORTC_INDEX,
-    .ccp_pin.pin = GPIO_PIN1,
-    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
-    .timer2.timer2_preload_value=249,
-    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
-    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
-};
-
-
-mssp_i2c_st i2c_obj={
-  .i2c_cfg.i2c_mode= 1,
-  .i2c_cfg.i2c_mode_cfg=0x08U,
-  .i2c_clock=100000,
-  .i2c_cfg.i2c_SMBus_control=0,
-  .i2c_cfg.i2c_slew_rate=1,
-
-
-
-};
-servo_driver_st servo_driver_obj={
-   .slave_address=0x80,
-   .frequancy=0x79,
-   .mode_1_cfg=0x21,
-   .mode_2_cfg=0x04
-};
-# 14 "./application.h" 2
+# 16 "./application.h" 2
 
 # 1 "./ECU/LCD_for_test_gps/ecu_char_lcd.h" 1
 # 13 "./ECU/LCD_for_test_gps/ecu_char_lcd.h"
@@ -5499,7 +5531,7 @@ Std_ReturnType convert_uint8_to_string(uint8 value,uint8*str);
 Std_ReturnType convert_uint16_to_string(uint16 value,uint8*str);
 Std_ReturnType convert_uint32_to_string(uint32 value,uint8*str);
 Std_ReturnType convert_float32_to_string(float32 value,uint8*str);
-# 15 "./application.h" 2
+# 17 "./application.h" 2
 
 # 1 "./MCAL/Interrupts/mcal_external_interrupt.h" 1
 # 119 "./MCAL/Interrupts/mcal_external_interrupt.h"
@@ -5540,15 +5572,225 @@ Std_ReturnType Interrupt_INTx_DeINIT(const Interrupt_INTx_st *int_obj);
 
 Std_ReturnType Interrupt_RBx_INIT(const Interrupt_RBx_st *int_obj);
 Std_ReturnType Interrupt_RBx_DeINIT(const Interrupt_RBx_st *int_obj);
-# 16 "./application.h" 2
+# 18 "./application.h" 2
+
+# 1 "./ECU/stepper/ecu_stepper.h" 1
+# 22 "./ECU/stepper/ecu_stepper.h"
+typedef struct
+{
+    pin_config_st step_pin ;
+    pin_config_st dir_pin ;
+} stepper_config_st ;
+
+typedef enum
+{
+    DIR_CCW= 0,
+    DIR_CW
+} stepper_direction_et ;
+
+
+
+Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper);
+Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper);
+Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir);
+Std_ReturnType stepper_move_one_deg_cw(stepper_config_st *stepper);
+Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper);
+# 19 "./application.h" 2
+
+# 1 "./Robot/sensors/DHT11/DHT.h" 1
+# 19 "./Robot/sensors/DHT11/DHT.h"
+# 1 "./Robot/sensors/DHT11/DHT_CFG.h" 1
+# 19 "./Robot/sensors/DHT11/DHT.h" 2
+# 29 "./Robot/sensors/DHT11/DHT.h"
+Std_ReturnType Get_Temp_HUM(uint8* RH_Decimal,uint8* RH_Integral,uint8* T_Decimal,uint8* T_Integral,uint8* Checksum);
+# 20 "./application.h" 2
+
+# 1 "./Robot/sensors/ultrasonic/ultrasonic.h" 1
+# 18 "./Robot/sensors/ultrasonic/ultrasonic.h"
+# 1 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 1
+# 12 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+# 1 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0_config.h" 1
+# 12 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h" 2
+# 63 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+typedef enum {
+    TMR0_PRESCALER_BY_2 = 0,
+    TMR0_PRESCALER_BY_4,
+    TMR0_PRESCALER_BY_8,
+    TMR0_PRESCALER_BY_16,
+    TMR0_PRESCALER_BY_32,
+    TMR0_PRESCALER_BY_64,
+    TMR0_PRESCALER_BY_128,
+    TMR0_PRESCALER_BY_256
+}tmr0_prescalar_et;
+
+typedef struct {
+
+    tmr0_prescalar_et prescalar_value ;
+    uint16_t preloaded_value ;
+# 86 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+    uint8_t timer_mode : 1 ;
+    uint8_t reg_bit_size : 1 ;
+    uint8_t prescaler_enable : 1 ;
+    uint8_t edge : 1 ;
+    uint8_t timer0_reserved : 3 ;
+}timer0_config_st;
+# 103 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
+# 112 "./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h"
+Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
+
+
+Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
+        uint16_t *result);
+
+Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
+        uint16_t val);
+# 18 "./Robot/sensors/ultrasonic/ultrasonic.h" 2
 
 
 
 
 
 
+typedef struct{
+    pin_config_st trig_pin;
+    pin_config_st echo_pin;
+}ultrasonic_config_st;
+
+Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config);
+Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance);
+# 21 "./application.h" 2
+
+# 1 "./MCAL/WATCH_DOG_TIMER/WDT.h" 1
+# 24 "./MCAL/WATCH_DOG_TIMER/WDT.h"
+typedef enum {
+    wdt_postscaler_BY_1 = 0,
+    wdt_postscaler_BY_2,
+    wdt_postscaler_BY_4,
+    wdt_postscaler_BY_8,
+    wdt_postscaler_BY_16,
+    wdt_postscaler_BY_32,
+    wdt_postscaler_BY_64,
+    wdt_postscaler_BY_128,
+    wdt_postscaler_BY_256,
+    wdt_postscaler_BY_512,
+    wdt_postscaler_BY_1024,
+    wdt_postscaler_BY_2048,
+    wdt_postscaler_BY_4096,
+    wdt_postscaler_BY_8192,
+    wdt_postscaler_BY_16384,
+    wdt_postscaler_BY_32768
+}wdt_postscaler_et;
+
+Std_ReturnType WDT_Init(void);
+Std_ReturnType WDT_DeInit(void);
+# 22 "./application.h" 2
+
+# 1 "./MCAL/ADC/mcal_adc.h" 1
+# 18 "./MCAL/ADC/mcal_adc.h"
+# 1 "./MCAL/ADC/mcal_adc_cfg.h" 1
+# 18 "./MCAL/ADC/mcal_adc.h" 2
+# 77 "./MCAL/ADC/mcal_adc.h"
+typedef enum {
+    ADC_CHANEL_AN0=0,
+    ADC_CHANEL_AN1,
+    ADC_CHANEL_AN2,
+    ADC_CHANEL_AN3,
+    ADC_CHANEL_AN4,
+    ADC_CHANEL_AN5,
+    ADC_CHANEL_AN6,
+    ADC_CHANEL_AN7,
+    ADC_CHANEL_AN8,
+    ADC_CHANEL_AN9,
+    ADC_CHANEL_AN10,
+    ADC_CHANEL_AN11,
+    ADC_CHANEL_AN12
+
+}adc_channel_select_et;
 
 
+
+
+
+
+typedef enum
+{
+    ADC_0_TAD=0,
+    ADC_2_TAD,
+    ADC_4_TAD,
+    ADC_6_TAD,
+    ADC_8_TAD,
+    ADC_12_TAD,
+    ADC_16_TAD,
+    ADC_20_TAD
+}adc_acquisition_time_et;
+
+
+
+
+
+typedef enum
+{
+    ADC_CONVERSION_CLOCK_FOSC_DIV_2=0,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_8,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_4,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_64,
+}adc_conversion_clock_source_et;
+
+
+
+typedef enum
+{
+    ADC_RESULT_LEFT=0,
+    ADC_RESULT_RIGHT
+}adc_result_format_et;
+
+
+
+
+
+typedef enum
+{
+    ADC_VOLTAGE_REFERANCE_INTERNAL=0,
+    ADC_VOLTAGE_REFERANCE_EXTERNAL
+}adc_voltage_reference_et;
+
+typedef enum
+{
+    ADC_CONVERSION_STATUS_DONE=0,
+    ADC_CONVERSION_STATUS_INPROGRESS
+}adc_conversion_status_et;
+typedef struct
+{
+
+
+
+
+
+
+    adc_channel_select_et adc_channel;
+    adc_acquisition_time_et acquisition_time;
+    adc_conversion_clock_source_et conversion_clock;
+    adc_result_format_et result_format;
+    adc_voltage_reference_et voltage_referance;
+}adc_config_st;
+
+typedef uint16 adc_result_t;
+
+Std_ReturnType ADC_Init(const adc_config_st* _adc);
+Std_ReturnType ADC_DeInit(const adc_config_st* _adc);
+Std_ReturnType ADC_select_channel(const adc_config_st* _adc,adc_channel_select_et _channel);
+Std_ReturnType ADC_Start_Conversion(const adc_config_st* _adc);
+Std_ReturnType ADC_Is_Conversion_Done(const adc_config_st* _adc,adc_conversion_status_et*_status);
+Std_ReturnType ADC_Get_Conversion_Results(const adc_config_st* _adc,adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel_select_et _channel,
+                                                                           adc_result_t*_result);
+Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel);
+# 23 "./application.h" 2
+# 59 "./application.h"
 typedef struct {
     uint8_t flag_0 : 1 ;
     uint8_t flag_1 : 1 ;
@@ -5563,52 +5805,371 @@ typedef struct {
 
 void application_intialize(void);
 # 8 "application.c" 2
+# 30 "application.c"
+uint8 servo1Pos, servo2Pos, servo3Pos,servo4Pos=0,stepper_pos;
 
+stepper_config_st stepper_base={
+    .dir_pin.direction=GPIO_DIRECTION_OUTPUT,
+    .dir_pin.logic=GPIO_LOW,
+    .dir_pin.pin=GPIO_PIN2,
+    .dir_pin.port=PORTD_INDEX,
 
-extern ccp_st CCP1_Obj;
-pin_config_st pinc0={
-   .direction=GPIO_DIRECTION_OUTPUT,
-   .logic=GPIO_LOW,
-   .pin=GPIO_PIN1,
-   .port=PORTC_INDEX
+    .step_pin.direction=GPIO_DIRECTION_OUTPUT,
+    .step_pin.logic=GPIO_LOW,
+    .step_pin.pin=GPIO_PIN3,
+    .step_pin.port=PORTD_INDEX
 };
 
-uint8 string[4]={0};
+
+
+
+pin_config_st TEST_PIN={
+   .direction=GPIO_DIRECTION_OUTPUT,
+   .logic=GPIO_LOW,
+   .pin=GPIO_PIN0,
+   .port=PORTC_INDEX
+};
+# 84 "application.c"
+void usart_isr (void);
+void GPS_Service (void);
+
+uint8 gps=1;
+uint8 blue=1;
+uint8 gpstemp=0;
+uint8 counter;
+uint8 datasend='w';
+uint8 datarecive=0;
+
+uint8 latitude[13];
+uint8 longtude[13];
+
+uint8 i=0;
+
+uart_config_st _uart_obj = {
+  .baud_rate_config = BAUDRATE_ASYNC_8BIT_LOW_SPEED ,
+  .uart_baud_rate_value =9600,
+  .tx_config.tx_9th_bit_en = 0 ,
+  .tx_config.tx_enable = 1 ,
+
+  .rx_config.rx_9th_bit_en = 0 ,
+  .rx_config.rx_enable = 1,
+  .rx_config.uart_rx_priority=1,
+  .rx_config.rx_InterruptHandler=usart_isr
+
+};
+
+pin_config_st selector={
+   .direction=GPIO_DIRECTION_OUTPUT,
+   .logic=GPIO_LOW,
+   .pin=GPIO_PIN4,
+   .port=PORTD_INDEX
+};
+# 127 "application.c"
+ccp_st CCP1_Obj =
+{
+    .ccp_inst = CCP1_INST ,
+    .ccp_mode = CCP_PWM_MODE_SELECTED,
+    .PWM_Frequency = 500,
+    .ccp_pin.port = PORTC_INDEX,
+    .ccp_pin.pin = GPIO_PIN2,
+    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
+    .timer2.timer2_preload_value=249,
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
+};
+
+ccp_st CCP2_Obj =
+{
+    .ccp_inst = CCP2_INST ,
+    .ccp_mode = CCP_PWM_MODE_SELECTED,
+    .PWM_Frequency = 500,
+    .ccp_pin.port = PORTC_INDEX,
+    .ccp_pin.pin = GPIO_PIN1,
+    .ccp_pin.direction = GPIO_DIRECTION_OUTPUT,
+    .timer2.timer2_preload_value=249,
+    .timer2.timer2_postscaler_value=TIMER2_postscaler_DIV_BY_16,
+    .timer2.timer2_prescaler_value=TIMER2_PRESCALER_DIV_BY_1
+};
+
+
+
+
+
+
+mssp_i2c_st i2c_obj={
+  .i2c_cfg.i2c_mode= 1,
+  .i2c_cfg.i2c_mode_cfg=0x08U,
+  .i2c_clock=100000,
+  .i2c_cfg.i2c_SMBus_control=0,
+  .i2c_cfg.i2c_slew_rate=1,
+
+
+
+};
+servo_driver_st servo_driver_obj={
+   .slave_address=0x80,
+   .frequancy=0x79,
+   .mode_1_cfg=0x21,
+   .mode_2_cfg=0x04
+};
+
+
+
+
+
+
+uint8 RH_Decimal, RH_Integral, T_Decimal, T_Integral, Checksum;
+
+
+
+
+
+
+
+float32 distance;
+
+
+ ultrasonic_config_st ultrasonic={
+     .trig_pin.direction=GPIO_DIRECTION_OUTPUT,
+     .trig_pin.logic=GPIO_LOW,
+     .trig_pin.pin=GPIO_PIN3,
+     .trig_pin.port=PORTB_INDEX,
+
+     .echo_pin.direction=GPIO_DIRECTION_INPUT,
+     .echo_pin.logic=GPIO_LOW,
+     .echo_pin.pin=GPIO_PIN2,
+     .echo_pin.port=PORTB_INDEX
+ };
+ timer0_config_st timer0={
+   .preloaded_value=0,
+   .prescaler_enable=0x00U,
+   .prescalar_value=TMR0_PRESCALER_BY_2,
+   .reg_bit_size=0x00U,
+   .timer_mode=0x00U
+ };
+
+
+
 int main()
 {
     application_intialize();
-    GPIO_Pin_Toggle_Logic(&pinc0);
+    GPIO_Pin_Toggle_Logic(&TEST_PIN);
     while(1)
     {
-      GPIO_Pin_Toggle_Logic(&pinc0);
+switch(datarecive)
+        {
+            case 0:
 
-      Robot_Steer_Stop();
-      _delay((unsigned long)((1000)*(8000000/4000.0)));
-      Robot_Move_Forward();
-      _delay((unsigned long)((1000)*(8000000/4000.0)));
-      Robot_Steer_Stop();
-      _delay((unsigned long)((1000)*(8000000/4000.0)));
-      Robot_Move_Backward();
-      _delay((unsigned long)((1000)*(8000000/4000.0)));
-      Robot_Steer_Stop();
-      _delay((unsigned long)((1000)*(8000000/4000.0)));
-      CCP_PWM_Set_Duty(&CCP1_Obj,60);
-      _delay((unsigned long)((2000)*(8000000/4000.0)));
-      Robot_Steer_Stop();
-      _delay((unsigned long)((1000)*(8000000/4000.0)));
-      CCP_PWM_Set_Duty(&CCP1_Obj,70);
-      _delay((unsigned long)((2000)*(8000000/4000.0)));
-      Robot_Steer_Stop();
-      _delay((unsigned long)((1000)*(8000000/4000.0)));
-      CCP_PWM_Set_Duty(&CCP1_Obj,80);
-     _delay((unsigned long)((2000)*(8000000/4000.0)));
+                Robot_Steer_Stop();
+                break;
+            case 1:
+
+                Robot_Steer_Left_Forward();
+                break;
+            case 2:
+
+                Robot_Move_Forward();
+                break;
+            case 3:
+
+                Robot_Steer_Right_Forward();
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                Robot_Steer_Left_Backward();
+                break;
+            case 7:
+
+                Robot_Move_Backward();
+                break;
+            case 8:
+
+                Robot_Steer_Right_Backward();
+                break;
+            case 9:
+
+                break;
+            case 10:
+
+                 break;
+
+             case 16:
+
+                 stepper_move_one_deg_cw(&stepper_base);
+                 break;
+
+             case 17:
+
+                stepper_move_one_deg_ccw(&stepper_base);
+                break;
+
+             case 18:
+
+                  servo1Pos--;
+                  if(servo1Pos<1)
+                  {
+                    servo1Pos=1;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );
+
+                  break;
+
+             case 19:
+
+                 servo1Pos++;
+                 if(servo1Pos>180)
+                 {
+                   servo1Pos=180;
+                 }
+                 Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );
+                 break;
+
+             case 20:
+
+                  servo2Pos--;
+                  if(servo2Pos<1)
+                  {
+                    servo2Pos=1;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_10 , servo2Pos );
+                  break;
+
+             case 21:
+
+                  servo2Pos++;
+                  if(servo2Pos>180)
+                  {
+                    servo2Pos=180;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_10 , servo2Pos );
+                  break;
+
+             case 22:
+
+                  servo3Pos--;
+                  if(servo3Pos<1)
+                  {
+                    servo3Pos=1;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_11 , servo3Pos );
+                  break;
+
+             case 23:
+
+                  servo3Pos++;
+                  if(servo3Pos>180)
+                  {
+                    servo3Pos=180;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_11 , servo3Pos );
+                  break;
+
+             case 24:
+
+                  servo4Pos--;
+                  if(servo4Pos<1)
+                  {
+                    servo4Pos=1;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_12 , servo4Pos );
+                  break;
+
+             case 25:
+
+                  servo4Pos++;
+                  if(servo4Pos>180)
+                  {
+                    servo4Pos=180;
+                  }
+                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_12 , servo4Pos );
+                  break;
+
+             case 77:
+
+                 Get_Temp_HUM(&RH_Decimal, &RH_Integral, &T_Decimal, &T_Integral, &Checksum);
+                 break;
+             case 78:
+
+                 Get_Distance(&ultrasonic,&timer0,&distance);
+                 break;
+             case 79:
+
+                 GPS_Service();
+                 break;
+             default:
+
+                   break;
+        }
     }
     return 0;
 }
 void application_intialize(void)
 {
-    GPIO_Pin_Initialize(&pinc0);
+    GPIO_Pin_Initialize(&TEST_PIN);
+    GPIO_Pin_Initialize(&selector);
     Robot_Nav_Init();
+    Ecu_Stepper_Init(&stepper_base);
+    Ultra_Sonic_Init(&ultrasonic,&timer0);
+    EUSART_Async_Init(&_uart_obj);
 
+}
 
+void usart_isr (void)
+{
+    EUSART_Async_Read_Data(&_uart_obj,&datarecive);
+    Bluetooth_Send_Data_Non_Blocking(&_uart_obj,datasend);
+    GPIO_Pin_Toggle_Logic(&TEST_PIN);
+}
+void GPS_Service (void)
+{
+    uint8 key=1;
+    (PIE1bits.RCIE = 0);
+    GPIO_Pin_Write_Logic(&selector,GPIO_HIGH);
+
+    while (key)
+    {
+        EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
+        if ('$'==gpstemp)
+        {
+            while (key)
+            {
+                    EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
+                    if (','==gpstemp)
+                    {
+                        counter++;
+                        if (3==counter)
+                        {
+                            i=0;
+
+                            do
+                            {
+                                EUSART_Async_Read_Data_Blocking(&_uart_obj,(latitude+i));
+                                i++;
+                            }while(','!=(latitude[i-1]));
+                            counter++;
+
+                        }
+                        else if(5==counter)
+                        {
+                            i=0;
+
+                            do{
+                                EUSART_Async_Read_Data_Blocking(&_uart_obj,(longtude+i));
+                                i++;
+                            }while(','!=(longtude[i-1]));
+                            key=0;
+                        }
+                    }
+            }
+        }
+    }
+      _delay((unsigned long)((2000)*(8000000/4000.0)));
+    GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
+    (PIE1bits.RCIE = 1) ;
 }

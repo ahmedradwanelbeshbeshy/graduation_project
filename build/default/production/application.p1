@@ -1,17 +1,17 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"134 ./Robot/Navigation/robot_navigation.h
-[; ;./Robot/Navigation/robot_navigation.h: 134: Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
-[c E3424 0 1 2 3 4 5 6 .. ]
-[n E3424 . NAV_MOV_STOPPED NAV_MOV_FORW NAV_MOV_FORW_STEER_RIGHT NAV_MOV_FORW_STEER_LEFT NAV_MOV_BACKW NAV_MOV_BACKW_STEER_RIGHT NAV_MOV_BACKW_STEER_LEFT  ]
-"73 ./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/../GPIO/hal_gpio.h
+"136 ./Robot/Navigation/robot_navigation.h
+[; ;./Robot/Navigation/robot_navigation.h: 136: Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
+[c E3494 0 1 2 3 4 5 6 .. ]
+[n E3494 . NAV_MOV_STOPPED NAV_MOV_FORW NAV_MOV_FORW_STEER_RIGHT NAV_MOV_FORW_STEER_LEFT NAV_MOV_BACKW NAV_MOV_BACKW_STEER_RIGHT NAV_MOV_BACKW_STEER_LEFT  ]
+"73 ./MCAL/ADC/../GPIO/hal_gpio.h
 [s S306 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S306 . pin port direction logic ]
-"30 ./Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h
-[; ;./Robot/Navigation/../../ECU/DC_Motor/ecu_dc_motor.h: 30: typedef struct {
-[s S314 `S306 1 ]
-[n S314 . dc_motor ]
-"139 ./Robot/Navigation/robot_navigation.h
-[; ;./Robot/Navigation/robot_navigation.h: 139: static dc_motor_st W1_W3_W5_Motor_Control =
+"23 ./ECU/stepper/ecu_stepper.h
+[; ;./ECU/stepper/ecu_stepper.h: 23: {
+[s S323 `S306 1 `S306 1 ]
+[n S323 . step_pin dir_pin ]
+"32 application.c
+[; ;application.c: 32: stepper_config_st stepper_base={
 [c E3193 0 1 2 3 4 5 6 7 .. ]
 [n E3193 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
 [c E3203 0 1 2 3 4 .. ]
@@ -20,65 +20,154 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E3189 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [c E3185 0 1 .. ]
 [n E3185 . GPIO_LOW GPIO_HIGH  ]
-"158
-[; ;./Robot/Navigation/robot_navigation.h: 158: ccp_st CCP1_Obj =
-[c E3306 0 1 .. ]
-[n E3306 . CCP1_INST CCP2_INST  ]
-[c E3292 0 1 2 .. ]
-[n E3292 . CCP_CAPTURE_MODE_SELECTED CCP_COMPARE_MODE_SELECTED CCP_PWM_MODE_SELECTED  ]
-[c E3310 0 1 2 .. ]
-[n E3310 . CCP1_CCP2_TIMER3 CCP1_TIMER1_CCP2_TIMER3 CCP1_CCP2_TIMER1  ]
-[c E3254 0 1 2 .. ]
-[n E3254 . TIMER2_PRESCALER_DIV_BY_1 TIMER2_PRESCALER_DIV_BY_4 TIMER2_PRESCALER_DIV_BY_16  ]
-[c E3259 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 .. ]
-[n E3259 . TIMER2_postscaler_DIV_BY_1 TIMER2_postscaler_DIV_BY_2 TIMER2_postscaler_DIV_BY_3 TIMER2_postscaler_DIV_BY_4 TIMER2_postscaler_DIV_BY_5 TIMER2_postscaler_DIV_BY_6 TIMER2_postscaler_DIV_BY_7 TIMER2_postscaler_DIV_BY_8 TIMER2_postscaler_DIV_BY_9 TIMER2_postscaler_DIV_BY_10 TIMER2_postscaler_DIV_BY_11 TIMER2_postscaler_DIV_BY_12 TIMER2_postscaler_DIV_BY_13 TIMER2_postscaler_DIV_BY_14 TIMER2_postscaler_DIV_BY_15 TIMER2_postscaler_DIV_BY_16  ]
+"106 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
+[s S307 :2 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S307 . uart_tx_9th_bit_role tx_enable tx_9th_bit_en tx_reserved ]
+[v F3268 `(v ~T0 @X0 0 tf ]
+[v F3270 `(v ~T0 @X0 0 tf ]
+[v F3272 `(v ~T0 @X0 0 tf ]
+"122
+[s S308 `*F3268 1 `*F3270 1 `*F3272 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S308 . rx_InterruptHandler oerr_InterruptHandler ferr_InterruptHandler uart_rx_priority uart_rx_9th_bit_role rx_enable rx_9th_bit_en rx_reserved ]
+"99 application.c
+[; ;application.c: 99: uart_config_st _uart_obj = {
+[c E3254 0 1 2 3 .. ]
+[n E3254 . BAUDRATE_ASYNC_8BIT_LOW_SPEED BAUDRATE_ASYNC_8BIT_HIGH_SPEED BAUDRATE_ASYNC_16BIT_LOW_SPEED BAUDRATE_ASYNC_16BIT_HIGH_SPEED  ]
+"155 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
+[s S309 `us 1 `S307 1 `S308 1 `E3254 1 ]
+[n S309 . uart_baud_rate_value tx_config rx_config baud_rate_config ]
+"84 application.c
+[; ;application.c: 84: void usart_isr (void);
+[v _usart_isr `(v ~T0 @X0 0 ef ]
+[v F3812 `(v ~T0 @X0 0 tf ]
+[v F3813 `(v ~T0 @X0 0 tf ]
+"127
+[; ;application.c: 127: ccp_st CCP1_Obj =
+[c E3376 0 1 .. ]
+[n E3376 . CCP1_INST CCP2_INST  ]
+[c E3362 0 1 2 .. ]
+[n E3362 . CCP_CAPTURE_MODE_SELECTED CCP_COMPARE_MODE_SELECTED CCP_PWM_MODE_SELECTED  ]
+[c E3380 0 1 2 .. ]
+[n E3380 . CCP1_CCP2_TIMER3 CCP1_TIMER1_CCP2_TIMER3 CCP1_CCP2_TIMER1  ]
+[c E3324 0 1 2 .. ]
+[n E3324 . TIMER2_PRESCALER_DIV_BY_1 TIMER2_PRESCALER_DIV_BY_4 TIMER2_PRESCALER_DIV_BY_16  ]
+[c E3329 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 .. ]
+[n E3329 . TIMER2_postscaler_DIV_BY_1 TIMER2_postscaler_DIV_BY_2 TIMER2_postscaler_DIV_BY_3 TIMER2_postscaler_DIV_BY_4 TIMER2_postscaler_DIV_BY_5 TIMER2_postscaler_DIV_BY_6 TIMER2_postscaler_DIV_BY_7 TIMER2_postscaler_DIV_BY_8 TIMER2_postscaler_DIV_BY_9 TIMER2_postscaler_DIV_BY_10 TIMER2_postscaler_DIV_BY_11 TIMER2_postscaler_DIV_BY_12 TIMER2_postscaler_DIV_BY_13 TIMER2_postscaler_DIV_BY_14 TIMER2_postscaler_DIV_BY_15 TIMER2_postscaler_DIV_BY_16  ]
 "58 ./Robot/Navigation/../../MCAL/CCP/../TIMER2/mcal_timer2.h
-[s S307 `uc 1 `E3254 1 `E3259 1 ]
-[n S307 . timer2_preload_value timer2_prescaler_value timer2_postscaler_value ]
+[s S310 `uc 1 `E3324 1 `E3329 1 ]
+[n S310 . timer2_preload_value timer2_prescaler_value timer2_postscaler_value ]
 "109 ./Robot/Navigation/../../MCAL/CCP/hal_ccp.h
 [; ;./Robot/Navigation/../../MCAL/CCP/hal_ccp.h: 109: typedef struct{
-[s S311 `E3306 1 `E3292 1 `uc 1 `S306 1 `E3310 1 `ul 1 `S307 1 ]
-[n S311 . ccp_inst ccp_mode ccp_mode_variant ccp_pin ccp_capture_timer PWM_Frequency timer2 ]
+[s S314 `E3376 1 `E3362 1 `uc 1 `S306 1 `E3380 1 `ul 1 `S310 1 ]
+[n S314 . ccp_inst ccp_mode ccp_mode_variant ccp_pin ccp_capture_timer PWM_Frequency timer2 ]
 "103 ./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/../../MCAL/I2C/mcal_i2c.h
-[s S312 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S312 . i2c_mode_cfg i2c_slave_address i2c_mode i2c_slew_rate i2c_SMBus_control i2c_general_call i2c_master_rec_mode i2c_reserved ]
+[s S315 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S315 . i2c_mode_cfg i2c_slave_address i2c_mode i2c_slew_rate i2c_SMBus_control i2c_general_call i2c_master_rec_mode i2c_reserved ]
 "120
-[s S313 `ul 1 `S312 1 ]
-[n S313 . i2c_clock i2c_cfg ]
+[s S316 `ul 1 `S315 1 ]
+[n S316 . i2c_clock i2c_cfg ]
 "226 ./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h
 [; ;./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h: 226: typedef struct{
-[s S315 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S315 . slave_address frequancy mode_1_cfg mode_2_cfg ]
+[s S318 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S318 . slave_address frequancy mode_1_cfg mode_2_cfg ]
+"24 ./Robot/sensors/ultrasonic/ultrasonic.h
+[; ;./Robot/sensors/ultrasonic/ultrasonic.h: 24: typedef struct{
+[s S325 `S306 1 `S306 1 ]
+[n S325 . trig_pin echo_pin ]
+"202 application.c
+[; ;application.c: 202:  timer0_config_st timer0={
+[c E3645 0 1 2 3 4 5 6 7 .. ]
+[n E3645 . TMR0_PRESCALER_BY_2 TMR0_PRESCALER_BY_4 TMR0_PRESCALER_BY_8 TMR0_PRESCALER_BY_16 TMR0_PRESCALER_BY_32 TMR0_PRESCALER_BY_64 TMR0_PRESCALER_BY_128 TMR0_PRESCALER_BY_256  ]
+"74 ./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h
+[; ;./Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h: 74: typedef struct {
+[s S324 `E3645 1 `us 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S324 . prescalar_value preloaded_value timer_mode reg_bit_size prescaler_enable edge timer0_reserved ]
 [p mainexit ]
-"36 ./application.h
-[; ;./application.h: 36: void application_intialize(void);
+"71 ./application.h
+[; ;./application.h: 71: void application_intialize(void);
 [v _application_intialize `(v ~T0 @X0 0 ef ]
-"89 ./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/../GPIO/hal_gpio.h
+"89 ./MCAL/ADC/../GPIO/hal_gpio.h
 [v _GPIO_Pin_Toggle_Logic `(uc ~T0 @X0 0 ef1`*CS306 ]
 "124 ./Robot/Navigation/robot_navigation.h
 [; ;./Robot/Navigation/robot_navigation.h: 124: Std_ReturnType Robot_Steer_Stop(void);
 [v _Robot_Steer_Stop `(uc ~T0 @X0 0 ef ]
-[v F3167 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF3167 ~T0 @X0 0 e ]
-[p i __delay ]
-"125 ./Robot/Navigation/robot_navigation.h
+"128
+[; ;./Robot/Navigation/robot_navigation.h: 128: Std_ReturnType Robot_Steer_Left_Forward(void);
+[v _Robot_Steer_Left_Forward `(uc ~T0 @X0 0 ef ]
+"125
 [; ;./Robot/Navigation/robot_navigation.h: 125: Std_ReturnType Robot_Move_Forward(void);
 [v _Robot_Move_Forward `(uc ~T0 @X0 0 ef ]
+"127
+[; ;./Robot/Navigation/robot_navigation.h: 127: Std_ReturnType Robot_Steer_Right_Forward(void);
+[v _Robot_Steer_Right_Forward `(uc ~T0 @X0 0 ef ]
+"130
+[; ;./Robot/Navigation/robot_navigation.h: 130: Std_ReturnType Robot_Steer_Left_Backward(void);
+[v _Robot_Steer_Left_Backward `(uc ~T0 @X0 0 ef ]
 "126
 [; ;./Robot/Navigation/robot_navigation.h: 126: Std_ReturnType Robot_Move_Backward(void);
 [v _Robot_Move_Backward `(uc ~T0 @X0 0 ef ]
-"144 ./Robot/Navigation/../../MCAL/CCP/hal_ccp.h
-[; ;./Robot/Navigation/../../MCAL/CCP/hal_ccp.h: 144: Std_ReturnType CCP_PWM_Set_Duty(const ccp_st *_ccp_obj, const uint8 _duty);
-[v _CCP_PWM_Set_Duty `(uc ~T0 @X0 0 ef2`*CS311`Cuc ]
-"10 application.c
-[; ;application.c: 10: extern ccp_st CCP1_Obj;
-[v _CCP1_Obj `S311 ~T0 @X0 0 e ]
-"90 ./Robot/Navigation/../../MCAL/TIMER2/../Interrupts/../GPIO/hal_gpio.h
+"129
+[; ;./Robot/Navigation/robot_navigation.h: 129: Std_ReturnType Robot_Steer_Right_Backward(void);
+[v _Robot_Steer_Right_Backward `(uc ~T0 @X0 0 ef ]
+"39 ./ECU/stepper/ecu_stepper.h
+[; ;./ECU/stepper/ecu_stepper.h: 39: Std_ReturnType stepper_move_one_deg_cw(stepper_config_st *stepper);
+[v _stepper_move_one_deg_cw `(uc ~T0 @X0 0 ef1`*S323 ]
+"40
+[; ;./ECU/stepper/ecu_stepper.h: 40: Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper);
+[v _stepper_move_one_deg_ccw `(uc ~T0 @X0 0 ef1`*S323 ]
+"278 application.c
+[; ;application.c: 278:                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );
+[c E3460 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 .. ]
+[n E3460 . servo_index_1 servo_index_2 servo_index_3 servo_index_4 servo_index_5 servo_index_6 servo_index_7 servo_index_8 servo_index_9 servo_index_10 servo_index_11 servo_index_12 servo_index_13 servo_index_14 servo_index_15 servo_index_16  ]
+"235 ./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h
+[; ;./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h: 235: Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
+[v _Servo_SetAngle `(uc ~T0 @X0 0 ef4`*CS316`*CS318`CE3460`Cuc ]
+"29 ./Robot/sensors/DHT11/DHT.h
+[; ;./Robot/sensors/DHT11/DHT.h: 29: Std_ReturnType Get_Temp_HUM(uint8* RH_Decimal,uint8* RH_Integral,uint8* T_Decimal,uint8* T_Integral,uint8* Checksum);
+[v _Get_Temp_HUM `(uc ~T0 @X0 0 ef5`*uc`*uc`*uc`*uc`*uc ]
+"30 ./Robot/sensors/ultrasonic/ultrasonic.h
+[; ;./Robot/sensors/ultrasonic/ultrasonic.h: 30: Std_ReturnType Get_Distance(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config,float32* distance);
+[v _Get_Distance `(uc ~T0 @X0 0 ef3`*CS325`*CS324`*f ]
+"85 application.c
+[; ;application.c: 85: void GPS_Service (void);
+[v _GPS_Service `(v ~T0 @X0 0 ef ]
+"90 ./MCAL/ADC/../GPIO/hal_gpio.h
 [v _GPIO_Pin_Initialize `(uc ~T0 @X0 0 ef1`*CS306 ]
 "123 ./Robot/Navigation/robot_navigation.h
 [; ;./Robot/Navigation/robot_navigation.h: 123: Std_ReturnType Robot_Nav_Init(void);
 [v _Robot_Nav_Init `(uc ~T0 @X0 0 ef ]
+"36 ./ECU/stepper/ecu_stepper.h
+[; ;./ECU/stepper/ecu_stepper.h: 36: Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper);
+[v _Ecu_Stepper_Init `(uc ~T0 @X0 0 ef1`*S323 ]
+"29 ./Robot/sensors/ultrasonic/ultrasonic.h
+[; ;./Robot/sensors/ultrasonic/ultrasonic.h: 29: Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config);
+[v _Ultra_Sonic_Init `(uc ~T0 @X0 0 ef2`*CS325`*CS324 ]
+"188 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
+[v _EUSART_Async_Init `(uc ~T0 @X0 0 ef1`*CS309 ]
+"235
+[v _EUSART_Async_Read_Data `(uc ~T0 @X0 0 ef2`*CS309`*us ]
+"32 ./ECU/Bluetooth/Bluetooth.h
+[; ;./ECU/Bluetooth/Bluetooth.h: 32: Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t data );
+[v _Bluetooth_Send_Data_Non_Blocking `(uc ~T0 @X0 0 ef2`*CS309`uc ]
+"3148 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
+[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S120 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
+"3158
+[s S121 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S121 . . TX1IE RC1IE ]
+"3147
+[u S119 `S120 1 `S121 1 ]
+[n S119 . . . ]
+"3164
+[v _PIE1bits `VS119 ~T0 @X0 0 e@3997 ]
+"86 ./MCAL/ADC/../GPIO/hal_gpio.h
+[v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS306`E3185 ]
+"238 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
+[v _EUSART_Async_Read_Data_Blocking `(uc ~T0 @X0 0 ef2`*CS309`*us ]
+[v F3167 `(v ~T0 @X0 1 tf1`ul ]
+"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
+[v __delay `JF3167 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [; <" SSPMSK equ 0F77h ;# ">
 "124
@@ -373,54 +462,155 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "7352
 [; <" TOSU equ 0FFFh ;# ">
-"134 ./Robot/Navigation/robot_navigation.h
-[; ;./Robot/Navigation/robot_navigation.h: 134: Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
-[v _Movement_State `E3424 ~T0 @X0 1 e ]
+"136 ./Robot/Navigation/robot_navigation.h
+[; ;./Robot/Navigation/robot_navigation.h: 136: Nav_Movement_State_et Movement_State = NAV_MOV_STOPPED ;
+[v _Movement_State `E3494 ~T0 @X0 1 e ]
 [i _Movement_State
-. `E3424 0
+. `E3494 0
 ]
-"139
-[; ;./Robot/Navigation/robot_navigation.h: 139: static dc_motor_st W1_W3_W5_Motor_Control =
-[v _W1_W3_W5_Motor_Control `S314 ~T0 @X0 1 s ]
-[i _W1_W3_W5_Motor_Control
+"30 application.c
+[; ;application.c: 30: uint8 servo1Pos, servo2Pos, servo3Pos,servo4Pos=0,stepper_pos;
+[v _servo1Pos `uc ~T0 @X0 1 e ]
+[v _servo2Pos `uc ~T0 @X0 1 e ]
+[v _servo3Pos `uc ~T0 @X0 1 e ]
+[v _servo4Pos `uc ~T0 @X0 1 e ]
+[i _servo4Pos
+-> -> 0 `i `uc
+]
+[v _stepper_pos `uc ~T0 @X0 1 e ]
+"32
+[; ;application.c: 32: stepper_config_st stepper_base={
+[v _stepper_base `S323 ~T0 @X0 1 e ]
+[i _stepper_base
 :U ..
 :U ..
+:U ..
+:U ..
+-> . `E3193 3 `uc
+-> . `E3203 3 `uc
+-> . `E3189 0 `uc
+-> . `E3185 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E3193 2 `uc
+-> . `E3203 3 `uc
+-> . `E3189 0 `uc
+-> . `E3185 0 `uc
+..
+..
+..
+..
+]
+"47
+[; ;application.c: 47: pin_config_st TEST_PIN={
+[v _TEST_PIN `S306 ~T0 @X0 1 e ]
+[i _TEST_PIN
 :U ..
 :U ..
 -> . `E3193 0 `uc
+-> . `E3203 2 `uc
+-> . `E3189 0 `uc
+-> . `E3185 0 `uc
+..
+..
+]
+"87
+[; ;application.c: 87: uint8 gps=1;
+[v _gps `uc ~T0 @X0 1 e ]
+[i _gps
+-> -> 1 `i `uc
+]
+"88
+[; ;application.c: 88: uint8 blue=1;
+[v _blue `uc ~T0 @X0 1 e ]
+[i _blue
+-> -> 1 `i `uc
+]
+"89
+[; ;application.c: 89: uint8 gpstemp=0;
+[v _gpstemp `uc ~T0 @X0 1 e ]
+[i _gpstemp
+-> -> 0 `i `uc
+]
+"90
+[; ;application.c: 90: uint8 counter;
+[v _counter `uc ~T0 @X0 1 e ]
+"91
+[; ;application.c: 91: uint8 datasend='w';
+[v _datasend `uc ~T0 @X0 1 e ]
+[i _datasend
+-> -> 119 `ui `uc
+]
+"92
+[; ;application.c: 92: uint8 datarecive=0;
+[v _datarecive `uc ~T0 @X0 1 e ]
+[i _datarecive
+-> -> 0 `i `uc
+]
+"94
+[; ;application.c: 94: uint8 latitude[13];
+[v _latitude `uc ~T0 @X0 -> 13 `i e ]
+"95
+[; ;application.c: 95: uint8 longtude[13];
+[v _longtude `uc ~T0 @X0 -> 13 `i e ]
+"97
+[; ;application.c: 97: uint8 i=0;
+[v _i `uc ~T0 @X0 1 e ]
+[i _i
+-> -> 0 `i `uc
+]
+"99
+[; ;application.c: 99: uart_config_st _uart_obj = {
+[v __uart_obj `S309 ~T0 @X0 1 e ]
+[i __uart_obj
+:U ..
+:U ..
+-> -> 9600 `i `us
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+..
+..
+:U ..
+:U ..
+&U _usart_isr
+-> -> 0 `i `*F3812
+-> -> 0 `i `*F3813
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+..
+..
+. `E3254 0
+..
+..
+]
+"112
+[; ;application.c: 112: pin_config_st selector={
+[v _selector `S306 ~T0 @X0 1 e ]
+[i _selector
+:U ..
+:U ..
+-> . `E3193 4 `uc
 -> . `E3203 3 `uc
 -> . `E3189 0 `uc
 -> . `E3185 0 `uc
 ..
 ..
-..
-..
 ]
-"148
-[; ;./Robot/Navigation/robot_navigation.h: 148: static dc_motor_st W2_W4_W6_Motor_Control =
-[v _W2_W4_W6_Motor_Control `S314 ~T0 @X0 1 s ]
-[i _W2_W4_W6_Motor_Control
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E3193 1 `uc
--> . `E3203 3 `uc
--> . `E3189 0 `uc
--> . `E3185 0 `uc
-..
-..
-..
-..
-]
-"158
-[; ;./Robot/Navigation/robot_navigation.h: 158: ccp_st CCP1_Obj =
-[v _CCP1_Obj `S311 ~T0 @X0 1 e ]
+"127
+[; ;application.c: 127: ccp_st CCP1_Obj =
+[v _CCP1_Obj `S314 ~T0 @X0 1 e ]
 [i _CCP1_Obj
 :U ..
 :U ..
-. `E3306 0
-. `E3292 2
+. `E3376 0
+. `E3362 2
 -> -> 0 `i `uc
 :U ..
 :U ..
@@ -429,26 +619,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> . `E3189 0 `uc
 ..
 ..
--> -> 0 `i `E3310
+-> -> 0 `i `E3380
 -> -> -> 500 `i `l `ul
 :U ..
 :U ..
 -> -> 249 `i `uc
-. `E3254 0
-. `E3259 15
+. `E3324 0
+. `E3329 15
 ..
 ..
 ..
 ..
 ]
-"170
-[; ;./Robot/Navigation/robot_navigation.h: 170: ccp_st CCP2_Obj =
-[v _CCP2_Obj `S311 ~T0 @X0 1 e ]
+"140
+[; ;application.c: 140: ccp_st CCP2_Obj =
+[v _CCP2_Obj `S314 ~T0 @X0 1 e ]
 [i _CCP2_Obj
 :U ..
 :U ..
-. `E3306 1
-. `E3292 2
+. `E3376 1
+. `E3362 2
 -> -> 0 `i `uc
 :U ..
 :U ..
@@ -457,21 +647,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> . `E3189 0 `uc
 ..
 ..
--> -> 0 `i `E3310
+-> -> 0 `i `E3380
 -> -> -> 500 `i `l `ul
 :U ..
 :U ..
 -> -> 249 `i `uc
-. `E3254 0
-. `E3259 15
+. `E3324 0
+. `E3329 15
 ..
 ..
 ..
 ..
 ]
-"184
-[; ;./Robot/Navigation/robot_navigation.h: 184: mssp_i2c_st i2c_obj={
-[v _i2c_obj `S313 ~T0 @X0 1 e ]
+"158
+[; ;application.c: 158: mssp_i2c_st i2c_obj={
+[v _i2c_obj `S316 ~T0 @X0 1 e ]
 [i _i2c_obj
 :U ..
 :U ..
@@ -488,9 +678,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"194
-[; ;./Robot/Navigation/robot_navigation.h: 194: servo_driver_st servo_driver_obj={
-[v _servo_driver_obj `S315 ~T0 @X0 1 e ]
+"168
+[; ;application.c: 168: servo_driver_st servo_driver_obj={
+[v _servo_driver_obj `S318 ~T0 @X0 1 e ]
 [i _servo_driver_obj
 :U ..
 :U ..
@@ -501,140 +691,669 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"11 application.c
-[; ;application.c: 11: pin_config_st pinc0={
-[v _pinc0 `S306 ~T0 @X0 1 e ]
-[i _pinc0
+"180
+[; ;application.c: 180: uint8 RH_Decimal, RH_Integral, T_Decimal, T_Integral, Checksum;
+[v _RH_Decimal `uc ~T0 @X0 1 e ]
+[v _RH_Integral `uc ~T0 @X0 1 e ]
+[v _T_Decimal `uc ~T0 @X0 1 e ]
+[v _T_Integral `uc ~T0 @X0 1 e ]
+[v _Checksum `uc ~T0 @X0 1 e ]
+"188
+[; ;application.c: 188: float32 distance;
+[v _distance `f ~T0 @X0 1 e ]
+"191
+[; ;application.c: 191:  ultrasonic_config_st ultrasonic={
+[v _ultrasonic `S325 ~T0 @X0 1 e ]
+[i _ultrasonic
 :U ..
 :U ..
--> . `E3193 1 `uc
--> . `E3203 2 `uc
+:U ..
+:U ..
+-> . `E3193 3 `uc
+-> . `E3203 1 `uc
 -> . `E3189 0 `uc
 -> . `E3185 0 `uc
 ..
 ..
-]
-"18
-[; ;application.c: 18: uint8 string[4]={0};
-[v _string `uc ~T0 @X0 -> 4 `i e ]
-[i _string
 :U ..
--> -> 0 `i `uc
+:U ..
+-> . `E3193 2 `uc
+-> . `E3203 1 `uc
+-> . `E3189 1 `uc
+-> . `E3185 0 `uc
+..
+..
+..
+..
+]
+"202
+[; ;application.c: 202:  timer0_config_st timer0={
+[v _timer0 `S324 ~T0 @X0 1 e ]
+[i _timer0
+:U ..
+:U ..
+. `E3645 0
+-> -> 0 `i `us
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+..
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"19
-[; ;application.c: 19: int main()
+"212
+[; ;application.c: 212: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"20
-[; ;application.c: 20: {
+"213
+[; ;application.c: 213: {
 {
 [e :U _main ]
 [f ]
-"21
-[; ;application.c: 21:     application_intialize();
+"214
+[; ;application.c: 214:     application_intialize();
 [e ( _application_intialize ..  ]
-"22
-[; ;application.c: 22:     GPIO_Pin_Toggle_Logic(&pinc0);
-[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pinc0 `*CS306 ]
-"23
-[; ;application.c: 23:     while(1)
-[e :U 323 ]
-"24
-[; ;application.c: 24:     {
+"215
+[; ;application.c: 215:     GPIO_Pin_Toggle_Logic(&TEST_PIN);
+[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _TEST_PIN `*CS306 ]
+"216
+[; ;application.c: 216:     while(1)
+[e :U 330 ]
+"217
+[; ;application.c: 217:     {
 {
-"25
-[; ;application.c: 25:       GPIO_Pin_Toggle_Logic(&pinc0);
-[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _pinc0 `*CS306 ]
-"27
-[; ;application.c: 27:       Robot_Steer_Stop();
+"218
+[; ;application.c: 218: switch(datarecive)
+[e $U 333  ]
+"219
+[; ;application.c: 219:         {
+{
+"220
+[; ;application.c: 220:             case 0:
+[e :U 334 ]
+"222
+[; ;application.c: 222:                 Robot_Steer_Stop();
 [e ( _Robot_Steer_Stop ..  ]
-"28
-[; ;application.c: 28:       _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"29
-[; ;application.c: 29:       Robot_Move_Forward();
+"223
+[; ;application.c: 223:                 break;
+[e $U 332  ]
+"224
+[; ;application.c: 224:             case 1:
+[e :U 335 ]
+"226
+[; ;application.c: 226:                 Robot_Steer_Left_Forward();
+[e ( _Robot_Steer_Left_Forward ..  ]
+"227
+[; ;application.c: 227:                 break;
+[e $U 332  ]
+"228
+[; ;application.c: 228:             case 2:
+[e :U 336 ]
+"230
+[; ;application.c: 230:                 Robot_Move_Forward();
 [e ( _Robot_Move_Forward ..  ]
-"30
-[; ;application.c: 30:       _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"31
-[; ;application.c: 31:       Robot_Steer_Stop();
-[e ( _Robot_Steer_Stop ..  ]
-"32
-[; ;application.c: 32:       _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"33
-[; ;application.c: 33:       Robot_Move_Backward();
+"231
+[; ;application.c: 231:                 break;
+[e $U 332  ]
+"232
+[; ;application.c: 232:             case 3:
+[e :U 337 ]
+"234
+[; ;application.c: 234:                 Robot_Steer_Right_Forward();
+[e ( _Robot_Steer_Right_Forward ..  ]
+"235
+[; ;application.c: 235:                 break;
+[e $U 332  ]
+"236
+[; ;application.c: 236:             case 4:
+[e :U 338 ]
+"238
+[; ;application.c: 238:                 break;
+[e $U 332  ]
+"239
+[; ;application.c: 239:             case 5:
+[e :U 339 ]
+"241
+[; ;application.c: 241:                 break;
+[e $U 332  ]
+"242
+[; ;application.c: 242:             case 6:
+[e :U 340 ]
+"244
+[; ;application.c: 244:                 Robot_Steer_Left_Backward();
+[e ( _Robot_Steer_Left_Backward ..  ]
+"245
+[; ;application.c: 245:                 break;
+[e $U 332  ]
+"246
+[; ;application.c: 246:             case 7:
+[e :U 341 ]
+"248
+[; ;application.c: 248:                 Robot_Move_Backward();
 [e ( _Robot_Move_Backward ..  ]
-"34
-[; ;application.c: 34:       _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"35
-[; ;application.c: 35:       Robot_Steer_Stop();
-[e ( _Robot_Steer_Stop ..  ]
-"36
-[; ;application.c: 36:       _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"37
-[; ;application.c: 37:       CCP_PWM_Set_Duty(&CCP1_Obj,60);
-[e ( _CCP_PWM_Set_Duty (2 , -> &U _CCP1_Obj `*CS311 -> -> 60 `i `uc ]
-"38
-[; ;application.c: 38:       _delay((unsigned long)((2000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"39
-[; ;application.c: 39:       Robot_Steer_Stop();
-[e ( _Robot_Steer_Stop ..  ]
-"40
-[; ;application.c: 40:       _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"41
-[; ;application.c: 41:       CCP_PWM_Set_Duty(&CCP1_Obj,70);
-[e ( _CCP_PWM_Set_Duty (2 , -> &U _CCP1_Obj `*CS311 -> -> 70 `i `uc ]
-"42
-[; ;application.c: 42:       _delay((unsigned long)((2000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"43
-[; ;application.c: 43:       Robot_Steer_Stop();
-[e ( _Robot_Steer_Stop ..  ]
-"44
-[; ;application.c: 44:       _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"45
-[; ;application.c: 45:       CCP_PWM_Set_Duty(&CCP1_Obj,80);
-[e ( _CCP_PWM_Set_Duty (2 , -> &U _CCP1_Obj `*CS311 -> -> 80 `i `uc ]
-"46
-[; ;application.c: 46:      _delay((unsigned long)((2000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"47
-[; ;application.c: 47:     }
+"249
+[; ;application.c: 249:                 break;
+[e $U 332  ]
+"250
+[; ;application.c: 250:             case 8:
+[e :U 342 ]
+"252
+[; ;application.c: 252:                 Robot_Steer_Right_Backward();
+[e ( _Robot_Steer_Right_Backward ..  ]
+"253
+[; ;application.c: 253:                 break;
+[e $U 332  ]
+"254
+[; ;application.c: 254:             case 9:
+[e :U 343 ]
+"256
+[; ;application.c: 256:                 break;
+[e $U 332  ]
+"257
+[; ;application.c: 257:             case 10:
+[e :U 344 ]
+"259
+[; ;application.c: 259:                  break;
+[e $U 332  ]
+"261
+[; ;application.c: 261:              case 16:
+[e :U 345 ]
+"263
+[; ;application.c: 263:                  stepper_move_one_deg_cw(&stepper_base);
+[e ( _stepper_move_one_deg_cw (1 &U _stepper_base ]
+"264
+[; ;application.c: 264:                  break;
+[e $U 332  ]
+"266
+[; ;application.c: 266:              case 17:
+[e :U 346 ]
+"268
+[; ;application.c: 268:                 stepper_move_one_deg_ccw(&stepper_base);
+[e ( _stepper_move_one_deg_ccw (1 &U _stepper_base ]
+"269
+[; ;application.c: 269:                 break;
+[e $U 332  ]
+"271
+[; ;application.c: 271:              case 18:
+[e :U 347 ]
+"273
+[; ;application.c: 273:                   servo1Pos--;
+[e -- _servo1Pos -> -> 1 `i `uc ]
+"274
+[; ;application.c: 274:                   if(servo1Pos<1)
+[e $ ! < -> _servo1Pos `i -> 1 `i 348  ]
+"275
+[; ;application.c: 275:                   {
+{
+"276
+[; ;application.c: 276:                     servo1Pos=1;
+[e = _servo1Pos -> -> 1 `i `uc ]
+"277
+[; ;application.c: 277:                   }
 }
-[e :U 322 ]
-[e $U 323  ]
-[e :U 324 ]
-"48
-[; ;application.c: 48:     return 0;
+[e :U 348 ]
+"278
+[; ;application.c: 278:                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );
+[e ( _Servo_SetAngle (4 , , , -> &U _i2c_obj `*CS316 -> &U _servo_driver_obj `*CS318 . `E3460 8 _servo1Pos ]
+"280
+[; ;application.c: 280:                   break;
+[e $U 332  ]
+"282
+[; ;application.c: 282:              case 19:
+[e :U 349 ]
+"284
+[; ;application.c: 284:                  servo1Pos++;
+[e ++ _servo1Pos -> -> 1 `i `uc ]
+"285
+[; ;application.c: 285:                  if(servo1Pos>180)
+[e $ ! > -> _servo1Pos `i -> 180 `i 350  ]
+"286
+[; ;application.c: 286:                  {
+{
+"287
+[; ;application.c: 287:                    servo1Pos=180;
+[e = _servo1Pos -> -> 180 `i `uc ]
+"288
+[; ;application.c: 288:                  }
+}
+[e :U 350 ]
+"289
+[; ;application.c: 289:                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );
+[e ( _Servo_SetAngle (4 , , , -> &U _i2c_obj `*CS316 -> &U _servo_driver_obj `*CS318 . `E3460 8 _servo1Pos ]
+"290
+[; ;application.c: 290:                  break;
+[e $U 332  ]
+"292
+[; ;application.c: 292:              case 20:
+[e :U 351 ]
+"294
+[; ;application.c: 294:                   servo2Pos--;
+[e -- _servo2Pos -> -> 1 `i `uc ]
+"295
+[; ;application.c: 295:                   if(servo2Pos<1)
+[e $ ! < -> _servo2Pos `i -> 1 `i 352  ]
+"296
+[; ;application.c: 296:                   {
+{
+"297
+[; ;application.c: 297:                     servo2Pos=1;
+[e = _servo2Pos -> -> 1 `i `uc ]
+"298
+[; ;application.c: 298:                   }
+}
+[e :U 352 ]
+"299
+[; ;application.c: 299:                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_10 , servo2Pos );
+[e ( _Servo_SetAngle (4 , , , -> &U _i2c_obj `*CS316 -> &U _servo_driver_obj `*CS318 . `E3460 9 _servo2Pos ]
+"300
+[; ;application.c: 300:                   break;
+[e $U 332  ]
+"302
+[; ;application.c: 302:              case 21:
+[e :U 353 ]
+"304
+[; ;application.c: 304:                   servo2Pos++;
+[e ++ _servo2Pos -> -> 1 `i `uc ]
+"305
+[; ;application.c: 305:                   if(servo2Pos>180)
+[e $ ! > -> _servo2Pos `i -> 180 `i 354  ]
+"306
+[; ;application.c: 306:                   {
+{
+"307
+[; ;application.c: 307:                     servo2Pos=180;
+[e = _servo2Pos -> -> 180 `i `uc ]
+"308
+[; ;application.c: 308:                   }
+}
+[e :U 354 ]
+"309
+[; ;application.c: 309:                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_10 , servo2Pos );
+[e ( _Servo_SetAngle (4 , , , -> &U _i2c_obj `*CS316 -> &U _servo_driver_obj `*CS318 . `E3460 9 _servo2Pos ]
+"310
+[; ;application.c: 310:                   break;
+[e $U 332  ]
+"312
+[; ;application.c: 312:              case 22:
+[e :U 355 ]
+"314
+[; ;application.c: 314:                   servo3Pos--;
+[e -- _servo3Pos -> -> 1 `i `uc ]
+"315
+[; ;application.c: 315:                   if(servo3Pos<1)
+[e $ ! < -> _servo3Pos `i -> 1 `i 356  ]
+"316
+[; ;application.c: 316:                   {
+{
+"317
+[; ;application.c: 317:                     servo3Pos=1;
+[e = _servo3Pos -> -> 1 `i `uc ]
+"318
+[; ;application.c: 318:                   }
+}
+[e :U 356 ]
+"319
+[; ;application.c: 319:                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_11 , servo3Pos );
+[e ( _Servo_SetAngle (4 , , , -> &U _i2c_obj `*CS316 -> &U _servo_driver_obj `*CS318 . `E3460 10 _servo3Pos ]
+"320
+[; ;application.c: 320:                   break;
+[e $U 332  ]
+"322
+[; ;application.c: 322:              case 23:
+[e :U 357 ]
+"324
+[; ;application.c: 324:                   servo3Pos++;
+[e ++ _servo3Pos -> -> 1 `i `uc ]
+"325
+[; ;application.c: 325:                   if(servo3Pos>180)
+[e $ ! > -> _servo3Pos `i -> 180 `i 358  ]
+"326
+[; ;application.c: 326:                   {
+{
+"327
+[; ;application.c: 327:                     servo3Pos=180;
+[e = _servo3Pos -> -> 180 `i `uc ]
+"328
+[; ;application.c: 328:                   }
+}
+[e :U 358 ]
+"329
+[; ;application.c: 329:                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_11 , servo3Pos );
+[e ( _Servo_SetAngle (4 , , , -> &U _i2c_obj `*CS316 -> &U _servo_driver_obj `*CS318 . `E3460 10 _servo3Pos ]
+"330
+[; ;application.c: 330:                   break;
+[e $U 332  ]
+"332
+[; ;application.c: 332:              case 24:
+[e :U 359 ]
+"334
+[; ;application.c: 334:                   servo4Pos--;
+[e -- _servo4Pos -> -> 1 `i `uc ]
+"335
+[; ;application.c: 335:                   if(servo4Pos<1)
+[e $ ! < -> _servo4Pos `i -> 1 `i 360  ]
+"336
+[; ;application.c: 336:                   {
+{
+"337
+[; ;application.c: 337:                     servo4Pos=1;
+[e = _servo4Pos -> -> 1 `i `uc ]
+"338
+[; ;application.c: 338:                   }
+}
+[e :U 360 ]
+"339
+[; ;application.c: 339:                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_12 , servo4Pos );
+[e ( _Servo_SetAngle (4 , , , -> &U _i2c_obj `*CS316 -> &U _servo_driver_obj `*CS318 . `E3460 11 _servo4Pos ]
+"340
+[; ;application.c: 340:                   break;
+[e $U 332  ]
+"342
+[; ;application.c: 342:              case 25:
+[e :U 361 ]
+"344
+[; ;application.c: 344:                   servo4Pos++;
+[e ++ _servo4Pos -> -> 1 `i `uc ]
+"345
+[; ;application.c: 345:                   if(servo4Pos>180)
+[e $ ! > -> _servo4Pos `i -> 180 `i 362  ]
+"346
+[; ;application.c: 346:                   {
+{
+"347
+[; ;application.c: 347:                     servo4Pos=180;
+[e = _servo4Pos -> -> 180 `i `uc ]
+"348
+[; ;application.c: 348:                   }
+}
+[e :U 362 ]
+"349
+[; ;application.c: 349:                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_12 , servo4Pos );
+[e ( _Servo_SetAngle (4 , , , -> &U _i2c_obj `*CS316 -> &U _servo_driver_obj `*CS318 . `E3460 11 _servo4Pos ]
+"350
+[; ;application.c: 350:                   break;
+[e $U 332  ]
+"352
+[; ;application.c: 352:              case 77:
+[e :U 363 ]
+"354
+[; ;application.c: 354:                  Get_Temp_HUM(&RH_Decimal, &RH_Integral, &T_Decimal, &T_Integral, &Checksum);
+[e ( _Get_Temp_HUM (4 , , , , &U _RH_Decimal &U _RH_Integral &U _T_Decimal &U _T_Integral &U _Checksum ]
+"355
+[; ;application.c: 355:                  break;
+[e $U 332  ]
+"356
+[; ;application.c: 356:              case 78:
+[e :U 364 ]
+"358
+[; ;application.c: 358:                  Get_Distance(&ultrasonic,&timer0,&distance);
+[e ( _Get_Distance (3 , , -> &U _ultrasonic `*CS325 -> &U _timer0 `*CS324 &U _distance ]
+"359
+[; ;application.c: 359:                  break;
+[e $U 332  ]
+"360
+[; ;application.c: 360:              case 79:
+[e :U 365 ]
+"362
+[; ;application.c: 362:                  GPS_Service();
+[e ( _GPS_Service ..  ]
+"363
+[; ;application.c: 363:                  break;
+[e $U 332  ]
+"364
+[; ;application.c: 364:              default:
+[e :U 366 ]
+"366
+[; ;application.c: 366:                    break;
+[e $U 332  ]
+"367
+[; ;application.c: 367:         }
+}
+[e $U 332  ]
+[e :U 333 ]
+[e [\ -> _datarecive `i , $ -> 0 `i 334
+ , $ -> 1 `i 335
+ , $ -> 2 `i 336
+ , $ -> 3 `i 337
+ , $ -> 4 `i 338
+ , $ -> 5 `i 339
+ , $ -> 6 `i 340
+ , $ -> 7 `i 341
+ , $ -> 8 `i 342
+ , $ -> 9 `i 343
+ , $ -> 10 `i 344
+ , $ -> 16 `i 345
+ , $ -> 17 `i 346
+ , $ -> 18 `i 347
+ , $ -> 19 `i 349
+ , $ -> 20 `i 351
+ , $ -> 21 `i 353
+ , $ -> 22 `i 355
+ , $ -> 23 `i 357
+ , $ -> 24 `i 359
+ , $ -> 25 `i 361
+ , $ -> 77 `i 363
+ , $ -> 78 `i 364
+ , $ -> 79 `i 365
+ 366 ]
+[e :U 332 ]
+"368
+[; ;application.c: 368:     }
+}
+[e :U 329 ]
+[e $U 330  ]
+[e :U 331 ]
+"369
+[; ;application.c: 369:     return 0;
 [e ) -> 0 `i ]
-[e $UE 321  ]
-"49
-[; ;application.c: 49: }
-[e :UE 321 ]
+[e $UE 328  ]
+"370
+[; ;application.c: 370: }
+[e :UE 328 ]
 }
-"50
-[; ;application.c: 50: void application_intialize(void)
+"371
+[; ;application.c: 371: void application_intialize(void)
 [v _application_intialize `(v ~T0 @X0 1 ef ]
-"51
-[; ;application.c: 51: {
+"372
+[; ;application.c: 372: {
 {
 [e :U _application_intialize ]
 [f ]
-"52
-[; ;application.c: 52:     GPIO_Pin_Initialize(&pinc0);
-[e ( _GPIO_Pin_Initialize (1 -> &U _pinc0 `*CS306 ]
-"53
-[; ;application.c: 53:     Robot_Nav_Init();
+"373
+[; ;application.c: 373:     GPIO_Pin_Initialize(&TEST_PIN);
+[e ( _GPIO_Pin_Initialize (1 -> &U _TEST_PIN `*CS306 ]
+"374
+[; ;application.c: 374:     GPIO_Pin_Initialize(&selector);
+[e ( _GPIO_Pin_Initialize (1 -> &U _selector `*CS306 ]
+"375
+[; ;application.c: 375:     Robot_Nav_Init();
 [e ( _Robot_Nav_Init ..  ]
-"56
-[; ;application.c: 56: }
-[e :UE 325 ]
+"376
+[; ;application.c: 376:     Ecu_Stepper_Init(&stepper_base);
+[e ( _Ecu_Stepper_Init (1 &U _stepper_base ]
+"377
+[; ;application.c: 377:     Ultra_Sonic_Init(&ultrasonic,&timer0);
+[e ( _Ultra_Sonic_Init (2 , -> &U _ultrasonic `*CS325 -> &U _timer0 `*CS324 ]
+"378
+[; ;application.c: 378:     EUSART_Async_Init(&_uart_obj);
+[e ( _EUSART_Async_Init (1 -> &U __uart_obj `*CS309 ]
+"380
+[; ;application.c: 380: }
+[e :UE 367 ]
+}
+"382
+[; ;application.c: 382: void usart_isr (void)
+[v _usart_isr `(v ~T0 @X0 1 ef ]
+"383
+[; ;application.c: 383: {
+{
+[e :U _usart_isr ]
+[f ]
+"384
+[; ;application.c: 384:     EUSART_Async_Read_Data(&_uart_obj,&datarecive);
+[e ( _EUSART_Async_Read_Data (2 , -> &U __uart_obj `*CS309 -> &U _datarecive `*us ]
+"385
+[; ;application.c: 385:     Bluetooth_Send_Data_Non_Blocking(&_uart_obj,datasend);
+[e ( _Bluetooth_Send_Data_Non_Blocking (2 , -> &U __uart_obj `*CS309 _datasend ]
+"386
+[; ;application.c: 386:     GPIO_Pin_Toggle_Logic(&TEST_PIN);
+[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _TEST_PIN `*CS306 ]
+"387
+[; ;application.c: 387: }
+[e :UE 368 ]
+}
+"388
+[; ;application.c: 388: void GPS_Service (void)
+[v _GPS_Service `(v ~T0 @X0 1 ef ]
+"389
+[; ;application.c: 389: {
+{
+[e :U _GPS_Service ]
+[f ]
+"390
+[; ;application.c: 390:     uint8 key=1;
+[v _key `uc ~T0 @X0 1 a ]
+[e = _key -> -> 1 `i `uc ]
+"391
+[; ;application.c: 391:     (PIE1bits.RCIE = 0);
+[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
+"392
+[; ;application.c: 392:     GPIO_Pin_Write_Logic(&selector,GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U _selector `*CS306 . `E3185 1 ]
+"394
+[; ;application.c: 394:     while (key)
+[e $U 370  ]
+[e :U 371 ]
+"395
+[; ;application.c: 395:     {
+{
+"396
+[; ;application.c: 396:         EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> &U _gpstemp `*us ]
+"397
+[; ;application.c: 397:         if ('$'==gpstemp)
+[e $ ! == -> 36 `ui -> _gpstemp `ui 373  ]
+"398
+[; ;application.c: 398:         {
+{
+"399
+[; ;application.c: 399:             while (key)
+[e $U 374  ]
+[e :U 375 ]
+"400
+[; ;application.c: 400:             {
+{
+"401
+[; ;application.c: 401:                     EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> &U _gpstemp `*us ]
+"402
+[; ;application.c: 402:                     if (','==gpstemp)
+[e $ ! == -> 44 `ui -> _gpstemp `ui 377  ]
+"403
+[; ;application.c: 403:                     {
+{
+"404
+[; ;application.c: 404:                         counter++;
+[e ++ _counter -> -> 1 `i `uc ]
+"405
+[; ;application.c: 405:                         if (3==counter)
+[e $ ! == -> 3 `i -> _counter `i 378  ]
+"406
+[; ;application.c: 406:                         {
+{
+"407
+[; ;application.c: 407:                             i=0;
+[e = _i -> -> 0 `i `uc ]
+"409
+[; ;application.c: 409:                             do
+[e :U 381 ]
+"410
+[; ;application.c: 410:                             {
+{
+"411
+[; ;application.c: 411:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(latitude+i));
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> + &U _latitude * -> -> _i `i `x -> -> # *U &U _latitude `i `x `*us ]
+"412
+[; ;application.c: 412:                                 i++;
+[e ++ _i -> -> 1 `i `uc ]
+"413
+[; ;application.c: 413:                             }while(','!=(latitude[i-1]));
+}
+[e $ != -> 44 `ui -> *U + &U _latitude * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _latitude `ui `ux `ui 381  ]
+[e :U 380 ]
+"414
+[; ;application.c: 414:                             counter++;
+[e ++ _counter -> -> 1 `i `uc ]
+"416
+[; ;application.c: 416:                         }
+}
+[e $U 382  ]
+"417
+[; ;application.c: 417:                         else if(5==counter)
+[e :U 378 ]
+[e $ ! == -> 5 `i -> _counter `i 383  ]
+"418
+[; ;application.c: 418:                         {
+{
+"419
+[; ;application.c: 419:                             i=0;
+[e = _i -> -> 0 `i `uc ]
+"421
+[; ;application.c: 421:                             do{
+[e :U 386 ]
+{
+"422
+[; ;application.c: 422:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(longtude+i));
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> + &U _longtude * -> -> _i `i `x -> -> # *U &U _longtude `i `x `*us ]
+"423
+[; ;application.c: 423:                                 i++;
+[e ++ _i -> -> 1 `i `uc ]
+"424
+[; ;application.c: 424:                             }while(','!=(longtude[i-1]));
+}
+[e $ != -> 44 `ui -> *U + &U _longtude * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _longtude `ui `ux `ui 386  ]
+[e :U 385 ]
+"425
+[; ;application.c: 425:                             key=0;
+[e = _key -> -> 0 `i `uc ]
+"426
+[; ;application.c: 426:                         }
+}
+[e :U 383 ]
+[e :U 382 ]
+"427
+[; ;application.c: 427:                     }
+}
+[e :U 377 ]
+"428
+[; ;application.c: 428:             }
+}
+[e :U 374 ]
+"399
+[; ;application.c: 399:             while (key)
+[e $ != -> _key `i -> 0 `i 375  ]
+[e :U 376 ]
+"429
+[; ;application.c: 429:         }
+}
+[e :U 373 ]
+"430
+[; ;application.c: 430:     }
+}
+[e :U 370 ]
+"394
+[; ;application.c: 394:     while (key)
+[e $ != -> _key `i -> 0 `i 371  ]
+[e :U 372 ]
+"431
+[; ;application.c: 431:       _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"432
+[; ;application.c: 432:     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U _selector `*CS306 . `E3185 0 ]
+"433
+[; ;application.c: 433:     (PIE1bits.RCIE = 1) ;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"434
+[; ;application.c: 434: }
+[e :UE 369 ]
 }

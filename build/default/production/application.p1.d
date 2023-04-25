@@ -7,11 +7,15 @@ MCAL/GPIO/../device_config.h  \
 MCAL/compiler.h  \
 MCAL/GPIO/../mcal_std_types.h  \
 MCAL/GPIO/hal_gpio_cfg.h  \
+MCAL/EUSART/mcal_EUSART.h  \
+MCAL/EUSART/../Interrupts/mcal_internal_interrupt.h  \
+MCAL/EUSART/../Interrupts/mcal_interrupt_config.h  \
+MCAL/EUSART/../Interrupts/mcal_interrupt_gen_config.h  \
+MCAL/EUSART/mcal_EUSART_config.h  \
+ECU/Bluetooth/Bluetooth.h  \
+ECU/Bluetooth/Bluetooth_cfg.h  \
 Robot/Navigation/robot_navigation.h  \
 Robot/Navigation/../../MCAL/TIMER2/mcal_timer2.h  \
-Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_internal_interrupt.h  \
-Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_config.h  \
-Robot/Navigation/../../MCAL/TIMER2/../Interrupts/mcal_interrupt_gen_config.h  \
 Robot/Navigation/../../MCAL/CCP/hal_ccp.h  \
 Robot/Navigation/../../MCAL/CCP/ccp_cfg.h  \
 Robot/Navigation/../../MCAL/I2C/mcal_i2c.h  \
@@ -22,4 +26,13 @@ Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h  \
 Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c_cfg.h  \
 ECU/LCD_for_test_gps/ecu_char_lcd.h  \
 ECU/LCD_for_test_gps/ecu_char_lcd_cnfg.h  \
-MCAL/Interrupts/mcal_external_interrupt.h 
+MCAL/Interrupts/mcal_external_interrupt.h  \
+ECU/stepper/ecu_stepper.h  \
+Robot/sensors/DHT11/DHT.h  \
+Robot/sensors/DHT11/DHT_CFG.h  \
+Robot/sensors/ultrasonic/ultrasonic.h  \
+Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0.h  \
+Robot/sensors/ultrasonic/../../../MCAL/Timer0/hal_timer0_config.h  \
+MCAL/WATCH_DOG_TIMER/WDT.h  \
+MCAL/ADC/mcal_adc.h  \
+MCAL/ADC/mcal_adc_cfg.h 

@@ -13,8 +13,11 @@
 #define PULSE_DURATION_HIGH_MICRO_SEC 1000
 #define PULSE_DURATION_LOW_MICRO_SEC  1000
 
-#define PULSE_DURATION_HIGH_MILLI_SEC 1
-#define PULSE_DURATION_LOW_MILLI_SEC  1
+#define PULSE_DURATION_HIGH_MILLI_SEC 500
+#define PULSE_DURATION_LOW_MILLI_SEC  500
+
+#define STEPPER_ONE_DEG_PULSE_NO 9  //16th devider mode  real val 8.8888889
+
 
 typedef struct 
 {
@@ -33,6 +36,10 @@ typedef enum
 Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper);
 Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper);
 Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir);
+Std_ReturnType stepper_move_one_deg_cw(stepper_config_st *stepper);
+Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper);
+
+
 
 
 

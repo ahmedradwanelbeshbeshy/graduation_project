@@ -5131,14 +5131,7 @@ Std_ReturnType GPIO_Port_Write_Logic (port_index_et port,uint8 logic);
 Std_ReturnType GPIO_Port_Read_Logic (port_index_et port,uint8 *logic);
 Std_ReturnType GPIO_Port_Toggle_Logic (port_index_et port);
 # 11 "ECU/stepper/ecu_stepper.h" 2
-
-
-
-
-
-
-
-
+# 22 "ECU/stepper/ecu_stepper.h"
 typedef struct
 {
     pin_config_st step_pin ;
@@ -5156,6 +5149,8 @@ typedef enum
 Std_ReturnType Ecu_Stepper_Init(stepper_config_st *stepper);
 Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper);
 Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper_direction_et dir);
+Std_ReturnType stepper_move_one_deg_cw(stepper_config_st *stepper);
+Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper);
 # 7 "ECU/stepper/ecu_stepper.c" 2
 
 
@@ -5185,9 +5180,9 @@ Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
     else
     {
         GPIO_Pin_Write_Logic(&(stepper->step_pin) , 1);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
+        _delay((unsigned long)((500)*(8000000/4000.0)));
         GPIO_Pin_Write_Logic(&(stepper->step_pin) , 0);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
+        _delay((unsigned long)((500)*(8000000/4000.0)));
 
     }
     return (Std_ReturnType) 0x01 ;
@@ -5210,4 +5205,35 @@ Std_ReturnType Ecu_Stepper_Change_Direction(stepper_config_st *stepper , stepper
         }
     }
     return (Std_ReturnType) 0x01 ;
+}
+Std_ReturnType stepper_move_one_deg_cw(stepper_config_st *stepper)
+{
+    if(((void*)0) == stepper)
+    {
+        return (Std_ReturnType) 0x00 ;
+    }
+    else
+    {
+       GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_HIGH);
+        for(int i=0; i<= 9; i++)
+        {
+            Ecu_Stepper_Step(stepper);
+        }
+    }
+}
+
+Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper)
+{
+    if(((void*)0) == stepper)
+    {
+        return (Std_ReturnType) 0x00 ;
+    }
+    else
+    {
+        GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
+        for(int i=0; i<= 9; i++)
+        {
+            Ecu_Stepper_Step(stepper);
+        }
+    }
 }
