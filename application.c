@@ -111,7 +111,7 @@ uart_config_st _uart_obj = {
 
 pin_config_st selector={
    .direction=GPIO_DIRECTION_OUTPUT,
-   .logic=GPIO_LOW,
+   .logic=GPIO_HIGH,
    .pin=GPIO_PIN4,
    .port=PORTD_INDEX 
 };
@@ -215,8 +215,12 @@ int main()
     GPIO_Pin_Toggle_Logic(&TEST_PIN);
     while(1)
     {
+     
+     GPIO_Pin_Toggle_Logic(&TEST_PIN);
+    __delay_ms(30);
 switch(datarecive)
         {
+
             case NOTHING:
                 //no thing
                 Robot_Steer_Stop();
@@ -370,13 +374,38 @@ switch(datarecive)
 }
 void application_intialize(void)
 {
+    /*initialize test pin & selector pin which select bluetooth or gps   */
+    
     GPIO_Pin_Initialize(&TEST_PIN);
     GPIO_Pin_Initialize(&selector);
-    Robot_Nav_Init();
+    
+    
+    /*initialize Stepper pins*/
     Ecu_Stepper_Init(&stepper_base);
+
+    /*initialize dc driver pins & servo driver */
+    
+    Robot_Nav_Init();
+    
+    
+    /*set all steer servos on angle 90*/
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W1 , NAV_SERVO_NO_STEER_ANGLE );    // W1 
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W2 , NAV_SERVO_NO_STEER_ANGLE );    // W2
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W5 , NAV_SERVO_NO_STEER_ANGLE );    // W5 
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W6 , NAV_SERVO_NO_STEER_ANGLE );    // W6
+    
+    /*set all arm servos on angle 0*/
+    
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj ,  SERVO_JOINNT_1 , 0);    // JOINNT_1 
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj ,  SERVO_JOINNT_2 , 0);    // JOINNT_2 
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj ,  SERVO_JOINNT_3 , 0);    // JOINNT_3 
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj ,  SERVO_JOINNT_4 , 0);    // JOINNT_4 
+    
+    /*initialize UltraSonic pins*/
     Ultra_Sonic_Init(&ultrasonic,&timer0);
-    EUSART_Async_Init(&_uart_obj);
-//    ADC_Init(&battery_adc);    
+    
+      /*initialize ADC pins*/
+    //ADC_Init(&battery_adc);    
 }
 
 void usart_isr (void)

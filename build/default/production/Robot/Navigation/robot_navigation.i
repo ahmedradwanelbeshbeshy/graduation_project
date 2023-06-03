@@ -5358,7 +5358,7 @@ Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st
 Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
 Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
 # 39 "Robot/Navigation/./robot_navigation.h" 2
-# 102 "Robot/Navigation/./robot_navigation.h"
+# 141 "Robot/Navigation/./robot_navigation.h"
 typedef enum {
     NAV_MOV_STOPPED = 0,
     NAV_MOV_FORW,
@@ -5368,7 +5368,7 @@ typedef enum {
     NAV_MOV_BACKW_STEER_RIGHT,
     NAV_MOV_BACKW_STEER_LEFT
 }Nav_Movement_State_et;
-# 123 "Robot/Navigation/./robot_navigation.h"
+# 162 "Robot/Navigation/./robot_navigation.h"
 Std_ReturnType Robot_Nav_Init(void);
 Std_ReturnType Robot_Steer_Stop(void);
 Std_ReturnType Robot_Move_Forward(void);
@@ -5427,8 +5427,8 @@ Std_ReturnType Robot_Nav_Init(void)
 
         CCP_Init(&CCP1_Obj);
         CCP_Init(&CCP2_Obj);
-        CCP_PWM_Set_Duty(&CCP1_Obj , 95);
-        CCP_PWM_Set_Duty(&CCP2_Obj , 95);
+        CCP_PWM_Set_Duty(&CCP1_Obj , 0);
+        CCP_PWM_Set_Duty(&CCP2_Obj , 0);
         CCP_PWM_Start(&CCP1_Obj);
         CCP_PWM_Start(&CCP2_Obj);
 
@@ -5494,16 +5494,16 @@ Std_ReturnType Robot_Steer_Right_Forward(void)
 
       Robot_Steer_Stop();
 
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_1 , 45 );
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_2 , 25 );
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_3 , 135 );
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_4 , 115 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 0 , 135 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 1 , 120 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 2 , 45 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 3 , 30 );
 
       ECU_DC_Motor_Run_Right(&W1_W3_W5_Motor_Control);
       ECU_DC_Motor_Run_Right(&W2_W4_W6_Motor_Control);
 
       CCP_PWM_Set_Duty(&CCP1_Obj , 95);
-      CCP_PWM_Set_Duty(&CCP2_Obj , 85);
+      CCP_PWM_Set_Duty(&CCP2_Obj , 95);
 
     return ret_val ;
 }
@@ -5514,15 +5514,15 @@ Std_ReturnType Robot_Steer_Left_Forward(void)
 
       Robot_Steer_Stop();
 
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_1 , 115 );
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_2 , 135 );
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_3 , 25 );
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_4 , 45 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 0 , 45 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 1 , 30 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 2 , 135 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 3 , 120 );
 
       ECU_DC_Motor_Run_Right(&W1_W3_W5_Motor_Control);
       ECU_DC_Motor_Run_Right(&W2_W4_W6_Motor_Control);
 
-      CCP_PWM_Set_Duty(&CCP1_Obj , 85);
+      CCP_PWM_Set_Duty(&CCP1_Obj , 95);
       CCP_PWM_Set_Duty(&CCP2_Obj , 95);
 
 
@@ -5530,10 +5530,44 @@ Std_ReturnType Robot_Steer_Left_Forward(void)
 }
 Std_ReturnType Robot_Steer_Right_Backward(void)
 {
+       Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
+
+
+      Robot_Steer_Stop();
+
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 0 , 135 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 1 , 120 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 2 , 45 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 3 , 30 );
+
+      ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+      ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+
+      CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+      CCP_PWM_Set_Duty(&CCP2_Obj , 95);
+
+    return ret_val;
 
 }
 Std_ReturnType Robot_Steer_Left_Backward(void)
 {
+      Std_ReturnType ret_val = (Std_ReturnType) 0x01 ;
+
+      Robot_Steer_Stop();
+
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 0 , 45 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 1 , 30 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 2 , 135 );
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , 3 , 120 );
+
+      ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+      ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+
+      CCP_PWM_Set_Duty(&CCP1_Obj , 95);
+      CCP_PWM_Set_Duty(&CCP2_Obj , 95);
+
+
+    return ret_val ;
 
 }
 Std_ReturnType Robot_Steer_Stop(void)

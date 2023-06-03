@@ -47,8 +47,8 @@ Std_ReturnType Robot_Nav_Init(void)
         /* Init CCP and set PWM */
         CCP_Init(&CCP1_Obj);
         CCP_Init(&CCP2_Obj);
-        CCP_PWM_Set_Duty(&CCP1_Obj , NAV_SPEED_W1_W3_W5_DEFAULT);
-        CCP_PWM_Set_Duty(&CCP2_Obj , NAV_SPEED_W1_W3_W5_DEFAULT);
+        CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_stop);
+        CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_stop);
         CCP_PWM_Start(&CCP1_Obj);
         CCP_PWM_Start(&CCP2_Obj);
         
@@ -114,16 +114,16 @@ Std_ReturnType Robot_Steer_Right_Forward(void)
       /*first we stop dc motors*/
       Robot_Steer_Stop();
       /*then set all servos on the desires angle*/
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_1 , NAV_SERVO_STEER_RIGHT_W1_ANGLE );    // W1
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_2 , NAV_SERVO_STEER_RIGHT_W2_ANGLE );    // W2
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_3 , NAV_SERVO_STEER_RIGHT_W5_ANGLE );    // W5
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_4 , NAV_SERVO_STEER_RIGHT_W6_ANGLE );    // W6
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W1 , NAV_SERVO_STEER_RIGHT_FORWARD_W1_ANGLE );    // W1
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W2 , NAV_SERVO_STEER_RIGHT_FORWARD_W2_ANGLE );    // W2
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W5 , NAV_SERVO_STEER_RIGHT_FORWARD_W5_ANGLE );    // W5
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W6 , NAV_SERVO_STEER_RIGHT_FORWARD_W6_ANGLE );    // W6
       /*set the direction of rotation */
       ECU_DC_Motor_Run_Right(&W1_W3_W5_Motor_Control);
       ECU_DC_Motor_Run_Right(&W2_W4_W6_Motor_Control);
       /*set  the speed and run  motors */
-      CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_RIGHT_W1_row_SPEED);           
-      CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_RIGHT_W2_row_SPEED);
+      CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W1_row_SPEED);           
+      CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W2_row_SPEED);
     
     return ret_val ;
 }
@@ -134,26 +134,60 @@ Std_ReturnType Robot_Steer_Left_Forward(void)
      /*first we stop dc motors*/
       Robot_Steer_Stop();
       /*then set all servos on the desires angle*/
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_1 , NAV_SERVO_STEER_LEFT_W1_ANGLE );    // W1
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_2 , NAV_SERVO_STEER_LEFT_W2_ANGLE );    // W2
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_3 , NAV_SERVO_STEER_LEFT_W5_ANGLE );    // W5
-      Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_4 , NAV_SERVO_STEER_LEFT_W6_ANGLE );    // W6
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W1 , NAV_SERVO_STEER_LEFT_FORWARD_W1_ANGLE );    // W1
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W2 , NAV_SERVO_STEER_LEFT_FORWARD_W2_ANGLE );    // W2
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W5 , NAV_SERVO_STEER_LEFT_FORWARD_W5_ANGLE );    // W5
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W6 , NAV_SERVO_STEER_LEFT_FORWARD_W6_ANGLE );    // W6
       /*set the direction of rotation */
       ECU_DC_Motor_Run_Right(&W1_W3_W5_Motor_Control);
       ECU_DC_Motor_Run_Right(&W2_W4_W6_Motor_Control);
       /*set  the speed and run  motors */
-      CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_LEFT_W1_row_SPEED);           
-      CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_LEFT_W2_row_SPEED);
+      CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_LEFT_FORWARD_W1_row_SPEED);           
+      CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_LEFT_FORWARD_W2_row_SPEED);
     
     
     return ret_val ;
 }
 Std_ReturnType Robot_Steer_Right_Backward(void)
 {
+       Std_ReturnType ret_val = E_OK ;
+    
+      /*first we stop dc motors*/
+      Robot_Steer_Stop();
+      /*then set all servos on the desires angle*/
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W1 , NAV_SERVO_STEER_RIGHT_BACKWARD_W1_ANGLE );    // W1
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W2 , NAV_SERVO_STEER_RIGHT_BACKWARD_W2_ANGLE );    // W2
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W5 , NAV_SERVO_STEER_RIGHT_BACKWARD_W5_ANGLE );    // W5
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W6 , NAV_SERVO_STEER_RIGHT_BACKWARD_W6_ANGLE );    // W6
+      /*set the direction of rotation */
+      ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+      ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+      /*set  the speed and run  motors */
+      CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_RIGHT_BACKWARD_W1_row_SPEED);           
+      CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_RIGHT_BACKWARD_W2_row_SPEED);
+    
+    return ret_val;
     
 }
 Std_ReturnType Robot_Steer_Left_Backward(void)
 {
+      Std_ReturnType ret_val = E_OK ;
+     /*first we stop dc motors*/
+      Robot_Steer_Stop();
+      /*then set all servos on the desires angle*/
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W1 , NAV_SERVO_STEER_LEFT_BACKWARD_W1_ANGLE );    // W1
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W2 , NAV_SERVO_STEER_LEFT_BACKWARD_W2_ANGLE );    // W2
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W5 , NAV_SERVO_STEER_LEFT_BACKWARD_W5_ANGLE );    // W5
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W6 , NAV_SERVO_STEER_LEFT_BACKWARD_W6_ANGLE );    // W6
+      /*set the direction of rotation */
+      ECU_DC_Motor_Run_Left(&W1_W3_W5_Motor_Control);
+      ECU_DC_Motor_Run_Left(&W2_W4_W6_Motor_Control);
+      /*set  the speed and run  motors */
+      CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_LEFT_BACKWARD_W1_row_SPEED);           
+      CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_LEFT_BACKWARD_W2_row_SPEED);
+    
+    
+    return ret_val ;
     
 }
 Std_ReturnType Robot_Steer_Stop(void)

@@ -61,38 +61,77 @@ servo3      servo4
 
 
 
-/* Servo Steer Right Angle */
-#define NAV_SERVO_STEER_RIGHT_W1_ANGLE   45 
-#define NAV_SERVO_STEER_RIGHT_W2_ANGLE   25
-#define NAV_SERVO_STEER_RIGHT_W3_ANGLE   0 /* No Steering Servo */
-#define NAV_SERVO_STEER_RIGHT_W4_ANGLE   0 /* No Steering Servo */
-#define NAV_SERVO_STEER_RIGHT_W5_ANGLE   135
-#define NAV_SERVO_STEER_RIGHT_W6_ANGLE   115
+/* Servo Steer Right FORWARD Angle */
+#define NAV_SERVO_STEER_RIGHT_FORWARD_W1_ANGLE   135 
+#define NAV_SERVO_STEER_RIGHT_FORWARD_W2_ANGLE   120
+#define NAV_SERVO_STEER_RIGHT_FORWARD_W3_ANGLE   0 /* No Steering Servo */
+#define NAV_SERVO_STEER_RIGHT_FORWARD_W4_ANGLE   0 /* No Steering Servo */
+#define NAV_SERVO_STEER_RIGHT_FORWARD_W5_ANGLE   45
+#define NAV_SERVO_STEER_RIGHT_FORWARD_W6_ANGLE   30
 
-/* Servo Steer Left Angle */
-#define NAV_SERVO_STEER_LEFT_W1_ANGLE   115
-#define NAV_SERVO_STEER_LEFT_W2_ANGLE   135
-#define NAV_SERVO_STEER_LEFT_W3_ANGLE    0 /* No Steering Servo */
-#define NAV_SERVO_STEER_LEFT_W4_ANGLE    0 /* No Steering Servo */
-#define NAV_SERVO_STEER_LEFT_W5_ANGLE   25
-#define NAV_SERVO_STEER_LEFT_W6_ANGLE   45
+/* Servo Steer Right BACKWARD Angle */
+#define NAV_SERVO_STEER_RIGHT_BACKWARD_W1_ANGLE   135 
+#define NAV_SERVO_STEER_RIGHT_BACKWARD_W2_ANGLE   120
+#define NAV_SERVO_STEER_RIGHT_BACKWARD_W3_ANGLE   0 /* No Steering Servo */
+#define NAV_SERVO_STEER_RIGHT_BACKWARD_W4_ANGLE   0 /* No Steering Servo */
+#define NAV_SERVO_STEER_RIGHT_BACKWARD_W5_ANGLE   45
+#define NAV_SERVO_STEER_RIGHT_BACKWARD_W6_ANGLE   30
+
+/* Servo Steer Left FORWARD Angle */
+#define NAV_SERVO_STEER_LEFT_FORWARD_W1_ANGLE   45
+#define NAV_SERVO_STEER_LEFT_FORWARD_W2_ANGLE   30
+#define NAV_SERVO_STEER_LEFT_FORWARD_W3_ANGLE    0 /* No Steering Servo */
+#define NAV_SERVO_STEER_LEFT_FORWARD_W4_ANGLE    0 /* No Steering Servo */
+#define NAV_SERVO_STEER_LEFT_FORWARD_W5_ANGLE   135
+#define NAV_SERVO_STEER_LEFT_FORWARD_W6_ANGLE   120
+
+/* Servo Steer Left BACKWARD Angle */
+#define NAV_SERVO_STEER_LEFT_BACKWARD_W1_ANGLE   45
+#define NAV_SERVO_STEER_LEFT_BACKWARD_W2_ANGLE   30
+#define NAV_SERVO_STEER_LEFT_BACKWARD_W3_ANGLE    0 /* No Steering Servo */
+#define NAV_SERVO_STEER_LEFT_BACKWARD_W4_ANGLE    0 /* No Steering Servo */
+#define NAV_SERVO_STEER_LEFT_BACKWARD_W5_ANGLE   135
+#define NAV_SERVO_STEER_LEFT_BACKWARD_W6_ANGLE   120
 
 
 /* Starting Wheels Speed */
 #define NAV_SPEED_W2_W4_W6_DEFAULT      95
 #define NAV_SPEED_W1_W3_W5_DEFAULT      95
 
-/* Servo Steer Right Speed */
+/* Servo Steer Right_FORWARD Speed */
 
-#define NAV_DC_MOTOR_STEER_RIGHT_W1_row_SPEED 95
-#define NAV_DC_MOTOR_STEER_RIGHT_W2_row_SPEED 85
+#define NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W1_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W2_row_SPEED 95
 
-/* Servo Steer Left Speed */
+/* Servo Steer Left_FORWARD Speed */
 
-#define NAV_DC_MOTOR_STEER_LEFT_W1_row_SPEED 85
-#define NAV_DC_MOTOR_STEER_LEFT_W2_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_LEFT_FORWARD_W1_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_LEFT_FORWARD_W2_row_SPEED 95
+
+/* Servo Steer Right_BACKWARD Speed */
+
+#define NAV_DC_MOTOR_STEER_RIGHT_BACKWARD_W1_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_RIGHT_BACKWARD_W2_row_SPEED 95
+
+/* Servo Steer Left_BACKWARD Speed */
+
+#define NAV_DC_MOTOR_STEER_LEFT_BACKWARD_W1_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_LEFT_BACKWARD_W2_row_SPEED 95
 
 #define NAV_DC_MOTOR_stop 0
+
+///////////servos///////////
+#define SERVO_W1 0
+#define SERVO_W2 1
+#define SERVO_W5 2
+#define SERVO_W6 3
+
+#define SERVO_JOINNT_1 4
+#define SERVO_JOINNT_2 5
+#define SERVO_JOINNT_3 6
+#define SERVO_JOINNT_4 7
+
+
 
 /******************************************** Macro Functions *************************************************************/
 

@@ -5455,7 +5455,7 @@ Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st
 Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
 Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
 # 39 "./Robot/Navigation/robot_navigation.h" 2
-# 102 "./Robot/Navigation/robot_navigation.h"
+# 141 "./Robot/Navigation/robot_navigation.h"
 typedef enum {
     NAV_MOV_STOPPED = 0,
     NAV_MOV_FORW,
@@ -5465,7 +5465,7 @@ typedef enum {
     NAV_MOV_BACKW_STEER_RIGHT,
     NAV_MOV_BACKW_STEER_LEFT
 }Nav_Movement_State_et;
-# 123 "./Robot/Navigation/robot_navigation.h"
+# 162 "./Robot/Navigation/robot_navigation.h"
 Std_ReturnType Robot_Nav_Init(void);
 Std_ReturnType Robot_Steer_Stop(void);
 Std_ReturnType Robot_Move_Forward(void);
@@ -5790,7 +5790,7 @@ Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel
                                                                            adc_result_t*_result);
 Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel);
 # 23 "./application.h" 2
-# 59 "./application.h"
+# 91 "./application.h"
 typedef struct {
     uint8_t flag_0 : 1 ;
     uint8_t flag_1 : 1 ;
@@ -5860,7 +5860,7 @@ uart_config_st _uart_obj = {
 
 pin_config_st selector={
    .direction=GPIO_DIRECTION_OUTPUT,
-   .logic=GPIO_LOW,
+   .logic=GPIO_HIGH,
    .pin=GPIO_PIN4,
    .port=PORTD_INDEX
 };
@@ -5956,8 +5956,12 @@ int main()
     GPIO_Pin_Toggle_Logic(&TEST_PIN);
     while(1)
     {
+
+     GPIO_Pin_Toggle_Logic(&TEST_PIN);
+    _delay((unsigned long)((30)*(8000000/4000.0)));
 switch(datarecive)
         {
+
             case 0:
 
                 Robot_Steer_Stop();
@@ -6111,12 +6115,37 @@ switch(datarecive)
 }
 void application_intialize(void)
 {
+
+
     GPIO_Pin_Initialize(&TEST_PIN);
     GPIO_Pin_Initialize(&selector);
-    Robot_Nav_Init();
+
+
+
     Ecu_Stepper_Init(&stepper_base);
+
+
+
+    Robot_Nav_Init();
+
+
+
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 0 , 90 );
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 1 , 90 );
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 2 , 90 );
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 3 , 90 );
+
+
+
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 4 , 0);
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 5 , 0);
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 6 , 0);
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 7 , 0);
+
+
     Ultra_Sonic_Init(&ultrasonic,&timer0);
-    EUSART_Async_Init(&_uart_obj);
+
+
 
 }
 

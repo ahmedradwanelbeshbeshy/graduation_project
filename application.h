@@ -51,6 +51,38 @@
 #define GET_DISTANCE 78
 #define GET_LOCATION 79
 
+/*
+ROBOT CAR MODEL
+    .......
+.../       \...
+:::::Front:::::
+
+W1----------W2
+servo1      servo2
+
+W3----------W4
+
+
+W5----------W6
+servo3      servo4
+:::::Back:::::
+\            /
+ \__________/
+
+*/
+
+///////////servos///////////
+#define SERVO_W1 0
+#define SERVO_W2 1
+#define SERVO_W5 2
+#define SERVO_W6 3
+
+#define SERVO_JOINNT_1 4
+#define SERVO_JOINNT_2 5
+#define SERVO_JOINNT_3 6
+#define SERVO_JOINNT_4 7
+
+
 
 /*functions like macros section*/
 
