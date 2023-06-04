@@ -88,10 +88,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _application_intialize `(v ~T0 @X0 0 ef ]
 "89 ./MCAL/ADC/../GPIO/hal_gpio.h
 [v _GPIO_Pin_Toggle_Logic `(uc ~T0 @X0 0 ef1`*CS306 ]
-[v F3167 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF3167 ~T0 @X0 0 e ]
-[p i __delay ]
 "163 ./Robot/Navigation/robot_navigation.h
 [; ;./Robot/Navigation/robot_navigation.h: 163: Std_ReturnType Robot_Steer_Stop(void);
 [v _Robot_Steer_Stop `(uc ~T0 @X0 0 ef ]
@@ -146,7 +142,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ./Robot/sensors/ultrasonic/ultrasonic.h
 [; ;./Robot/sensors/ultrasonic/ultrasonic.h: 29: Std_ReturnType Ultra_Sonic_Init(const ultrasonic_config_st* ultrasonic_object,const timer0_config_st *_tmr0_config);
 [v _Ultra_Sonic_Init `(uc ~T0 @X0 0 ef2`*CS325`*CS324 ]
-"235 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
+"188 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
+[v _EUSART_Async_Init `(uc ~T0 @X0 0 ef1`*CS309 ]
+"235
 [v _EUSART_Async_Read_Data `(uc ~T0 @X0 0 ef2`*CS309`*us ]
 "32 ./ECU/Bluetooth/Bluetooth.h
 [; ;./ECU/Bluetooth/Bluetooth.h: 32: Std_ReturnType Bluetooth_Send_Data_Non_Blocking(const uart_config_st *_uart_obj , uint8_t data );
@@ -166,6 +164,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS306`E3185 ]
 "238 ./ECU/Bluetooth/../../MCAL/EUSART/mcal_EUSART.h
 [v _EUSART_Async_Read_Data_Blocking `(uc ~T0 @X0 0 ef2`*CS309`*us ]
+[v F3167 `(v ~T0 @X0 1 tf1`ul ]
+"203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
+[v __delay `JF3167 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [; <" SSPMSK equ 0F77h ;# ">
 "124
@@ -515,44 +517,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "87
-[; ;application.c: 87: uint8 gps=1;
-[v _gps `uc ~T0 @X0 1 e ]
+[; ;application.c: 87: volatile uint8 gps=1;
+[v _gps `Vuc ~T0 @X0 1 e ]
 [i _gps
 -> -> 1 `i `uc
 ]
 "88
-[; ;application.c: 88: uint8 blue=1;
-[v _blue `uc ~T0 @X0 1 e ]
+[; ;application.c: 88: volatile uint8 blue=1;
+[v _blue `Vuc ~T0 @X0 1 e ]
 [i _blue
 -> -> 1 `i `uc
 ]
 "89
-[; ;application.c: 89: uint8 gpstemp=0;
-[v _gpstemp `uc ~T0 @X0 1 e ]
+[; ;application.c: 89: volatile uint8 gpstemp=0;
+[v _gpstemp `Vuc ~T0 @X0 1 e ]
 [i _gpstemp
 -> -> 0 `i `uc
 ]
 "90
-[; ;application.c: 90: uint8 counter;
-[v _counter `uc ~T0 @X0 1 e ]
+[; ;application.c: 90: volatile uint8 counter;
+[v _counter `Vuc ~T0 @X0 1 e ]
 "91
-[; ;application.c: 91: uint8 datasend='w';
-[v _datasend `uc ~T0 @X0 1 e ]
+[; ;application.c: 91: volatile uint8 datasend='w';
+[v _datasend `Vuc ~T0 @X0 1 e ]
 [i _datasend
 -> -> 119 `ui `uc
 ]
 "92
-[; ;application.c: 92: uint8 datarecive=0;
-[v _datarecive `uc ~T0 @X0 1 e ]
+[; ;application.c: 92: volatile uint16 datarecive=0;
+[v _datarecive `Vus ~T0 @X0 1 e ]
 [i _datarecive
--> -> 0 `i `uc
+-> -> 0 `i `us
 ]
 "94
-[; ;application.c: 94: uint8 latitude[13];
-[v _latitude `uc ~T0 @X0 -> 13 `i e ]
+[; ;application.c: 94: volatile uint8 latitude[13];
+[v _latitude `Vuc ~T0 @X0 -> 13 `i e ]
 "95
-[; ;application.c: 95: uint8 longtude[13];
-[v _longtude `uc ~T0 @X0 -> 13 `i e ]
+[; ;application.c: 95: volatile uint8 longtude[13];
+[v _longtude `Vuc ~T0 @X0 -> 13 `i e ]
 "97
 [; ;application.c: 97: uint8 i=0;
 [v _i `uc ~T0 @X0 1 e ]
@@ -759,12 +761,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "217
 [; ;application.c: 217:     {
 {
-"219
-[; ;application.c: 219:      GPIO_Pin_Toggle_Logic(&TEST_PIN);
-[e ( _GPIO_Pin_Toggle_Logic (1 -> &U _TEST_PIN `*CS306 ]
-"220
-[; ;application.c: 220:     _delay((unsigned long)((30)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "221
 [; ;application.c: 221: switch(datarecive)
 [e $U 333  ]
@@ -1114,30 +1110,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 332  ]
 [e :U 333 ]
-[e [\ -> _datarecive `i , $ -> 0 `i 334
- , $ -> 1 `i 335
- , $ -> 2 `i 336
- , $ -> 3 `i 337
- , $ -> 4 `i 338
- , $ -> 5 `i 339
- , $ -> 6 `i 340
- , $ -> 7 `i 341
- , $ -> 8 `i 342
- , $ -> 9 `i 343
- , $ -> 10 `i 344
- , $ -> 16 `i 345
- , $ -> 17 `i 346
- , $ -> 18 `i 347
- , $ -> 19 `i 349
- , $ -> 20 `i 351
- , $ -> 21 `i 353
- , $ -> 22 `i 355
- , $ -> 23 `i 357
- , $ -> 24 `i 359
- , $ -> 25 `i 361
- , $ -> 77 `i 363
- , $ -> 78 `i 364
- , $ -> 79 `i 365
+[e [\ -> _datarecive `ui , $ -> -> 0 `i `ui 334
+ , $ -> -> 1 `i `ui 335
+ , $ -> -> 2 `i `ui 336
+ , $ -> -> 3 `i `ui 337
+ , $ -> -> 4 `i `ui 338
+ , $ -> -> 5 `i `ui 339
+ , $ -> -> 6 `i `ui 340
+ , $ -> -> 7 `i `ui 341
+ , $ -> -> 8 `i `ui 342
+ , $ -> -> 9 `i `ui 343
+ , $ -> -> 10 `i `ui 344
+ , $ -> -> 16 `i `ui 345
+ , $ -> -> 17 `i `ui 346
+ , $ -> -> 18 `i `ui 347
+ , $ -> -> 19 `i `ui 349
+ , $ -> -> 20 `i `ui 351
+ , $ -> -> 21 `i `ui 353
+ , $ -> -> 22 `i `ui 355
+ , $ -> -> 23 `i `ui 357
+ , $ -> -> 24 `i `ui 359
+ , $ -> -> 25 `i `ui 361
+ , $ -> -> 77 `i `ui 363
+ , $ -> -> 78 `i `ui 364
+ , $ -> -> 79 `i `ui 365
  366 ]
 [e :U 332 ]
 "372
@@ -1201,184 +1197,187 @@ Version 4.0 HI-TECH Software Intermediate Code
 "405
 [; ;application.c: 405:     Ultra_Sonic_Init(&ultrasonic,&timer0);
 [e ( _Ultra_Sonic_Init (2 , -> &U _ultrasonic `*CS325 -> &U _timer0 `*CS324 ]
-"409
-[; ;application.c: 409: }
+"408
+[; ;application.c: 408:     EUSART_Async_Init(&_uart_obj);
+[e ( _EUSART_Async_Init (1 -> &U __uart_obj `*CS309 ]
+"413
+[; ;application.c: 413: }
 [e :UE 367 ]
 }
-"411
-[; ;application.c: 411: void usart_isr (void)
+"415
+[; ;application.c: 415: void usart_isr (void)
 [v _usart_isr `(v ~T0 @X0 1 ef ]
-"412
-[; ;application.c: 412: {
+"416
+[; ;application.c: 416: {
 {
 [e :U _usart_isr ]
 [f ]
-"413
-[; ;application.c: 413:     EUSART_Async_Read_Data(&_uart_obj,&datarecive);
+"417
+[; ;application.c: 417:     EUSART_Async_Read_Data(&_uart_obj,&datarecive);
 [e ( _EUSART_Async_Read_Data (2 , -> &U __uart_obj `*CS309 -> &U _datarecive `*us ]
-"414
-[; ;application.c: 414:     Bluetooth_Send_Data_Non_Blocking(&_uart_obj,datasend);
+"418
+[; ;application.c: 418:     Bluetooth_Send_Data_Non_Blocking(&_uart_obj,datasend);
 [e ( _Bluetooth_Send_Data_Non_Blocking (2 , -> &U __uart_obj `*CS309 _datasend ]
-"415
-[; ;application.c: 415:     GPIO_Pin_Toggle_Logic(&TEST_PIN);
+"419
+[; ;application.c: 419:     GPIO_Pin_Toggle_Logic(&TEST_PIN);
 [e ( _GPIO_Pin_Toggle_Logic (1 -> &U _TEST_PIN `*CS306 ]
-"416
-[; ;application.c: 416: }
+"420
+[; ;application.c: 420: }
 [e :UE 368 ]
 }
-"417
-[; ;application.c: 417: void GPS_Service (void)
+"421
+[; ;application.c: 421: void GPS_Service (void)
 [v _GPS_Service `(v ~T0 @X0 1 ef ]
-"418
-[; ;application.c: 418: {
+"422
+[; ;application.c: 422: {
 {
 [e :U _GPS_Service ]
 [f ]
-"419
-[; ;application.c: 419:     uint8 key=1;
+"423
+[; ;application.c: 423:     uint8 key=1;
 [v _key `uc ~T0 @X0 1 a ]
 [e = _key -> -> 1 `i `uc ]
-"420
-[; ;application.c: 420:     (PIE1bits.RCIE = 0);
+"424
+[; ;application.c: 424:     (PIE1bits.RCIE = 0);
 [e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
-"421
-[; ;application.c: 421:     GPIO_Pin_Write_Logic(&selector,GPIO_HIGH);
+"425
+[; ;application.c: 425:     GPIO_Pin_Write_Logic(&selector,GPIO_HIGH);
 [e ( _GPIO_Pin_Write_Logic (2 , -> &U _selector `*CS306 . `E3185 1 ]
-"423
-[; ;application.c: 423:     while (key)
+"427
+[; ;application.c: 427:     while (key)
 [e $U 370  ]
 [e :U 371 ]
-"424
-[; ;application.c: 424:     {
-{
-"425
-[; ;application.c: 425:         EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
-[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> &U _gpstemp `*us ]
-"426
-[; ;application.c: 426:         if ('$'==gpstemp)
-[e $ ! == -> 36 `ui -> _gpstemp `ui 373  ]
-"427
-[; ;application.c: 427:         {
-{
 "428
-[; ;application.c: 428:             while (key)
+[; ;application.c: 428:     {
+{
+"429
+[; ;application.c: 429:         EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> &U _gpstemp `*us ]
+"430
+[; ;application.c: 430:         if ('$'==gpstemp)
+[e $ ! == -> 36 `ui -> _gpstemp `ui 373  ]
+"431
+[; ;application.c: 431:         {
+{
+"432
+[; ;application.c: 432:             while (key)
 [e $U 374  ]
 [e :U 375 ]
-"429
-[; ;application.c: 429:             {
-{
-"430
-[; ;application.c: 430:                     EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
-[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> &U _gpstemp `*us ]
-"431
-[; ;application.c: 431:                     if (','==gpstemp)
-[e $ ! == -> 44 `ui -> _gpstemp `ui 377  ]
-"432
-[; ;application.c: 432:                     {
-{
 "433
-[; ;application.c: 433:                         counter++;
-[e ++ _counter -> -> 1 `i `uc ]
-"434
-[; ;application.c: 434:                         if (3==counter)
-[e $ ! == -> 3 `i -> _counter `i 378  ]
-"435
-[; ;application.c: 435:                         {
+[; ;application.c: 433:             {
 {
+"434
+[; ;application.c: 434:                     EUSART_Async_Read_Data_Blocking(&_uart_obj,&gpstemp);
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> &U _gpstemp `*us ]
+"435
+[; ;application.c: 435:                     if (','==gpstemp)
+[e $ ! == -> 44 `ui -> _gpstemp `ui 377  ]
 "436
-[; ;application.c: 436:                             i=0;
-[e = _i -> -> 0 `i `uc ]
+[; ;application.c: 436:                     {
+{
+"437
+[; ;application.c: 437:                         counter++;
+[e ++ _counter -> -> 1 `i `Vuc ]
 "438
-[; ;application.c: 438:                             do
-[e :U 381 ]
+[; ;application.c: 438:                         if (3==counter)
+[e $ ! == -> 3 `i -> _counter `i 378  ]
 "439
-[; ;application.c: 439:                             {
+[; ;application.c: 439:                         {
 {
 "440
-[; ;application.c: 440:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(latitude+i));
-[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> + &U _latitude * -> -> _i `i `x -> -> # *U &U _latitude `i `x `*us ]
-"441
-[; ;application.c: 441:                                 i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;application.c: 440:                             i=0;
+[e = _i -> -> 0 `i `uc ]
 "442
-[; ;application.c: 442:                             }while(','!=(latitude[i-1]));
+[; ;application.c: 442:                             do
+[e :U 381 ]
+"443
+[; ;application.c: 443:                             {
+{
+"444
+[; ;application.c: 444:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(latitude+i));
+[e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> + &U _latitude * -> -> _i `i `x -> -> # *U &U _latitude `i `x `*us ]
+"445
+[; ;application.c: 445:                                 i++;
+[e ++ _i -> -> 1 `i `uc ]
+"446
+[; ;application.c: 446:                             }while(','!=(latitude[i-1]));
 }
 [e $ != -> 44 `ui -> *U + &U _latitude * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _latitude `ui `ux `ui 381  ]
 [e :U 380 ]
-"443
-[; ;application.c: 443:                             counter++;
-[e ++ _counter -> -> 1 `i `uc ]
-"445
-[; ;application.c: 445:                         }
+"447
+[; ;application.c: 447:                             counter++;
+[e ++ _counter -> -> 1 `i `Vuc ]
+"449
+[; ;application.c: 449:                         }
 }
 [e $U 382  ]
-"446
-[; ;application.c: 446:                         else if(5==counter)
+"450
+[; ;application.c: 450:                         else if(5==counter)
 [e :U 378 ]
 [e $ ! == -> 5 `i -> _counter `i 383  ]
-"447
-[; ;application.c: 447:                         {
+"451
+[; ;application.c: 451:                         {
 {
-"448
-[; ;application.c: 448:                             i=0;
+"452
+[; ;application.c: 452:                             i=0;
 [e = _i -> -> 0 `i `uc ]
-"450
-[; ;application.c: 450:                             do{
+"454
+[; ;application.c: 454:                             do{
 [e :U 386 ]
 {
-"451
-[; ;application.c: 451:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(longtude+i));
+"455
+[; ;application.c: 455:                                 EUSART_Async_Read_Data_Blocking(&_uart_obj,(longtude+i));
 [e ( _EUSART_Async_Read_Data_Blocking (2 , -> &U __uart_obj `*CS309 -> + &U _longtude * -> -> _i `i `x -> -> # *U &U _longtude `i `x `*us ]
-"452
-[; ;application.c: 452:                                 i++;
+"456
+[; ;application.c: 456:                                 i++;
 [e ++ _i -> -> 1 `i `uc ]
-"453
-[; ;application.c: 453:                             }while(','!=(longtude[i-1]));
+"457
+[; ;application.c: 457:                             }while(','!=(longtude[i-1]));
 }
 [e $ != -> 44 `ui -> *U + &U _longtude * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _longtude `ui `ux `ui 386  ]
 [e :U 385 ]
-"454
-[; ;application.c: 454:                             key=0;
+"458
+[; ;application.c: 458:                             key=0;
 [e = _key -> -> 0 `i `uc ]
-"455
-[; ;application.c: 455:                         }
+"459
+[; ;application.c: 459:                         }
 }
 [e :U 383 ]
 [e :U 382 ]
-"456
-[; ;application.c: 456:                     }
+"460
+[; ;application.c: 460:                     }
 }
 [e :U 377 ]
-"457
-[; ;application.c: 457:             }
+"461
+[; ;application.c: 461:             }
 }
 [e :U 374 ]
-"428
-[; ;application.c: 428:             while (key)
+"432
+[; ;application.c: 432:             while (key)
 [e $ != -> _key `i -> 0 `i 375  ]
 [e :U 376 ]
-"458
-[; ;application.c: 458:         }
+"462
+[; ;application.c: 462:         }
 }
 [e :U 373 ]
-"459
-[; ;application.c: 459:     }
+"463
+[; ;application.c: 463:     }
 }
 [e :U 370 ]
-"423
-[; ;application.c: 423:     while (key)
+"427
+[; ;application.c: 427:     while (key)
 [e $ != -> _key `i -> 0 `i 371  ]
 [e :U 372 ]
-"460
-[; ;application.c: 460:       _delay((unsigned long)((2000)*(8000000/4000.0)));
+"464
+[; ;application.c: 464:       _delay((unsigned long)((2000)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"461
-[; ;application.c: 461:     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
+"465
+[; ;application.c: 465:     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
 [e ( _GPIO_Pin_Write_Logic (2 , -> &U _selector `*CS306 . `E3185 0 ]
-"462
-[; ;application.c: 462:     (PIE1bits.RCIE = 1) ;
+"466
+[; ;application.c: 466:     (PIE1bits.RCIE = 1) ;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"463
-[; ;application.c: 463: }
+"467
+[; ;application.c: 467: }
 [e :UE 369 ]
 }

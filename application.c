@@ -84,15 +84,15 @@ adc_config_st battery_adc={
 void  usart_isr (void);
 void GPS_Service (void);
 
-uint8 gps=1;
-uint8 blue=1;
-uint8 gpstemp=0;
-uint8 counter;
-uint8 datasend='w';
-uint8 datarecive=0;
+volatile uint8 gps=1;
+volatile uint8 blue=1;
+volatile uint8 gpstemp=0;
+volatile uint8 counter;
+volatile uint8 datasend='w';
+volatile uint16 datarecive=0;
 
-uint8 latitude[13];
-uint8 longtude[13];
+volatile uint8 latitude[13];
+volatile uint8 longtude[13];
 
 uint8 i=0;
 
@@ -216,50 +216,61 @@ int main()
     while(1)
     {
      
-     GPIO_Pin_Toggle_Logic(&TEST_PIN);
-    __delay_ms(30);
+     //GPIO_Pin_Toggle_Logic(&TEST_PIN);
+    //_delay_ms(500);
 switch(datarecive)
         {
 
             case NOTHING:
                 //no thing
                 Robot_Steer_Stop();
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case LEFT_FORWARD:
                 // left forward
                 Robot_Steer_Left_Forward();
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case FORWARD:
                 // forward
                 Robot_Move_Forward();
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case RIGHT_FORWARD:
                 // right forward
                 Robot_Steer_Right_Forward();
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case TURN_LEFT:
                 // turn left
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case TURN_RIGHT:
                 // turn right
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case LEFT_BACKWARD:
                 // left backward
                 Robot_Steer_Left_Backward();
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case BACKWARD:
                 //  backward
                 Robot_Move_Backward();
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case RIGHT_BACKWARD:
                 // right backward
                 Robot_Steer_Right_Backward();
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case ROTATE_LEFT:
                 // rotate left
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                 break;
             case ROTATE_RIGHT:
                 // rotate right 
+                datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                  break;
 //->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>///////////robot arm section///////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-//
              case BASE_DECREASE:
@@ -356,14 +367,17 @@ switch(datarecive)
              case GET_T_RH:
                  //GET_temp_RH
                  Get_Temp_HUM(&RH_Decimal, &RH_Integral, &T_Decimal, &T_Integral, &Checksum);
+                 datarecive=DO_ONE_TIME;// make sure that will do the command only one time        
                  break;
              case GET_DISTANCE:
                  //GET_DISTANCE
                  Get_Distance(&ultrasonic,&timer0,&distance);
+                 datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                  break;
              case GET_LOCATION:
                  //GET_LOCATION
                  GPS_Service();
+                 datarecive=DO_ONE_TIME;// make sure that will do the command only one time
                  break;                  
              default:
                    // do no thing stay on your place
@@ -403,6 +417,10 @@ void application_intialize(void)
     
     /*initialize UltraSonic pins*/
     Ultra_Sonic_Init(&ultrasonic,&timer0);
+    
+    /*initialize EUSART */
+    EUSART_Async_Init(&_uart_obj);
+
     
       /*initialize ADC pins*/
     //ADC_Init(&battery_adc);    

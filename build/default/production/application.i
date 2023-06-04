@@ -5833,15 +5833,15 @@ pin_config_st TEST_PIN={
 void usart_isr (void);
 void GPS_Service (void);
 
-uint8 gps=1;
-uint8 blue=1;
-uint8 gpstemp=0;
-uint8 counter;
-uint8 datasend='w';
-uint8 datarecive=0;
+volatile uint8 gps=1;
+volatile uint8 blue=1;
+volatile uint8 gpstemp=0;
+volatile uint8 counter;
+volatile uint8 datasend='w';
+volatile uint16 datarecive=0;
 
-uint8 latitude[13];
-uint8 longtude[13];
+volatile uint8 latitude[13];
+volatile uint8 longtude[13];
 
 uint8 i=0;
 
@@ -5957,8 +5957,8 @@ int main()
     while(1)
     {
 
-     GPIO_Pin_Toggle_Logic(&TEST_PIN);
-    _delay((unsigned long)((30)*(8000000/4000.0)));
+
+
 switch(datarecive)
         {
 
@@ -6144,6 +6144,10 @@ void application_intialize(void)
 
 
     Ultra_Sonic_Init(&ultrasonic,&timer0);
+
+
+    EUSART_Async_Init(&_uart_obj);
+
 
 
 

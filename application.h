@@ -50,6 +50,8 @@
 #define GET_T_RH 77
 #define GET_DISTANCE 78
 #define GET_LOCATION 79
+/////
+#define DO_ONE_TIME 100
 
 /*
 ROBOT CAR MODEL

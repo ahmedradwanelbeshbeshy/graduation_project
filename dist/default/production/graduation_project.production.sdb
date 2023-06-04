@@ -507,9 +507,9 @@ servo_index_16 15
 [v _main main `(i  1 e 2 0 ]
 "375
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
-"411
+"415
 [v _usart_isr usart_isr `(v  1 e 1 0 ]
-"417
+"421
 [v _GPS_Service GPS_Service `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -794,18 +794,22 @@ servo_index_16 15
 [v _stepper_base stepper_base `S624  1 e 2 0 ]
 "47
 [v _TEST_PIN TEST_PIN `S131  1 e 1 0 ]
+"87
+[v _gps gps `VEuc  1 e 1 0 ]
+"88
+[v _blue blue `VEuc  1 e 1 0 ]
 "89
-[v _gpstemp gpstemp `uc  1 e 1 0 ]
+[v _gpstemp gpstemp `VEuc  1 e 1 0 ]
 "90
-[v _counter counter `uc  1 e 1 0 ]
+[v _counter counter `VEuc  1 e 1 0 ]
 "91
-[v _datasend datasend `uc  1 e 1 0 ]
+[v _datasend datasend `VEuc  1 e 1 0 ]
 "92
-[v _datarecive datarecive `uc  1 e 1 0 ]
+[v _datarecive datarecive `VEus  1 e 2 0 ]
 "94
-[v _latitude latitude `[13]uc  1 e 13 0 ]
+[v _latitude latitude `VE[13]uc  1 e 13 0 ]
 "95
-[v _longtude longtude `[13]uc  1 e 13 0 ]
+[v _longtude longtude `VE[13]uc  1 e 13 0 ]
 "97
 [v _i i `uc  1 e 1 0 ]
 [s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
@@ -1652,7 +1656,7 @@ servo_index_16 15
 [v _stepper_move_one_deg_cw stepper_move_one_deg_cw `(uc  1 e 1 0 ]
 {
 "70
-[v stepper_move_one_deg_cw@i i `i  1 a 2 10 ]
+[v stepper_move_one_deg_cw@i i `i  1 a 2 8 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -1660,14 +1664,14 @@ servo_index_16 15
 ]
 "61
 [s S624 . 2 `S131 1 step_pin 1 0 `S131 1 dir_pin 1 1 ]
-[v stepper_move_one_deg_cw@stepper stepper `*.39S624  1 p 2 8 ]
+[v stepper_move_one_deg_cw@stepper stepper `*.39S624  1 p 2 6 ]
 "75
 } 0
 "77
 [v _stepper_move_one_deg_ccw stepper_move_one_deg_ccw `(uc  1 e 1 0 ]
 {
 "86
-[v stepper_move_one_deg_ccw@i i `i  1 a 2 10 ]
+[v stepper_move_one_deg_ccw@i i `i  1 a 2 8 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -1675,7 +1679,7 @@ servo_index_16 15
 ]
 "77
 [s S624 . 2 `S131 1 step_pin 1 0 `S131 1 dir_pin 1 1 ]
-[v stepper_move_one_deg_ccw@stepper stepper `*.39S624  1 p 2 8 ]
+[v stepper_move_one_deg_ccw@stepper stepper `*.39S624  1 p 2 6 ]
 "91
 } 0
 "26
@@ -1693,7 +1697,7 @@ servo_index_16 15
 "375 F:\graduation_project\application.c
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
 {
-"409
+"413
 } 0
 "9 F:\graduation_project\Robot/sensors/ultrasonic/ultrasonic.c
 [v _Ultra_Sonic_Init Ultra_Sonic_Init `(uc  1 e 1 0 ]
@@ -1704,14 +1708,14 @@ servo_index_16 15
 `uc 1 logic 1 0 :1:7 
 ]
 [s S4397 . 2 `S131 1 trig_pin 1 0 `S131 1 echo_pin 1 1 ]
-[v Ultra_Sonic_Init@ultrasonic_object ultrasonic_object `*.39CS4397  1 p 2 6 ]
+[v Ultra_Sonic_Init@ultrasonic_object ultrasonic_object `*.39CS4397  1 p 2 9 ]
 [s S3496 . 4 `E3254 1 prescalar_value 1 0 `us 1 preloaded_value 2 1 `uc 1 timer_mode 1 3 :1:0 
 `uc 1 reg_bit_size 1 3 :1:1 
 `uc 1 prescaler_enable 1 3 :1:2 
 `uc 1 edge 1 3 :1:3 
 `uc 1 timer0_reserved 1 3 :3:4 
 ]
-[v Ultra_Sonic_Init@_tmr0_config _tmr0_config `*.39CS3496  1 p 2 8 ]
+[v Ultra_Sonic_Init@_tmr0_config _tmr0_config `*.39CS3496  1 p 2 11 ]
 "24
 } 0
 "25 F:\graduation_project\MCAL/Timer0/hal_timer0.c
@@ -1742,9 +1746,9 @@ servo_index_16 15
 `uc 1 i2c_reserved 1 2 :3:5 
 ]
 [s S530 . 7 `ul 1 i2c_clock 4 0 `S521 1 i2c_cfg 3 4 ]
-[v ServoDriver_Init@i2c_obj i2c_obj `*.39CS530  1 p 2 18 ]
+[v ServoDriver_Init@i2c_obj i2c_obj `*.39CS530  1 p 2 13 ]
 [s S533 . 4 `uc 1 slave_address 1 0 `uc 1 frequancy 1 1 `uc 1 mode_1_cfg 1 2 `uc 1 mode_2_cfg 1 3 ]
-[v ServoDriver_Init@servo_driver_obj servo_driver_obj `*.39CS533  1 p 2 20 ]
+[v ServoDriver_Init@servo_driver_obj servo_driver_obj `*.39CS533  1 p 2 15 ]
 "29
 } 0
 "23 F:\graduation_project\MCAL/I2C/mcal_i2c.c
@@ -1758,7 +1762,7 @@ servo_index_16 15
 `uc 1 i2c_reserved 1 2 :3:5 
 ]
 [s S530 . 7 `ul 1 i2c_clock 4 0 `S521 1 i2c_cfg 3 4 ]
-[v MSSP_I2C_Init@i2c_obj i2c_obj `*.39CS530  1 p 2 16 ]
+[v MSSP_I2C_Init@i2c_obj i2c_obj `*.39CS530  1 p 2 11 ]
 "92
 } 0
 "325
@@ -1791,7 +1795,7 @@ servo_index_16 15
 `uc 1 i2c_reserved 1 2 :3:5 
 ]
 [s S530 . 7 `ul 1 i2c_clock 4 0 `S521 1 i2c_cfg 3 4 ]
-[v I2C_Master_Mode_Clock_Configurations@i2c_obj i2c_obj `*.39CS530  1 p 2 68 ]
+[v I2C_Master_Mode_Clock_Configurations@i2c_obj i2c_obj `*.39CS530  1 p 2 8 ]
 "324
 } 0
 "19 F:\graduation_project\ECU/DC_Motor/ecu_dc_motor.c
@@ -1803,7 +1807,7 @@ servo_index_16 15
 `uc 1 logic 1 0 :1:7 
 ]
 [s S136 . 1 `S131 1 dc_motor 1 0 ]
-[v ECU_DC_Motor_Init@dc_motor dc_motor `*.39CS136  1 p 2 6 ]
+[v ECU_DC_Motor_Init@dc_motor dc_motor `*.39CS136  1 p 2 9 ]
 "32
 } 0
 "202 F:\graduation_project\MCAL/CCP/hal_ccp.c
@@ -1829,7 +1833,7 @@ servo_index_16 15
 ]
 [s S1010 . 3 `uc 1 timer2_preload_value 1 0 `E3254 1 timer2_prescaler_value 1 1 `E3259 1 timer2_postscaler_value 1 2 ]
 [s S1014 . 12 `E3306 1 ccp_inst 1 0 `E3292 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S131 1 ccp_pin 1 3 `E3310 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `S1010 1 timer2 3 9 ]
-[v CCP_Init@_ccp_obj _ccp_obj `*.39CS1014  1 p 2 6 ]
+[v CCP_Init@_ccp_obj _ccp_obj `*.39CS1014  1 p 2 9 ]
 "63
 } 0
 "264
@@ -1869,7 +1873,7 @@ servo_index_16 15
 [v _CCP_Compare_Mode_Config CCP_Compare_Mode_Config `(uc  1 s 1 CCP_Compare_Mode_Config ]
 {
 "407
-[v CCP_Compare_Mode_Config@ret ret `uc  1 a 1 0 ]
+[v CCP_Compare_Mode_Config@ret ret `uc  1 a 1 36 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -1885,7 +1889,7 @@ servo_index_16 15
 [v _CCP_Capture_Mode_Config CCP_Capture_Mode_Config `(uc  1 s 1 CCP_Capture_Mode_Config ]
 {
 "360
-[v CCP_Capture_Mode_Config@ret ret `uc  1 a 1 0 ]
+[v CCP_Capture_Mode_Config@ret ret `uc  1 a 1 36 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -1919,28 +1923,28 @@ servo_index_16 15
 `uc 1 logic 1 0 :1:7 
 ]
 [s S624 . 2 `S131 1 step_pin 1 0 `S131 1 dir_pin 1 1 ]
-[v Ecu_Stepper_Init@stepper stepper `*.39S624  1 p 2 6 ]
+[v Ecu_Stepper_Init@stepper stepper `*.39S624  1 p 2 9 ]
 "25
 } 0
 "158 F:\graduation_project\MCAL/GPIO/hal_gpio.c
 [v _GPIO_Pin_Initialize GPIO_Pin_Initialize `(uc  1 e 1 0 ]
 {
 "160
-[v GPIO_Pin_Initialize@ERRORSTATUS ERRORSTATUS `uc  1 a 1 35 ]
+[v GPIO_Pin_Initialize@ERRORSTATUS ERRORSTATUS `uc  1 a 1 8 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "158
-[v GPIO_Pin_Initialize@_pin_config _pin_config `*.39CS131  1 p 2 33 ]
+[v GPIO_Pin_Initialize@_pin_config _pin_config `*.39CS131  1 p 2 6 ]
 "172
 } 0
 "25
 [v _GPIO_Pin_Direction_Initialize GPIO_Pin_Direction_Initialize `(uc  1 e 1 0 ]
 {
 "27
-[v GPIO_Pin_Direction_Initialize@ERRORSTATUS ERRORSTATUS `uc  1 a 1 31 ]
+[v GPIO_Pin_Direction_Initialize@ERRORSTATUS ERRORSTATUS `uc  1 a 1 0 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -1949,6 +1953,94 @@ servo_index_16 15
 "25
 [v GPIO_Pin_Direction_Initialize@_pin_config _pin_config `*.39CS131  1 p 2 29 ]
 "48
+} 0
+"42 F:\graduation_project\MCAL/EUSART/mcal_EUSART.c
+[v _EUSART_Async_Init EUSART_Async_Init `(uc  1 e 1 0 ]
+{
+"44
+[v EUSART_Async_Init@ret_val ret_val `uc  1 a 1 23 ]
+[s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
+`uc 1 tx_enable 1 0 :1:2 
+`uc 1 tx_9th_bit_en 1 0 :1:3 
+`uc 1 tx_reserved 1 0 :4:4 
+]
+"42
+[s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
+`uc 1 uart_rx_9th_bit_role 1 6 :2:1 
+`uc 1 rx_enable 1 6 :1:3 
+`uc 1 rx_9th_bit_en 1 6 :1:4 
+`uc 1 rx_reserved 1 7 :4:0 
+]
+[s S46 . 12 `us 1 uart_baud_rate_value 2 0 `S24 1 tx_config 1 2 `S32 1 rx_config 8 3 `E3254 1 baud_rate_config 1 11 ]
+[v EUSART_Async_Init@_eusart_obj _eusart_obj `*.39CS46  1 p 2 21 ]
+"78
+} 0
+"564
+[v _async_config_baud_rate_gen async_config_baud_rate_gen `T(uc  1 s 1 async_config_baud_rate_gen ]
+{
+"575
+[v async_config_baud_rate_gen@Baudrate_temp Baudrate_temp `f  1 a 4 13 ]
+"567
+[v async_config_baud_rate_gen@ret_val ret_val `uc  1 a 1 12 ]
+[s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
+`uc 1 tx_enable 1 0 :1:2 
+`uc 1 tx_9th_bit_en 1 0 :1:3 
+`uc 1 tx_reserved 1 0 :4:4 
+]
+"564
+[s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
+`uc 1 uart_rx_9th_bit_role 1 6 :2:1 
+`uc 1 rx_enable 1 6 :1:3 
+`uc 1 rx_9th_bit_en 1 6 :1:4 
+`uc 1 rx_reserved 1 7 :4:0 
+]
+[s S46 . 12 `us 1 uart_baud_rate_value 2 0 `S24 1 tx_config 1 2 `S32 1 rx_config 8 3 `E3254 1 baud_rate_config 1 11 ]
+[v async_config_baud_rate_gen@_eusart_obj _eusart_obj `*.39CS46  1 p 2 8 ]
+"610
+} 0
+"386
+[v _async_Tx_config async_Tx_config `T(uc  1 s 1 async_Tx_config ]
+{
+"388
+[v async_Tx_config@ret_val ret_val `uc  1 a 1 31 ]
+[s S24 . 1 `uc 1 uart_tx_9th_bit_role 1 0 :2:0 
+`uc 1 tx_enable 1 0 :1:2 
+`uc 1 tx_9th_bit_en 1 0 :1:3 
+`uc 1 tx_reserved 1 0 :4:4 
+]
+"386
+[v async_Tx_config@_tx_obj _tx_obj `*.39CS24  1 p 2 29 ]
+"430
+} 0
+"431
+[v _async_Rx_config async_Rx_config `T(uc  1 s 1 async_Rx_config ]
+{
+"433
+[v async_Rx_config@ret_val ret_val `uc  1 a 1 34 ]
+[s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
+`uc 1 uart_rx_9th_bit_role 1 6 :2:1 
+`uc 1 rx_enable 1 6 :1:3 
+`uc 1 rx_9th_bit_en 1 6 :1:4 
+`uc 1 rx_reserved 1 7 :4:0 
+]
+"431
+[v async_Rx_config@_rx_obj _rx_obj `*.39CS32  1 p 2 32 ]
+"474
+} 0
+"518
+[v _Rx_config_interrupt Rx_config_interrupt `T(uc  1 s 1 Rx_config_interrupt ]
+{
+"521
+[v Rx_config_interrupt@ret_val ret_val `uc  1 a 1 31 ]
+[s S32 . 8 `*.37(v 1 rx_InterruptHandler 2 0 `*.37(v 1 oerr_InterruptHandler 2 2 `*.37(v 1 ferr_InterruptHandler 2 4 `uc 1 uart_rx_priority 1 6 :1:0 
+`uc 1 uart_rx_9th_bit_role 1 6 :2:1 
+`uc 1 rx_enable 1 6 :1:3 
+`uc 1 rx_9th_bit_en 1 6 :1:4 
+`uc 1 rx_reserved 1 7 :4:0 
+]
+"518
+[v Rx_config_interrupt@_rx_obj _rx_obj `*.39CS32  1 p 2 29 ]
+"562
 } 0
 "108 F:\graduation_project\Robot/Navigation/robot_navigation.c
 [v _Robot_Steer_Right_Forward Robot_Steer_Right_Forward `(uc  1 e 1 0 ]
@@ -1996,9 +2088,9 @@ servo_index_16 15
 [v _Servo_SetAngle Servo_SetAngle `(uc  1 e 1 0 ]
 {
 "54
-[v Servo_SetAngle@angle_in_reg angle_in_reg `us  1 a 2 22 ]
+[v Servo_SetAngle@angle_in_reg angle_in_reg `us  1 a 2 14 ]
 "52
-[v Servo_SetAngle@reg_addrees reg_addrees `uc  1 a 1 24 ]
+[v Servo_SetAngle@reg_addrees reg_addrees `uc  1 a 1 16 ]
 [s S521 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
 `uc 1 i2c_slew_rate 1 2 :1:1 
 `uc 1 i2c_SMBus_control 1 2 :1:2 
@@ -2008,27 +2100,27 @@ servo_index_16 15
 ]
 "43
 [s S530 . 7 `ul 1 i2c_clock 4 0 `S521 1 i2c_cfg 3 4 ]
-[v Servo_SetAngle@i2c_obj i2c_obj `*.39CS530  1 p 2 16 ]
+[v Servo_SetAngle@i2c_obj i2c_obj `*.39CS530  1 p 2 8 ]
 [s S533 . 4 `uc 1 slave_address 1 0 `uc 1 frequancy 1 1 `uc 1 mode_1_cfg 1 2 `uc 1 mode_2_cfg 1 3 ]
-[v Servo_SetAngle@servo_driver_obj servo_driver_obj `*.39CS533  1 p 2 18 ]
-[v Servo_SetAngle@servo_no servo_no `CE3294  1 p 1 20 ]
-[v Servo_SetAngle@angle angle `Cuc  1 p 1 21 ]
+[v Servo_SetAngle@servo_driver_obj servo_driver_obj `*.39CS533  1 p 2 10 ]
+[v Servo_SetAngle@servo_no servo_no `CE3294  1 p 1 12 ]
+[v Servo_SetAngle@angle angle `Cuc  1 p 1 13 ]
 "66
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 {
 "17
-[v ___fladd@grs grs `uc  1 a 1 7 ]
+[v ___fladd@grs grs `uc  1 a 1 71 ]
 "15
-[v ___fladd@bexp bexp `uc  1 a 1 6 ]
+[v ___fladd@bexp bexp `uc  1 a 1 70 ]
 "16
-[v ___fladd@aexp aexp `uc  1 a 1 5 ]
+[v ___fladd@aexp aexp `uc  1 a 1 69 ]
 "13
-[v ___fladd@signs signs `uc  1 a 1 4 ]
+[v ___fladd@signs signs `uc  1 a 1 68 ]
 "10
-[v ___fladd@b b `d  1 p 4 60 ]
-[v ___fladd@a a `d  1 p 4 64 ]
+[v ___fladd@b b `d  1 p 4 56 ]
+[v ___fladd@a a `d  1 p 4 60 ]
 "237
 } 0
 "68 F:\graduation_project\ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c
@@ -2104,7 +2196,7 @@ servo_index_16 15
 [v _CCP_PWM_Set_Duty CCP_PWM_Set_Duty `(uc  1 e 1 0 ]
 {
 "178
-[v CCP_PWM_Set_Duty@l_duty_temp l_duty_temp `us  1 a 2 23 ]
+[v CCP_PWM_Set_Duty@l_duty_temp l_duty_temp `us  1 a 2 17 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -2113,43 +2205,43 @@ servo_index_16 15
 "176
 [s S1010 . 3 `uc 1 timer2_preload_value 1 0 `E3254 1 timer2_prescaler_value 1 1 `E3259 1 timer2_postscaler_value 1 2 ]
 [s S1014 . 12 `E3306 1 ccp_inst 1 0 `E3292 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S131 1 ccp_pin 1 3 `E3310 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `S1010 1 timer2 3 9 ]
-[v CCP_PWM_Set_Duty@_ccp_obj _ccp_obj `*.39CS1014  1 p 2 16 ]
-[v CCP_PWM_Set_Duty@_duty _duty `Cuc  1 p 1 18 ]
+[v CCP_PWM_Set_Duty@_ccp_obj _ccp_obj `*.39CS1014  1 p 2 8 ]
+[v CCP_PWM_Set_Duty@_duty _duty `Cuc  1 p 1 10 ]
 "200
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 34 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 33 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 73 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 72 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 8 ]
+[v ___fltol@f1 f1 `d  1 p 4 0 ]
 "70
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S5117 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S5118 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S5122 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S5125 . 4 `l 1 i 4 0 `d 1 f 4 0 `S5117 1 fAsBytes 4 0 `S5122 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S5125  1 a 4 54 ]
+[s S5123 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S5126 . 4 `l 1 i 4 0 `d 1 f 4 0 `S5118 1 fAsBytes 4 0 `S5123 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S5126  1 a 4 50 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 49 ]
-[s S5193 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 45 ]
+[s S5194 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S5196 . 2 `s 1 i 2 0 `us 1 n 2 0 `S5193 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S5196  1 a 2 58 ]
+[u S5197 . 2 `s 1 i 2 0 `us 1 n 2 0 `S5194 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S5197  1 a 2 54 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 53 ]
+[v ___flmul@bexp bexp `uc  1 a 1 49 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 48 ]
+[v ___flmul@aexp aexp `uc  1 a 1 44 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 47 ]
+[v ___flmul@sign sign `uc  1 a 1 43 ]
 "8
-[v ___flmul@b b `d  1 p 4 35 ]
-[v ___flmul@a a `d  1 p 4 39 ]
+[v ___flmul@b b `d  1 p 4 31 ]
+[v ___flmul@a a `d  1 p 4 35 ]
 "205
 } 0
 "39 F:\graduation_project\ECU/DC_Motor/ecu_dc_motor.c
@@ -2197,9 +2289,9 @@ servo_index_16 15
 [v _Get_Distance Get_Distance `(uc  1 e 1 0 ]
 {
 "28
-[v Get_Distance@timer_val timer_val `us  1 a 2 41 ]
+[v Get_Distance@timer_val timer_val `us  1 a 2 37 ]
 "27
-[v Get_Distance@logic logic `E3185  1 a 1 43 ]
+[v Get_Distance@logic logic `E3185  1 a 1 39 ]
 [s S131 . 1 `uc 1 pin 1 0 :3:0 
 `uc 1 port 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -2207,15 +2299,15 @@ servo_index_16 15
 ]
 "25
 [s S4397 . 2 `S131 1 trig_pin 1 0 `S131 1 echo_pin 1 1 ]
-[v Get_Distance@ultrasonic_object ultrasonic_object `*.39CS4397  1 p 2 35 ]
+[v Get_Distance@ultrasonic_object ultrasonic_object `*.39CS4397  1 p 2 31 ]
 [s S3496 . 4 `E3254 1 prescalar_value 1 0 `us 1 preloaded_value 2 1 `uc 1 timer_mode 1 3 :1:0 
 `uc 1 reg_bit_size 1 3 :1:1 
 `uc 1 prescaler_enable 1 3 :1:2 
 `uc 1 edge 1 3 :1:3 
 `uc 1 timer0_reserved 1 3 :3:4 
 ]
-[v Get_Distance@_tmr0_config _tmr0_config `*.39CS3496  1 p 2 37 ]
-[v Get_Distance@distance distance `*.39f  1 p 2 39 ]
+[v Get_Distance@_tmr0_config _tmr0_config `*.39CS3496  1 p 2 33 ]
+[v Get_Distance@distance distance `*.39f  1 p 2 35 ]
 "56
 } 0
 "57
@@ -2235,34 +2327,34 @@ servo_index_16 15
 {
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 "13
-[v ___xxtofl@arg arg `ul  1 a 4 6 ]
+[v ___xxtofl@arg arg `ul  1 a 4 2 ]
 "12
-[v ___xxtofl@exp exp `uc  1 a 1 5 ]
+[v ___xxtofl@exp exp `uc  1 a 1 1 ]
 "10
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 [v ___xxtofl@val val `l  1 p 4 29 ]
 "15
-[v ___xxtofl@sign sign `uc  1 a 1 4 ]
+[v ___xxtofl@sign sign `uc  1 a 1 0 ]
 "44
 } 0
 "11 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 {
 "21
-[v ___fldiv@grs grs `ul  1 a 4 29 ]
+[v ___fldiv@grs grs `ul  1 a 4 25 ]
 "22
-[v ___fldiv@rem rem `ul  1 a 4 22 ]
+[v ___fldiv@rem rem `ul  1 a 4 18 ]
 "20
-[v ___fldiv@new_exp new_exp `s  1 a 2 27 ]
+[v ___fldiv@new_exp new_exp `s  1 a 2 23 ]
 "19
-[v ___fldiv@aexp aexp `uc  1 a 1 34 ]
+[v ___fldiv@aexp aexp `uc  1 a 1 30 ]
 "18
-[v ___fldiv@bexp bexp `uc  1 a 1 33 ]
+[v ___fldiv@bexp bexp `uc  1 a 1 29 ]
 "16
-[v ___fldiv@sign sign `uc  1 a 1 26 ]
+[v ___fldiv@sign sign `uc  1 a 1 22 ]
 "11
-[v ___fldiv@b b `d  1 p 4 10 ]
-[v ___fldiv@a a `d  1 p 4 14 ]
+[v ___fldiv@b b `d  1 p 4 6 ]
+[v ___fldiv@a a `d  1 p 4 10 ]
 "185
 } 0
 "179 F:\graduation_project\MCAL/Timer0/hal_timer0.c
@@ -2286,9 +2378,9 @@ servo_index_16 15
 [v _HAL_Timer0_Read_Val HAL_Timer0_Read_Val `(uc  1 e 1 0 ]
 {
 "145
-[v HAL_Timer0_Read_Val@l_low_byte l_low_byte `uc  1 a 1 34 ]
+[v HAL_Timer0_Read_Val@l_low_byte l_low_byte `uc  1 a 1 1 ]
 "146
-[v HAL_Timer0_Read_Val@l_high_byte l_high_byte `uc  1 a 1 33 ]
+[v HAL_Timer0_Read_Val@l_high_byte l_high_byte `uc  1 a 1 0 ]
 [s S3496 . 4 `E3254 1 prescalar_value 1 0 `us 1 preloaded_value 2 1 `uc 1 timer_mode 1 3 :1:0 
 `uc 1 reg_bit_size 1 3 :1:1 
 `uc 1 prescaler_enable 1 3 :1:2 
@@ -2313,12 +2405,12 @@ servo_index_16 15
 [v GPIO_Pin_Read_Logic@logic logic `*.39E3185  1 p 2 31 ]
 "126
 } 0
-"417 F:\graduation_project\application.c
+"421 F:\graduation_project\application.c
 [v _GPS_Service GPS_Service `(v  1 e 1 0 ]
 {
-"419
-[v GPS_Service@key key `uc  1 a 1 18 ]
-"463
+"423
+[v GPS_Service@key key `uc  1 a 1 36 ]
+"467
 } 0
 "82 F:\graduation_project\MCAL/GPIO/hal_gpio.c
 [v _GPIO_Pin_Write_Logic GPIO_Pin_Write_Logic `(uc  1 e 1 0 ]
@@ -2486,10 +2578,10 @@ servo_index_16 15
 {
 "737
 } 0
-"411 F:\graduation_project\application.c
+"415 F:\graduation_project\application.c
 [v _usart_isr usart_isr `(v  1 e 1 0 ]
 {
-"416
+"420
 } 0
 "135 F:\graduation_project\MCAL/GPIO/hal_gpio.c
 [v i2_GPIO_Pin_Toggle_Logic GPIO_Pin_Toggle_Logic `(uc  1 e 1 0 ]
