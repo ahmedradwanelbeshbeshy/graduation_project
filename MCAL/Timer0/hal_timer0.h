@@ -111,12 +111,20 @@ Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
  */
 Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
 
-
-Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t *result);
-
-Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t val);
+/**
+ * Read the value in the timer register
+ * @param _tmr0_config
+ * @param result
+ * @return 
+ */
+Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,uint16_t *result);
+/**
+ * Write the desired value in the timer register
+ * @param _tmr0_config
+ * @param val
+ * @return 
+ */
+Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,uint16_t val);
 
 
 /* Global Shared Variables */

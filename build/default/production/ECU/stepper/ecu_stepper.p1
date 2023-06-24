@@ -7,18 +7,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/stepper/ecu_stepper.h: 23: {
 [s S307 `S306 1 `S306 1 ]
 [n S307 . step_pin dir_pin ]
-"90 ECU/stepper/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/stepper/../../MCAL/GPIO/hal_gpio.h: 90: Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
+"88 ECU/stepper/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/stepper/../../MCAL/GPIO/hal_gpio.h: 88: Std_ReturnType GPIO_Pin_Initialize (const pin_config_st * _pin_config);
 [v _GPIO_Pin_Initialize `(uc ~T0 @X0 0 ef1`*CS306 ]
-"84
-[; ;ECU/stepper/../../MCAL/GPIO/hal_gpio.h: 84: Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
+"82
+[; ;ECU/stepper/../../MCAL/GPIO/hal_gpio.h: 82: Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 [v _GPIO_Pin_Direction_Initialize `(uc ~T0 @X0 0 ef1`*CS306 ]
 "21 ECU/stepper/ecu_stepper.c
 [; ;ECU/stepper/ecu_stepper.c: 21:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
 [c E3185 0 1 .. ]
 [n E3185 . GPIO_LOW GPIO_HIGH  ]
-"86 ECU/stepper/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/stepper/../../MCAL/GPIO/hal_gpio.h: 86: Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
+"84 ECU/stepper/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/stepper/../../MCAL/GPIO/hal_gpio.h: 84: Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
 [v _GPIO_Pin_Write_Logic `(uc ~T0 @X0 0 ef2`*CS306`E3185 ]
 [v F3167 `(v ~T0 @X0 1 tf1`ul ]
 "203 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
@@ -419,14 +419,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/stepper/ecu_stepper.c: 33:     {
 {
 "34
-[; ;ECU/stepper/ecu_stepper.c: 34:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , 1);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 -> -> 1 `i `E3185 ]
+[; ;ECU/stepper/ecu_stepper.c: 34:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 . `E3185 1 ]
 "35
 [; ;ECU/stepper/ecu_stepper.c: 35:         _delay((unsigned long)((500)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "36
-[; ;ECU/stepper/ecu_stepper.c: 36:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , 0);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 -> -> 0 `i `E3185 ]
+[; ;ECU/stepper/ecu_stepper.c: 36:         GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 . `E3185 0 ]
 "37
 [; ;ECU/stepper/ecu_stepper.c: 37:         _delay((unsigned long)((500)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
@@ -562,85 +562,103 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/stepper/ecu_stepper.c: 71:         {
 {
 "72
-[; ;ECU/stepper/ecu_stepper.c: 72:             Ecu_Stepper_Step(stepper);
-[e ( _Ecu_Stepper_Step (1 _stepper ]
+[; ;ECU/stepper/ecu_stepper.c: 72:             GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 . `E3185 1 ]
 "73
-[; ;ECU/stepper/ecu_stepper.c: 73:         }
+[; ;ECU/stepper/ecu_stepper.c: 73:             _delay((unsigned long)((500)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"74
+[; ;ECU/stepper/ecu_stepper.c: 74:             GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 . `E3185 0 ]
+"75
+[; ;ECU/stepper/ecu_stepper.c: 75:            _delay((unsigned long)((500)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"76
+[; ;ECU/stepper/ecu_stepper.c: 76:         }
 }
 [e ++ _i -> 1 `i ]
 [e $ <= _i -> 9 `i 322  ]
 [e :U 323 ]
 }
-"74
-[; ;ECU/stepper/ecu_stepper.c: 74:     }
+"77
+[; ;ECU/stepper/ecu_stepper.c: 77:     }
 }
 [e :U 321 ]
-"75
-[; ;ECU/stepper/ecu_stepper.c: 75: }
+"78
+[; ;ECU/stepper/ecu_stepper.c: 78: }
 [e :UE 319 ]
 }
-"77
-[; ;ECU/stepper/ecu_stepper.c: 77: Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper)
+"80
+[; ;ECU/stepper/ecu_stepper.c: 80: Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper)
 [v _stepper_move_one_deg_ccw `(uc ~T0 @X0 1 ef1`*S307 ]
-"78
-[; ;ECU/stepper/ecu_stepper.c: 78: {
+"81
+[; ;ECU/stepper/ecu_stepper.c: 81: {
 {
 [e :U _stepper_move_one_deg_ccw ]
-"77
-[; ;ECU/stepper/ecu_stepper.c: 77: Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper)
-[v _stepper `*S307 ~T0 @X0 1 r1 ]
-"78
-[; ;ECU/stepper/ecu_stepper.c: 78: {
-[f ]
-"79
-[; ;ECU/stepper/ecu_stepper.c: 79:     if(((void*)0) == stepper)
-[e $ ! == -> -> -> 0 `i `*v `*S307 _stepper 326  ]
 "80
-[; ;ECU/stepper/ecu_stepper.c: 80:     {
-{
+[; ;ECU/stepper/ecu_stepper.c: 80: Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper)
+[v _stepper `*S307 ~T0 @X0 1 r1 ]
 "81
-[; ;ECU/stepper/ecu_stepper.c: 81:         return (Std_ReturnType) 0x00 ;
+[; ;ECU/stepper/ecu_stepper.c: 81: {
+[f ]
+"82
+[; ;ECU/stepper/ecu_stepper.c: 82:     if(((void*)0) == stepper)
+[e $ ! == -> -> -> 0 `i `*v `*S307 _stepper 326  ]
+"83
+[; ;ECU/stepper/ecu_stepper.c: 83:     {
+{
+"84
+[; ;ECU/stepper/ecu_stepper.c: 84:         return (Std_ReturnType) 0x00 ;
 [e ) -> -> 0 `i `uc ]
 [e $UE 325  ]
-"82
-[; ;ECU/stepper/ecu_stepper.c: 82:     }
+"85
+[; ;ECU/stepper/ecu_stepper.c: 85:     }
 }
 [e $U 327  ]
-"83
-[; ;ECU/stepper/ecu_stepper.c: 83:     else
-[e :U 326 ]
-"84
-[; ;ECU/stepper/ecu_stepper.c: 84:     {
-{
-"85
-[; ;ECU/stepper/ecu_stepper.c: 85:         GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
-[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 1 `*CS306 . `E3185 0 ]
 "86
-[; ;ECU/stepper/ecu_stepper.c: 86:         for(int i=0; i<= 9; i++)
+[; ;ECU/stepper/ecu_stepper.c: 86:     else
+[e :U 326 ]
+"87
+[; ;ECU/stepper/ecu_stepper.c: 87:     {
+{
+"88
+[; ;ECU/stepper/ecu_stepper.c: 88:         GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 1 `*CS306 . `E3185 0 ]
+"89
+[; ;ECU/stepper/ecu_stepper.c: 89:         for(int i=0; i<= 9; i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $ <= _i -> 9 `i 328  ]
 [e $U 329  ]
 [e :U 328 ]
-"87
-[; ;ECU/stepper/ecu_stepper.c: 87:         {
+"90
+[; ;ECU/stepper/ecu_stepper.c: 90:         {
 {
-"88
-[; ;ECU/stepper/ecu_stepper.c: 88:             Ecu_Stepper_Step(stepper);
-[e ( _Ecu_Stepper_Step (1 _stepper ]
-"89
-[; ;ECU/stepper/ecu_stepper.c: 89:         }
+"91
+[; ;ECU/stepper/ecu_stepper.c: 91:             GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_HIGH);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 . `E3185 1 ]
+"92
+[; ;ECU/stepper/ecu_stepper.c: 92:             _delay((unsigned long)((500)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"93
+[; ;ECU/stepper/ecu_stepper.c: 93:             GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
+[e ( _GPIO_Pin_Write_Logic (2 , -> &U . *U _stepper 0 `*CS306 . `E3185 0 ]
+"94
+[; ;ECU/stepper/ecu_stepper.c: 94:            _delay((unsigned long)((500)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"95
+[; ;ECU/stepper/ecu_stepper.c: 95:         }
 }
 [e ++ _i -> 1 `i ]
 [e $ <= _i -> 9 `i 328  ]
 [e :U 329 ]
 }
-"90
-[; ;ECU/stepper/ecu_stepper.c: 90:     }
+"96
+[; ;ECU/stepper/ecu_stepper.c: 96:     }
 }
 [e :U 327 ]
-"91
-[; ;ECU/stepper/ecu_stepper.c: 91: }
+"97
+[; ;ECU/stepper/ecu_stepper.c: 97: }
 [e :UE 325 ]
 }

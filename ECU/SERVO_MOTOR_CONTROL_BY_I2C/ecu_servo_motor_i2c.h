@@ -230,8 +230,27 @@ typedef struct{
     uint8 mode_2_cfg;
 }servo_driver_st;
 /* ----------------- Software Interfaces Declarations -----------------*/
+/**
+ * initialize the i2c and prepare it to communicate with the pca 
+ * @param i2c_obj
+ * @param servo_driver_obj
+ * @return  Error status
+ */
 Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
+/**
+ * de initialize the i2c
+ * @param i2c_obj
+ * @return  Error status
+ */
 Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
+/**
+ * its take the servo index an set it to the desired angle
+ * @param i2c_obj
+ * @param servo_driver_obj
+ * @param servo_no
+ * @param angle
+ * @return 
+ */
 Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
 
 

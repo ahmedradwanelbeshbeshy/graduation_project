@@ -5113,8 +5113,6 @@ typedef struct
 
 
 
-
-
 Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
 Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
@@ -5451,8 +5449,20 @@ typedef struct{
     uint8 mode_2_cfg;
 }servo_driver_st;
 
+
+
+
+
+
+
 Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
+
+
+
+
+
 Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
+# 254 "./Robot/Navigation/../../ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
 Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
 # 39 "./Robot/Navigation/robot_navigation.h" 2
 # 141 "./Robot/Navigation/robot_navigation.h"
@@ -5474,6 +5484,8 @@ Std_ReturnType Robot_Steer_Right_Forward(void);
 Std_ReturnType Robot_Steer_Left_Forward(void);
 Std_ReturnType Robot_Steer_Right_Backward(void);
 Std_ReturnType Robot_Steer_Left_Backward(void);
+Std_ReturnType Robot_Steer_Right(void);
+Std_ReturnType Robot_Steer_Left(void);
 
 
 
@@ -5640,11 +5652,19 @@ Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
 Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
 
 
-Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t *result);
 
-Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t val);
+
+
+
+
+Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,uint16_t *result);
+
+
+
+
+
+
+Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,uint16_t val);
 # 18 "./Robot/sensors/ultrasonic/ultrasonic.h" 2
 
 
@@ -5682,7 +5702,17 @@ typedef enum {
     wdt_postscaler_BY_32768
 }wdt_postscaler_et;
 
+
+
+
+
+
+
 Std_ReturnType WDT_Init(void);
+
+
+
+
 Std_ReturnType WDT_DeInit(void);
 # 22 "./application.h" 2
 
@@ -5790,7 +5820,7 @@ Std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_st* _adc,adc_channel
                                                                            adc_result_t*_result);
 Std_ReturnType ADC_Get_Conversion_Interrupt(const adc_config_st* _adc,adc_channel_select_et _channel);
 # 23 "./application.h" 2
-# 91 "./application.h"
+# 92 "./application.h"
 typedef struct {
     uint8_t flag_0 : 1 ;
     uint8_t flag_1 : 1 ;
@@ -5806,7 +5836,7 @@ typedef struct {
 void application_intialize(void);
 # 8 "application.c" 2
 # 30 "application.c"
-uint8 servo1Pos, servo2Pos, servo3Pos,servo4Pos=0,stepper_pos;
+uint8 servo1Pos=0, servo2Pos=0, servo3Pos=0,servo4Pos=0,stepper_pos;
 
 stepper_config_st stepper_base={
     .dir_pin.direction=GPIO_DIRECTION_OUTPUT,
@@ -5829,7 +5859,35 @@ pin_config_st TEST_PIN={
    .pin=GPIO_PIN0,
    .port=PORTC_INDEX
 };
-# 84 "application.c"
+
+
+
+
+pin_config_st driller_PIN={
+   .direction=GPIO_DIRECTION_OUTPUT,
+   .logic=GPIO_HIGH,
+   .pin=GPIO_PIN2,
+   .port=PORTA_INDEX
+};
+
+
+
+
+
+
+
+void battery_level(void);
+adc_result_t battery_volt_adc_read;
+float32 battery_volt_f=12;
+
+adc_config_st battery_adc={
+    .adc_channel=ADC_CHANEL_AN0,
+    .conversion_clock=ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    .acquisition_time=ADC_12_TAD,
+    .result_format=ADC_RESULT_RIGHT,
+    .voltage_referance=ADC_VOLTAGE_REFERANCE_INTERNAL
+};
+# 91 "application.c"
 void usart_isr (void);
 void GPS_Service (void);
 
@@ -5864,7 +5922,7 @@ pin_config_st selector={
    .pin=GPIO_PIN4,
    .port=PORTD_INDEX
 };
-# 127 "application.c"
+# 134 "application.c"
 ccp_st CCP1_Obj =
 {
     .ccp_inst = CCP1_INST ,
@@ -5918,7 +5976,7 @@ servo_driver_st servo_driver_obj={
 
 
 
-uint8 RH_Decimal, RH_Integral, T_Decimal, T_Integral, Checksum;
+uint8 RH_Decimal=77, RH_Integral, T_Decimal=19, T_Integral, Checksum;
 
 
 
@@ -5965,41 +6023,56 @@ switch(datarecive)
             case 0:
 
                 Robot_Steer_Stop();
+                datarecive=100;
                 break;
             case 1:
 
                 Robot_Steer_Left_Forward();
+                datarecive=100;
                 break;
             case 2:
 
                 Robot_Move_Forward();
+                datarecive=100;
                 break;
             case 3:
 
                 Robot_Steer_Right_Forward();
+                datarecive=100;
                 break;
             case 4:
 
+
+                 Robot_Steer_Left();
+                datarecive=100;
                 break;
             case 5:
 
+                Robot_Steer_Right();
+                datarecive=100;
                 break;
             case 6:
 
                 Robot_Steer_Left_Backward();
+                datarecive=100;
                 break;
             case 7:
 
                 Robot_Move_Backward();
+                datarecive=100;
                 break;
             case 8:
 
                 Robot_Steer_Right_Backward();
+                datarecive=100;
                 break;
             case 9:
 
+                datarecive=100;
                 break;
             case 10:
+
+                GPIO_Pin_Toggle_Logic(&driller_PIN);
 
                  break;
 
@@ -6021,6 +6094,8 @@ switch(datarecive)
                     servo1Pos=1;
                   }
                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );
+                  _delay((unsigned long)((30)*(8000000/4000.0)));
+
 
                   break;
 
@@ -6032,6 +6107,8 @@ switch(datarecive)
                    servo1Pos=180;
                  }
                  Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_9 , servo1Pos );
+                 _delay((unsigned long)((30)*(8000000/4000.0)));
+
                  break;
 
              case 20:
@@ -6042,6 +6119,7 @@ switch(datarecive)
                     servo2Pos=1;
                   }
                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_10 , servo2Pos );
+                  _delay((unsigned long)((30)*(8000000/4000.0)));
                   break;
 
              case 21:
@@ -6052,6 +6130,7 @@ switch(datarecive)
                     servo2Pos=180;
                   }
                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_10 , servo2Pos );
+                  _delay((unsigned long)((30)*(8000000/4000.0)));
                   break;
 
              case 22:
@@ -6062,6 +6141,7 @@ switch(datarecive)
                     servo3Pos=1;
                   }
                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_11 , servo3Pos );
+                  _delay((unsigned long)((30)*(8000000/4000.0)));
                   break;
 
              case 23:
@@ -6072,6 +6152,7 @@ switch(datarecive)
                     servo3Pos=180;
                   }
                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_11 , servo3Pos );
+                  _delay((unsigned long)((30)*(8000000/4000.0)));
                   break;
 
              case 24:
@@ -6082,6 +6163,7 @@ switch(datarecive)
                     servo4Pos=1;
                   }
                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_12 , servo4Pos );
+                  _delay((unsigned long)((30)*(8000000/4000.0)));
                   break;
 
              case 25:
@@ -6092,19 +6174,46 @@ switch(datarecive)
                     servo4Pos=180;
                   }
                   Servo_SetAngle(&i2c_obj , &servo_driver_obj , servo_index_12 , servo4Pos );
+                  _delay((unsigned long)((30)*(8000000/4000.0)));
                   break;
 
-             case 77:
+             case 76:
 
                  Get_Temp_HUM(&RH_Decimal, &RH_Integral, &T_Decimal, &T_Integral, &Checksum);
+                 Bluetooth_Send_Data_Non_Blocking(&_uart_obj,48+((uint8)(T_Decimal/10)));
+                 _delay((unsigned long)((5)*(8000000/4000.0)));
+                 Bluetooth_Send_Data_Non_Blocking(&_uart_obj,48+((uint8)(T_Decimal%10)));
+                 datarecive=100;
+                 break;
+             case 77:
+
+                 Bluetooth_Send_Data_Non_Blocking(&_uart_obj,48+((uint8)(RH_Decimal/10)));
+                  _delay((unsigned long)((5)*(8000000/4000.0)));
+                 Bluetooth_Send_Data_Non_Blocking(&_uart_obj,48+((uint8)(RH_Decimal%10)));
+
+                 datarecive=100;
                  break;
              case 78:
 
                  Get_Distance(&ultrasonic,&timer0,&distance);
+                 Bluetooth_Send_Data_Non_Blocking(&_uart_obj,48+((uint8)(distance/100)));
+                 Bluetooth_Send_Data_Non_Blocking(&_uart_obj,48+((uint8)(((uint8)distance%100)/10)));
+                 Bluetooth_Send_Data_Non_Blocking(&_uart_obj,48+((uint8)(((uint8)distance%100)%10)));
+
+
+                 datarecive=100;
                  break;
              case 79:
 
                  GPS_Service();
+                 datarecive=100;
+                 break;
+             case 80:
+
+                 battery_level();
+                 _delay((unsigned long)((5)*(8000000/4000.0)));
+                 Bluetooth_Send_Data_Non_Blocking(&_uart_obj,(uint8)battery_volt_f);
+                 datarecive=100;
                  break;
              default:
 
@@ -6119,6 +6228,7 @@ void application_intialize(void)
 
     GPIO_Pin_Initialize(&TEST_PIN);
     GPIO_Pin_Initialize(&selector);
+    GPIO_Pin_Initialize(&driller_PIN);
 
 
 
@@ -6131,17 +6241,23 @@ void application_intialize(void)
 
 
     Servo_SetAngle(&i2c_obj , &servo_driver_obj , 0 , 90 );
+    _delay((unsigned long)((10)*(8000000/4000.0)));
     Servo_SetAngle(&i2c_obj , &servo_driver_obj , 1 , 90 );
+    _delay((unsigned long)((10)*(8000000/4000.0)));
     Servo_SetAngle(&i2c_obj , &servo_driver_obj , 2 , 90 );
+    _delay((unsigned long)((10)*(8000000/4000.0)));
     Servo_SetAngle(&i2c_obj , &servo_driver_obj , 3 , 90 );
+    _delay((unsigned long)((10)*(8000000/4000.0)));
 
 
-
-    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 4 , 0);
-    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 5 , 0);
-    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 6 , 0);
-    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 7 , 0);
-
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 8 , 0);
+    _delay((unsigned long)((10)*(8000000/4000.0)));
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 9 , 0);
+    _delay((unsigned long)((10)*(8000000/4000.0)));
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 10 , 0);
+    _delay((unsigned long)((10)*(8000000/4000.0)));
+    Servo_SetAngle(&i2c_obj , &servo_driver_obj , 11 , 0);
+    _delay((unsigned long)((10)*(8000000/4000.0)));
 
     Ultra_Sonic_Init(&ultrasonic,&timer0);
 
@@ -6150,7 +6266,7 @@ void application_intialize(void)
 
 
 
-
+   ADC_Init(&battery_adc);
 }
 
 void usart_isr (void)
@@ -6205,4 +6321,12 @@ void GPS_Service (void)
       _delay((unsigned long)((2000)*(8000000/4000.0)));
     GPIO_Pin_Write_Logic(&selector,GPIO_LOW);
     (PIE1bits.RCIE = 1) ;
+}
+
+
+
+void battery_level(void)
+{
+        ADC_Get_Conversion_Blocking(&battery_adc,ADC_CHANEL_AN0,&battery_volt_adc_read);
+        battery_volt_f=(float32)(battery_volt_adc_read*13)/1024;
 }

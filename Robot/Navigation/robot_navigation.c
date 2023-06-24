@@ -197,3 +197,46 @@ Std_ReturnType Robot_Steer_Stop(void)
             CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_stop);
               return ret_val ;
 }
+Std_ReturnType Robot_Steer_Right(void)
+{
+    Std_ReturnType ret_val = E_OK ;
+    
+        
+      Movement_State = NAV_MOV_FORW_STEER_RIGHT ;
+      /*first we stop dc motors*/
+      Robot_Steer_Stop();
+      /*then set all servos on the desires angle*/
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W1 , NAV_SERVO_NO_STEER_ANGLE );    // W1
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W2 , NAV_SERVO_NO_STEER_ANGLE );    // W2
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W5 , NAV_SERVO_NO_STEER_ANGLE );    // W5
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W6 , NAV_SERVO_NO_STEER_ANGLE );    // W6
+      /*set the direction of rotation */
+      ECU_DC_Motor_Run_Right(&W1_W3_W5_Motor_Control);
+      ECU_DC_Motor_Run_Right(&W2_W4_W6_Motor_Control);
+      /*set  the speed and run  motors */
+      CCP_PWM_Set_Duty(&CCP1_Obj , NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W1_row_SPEED);           
+      CCP_PWM_Set_Duty(&CCP2_Obj , 0);
+    
+    return ret_val ;
+}
+Std_ReturnType Robot_Steer_Left(void)
+{
+    Std_ReturnType ret_val = E_OK ;
+            Movement_State = NAV_MOV_FORW_STEER_LEFT ;       
+     /*first we stop dc motors*/
+      Robot_Steer_Stop();
+      /*then set all servos on the desires angle*/
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W1 , NAV_SERVO_NO_STEER_ANGLE );    // W1
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W2 , NAV_SERVO_NO_STEER_ANGLE );    // W2
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W5 , NAV_SERVO_NO_STEER_ANGLE );    // W5
+      Servo_SetAngle(&i2c_obj , &servo_driver_obj , SERVO_W6 , NAV_SERVO_NO_STEER_ANGLE );    // W6
+      /*set the direction of rotation */
+      ECU_DC_Motor_Run_Right(&W1_W3_W5_Motor_Control);
+      ECU_DC_Motor_Run_Right(&W2_W4_W6_Motor_Control);
+      /*set  the speed and run  motors */
+      CCP_PWM_Set_Duty(&CCP1_Obj , 0);           
+      CCP_PWM_Set_Duty(&CCP2_Obj , NAV_DC_MOTOR_STEER_LEFT_FORWARD_W2_row_SPEED);
+    
+    
+    return ret_val ;
+}

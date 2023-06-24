@@ -6,7 +6,11 @@
             <file>file:/F:/graduation_project/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h</file>
             <file>file:/F:/graduation_project/Robot/Navigation/robot_navigation.c</file>
             <file>file:/F:/graduation_project/ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c</file>
+            <file>file:/F:/graduation_project/MCAL/I2C/mcal_i2c.c</file>
+            <file>file:/F:/graduation_project/Robot/Navigation/robot_navigation.h</file>
             <file>file:/F:/graduation_project/application.h</file>
+            <file>file:/F:/graduation_project/MCAL/I2C/mcal_i2c.h</file>
+            <file>file:/F:/graduation_project/MCAL/GPIO/hal_gpio.h</file>
             <file>file:/F:/graduation_project/application.c</file>
         </group>
     </open-files>

@@ -5112,8 +5112,6 @@ typedef struct
 
 
 
-
-
 Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
 Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
@@ -5179,9 +5177,9 @@ Std_ReturnType Ecu_Stepper_Step(stepper_config_st *stepper)
     }
     else
     {
-        GPIO_Pin_Write_Logic(&(stepper->step_pin) , 1);
+        GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_HIGH);
         _delay((unsigned long)((500)*(8000000/4000.0)));
-        GPIO_Pin_Write_Logic(&(stepper->step_pin) , 0);
+        GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
         _delay((unsigned long)((500)*(8000000/4000.0)));
 
     }
@@ -5217,7 +5215,10 @@ Std_ReturnType stepper_move_one_deg_cw(stepper_config_st *stepper)
        GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_HIGH);
         for(int i=0; i<= 9; i++)
         {
-            Ecu_Stepper_Step(stepper);
+            GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_HIGH);
+            _delay((unsigned long)((500)*(8000000/4000000.0)));
+            GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
+           _delay((unsigned long)((500)*(8000000/4000000.0)));
         }
     }
 }
@@ -5233,7 +5234,10 @@ Std_ReturnType stepper_move_one_deg_ccw(stepper_config_st *stepper)
         GPIO_Pin_Write_Logic(&(stepper->dir_pin) , GPIO_LOW);
         for(int i=0; i<= 9; i++)
         {
-            Ecu_Stepper_Step(stepper);
+            GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_HIGH);
+            _delay((unsigned long)((500)*(8000000/4000000.0)));
+            GPIO_Pin_Write_Logic(&(stepper->step_pin) , GPIO_LOW);
+           _delay((unsigned long)((500)*(8000000/4000000.0)));
         }
     }
 }

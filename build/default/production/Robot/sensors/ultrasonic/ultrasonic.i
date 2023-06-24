@@ -5112,8 +5112,6 @@ typedef struct
 
 
 
-
-
 Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
 Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
@@ -5184,11 +5182,19 @@ Std_ReturnType HAL_Timer0_Init(const timer0_config_st *_tmr0_config);
 Std_ReturnType HAL_Timer0_Deinit(const timer0_config_st *_tmr0_config);
 
 
-Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t *result);
 
-Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
-        uint16_t val);
+
+
+
+
+Std_ReturnType HAL_Timer0_Read_Val(const timer0_config_st *_tmr0_config ,uint16_t *result);
+
+
+
+
+
+
+Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,uint16_t val);
 # 18 "Robot/sensors/ultrasonic/ultrasonic.h" 2
 
 

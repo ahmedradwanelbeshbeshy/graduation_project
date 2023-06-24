@@ -5118,8 +5118,6 @@ typedef struct
 
 
 
-
-
 Std_ReturnType GPIO_Pin_Direction_Initialize (const pin_config_st * _pin_config);
 Std_ReturnType GPIO_Pin_Get_Direction_Status (const pin_config_st * _pin_config, direction_et *direction_status);
 Std_ReturnType GPIO_Pin_Write_Logic (const pin_config_st * _pin_config,logic_et logic);
@@ -5222,8 +5220,20 @@ typedef struct{
     uint8 mode_2_cfg;
 }servo_driver_st;
 
+
+
+
+
+
+
 Std_ReturnType ServoDriver_Init(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj);
+
+
+
+
+
 Std_ReturnType ServoDriver_DeInit(const mssp_i2c_st *i2c_obj);
+# 254 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.h"
 Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *servo_driver_obj,const servo_index_et servo_no,const uint8 angle);
 # 7 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c" 2
 
@@ -5272,14 +5282,8 @@ Std_ReturnType Servo_SetAngle(const mssp_i2c_st *i2c_obj,const servo_driver_st *
     else
     {
         uint8 reg_addrees=6+(servo_no*4)+2;
-
-         uint16 angle_in_reg=(uint16)(angle*1.138+204);
-
-
-
-
-
-
+        uint16 angle_in_reg=(uint16)(angle*1.7+209);
+# 62 "ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c"
         PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,((uint8)angle_in_reg));
         reg_addrees++;
         PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,((uint8)(angle_in_reg>>8)));

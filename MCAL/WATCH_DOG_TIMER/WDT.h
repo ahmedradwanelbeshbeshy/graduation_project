@@ -11,7 +11,7 @@
 #include"../std_libraries.h"
 #include "../mcal_std_types.h"
 /*********************************************************************
- * the watch dog timwe clock source came from intrc which provide 32kHZ frequency then devision on 128 from here
+ * the watch dog timer clock source came from intrc which provide 32kHZ frequency then devision on 128 from here
  * we could control the desired time to reset by chose the postscaler value in configurations bits 
  *  we set the postscaler on value 512 wich provide reset after 2 seconds
  ******************************************************************************
@@ -39,8 +39,18 @@ typedef enum {
     wdt_postscaler_BY_16384,
     wdt_postscaler_BY_32768            
 }wdt_postscaler_et; //not used to set the postscaler go to configuration bits  or to file device_config.h line 18
+
+
 /*function declarations section*/
+/**
+ * initialize WDT
+ * @return error status
+ */
 Std_ReturnType WDT_Init(void);
+/**
+ * de initialize WDT
+ * @return error status
+ */
 Std_ReturnType WDT_DeInit(void);
 
 

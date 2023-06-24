@@ -482,67 +482,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 52:         uint8 reg_addrees=6+(servo_no*4)+2;
 [v _reg_addrees `uc ~T0 @X0 1 a ]
 [e = _reg_addrees -> + + -> -> 6 `i `ui * -> _servo_no `ui -> -> 4 `i `ui -> -> 2 `i `ui `uc ]
-"54
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 54:          uint16 angle_in_reg=(uint16)(angle*1.138+204);
+"53
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 53:         uint16 angle_in_reg=(uint16)(angle*1.7+209);
 [v _angle_in_reg `us ~T0 @X0 1 a ]
-[e = _angle_in_reg -> + * -> -> _angle `i `d .1.138 -> -> 204 `i `d `us ]
-"61
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 61:         PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,((uint8)angle_in_reg));
-[e ( _PCA_Write_Reg (4 , , , _i2c_obj . *U _servo_driver_obj 0 _reg_addrees -> _angle_in_reg `uc ]
+[e = _angle_in_reg -> + * -> -> _angle `i `d .1.7 -> -> 209 `i `d `us ]
 "62
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 62:         reg_addrees++;
-[e ++ _reg_addrees -> -> 1 `i `uc ]
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 62:         PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,((uint8)angle_in_reg));
+[e ( _PCA_Write_Reg (4 , , , _i2c_obj . *U _servo_driver_obj 0 _reg_addrees -> _angle_in_reg `uc ]
 "63
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 63:         PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,((uint8)(angle_in_reg>>8)));
-[e ( _PCA_Write_Reg (4 , , , _i2c_obj . *U _servo_driver_obj 0 _reg_addrees -> >> -> _angle_in_reg `ui -> 8 `i `uc ]
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 63:         reg_addrees++;
+[e ++ _reg_addrees -> -> 1 `i `uc ]
 "64
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 64:     }
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 64:         PCA_Write_Reg(i2c_obj,servo_driver_obj->slave_address,reg_addrees,((uint8)(angle_in_reg>>8)));
+[e ( _PCA_Write_Reg (4 , , , _i2c_obj . *U _servo_driver_obj 0 _reg_addrees -> >> -> _angle_in_reg `ui -> 8 `i `uc ]
+"65
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 65:     }
 }
 [e :U 318 ]
-"65
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 65:     return ERRORSTATUS;
+"66
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 66:     return ERRORSTATUS;
 [e ) _ERRORSTATUS ]
 [e $UE 316  ]
-"66
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 66: }
+"67
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 67: }
 [e :UE 316 ]
 }
-"68
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 68: static void PCA_Write_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_address,uint8 reg_address,uint8 data)
-[v _PCA_Write_Reg `(v ~T0 @X0 1 sf4`*CS308`uc`uc`uc ]
 "69
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 69: {
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 69: static void PCA_Write_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_address,uint8 reg_address,uint8 data)
+[v _PCA_Write_Reg `(v ~T0 @X0 1 sf4`*CS308`uc`uc`uc ]
+"70
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 70: {
 {
 [e :U _PCA_Write_Reg ]
-"68
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 68: static void PCA_Write_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_address,uint8 reg_address,uint8 data)
+"69
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 69: static void PCA_Write_Reg(const mssp_i2c_st *i2c_obj,uint8 slave_address,uint8 reg_address,uint8 data)
 [v _i2c_obj `*CS308 ~T0 @X0 1 r1 ]
 [v _slave_address `uc ~T0 @X0 1 r2 ]
 [v _reg_address `uc ~T0 @X0 1 r3 ]
 [v _data `uc ~T0 @X0 1 r4 ]
-"69
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 69: {
-[f ]
 "70
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 70:     uint8 ack=6;
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 70: {
+[f ]
+"71
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 71:     uint8 ack=6;
 [v _ack `uc ~T0 @X0 1 a ]
 [e = _ack -> -> 6 `i `uc ]
-"72
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 72:     MSSP_I2C_Master_Send_Start(i2c_obj);
+"73
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 73:     MSSP_I2C_Master_Send_Start(i2c_obj);
 [e ( _MSSP_I2C_Master_Send_Start (1 _i2c_obj ]
-"74
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 74:     MSSP_I2C_Master_Write_Blocking(i2c_obj,slave_address,&ack);
+"75
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 75:     MSSP_I2C_Master_Write_Blocking(i2c_obj,slave_address,&ack);
 [e ( _MSSP_I2C_Master_Write_Blocking (3 , , _i2c_obj _slave_address &U _ack ]
-"76
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 76:     MSSP_I2C_Master_Write_Blocking(i2c_obj,reg_address,&ack);
+"77
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 77:     MSSP_I2C_Master_Write_Blocking(i2c_obj,reg_address,&ack);
 [e ( _MSSP_I2C_Master_Write_Blocking (3 , , _i2c_obj _reg_address &U _ack ]
-"78
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 78:     MSSP_I2C_Master_Write_Blocking(i2c_obj,data,&ack);
+"79
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 79:     MSSP_I2C_Master_Write_Blocking(i2c_obj,data,&ack);
 [e ( _MSSP_I2C_Master_Write_Blocking (3 , , _i2c_obj _data &U _ack ]
-"80
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 80:     MSSP_I2C_Master_Send_Stop(i2c_obj);
-[e ( _MSSP_I2C_Master_Send_Stop (1 _i2c_obj ]
 "81
-[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 81: }
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 81:     MSSP_I2C_Master_Send_Stop(i2c_obj);
+[e ( _MSSP_I2C_Master_Send_Stop (1 _i2c_obj ]
+"82
+[; ;ECU/SERVO_MOTOR_CONTROL_BY_I2C/ecu_servo_motor_i2c.c: 82: }
 [e :UE 319 ]
 }

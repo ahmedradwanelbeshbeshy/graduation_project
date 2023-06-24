@@ -34,7 +34,7 @@
 #define BACKWARD              7
 #define RIGHT_BACKWARD        8
 #define ROTATE_LEFT           9
-#define ROTATE_RIGHT          10
+#define driller_Buttom          10
 ////////ARM SECTION/////////
 #define BASE_DECREASE         16
 #define BASE_INCREAS          17
@@ -46,10 +46,13 @@
 #define JOINT3_INCREASE       23
 #define JOINT4_DECREASE       24
 #define JOINT4_INCREASE       25
+#define SERVO_DELAY 30
 ///////////sensors////////////
-#define GET_T_RH 77
+#define GET_T 76
+#define GET_RH 77
 #define GET_DISTANCE 78
 #define GET_LOCATION 79
+#define GET_VOLT 80
 /////
 #define DO_ONE_TIME 100
 
@@ -79,10 +82,6 @@ servo3      servo4
 #define SERVO_W5 2
 #define SERVO_W6 3
 
-#define SERVO_JOINNT_1 4
-#define SERVO_JOINNT_2 5
-#define SERVO_JOINNT_3 6
-#define SERVO_JOINNT_4 7
 
 
 

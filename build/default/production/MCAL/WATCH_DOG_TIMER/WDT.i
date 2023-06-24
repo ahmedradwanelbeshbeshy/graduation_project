@@ -5080,7 +5080,17 @@ typedef enum {
     wdt_postscaler_BY_32768
 }wdt_postscaler_et;
 
+
+
+
+
+
+
 Std_ReturnType WDT_Init(void);
+
+
+
+
 Std_ReturnType WDT_DeInit(void);
 # 7 "MCAL/WATCH_DOG_TIMER/WDT.c" 2
 

@@ -24,8 +24,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL/Timer0/hal_timer0.c: 58:             (TRISA|=( (uint8)1<<GPIO_PIN4 ));
 [c E3193 0 1 2 3 4 5 6 7 .. ]
 [n E3193 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
-"118 MCAL/Timer0/hal_timer0.h
-[; ;MCAL/Timer0/hal_timer0.h: 118: Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,
+"127 MCAL/Timer0/hal_timer0.h
+[; ;MCAL/Timer0/hal_timer0.h: 127: Std_ReturnType HAL_Timer0_Write_Val(const timer0_config_st *_tmr0_config ,uint16_t val);
 [v _HAL_Timer0_Write_Val `(uc ~T0 @X0 0 ef2`*CS307`us ]
 "6609 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k20.h
 [v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]

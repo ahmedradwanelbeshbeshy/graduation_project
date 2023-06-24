@@ -95,28 +95,28 @@ servo3      servo4
 
 
 /* Starting Wheels Speed */
-#define NAV_SPEED_W2_W4_W6_DEFAULT      95
-#define NAV_SPEED_W1_W3_W5_DEFAULT      95
+#define NAV_SPEED_W2_W4_W6_DEFAULT      85
+#define NAV_SPEED_W1_W3_W5_DEFAULT      85
 
 /* Servo Steer Right_FORWARD Speed */
 
-#define NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W1_row_SPEED 95
-#define NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W2_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W1_row_SPEED 85
+#define NAV_DC_MOTOR_STEER_RIGHT_FORWARD_W2_row_SPEED 45
 
 /* Servo Steer Left_FORWARD Speed */
 
-#define NAV_DC_MOTOR_STEER_LEFT_FORWARD_W1_row_SPEED 95
-#define NAV_DC_MOTOR_STEER_LEFT_FORWARD_W2_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_LEFT_FORWARD_W1_row_SPEED 45
+#define NAV_DC_MOTOR_STEER_LEFT_FORWARD_W2_row_SPEED 85
 
 /* Servo Steer Right_BACKWARD Speed */
 
-#define NAV_DC_MOTOR_STEER_RIGHT_BACKWARD_W1_row_SPEED 95
-#define NAV_DC_MOTOR_STEER_RIGHT_BACKWARD_W2_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_RIGHT_BACKWARD_W1_row_SPEED 85
+#define NAV_DC_MOTOR_STEER_RIGHT_BACKWARD_W2_row_SPEED 45
 
 /* Servo Steer Left_BACKWARD Speed */
 
-#define NAV_DC_MOTOR_STEER_LEFT_BACKWARD_W1_row_SPEED 95
-#define NAV_DC_MOTOR_STEER_LEFT_BACKWARD_W2_row_SPEED 95
+#define NAV_DC_MOTOR_STEER_LEFT_BACKWARD_W1_row_SPEED 45
+#define NAV_DC_MOTOR_STEER_LEFT_BACKWARD_W2_row_SPEED 85
 
 #define NAV_DC_MOTOR_stop 0
 
@@ -126,10 +126,10 @@ servo3      servo4
 #define SERVO_W5 2
 #define SERVO_W6 3
 
-#define SERVO_JOINNT_1 4
-#define SERVO_JOINNT_2 5
-#define SERVO_JOINNT_3 6
-#define SERVO_JOINNT_4 7
+#define SERVO_JOINNT_1 8
+#define SERVO_JOINNT_2 9
+#define SERVO_JOINNT_3 10
+#define SERVO_JOINNT_4 11
 
 
 
@@ -167,6 +167,8 @@ Std_ReturnType Robot_Steer_Right_Forward(void);
 Std_ReturnType Robot_Steer_Left_Forward(void);
 Std_ReturnType Robot_Steer_Right_Backward(void);
 Std_ReturnType Robot_Steer_Left_Backward(void);
+Std_ReturnType Robot_Steer_Right(void);
+Std_ReturnType Robot_Steer_Left(void);
 /******************************************** Function prototypes ********************************************/
 
 
